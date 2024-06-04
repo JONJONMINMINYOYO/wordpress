@@ -2598,7 +2598,7 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-author">%s %s</p>',
 			sprintf(
 				'<label for="author">%s%s</label>',
-				__( 'Name' ),
+				__( '🥰名前🥰' ),
 				( $req ? $required_indicator : '' )
 			),
 			sprintf(
@@ -2611,7 +2611,7 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-email">%s %s</p>',
 			sprintf(
 				'<label for="email">%s%s</label>',
-				__( 'Email' ),
+				__( '🥰メールアドレス🥰' ),
 				( $req ? $required_indicator : '' )
 			),
 			sprintf(
@@ -2625,7 +2625,7 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-url">%s %s</p>',
 			sprintf(
 				'<label for="url">%s</label>',
-				__( 'Website' )
+				__( '🥰ウェブサイト🥰' )
 			),
 			sprintf(
 				'<input id="url" name="url" %s value="%s" size="30" maxlength="200" autocomplete="url" />',
@@ -2637,8 +2637,9 @@ function comment_form( $args = array(), $post = null ) {
 		'tel'    => sprintf(
 			'<p class="comment-form-tel">%s %s</p>',
 			sprintf(
-				'<label for="tel">%s</label>',
-				__( '🥰電話番号🥰' )
+				'<label for="tel">%s%s</label>',
+				__( '🥰電話番号🥰' ),
+				( $req ? $required_indicator : '' )
 			),
 			sprintf(
 				'<input id="tel" name="tel" %s value="%s" size="11" maxlength="11" autocomplete="0123456789" />',
@@ -2652,22 +2653,30 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-sex">%s %s</p>',
 			sprintf(
 				'<label for="sex">%s</label>',
-				__( '以下の性別に選んでください。' )
+				__( '🥰性別🥰' )
 			),
 			
 			
+			// sprintf(
+			// 	'<input id="male" name="sex" type="radio" value="1" %s /> <label for="male">%s</label>
+			// 	 <input id="female" name="sex" type="radio" value="0" %s /> <label for="female">%s</label>',
+			// 	 esc_attr( $commenter['comment_sex']), 
+			//      __( 'Male男性' ),
+			// 	 esc_attr( $commenter['comment_sex']),
+			// 	 __( 'Female女性' )
+			// )
 			sprintf(
 				'<input id="male" name="sex" type="radio" value="1" %s /> <label for="male">%s</label>
 				 <input id="female" name="sex" type="radio" value="0" %s /> <label for="female">%s</label>',
 				 esc_attr( $commenter['comment_sex']), 
-			     __( 'Male男性' ),
+			     __( 'Male男性' ),	
 				 esc_attr( $commenter['comment_sex']),
 				 __( 'Female女性' )
 			)
 		)
 		
 	);
-	//var_dump($fields);
+	
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
 		$consent = empty( $commenter['comment_author_email'] ) ? '' : $checked_attribute;
 
@@ -2704,7 +2713,7 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-comment">%s %s</p>',
 			sprintf(
 				'<label for="comment">%s%s</label>',
-				_x( 'Comment', 'noun' ),
+				_x( '🥰コメント🥰', 'noun' ),
 				$required_indicator
 			),
 			'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
@@ -2738,25 +2747,7 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			$required_text
 		),
-		//
-		//'<input name="clear_submit" type="reset" id="clear_submit" class="clear_submit" value="clear_submit" />',
-		'comment_clear' => '',
-		//'clear_action'               => site_url( '/wp-comments-post.php' ),
-		'clear_id_form'              => 'commentform',
-		'clear_id_submit'            => 'submit',
-		'clear_class_container'      => 'comment-respond',
-		'clear_class_form'           => 'comment-form',
-		'clear_class_submit'         => 'submit',
-		'clear_name_submit'          => 'submit',
-		'clear_title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
-		'clear_title_reply_after'    => '</h3>',
-		'clear_cancel_reply_before'  => ' <small>',
-		'clear_cancel_reply_after'   => '</small>',
-		'clear_label_submit'         => __( '【削除ボタン】' ),
-		'clear_submit_button'        => '<input name="clear_submit" type="reset" id="clear_submit" class="clear_submit" value="clear_submit" />',
-		'clear_submit_field'         => '<p class="clear-submit">【削除ボタン】</p>',
 	
-		//
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
@@ -2773,7 +2764,7 @@ function comment_form( $args = array(), $post = null ) {
 		'cancel_reply_before'  => ' <small>',
 		'cancel_reply_after'   => '</small>',
 		'cancel_reply_link'    => __( 'Cancel reply' ),
-		'label_submit'         => __( '【commit button】' ),
+		'label_submit'         => __( 'コミットボタン' ),
 		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
 		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
 		'format'               => 'xhtml',
