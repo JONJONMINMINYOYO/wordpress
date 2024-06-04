@@ -2722,9 +2722,10 @@ function wp_update_comment( $commentarr, $wp_error = false ) {
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		//0601
+		//20240602 配列に電話番号と性別　新規　koui start
 		'comment_author_tel',
 		'comment_sex',
+		//20240602 配列に電話番号と性別　新規　koui end
 		'comment_author_IP',
 		'comment_date',
 		'comment_date_gmt',
@@ -3609,9 +3610,10 @@ function wp_handle_comment_submission( $comment_data ) {
 	$comment_author       = '';
 	$comment_author_email = '';
 	$comment_author_url   = '';
-	//0601
+	//20240602 電話番号と性別　新規　koui start
 	$comment_author_tel   = '';
 	$comment_sex   = '';
+	//20240602 電話番号と性別　新規　koui end
 	$comment_content      = '';
 	$comment_parent       = 0;
 	$user_id              = 0;
@@ -3628,15 +3630,15 @@ function wp_handle_comment_submission( $comment_data ) {
 	if ( isset( $comment_data['url'] ) && is_string( $comment_data['url'] ) ) {
 		$comment_author_url = trim( $comment_data['url'] );
 	}
-	//0601
+	//20240602 電話番号と性別stringチェック　　新規　koui start
 	if ( isset( $comment_data['tel'] ) && is_string( $comment_data['tel'] ) ) {
 		$comment_author_tel = trim( $comment_data['tel'] );
 	}
-	//echo "$comment_author_tel";
+	
 	if ( isset( $comment_data['sex'] ) && is_string( $comment_data['sex'] ) ) {
 		$comment_sex = trim( $comment_data['sex'] );
 	}
-	//echo "$comment_sex";
+	//20240602 電話番号と性別stringチェック　　新規　koui end
 	if ( isset( $comment_data['comment'] ) && is_string( $comment_data['comment'] ) ) {
 		$comment_content = trim( $comment_data['comment'] );
 	}
@@ -3806,9 +3808,10 @@ function wp_handle_comment_submission( $comment_data ) {
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		//0601
+		//20240602 電話番号と性別　新規　koui start 指定された変数名を連想配列に変換する start
 		'comment_author_tel',
 		'comment_sex',
+		//20240602 電話番号と性別　新規　koui start 指定された変数名を連想配列に変換する end
 		'comment_content',
 		'comment_type',
 		'comment_parent',
@@ -3909,9 +3912,10 @@ function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
 		'comment_author'       => __( 'Comment Author' ),
 		'comment_author_email' => __( 'Comment Author Email' ),
 		'comment_author_url'   => __( 'Comment Author URL' ),
-		//0601  	$comment_prop_to_export  arr
+		//20240602 配列に電話番号と性別　新規　koui start
 		'comment_author_tel'   => __( 'Comment Author TEL' ),
 		'comment_sex'   => __( 'Comment Author Sex' ),
+		//20240602 配列に電話番号と性別　新規　koui end
 		'comment_author_IP'    => __( 'Comment Author IP' ),
 		'comment_agent'        => __( 'Comment Author User Agent' ),
 		'comment_date'         => __( 'Comment Date' ),
