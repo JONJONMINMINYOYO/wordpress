@@ -250,9 +250,10 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 			$first_comment_author = get_site_option( 'first_comment_author' );
 			$first_comment_email  = get_site_option( 'first_comment_email' );
 			$first_comment_url    = get_site_option( 'first_comment_url', network_home_url() );
-			//0602
+			//20240602 電話番号と性別初期化　新規　koui start
 			$first_comment_tel    = get_site_option( 'first_comment_tel', );
 			$first_comment_sex    = get_site_option( 'first_comment_sex', );
+			//20240602 電話番号と性別初期化　新規　koui start
 			$first_comment        = get_site_option( 'first_comment' );
 		}
 
@@ -279,9 +280,10 @@ Commenter avatars come from <a href="%s">Gravatar</a>.'
 				'comment_author'       => $first_comment_author,
 				'comment_author_email' => $first_comment_email,
 				'comment_author_url'   => $first_comment_url,
-				//0602 tel
+				//20240602 電話番号と性別　配列　新規　koui start
 				'comment_author_tel'   => $first_comment_tel,
 				'comment_sex'   => $first_comment_sex,
+				//20240602 電話番号と性別　配列　新規　koui end
 				'comment_date'         => $now,
 				'comment_date_gmt'     => $now_gmt,
 				'comment_content'      => $first_comment,

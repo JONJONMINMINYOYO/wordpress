@@ -154,7 +154,7 @@ if ( ! empty( $trackback_url ) && ! empty( $title ) ) {
 		//20240602 電話番号と性別　新規　koui start
 		'comment_author_tel',
 		'comment_sex',
-		//20240602 電話番号と性別　新規　koui start
+		//20240602 電話番号と性別　新規　koui end
 		'comment_content',
 		'comment_type'
 	);
