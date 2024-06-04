@@ -35,7 +35,8 @@ function render_block_core_comment_content( $attributes, $content, $block ) {
 	$comment_text = apply_filters( 'comment_text', $comment_text, $comment, $args );
 
 	$moderation_note = '';
-	//0603 访客新规登录comment 是否显示
+	//20240603 commentページで新規コメントに表示される　既存修正　koui start
+
 	// if ('0' === $comment->comment_approved ) {
 	// 	$commenter = wp_get_current_commenter();
 
@@ -51,7 +52,7 @@ function render_block_core_comment_content( $attributes, $content, $block ) {
 	// 		$comment_text = wp_kses( $comment_text, array() );
 	// 	}
 	// }
-
+	//20240603 commentページで新規コメントに表示される　既存修正　koui end
 	$classes = array();
 	if ( isset( $attributes['textAlign'] ) ) {
 		$classes[] = 'has-text-align-' . $attributes['textAlign'];
