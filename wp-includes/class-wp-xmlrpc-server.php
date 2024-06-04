@@ -3856,13 +3856,14 @@ class wp_xmlrpc_server extends IXR_Server {
 			$comment['comment_author_url'] = $content_struct['author_url'];
 		}
 
-		//0603
+		//20240603 電話性別　新規　koui start
 		if ( isset( $content_struct['author_tel'] ) ) {
 			$comment['comment_author_tel'] = $content_struct['author_tel'];
 		}
 		if ( isset( $content_struct['author_sex'] ) ) {
 			$comment['comment_sex'] = $content_struct['author_sex'];
 		}
+		//20240603 電話性別　新規　koui end
 
 		if ( isset( $content_struct['author_email'] ) ) {
 			$comment['comment_author_email'] = $content_struct['author_email'];

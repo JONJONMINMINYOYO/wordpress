@@ -394,6 +394,7 @@ function get_comment_author_tel( $comment_id = 0 ) {
 	 */
 	return apply_filters( 'get_comment_author_tel', $comment_author_tel, $comment_id, $comment );
 }
+//20240603 性別ゲットファンクション　新規　koui start
 function get_comment_sex( $comment_id = 0 ) {
 	$comment = get_comment( $comment_id );
 
@@ -419,7 +420,8 @@ function get_comment_sex( $comment_id = 0 ) {
 	 */
 	return apply_filters( 'get_comment_sex', $comment_sex, $comment_id, $comment );
 }
-//0603 sex
+//20240603 性別ゲットファンクション　新規　koui end
+
 /**
  * Displays the URL of the author of the current comment, not linked.
  *
