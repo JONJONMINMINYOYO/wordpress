@@ -2650,17 +2650,17 @@ function comment_form( $args = array(), $post = null ) {
 		    ),
 		//20240517新規入力　電話番号end
 		'sex' => sprintf(
-			'<p class="comment-form-sex">%s %s</p>',
+			'<p class="comment-form-sex">%s %s </p>',
 			sprintf(
 				'<label for="sex">%s</label>',
 				__( '🥰性別🥰' )
 			),
 			sprintf(
-				'<input id="male" name="sex" type="radio" value="1" %s /> <label for="male">%s</label>
-				 <input id="female" name="sex" type="radio" value="0" %s /> <label for="female">%s</label>',
-				 esc_attr( $commenter['comment_sex']), 
+				'<input id="male" name="sex" type="radio" value="1"  /> <label for="male">%s</label> 
+				 <input id="female" name="sex" type="radio" value="0"  /> <label for="female">%s</label>',
+				 //esc_attr( $commenter['comment_sex']), 
 			     __( 'Male男性' ),	
-				 esc_attr( $commenter['comment_sex']),
+				// esc_attr( $commenter['comment_sex']),
 				 __( 'Female女性' )
 			)
 		)
