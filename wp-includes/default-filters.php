@@ -54,20 +54,6 @@ foreach ( array( 'pre_comment_author_email', 'pre_user_email' ) as $filter ) {
 	add_filter( $filter, 'wp_filter_kses' );
 }
 
-// tel saves.0603
-// foreach ( array( 'pre_comment_author_tel', 'pre_user_tel' ) as $filter ) {
-// 	add_filter( $filter, 'trim' );
-// 	add_filter( $filter, 'sanitize_tel' );
-// 	add_filter( $filter, 'wp_filter_kses' );
-// }
-// // tel admin display. 0603
-// foreach ( array( 'comment_author_tel', 'user_tel' ) as $filter ) {
-// 	add_filter( $filter, 'sanitize_tel' );
-// 	if ( is_admin() ) {
-// 		add_filter( $filter, 'wp_kses_data' );
-// 	}
-// }
-
 // Email admin display.
 foreach ( array( 'comment_author_email', 'user_email' ) as $filter ) {
 	add_filter( $filter, 'sanitize_email' );
