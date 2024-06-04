@@ -1385,9 +1385,10 @@ function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $com
 	 * @param string $author     Comment author.
 	 * @param string $email      Comment author's email.
 	 * @param string $url        Comment author's URL.
-	 * //0601
+	 * //20240602 電話番号と性別　新規　koui start
 	 * @param string $tel        Comment author's TEL.
 	 * @param string $sex       Comment author's SEX.
+	 * //20240602 電話番号と性別　新規　koui end
 	 * @param string $comment    Comment content.
 	 * @param string $user_ip    Comment author's IP address.
 	 * @param string $user_agent Comment author's browser user agent.
@@ -2095,12 +2096,10 @@ function wp_insert_comment( $commentdata ) {
 	$comment_author_email = ! isset( $data['comment_author_email'] ) ? '' : $data['comment_author_email'];
 	$comment_author_url   = ! isset( $data['comment_author_url'] ) ? '' : $data['comment_author_url'];
 	$comment_author_ip    = ! isset( $data['comment_author_IP'] ) ? '' : $data['comment_author_IP'];
-
-	// echo "wp_insert_comment -> comment_author_tel".$data['comment_author_tel']."\n";
-	// echo "wp_insert_comment -> comment_sex".$data['comment_sex']."\n";
-	// add 0601
+	//20240602 電話番号と性別は設定されるかどうかチェック　新規　koui start
 	$comment_author_tel   = ! isset( $data['comment_author_tel'] ) ? '' : $data['comment_author_tel'];
 	$comment_sex   = ! isset( $data['comment_sex'] ) ? '' : $data['comment_sex'];
+	//20240602 電話番号と性別は設定されるかどうかチェック　新規　koui end
 	$comment_date     = ! isset( $data['comment_date'] ) ? current_time( 'mysql' ) : $data['comment_date'];
 	$comment_date_gmt = ! isset( $data['comment_date_gmt'] ) ? get_gmt_from_date( $comment_date ) : $data['comment_date_gmt'];
 
@@ -2244,9 +2243,10 @@ function wp_filter_comment( $commentdata ) {
 	$commentdata['comment_author_url'] = apply_filters( 'pre_comment_author_url', $commentdata['comment_author_url'] );
 	/** This filter is documented in wp-includes/comment.php */
 
-	//0601
+	//20240602 電話番号と性別保存前に前処理　新規　koui start
 	$commentdata['comment_author_tel'] = apply_filters( 'pre_comment_author_tel', $commentdata['comment_author_tel'] );
 	$commentdata['comment_sex'] = apply_filters( 'pre_comment_sex', $commentdata['comment_sex'] );
+	//20240602 電話番号と性別保存前に前処理　新規　koui end
 	$commentdata['comment_author_email'] = apply_filters( 'pre_comment_author_email', $commentdata['comment_author_email'] );
 
 	$commentdata['filtered'] = true;
