@@ -796,9 +796,10 @@ function wp_allow_comment( $commentdata, $wp_error = false ) {
 	 * @param bool   $is_flood             Is a comment flooding occurring? Default false.
 	 * @param string $comment_author_ip    Comment author's IP address.
 	 * @param string $comment_author_email Comment author's email.
-	 * //0603
+	 * //20240602 電話番号と性別　新規　koui start
 	 * @param string $comment_author_tel Comment author's email.
 	 * @param string $comment_sex Comment author's email. 
+	 * //20240602 電話番号と性別　新規　koui end
 	 * @param string $comment_date_gmt     GMT date the comment was posted.
 	 * @param bool   $wp_error             Whether to return a WP_Error object instead of executing
 	 *                                     wp_die() or die() if a comment flood is occurring.
@@ -1273,10 +1274,10 @@ function wp_get_comment_fields_max_lengths() {
 		'comment_author'       => 245,
 		'comment_author_email' => 100,
 		'comment_author_url'   => 200,
-		//0603 start
-		'comment_sex'   => 1,   // notes 設定するかどうか　再確認0603
+		//20240602 電話番号と性別最大桁数設定　新規　koui 
+		'comment_sex'   => 1,   // 
 		'comment_author_tel'   => 11,
-		//0603  end 
+		//20240602 電話番号と性別最大桁数設定　新規　koui
 		'comment_content'      => 65525,
 	);
 

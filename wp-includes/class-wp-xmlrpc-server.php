@@ -3984,9 +3984,10 @@ class wp_xmlrpc_server extends IXR_Server {
 			$comment['comment_author']       = $this->escape( $display_name );
 			$comment['comment_author_email'] = $this->escape( $user_email );
 			$comment['comment_author_url']   = $this->escape( $user_url );
-			//0603
+			//20240603 電話番号と性別　新規　koui start
 			$comment['comment_author_tel']   = $this->escape( $user_tel );
 			$comment['comment_sex']   = $this->escape( $user_sex );
+			//20240603 電話番号と性別　新規　koui end
 			$comment['user_id']              = $user->ID;
 		} else {
 			$comment['comment_author'] = '';
@@ -4003,7 +4004,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			if ( isset( $content_struct['author_url'] ) ) {
 				$comment['comment_author_url'] = $content_struct['author_url'];
 			}
-			//0603
+			//20240603 電話番号と性別　新規　koui start
 			$comment['comment_author_tel'] = '';
 			if ( isset( $content_struct['author_tel'] ) ) {
 				$comment['comment_author_tel'] = $content_struct['author_tel'];
@@ -4013,7 +4014,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			if ( isset( $content_struct['author_sex'] ) ) {
 				$comment['comment_sex'] = $content_struct['author_sex'];
 			}
-
+			//20240603 電話番号と性別　新規　koui end
 			$comment['user_id'] = 0;
 
 			if ( get_option( 'require_name_email' ) ) {
@@ -6783,10 +6784,10 @@ class wp_xmlrpc_server extends IXR_Server {
 			return new IXR_Error( 404, __( 'Sorry, no such post.' ) );
 		}
 
-		//0603
+		//20240603 電話番号と性別入れる　新規　koui start
 		//$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
 		$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url,comment_author_tel, comment_sex,  comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
-
+		//20240603 電話番号と性別入れる　新規　koui end
 		if ( ! $comments ) {
 			return array();
 		}

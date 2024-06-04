@@ -448,7 +448,7 @@ function comment_author_url( $comment_id = 0 ) {
 	echo apply_filters( 'comment_url', $comment_author_url, $comment->comment_ID );
 }
 
-//0602 comment_author_url add
+//20240603 電話番号comment_author_tel　新規　koui start
 function comment_author_tel( $comment_id = 0 ) {
 	$comment = get_comment( $comment_id );
 
@@ -465,7 +465,8 @@ function comment_author_tel( $comment_id = 0 ) {
 	 */
 	echo apply_filters( 'comment_tel', $comment_author_tel, $comment->comment_ID );
 }
-//0603 sex add 
+//20240603 電話番号comment_author_tel　新規　koui end
+//20240603 性別comment_sex　新規　koui start
 function comment_sex( $comment_id = 0 ) {
 	$comment = get_comment( $comment_id );
 
@@ -482,7 +483,7 @@ function comment_sex( $comment_id = 0 ) {
 	 */
 	echo apply_filters( 'comment_sex', $comment_sex, $comment->comment_ID );
 }
-
+//20240603 性別comment_sex　新規　koui end
 /**
  * Retrieves the HTML link of the URL of the author of the current comment.
  *
@@ -2967,8 +2968,7 @@ function comment_form( $args = array(), $post = null ) {
 				esc_attr( $args['id_submit'] ),
 				esc_attr( $args['class_submit'] ),
 				esc_attr( $args['label_submit'] ),
-				//0603
-				//esc_attr( $args['clear_submit'] )
+				
 			);
 
 			/**
