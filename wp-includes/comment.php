@@ -29,8 +29,10 @@
  * @param string $author       Comment author name.
  * @param string $email        Comment author email.
  * @param string $url          Comment author URL.
+ * //20240601 電話番号、性別　新規　koui start
  * @param string $tel          Comment author TEL.
  * @param string $sex          Comment author SEX.
+ * //20240601 電話番号、性別　新規　koui end
  * @param string $comment      Content of the comment.
  * @param string $user_ip      Comment author IP address.
  * @param string $user_agent   Comment author User-Agent.
@@ -850,6 +852,7 @@ function wp_allow_comment( $commentdata, $wp_error = false ) {
 		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui start
 			$commentdata['comment_author_tel'],
 			$commentdata['comment_sex'],
+		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui end	
 			$commentdata['comment_content'],
 			$commentdata['comment_author_IP'],
 			$commentdata['comment_agent'],
@@ -864,8 +867,10 @@ function wp_allow_comment( $commentdata, $wp_error = false ) {
 			$commentdata['comment_author'],
 			$commentdata['comment_author_email'],
 			$commentdata['comment_author_url'],
+		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui start	
 			$commentdata['comment_author_tel'],
 			$commentdata['comment_sex'],
+		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui end
 			$commentdata['comment_content'],
 			$commentdata['comment_author_IP'],
 			$commentdata['comment_agent']
