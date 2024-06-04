@@ -2655,16 +2655,6 @@ function comment_form( $args = array(), $post = null ) {
 				'<label for="sex">%s</label>',
 				__( '🥰性別🥰' )
 			),
-			
-			
-			// sprintf(
-			// 	'<input id="male" name="sex" type="radio" value="1" %s /> <label for="male">%s</label>
-			// 	 <input id="female" name="sex" type="radio" value="0" %s /> <label for="female">%s</label>',
-			// 	 esc_attr( $commenter['comment_sex']), 
-			//      __( 'Male男性' ),
-			// 	 esc_attr( $commenter['comment_sex']),
-			// 	 __( 'Female女性' )
-			// )
 			sprintf(
 				'<input id="male" name="sex" type="radio" value="1" %s /> <label for="male">%s</label>
 				 <input id="female" name="sex" type="radio" value="0" %s /> <label for="female">%s</label>',
