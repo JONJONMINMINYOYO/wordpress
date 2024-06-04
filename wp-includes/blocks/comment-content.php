@@ -52,6 +52,7 @@ function render_block_core_comment_content( $attributes, $content, $block ) {
 	// 		$comment_text = wp_kses( $comment_text, array() );
 	// 	}
 	// }
+	
 	//20240603 commentページで新規コメントに表示される　既存修正　koui end
 	$classes = array();
 	if ( isset( $attributes['textAlign'] ) ) {
