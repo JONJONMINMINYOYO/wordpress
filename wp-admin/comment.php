@@ -197,7 +197,6 @@ switch ( $action ) {
 </tr>
 <?php } ?>
 
-//0602
 		<?php if ( get_comment_author_tel( $comment ) ) { ?>
 <tr>
 	<th scope="row"><?php _e( 'TEL' ); ?></th>
@@ -206,7 +205,7 @@ switch ( $action ) {
 <?php } ?>
 <tr>
 
-//0603
+
 <?php if ( get_comment_sex( $comment ) ) { ?>
 <tr>
 	<th scope="row"><?php _e( 'SEX' ); ?></th>
@@ -214,6 +213,7 @@ switch ( $action ) {
 </tr>
 <?php } ?>
 <tr></tr>
+
 	<th scope="row"><?php /* translators: Column name or table row header. */ _e( 'In response to' ); ?></th>
 	<td>
 		<?php

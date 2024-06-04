@@ -251,17 +251,18 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 			$first_comment_email  = get_site_option( 'first_comment_email' );
 			$first_comment_url    = get_site_option( 'first_comment_url', network_home_url() );
 			//0602
-			$first_comment_tel    = get_site_option( 'first_comment_tel', );//0602
-			$first_comment_sex    = get_site_option( 'first_comment_sex', );//0602
+			$first_comment_tel    = get_site_option( 'first_comment_tel', );
+			$first_comment_sex    = get_site_option( 'first_comment_sex', );
 			$first_comment        = get_site_option( 'first_comment' );
 		}
 
 		$first_comment_author = ! empty( $first_comment_author ) ? $first_comment_author : __( 'A WordPress Commenter' );
 		$first_comment_email  = ! empty( $first_comment_email ) ? $first_comment_email : 'wapuu@wordpress.example';
 		$first_comment_url    = ! empty( $first_comment_url ) ? $first_comment_url : esc_url( __( 'https://wordpress.org/' ) );
-		//0602 add tel and sex
+		//20240602 電話番号と性別初期化　新規　koui start
 		$first_comment_tel    = ! empty( $first_comment_tel ) ? $first_comment_tel : '01234567891';
 		$first_comment_sex    = ! empty( $first_comment_sex ) ? $first_comment_sex : '0';
+		//20240602 電話番号と性別初期化　新規　koui end
 		$first_comment        = ! empty( $first_comment ) ? $first_comment : sprintf(
 			/* translators: %s: Gravatar URL. */
 			__(
@@ -1043,7 +1044,7 @@ function upgrade_130() {
 		}
 	}
 
-		//0601 update comment !
+		
 	// Remove extraneous backslashes.
 	$comments = $wpdb->get_results( "SELECT comment_ID, comment_author, comment_content FROM $wpdb->comments" );
 	if ( $comments ) {

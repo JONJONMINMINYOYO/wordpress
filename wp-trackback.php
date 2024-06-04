@@ -124,9 +124,10 @@ if ( ! empty( $trackback_url ) && ! empty( $title ) ) {
 	$comment_author_email = '';
 	
 	$comment_author_url   = $trackback_url;
-	//0602
+	//20240602 電話番号と性別パラメータ　新規　koui start
 	$comment_author_tel = '';
 	$comment_sex = '';
+	//20240602 電話番号と性別パラメータ　新規　koui end
 	$comment_content      = "<strong>$title</strong>\n\n$excerpt";
 	$comment_type         = 'trackback';
 
@@ -150,9 +151,10 @@ if ( ! empty( $trackback_url ) && ! empty( $title ) ) {
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		//0602
+		//20240602 電話番号と性別　新規　koui start
 		'comment_author_tel',
 		'comment_sex',
+		//20240602 電話番号と性別　新規　koui start
 		'comment_content',
 		'comment_type'
 	);

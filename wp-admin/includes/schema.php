@@ -104,9 +104,10 @@ CREATE TABLE $wpdb->comments (
 	comment_author tinytext NOT NULL,
 	comment_author_email varchar(100) NOT NULL default '',
 	comment_author_url varchar(200) NOT NULL default '',
-	/*0602 schema add tel and sex */
+	/* 20240602 電話番号と性別パラメータ　新規　koui start */
 	comment_author_tel varchar(13) default 'NULL',
 	comment_sex char(1)  default 'NULL',
+	/* 20240602 電話番号と性別パラメータ　新規　koui end */
 	comment_author_IP varchar(100) NOT NULL default '',
 	comment_date datetime NOT NULL default '0000-00-00 00:00:00',
 	comment_date_gmt datetime NOT NULL default '0000-00-00 00:00:00',
