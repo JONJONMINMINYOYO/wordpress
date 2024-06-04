@@ -1371,8 +1371,11 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
  * @return bool True if comment contains disallowed content, false if comment does not
  */
 
- //0601 $tel,$sex add
+ //20240602 function wp_check_comment_disallowed_list電話番号と性別に入れる 新規　koui start
+ //function wp_check_comment_disallowed_list( $author, $email, $url, $comment, $user_ip, $user_agent )
 function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $comment, $user_ip, $user_agent ) {
+
+ //20240602 function wp_check_comment_disallowed_list電話番号と性別に入れる 新規　koui end	
 	/**
 	 * Fires before the comment is tested for disallowed characters or words.
 	 *
