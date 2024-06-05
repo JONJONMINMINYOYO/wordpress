@@ -2656,12 +2656,23 @@ function comment_form( $args = array(), $post = null ) {
 				__( '🥰性別🥰' )
 			),
 			sprintf(
-				'<input id="male" name="sex" type="radio" value="1"  /> <label for="male">%s</label> 
-				 <input id="female" name="sex" type="radio" value="0"  /> <label for="female">%s</label>',
-				 //esc_attr( $commenter['comment_sex']), 
-			     __( 'Male男性' ),	
-				// esc_attr( $commenter['comment_sex']),
-				 __( 'Female女性' )
+				'<div style="display: flex; flex-direction: row;">
+				<label for="male">男性</label>
+				<input id="male" name="sex" type="radio" value="1" />
+				<label for="male">女性</label>
+				<input id="male" name="sex" type="radio" value="0" />
+			    </div>'
+				// '<div style="display: flex; flex-direction: column;">
+    			// 	<div>
+      			// 	  <label for="male">男性</label>
+      			// 	  <input id="male" name="sex" type="radio" value="1" />
+    			// 	</div>
+   				// 	 <div>
+    			// 	 <label for="female">女性</label>
+      			// 	  <input id="female" name="sex" type="radio" value="0" />
+   				//  	</div>
+				// </div>'
+
 			)
 		)
 		
@@ -2678,7 +2689,8 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			sprintf(
 				'<label for="wp-comment-cookies-consent">%s</label>',
-				__( 'Save my name, email, and website in this browser for the next time I comment.' )
+				//__( 'Save my name, email, and website in this browser for the next time I comment.' )
+				__( '次回コメントするために、名前、メールアドレス、ウェブサイトを保存する.' )
 			)
 		);
 

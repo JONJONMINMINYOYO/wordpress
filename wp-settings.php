@@ -67,7 +67,9 @@ wp_register_fatal_error_handler();
 
 // WordPress calculates offsets from UTC.
 // phpcs:ignore WordPress.DateTime.RestrictedFunctions.timezone_change_date_default_timezone_set
-date_default_timezone_set( 'UTC' );
+//20240605 timezone日本を変更する　koui 
+//date_default_timezone_set( 'UTC' );
+date_default_timezone_set( 'Asia/Tokyo' );
 
 // Standardize $_SERVER variables across setups.
 wp_fix_server_vars();
