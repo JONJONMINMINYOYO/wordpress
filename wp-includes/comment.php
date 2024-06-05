@@ -2391,9 +2391,8 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 
 	$commentdata['comment_agent'] = substr( $commentdata['comment_agent'], 0, 254 );
 	
-	//20240602 電話番号入力チェック start
-	
-	echo "{$commentdata['user_id']}";
+	//20240605 ユーザーが登録されない場合には、以下のチェックが行われる　koui start
+	if (!is_user_logged_in()) {
 	$area_code = substr($commentdata['comment_author_tel'], 0, 3);// 電話番号前3桁を取る
 	$allowed_area_codes = array('010', '090', '040'); // 地域のコードの制限
 	$repeated_8digits = preg_match('/^\d{3}(?:(\d)(?!\1{7}))\d{7}$/', $commentdata['comment_author_tel']); // 電話番号後8桁は同じか確認
@@ -2411,8 +2410,8 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 	elseif(!$repeated_8digits){
 			return new WP_Error( 'require_valid_comment', __( '入力した後8桁電話番号は同じです.' ), 200 );
 		}
-	
-	//20240602 電話番号入力チェック end
+	}
+	//20240605 ユーザーが登録されない場合には、以下のチェックが行われる　koui start
 
 	if ( empty( $commentdata['comment_date'] ) ) {
 		$commentdata['comment_date'] = current_time( 'mysql' );
