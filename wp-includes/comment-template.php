@@ -2663,16 +2663,6 @@ function comment_form( $args = array(), $post = null ) {
 				<label for="male">女性</label>
 				<input id="male" name="sex" type="radio" value="0" />
 			    </div>'
-				// '<div style="display: flex; flex-direction: column;">
-    			// 	<div>
-      			// 	  <label for="male">男性</label>
-      			// 	  <input id="male" name="sex" type="radio" value="1" />
-    			// 	</div>
-   				// 	 <div>
-    			// 	 <label for="female">女性</label>
-      			// 	  <input id="female" name="sex" type="radio" value="0" />
-   				//  	</div>
-				// </div>'
 
 			)
 		)
@@ -2754,11 +2744,11 @@ function comment_form( $args = array(), $post = null ) {
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
-		'id_submit'            => 'submit',
+		'id_submit'            => 'submit',				                       //$submit_button								
 		'class_container'      => 'comment-respond',
 		'class_form'           => 'comment-form',
-		'class_submit'         => 'submit',
-		'name_submit'          => 'submit',
+		'class_submit'         => 'submit',                                    //$submit_button
+		'name_submit'          => 'submit',				                       //$submit_button
 		'title_reply'          => __( 'Leave a Reply' ),
 		/* translators: %s: Author of the comment being replied to. */
 		'title_reply_to'       => __( 'Leave a Reply to %s' ),
@@ -2767,10 +2757,11 @@ function comment_form( $args = array(), $post = null ) {
 		'cancel_reply_before'  => ' <small>',
 		'cancel_reply_after'   => '</small>',
 		'cancel_reply_link'    => __( 'Cancel reply' ),
-		'label_submit'         => __( 'コミットボタン' ),
-		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
-		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
+		'label_submit'         => __( 'コミットボタン' ),                       //$submit_button
+		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />', //$submit_button
+		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',     //$submit_field
 		'format'               => 'xhtml',
+
 	);
 
 	/**
@@ -2964,7 +2955,7 @@ function comment_form( $args = array(), $post = null ) {
 				esc_attr( $args['label_submit'] ),
 				
 			);
-
+		
 			/**
 			 * Filters the submit button for the comment form to display.
 			 *
@@ -2974,13 +2965,17 @@ function comment_form( $args = array(), $post = null ) {
 			 * @param array  $args          Arguments passed to comment_form().
 			 */
 			$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
-			
+			//20240605 　入力内容クリアボタン新規　koui start
+			$submit_button_clear ='<div style="display: flex; flex-direction: column;">
+			<input name="button_clear" type="reset" id="button_clear" value="入力内容クリア"/>
+			</div>';
+			//20240605 　入力内容クリアボタン新規　koui end
 			$submit_field = sprintf(
 				$args['submit_field'],
-				$submit_button,
+				$submit_button . $submit_button_clear,
 				get_comment_id_fields( $post_id )
 			);
-		//	echo "$submit_button";
+
 
 			/**
 			 * Filters the submit field for the comment form to display.
@@ -2991,10 +2986,12 @@ function comment_form( $args = array(), $post = null ) {
 			 * @since 4.2.0
 			 *
 			 * @param string $submit_field HTML markup for the submit field.
+			 * @param string $submit_field_clear HTML markup for the submit field.
 			 * @param array  $args         Arguments passed to comment_form().
 			 */
 			echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
-
+		
+			//echo apply_filters( 'comment_form_clear_field', $submit_field_clear , $args);
 			/**
 			 * Fires at the bottom of the comment form, inside the closing form tag.
 			 *
