@@ -2411,7 +2411,7 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 			return new WP_Error( 'require_valid_comment', __( '入力した後8桁電話番号は同じです.' ), 200 );
 		}
 	}
-	//20240605 ユーザーが登録されない場合には、以下のチェックが行われる　koui start
+	//20240605 ユーザーが登録されない場合には、以下のチェックが行われる　koui end
 
 	if ( empty( $commentdata['comment_date'] ) ) {
 		$commentdata['comment_date'] = current_time( 'mysql' );
