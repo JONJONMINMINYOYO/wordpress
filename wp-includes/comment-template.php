@@ -402,7 +402,8 @@ function get_comment_sex( $comment_id = 0 ) {
 	$comment_id  = 0;
 
 	if ( ! empty( $comment ) ) {
-		$comment_sex = ( '1' === $comment->comment_sex ) ? '' : $comment->comment_sex;
+		//$comment_sex = ( '1' === $comment->comment_sex ) ? '' : $comment->comment_sex;
+		$comment_sex = ( '1' === $comment->comment_sex ) ? '男性' :'女性';
 		$comment_sex =  esc_textarea( $comment_sex );
 
 		$comment_id = $comment->comment_ID;
