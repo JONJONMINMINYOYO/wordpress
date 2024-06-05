@@ -2967,7 +2967,9 @@ function comment_form( $args = array(), $post = null ) {
 			$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
 			//20240605 　入力内容クリアボタン新規　koui start
 			$submit_button_clear ='<div style="display: flex; flex-direction: column;">
-			<input name="button_clear" type="reset" id="button_clear" value="入力内容クリア"/>
+			<input name="button_clear" type="reset" id="button_clear" value="入力内容クリア" 
+			style="background-color: rgba(169, 169, 169, 0.5); color: white; border: 1px solid black;" 
+			/>
 			</div>';
 			//20240605 　入力内容クリアボタン新規　koui end
 			$submit_field = sprintf(
