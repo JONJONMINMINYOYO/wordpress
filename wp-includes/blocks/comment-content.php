@@ -31,8 +31,26 @@ function render_block_core_comment_content( $attributes, $content, $block ) {
 		return '';
 	}
 
+	//20240605 render_block_core_comment_content電話番号と性別が表示　新規　koui start
+	$comment_tel = get_comment_author_tel( $comment );
+	if (  $comment_tel ) {
+		return '電話番号:'.$comment_tel ;
+	}
+	$comment_sex = get_comment_sex( $comment );
+
+	if ( "1"== $comment_sex ) {
+		return "性別".$comment_sex ;
+	}
+	error_log($comment_sex);
+	//20240605 render_block_core_comment_content電話番号と性別が表示　新規　koui end
+
 	/** This filter is documented in wp-includes/comment-template.php */
 	$comment_text = apply_filters( 'comment_text', $comment_text, $comment, $args );
+
+	//20240605 apply_filtersに電話番号と性別　追加　koui start
+	$comment_tel = apply_filters( 'comment_tel', $comment_tel, $comment, $args );
+	$comment_sex = apply_filters( 'comment_sex', $comment_sex, $comment, $args );
+	//20240605 apply_filtersに電話番号と性別　追加　koui end
 
 	$moderation_note = '';
 	//20240603 commentページで新規コメントに表示される　既存修正　koui start
@@ -63,12 +81,14 @@ function render_block_core_comment_content( $attributes, $content, $block ) {
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
-
+	
 	return sprintf(
-		'<div %1$s>%2$s%3$s</div>',
+		'<div %1$s>%2$s %3$s %4$s %5$s</div>',
 		$wrapper_attributes,
 		$moderation_note,
-		$comment_text
+		$comment_text,
+		$comment_sex,
+		$comment_tel,
 	);
 }
 
