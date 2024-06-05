@@ -377,7 +377,9 @@
 						},
 						":hover": {
 							"typography": {
-								"textDecoration": "underline"
+								"textDecoration": "underline",
+								"fontSize": "larger"
+
 							}
 						}
 					}
