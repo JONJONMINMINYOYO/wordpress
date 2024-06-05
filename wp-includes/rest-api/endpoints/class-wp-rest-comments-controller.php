@@ -1072,6 +1072,14 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 			$data['author_url'] = $comment->comment_author_url;
 		}
 
+		//20240605 prepare_item_for_response　電話番号と性別　追加　koui start
+		if ( in_array( 'author_tel', $fields, true ) ) {
+			$data['author_tel'] = $comment->comment_author_tel;
+		}
+		if ( in_array( 'author_sex', $fields, true ) ) {
+			$data['author_sex'] = $comment->comment_sex;
+		}
+		//20240605 prepare_item_for_response　電話番号と性別　追加　koui end
 		if ( in_array( 'author_ip', $fields, true ) ) {
 			$data['author_ip'] = $comment->comment_author_IP;
 		}
