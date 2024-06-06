@@ -371,12 +371,11 @@ function get_comment_author_url( $comment_id = 0 ) {
 
 function get_comment_author_tel( $comment_id = 0 ) {
 	$comment = get_comment( $comment_id );
-
-	$comment_author_tel = '';
 	$comment_id         = 0;
 
 	if ( ! empty( $comment ) ) {
-		$comment_author_tel = ( '00000000000' === $comment->comment_author_tel ) ? '' : $comment->comment_author_tel;
+		$comment_author_tel = ( '0' == $comment->comment_author_tel ) ? 'なし' : $comment->comment_author_tel;
+		
 		$comment_author_tel =  esc_textarea( $comment_author_tel );
 
 		$comment_id = $comment->comment_ID;
@@ -403,7 +402,7 @@ function get_comment_sex( $comment_id = 0 ) {
 
 	if ( ! empty( $comment ) ) {
 		//$comment_sex = ( '1' === $comment->comment_sex ) ? '' : $comment->comment_sex;
-		$comment_sex = ( '1' === $comment->comment_sex ) ? '男性' :'女性';
+		$comment_sex = ( 1 == $comment->comment_sex ) ? '男性' : ( ( 0 == $comment->comment_sex ) ? '女性' : 'なし' );
 		$comment_sex =  esc_textarea( $comment_sex );
 
 		$comment_id = $comment->comment_ID;
@@ -998,6 +997,7 @@ function get_comments_number( $post = 0 ) {
 	$post = get_post( $post );
 
 	$comments_number = $post ? $post->comment_count : 0;
+	
 	$post_id         = $post ? $post->ID : 0;
 
 	/**
@@ -2686,8 +2686,8 @@ function comment_form( $args = array(), $post = null ) {
 				__( '次回コメントするために、名前、メールアドレス、ウェブサイトを保存する.' )
 			)
 		);
-		var_dump($consent) . '\n';
-		var_dump($commenter). '\n';
+		// var_dump($consent) . '\n';
+		// var_dump($commenter). '\n';
 		
 		// Ensure that the passed fields include cookies consent.
 		if ( isset( $args['fields'] ) && ! isset( $args['fields']['cookies'] ) ) {
