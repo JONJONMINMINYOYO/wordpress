@@ -396,6 +396,7 @@ function get_comment_author_tel( $comment_id = 0 ) {
 //20240603 性別ゲットファンクション　新規　koui start
 function get_comment_sex( $comment_id = 0 ) {
 	$comment = get_comment( $comment_id );
+	
 
 	$comment_sex = '';
 	$comment_id  = 0;
@@ -2660,8 +2661,8 @@ function comment_form( $args = array(), $post = null ) {
 				'<div style="display: flex; flex-direction: row;">
 				<label for="male">男性</label>
 				<input id="male" name="sex" type="radio" value="1" />
-				<label for="male">女性</label>
-				<input id="male" name="sex" type="radio" value="0" />
+				<label for="female">女性</label>
+				<input id="female" name="sex" type="radio" value="0" />
 			    </div>'
 
 			)
@@ -2670,15 +2671,13 @@ function comment_form( $args = array(), $post = null ) {
 	);
 	
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
-		$consent = empty( $commenter['comment_author_email'] ) ? '' : $checked_attribute;
+		$consent = empty( $commenter['comment_sex'] ) ? '' : $checked_attribute;
 		
-
 		$fields['cookies'] = sprintf(
 			'<p class="comment-form-cookies-consent">%s %s</p>',
 			sprintf(
 				'<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />',
 				$consent,
-				
 			),
 			sprintf(
 				'<label for="wp-comment-cookies-consent">%s</label>',
@@ -2688,12 +2687,10 @@ function comment_form( $args = array(), $post = null ) {
 		);
 		// var_dump($consent) . '\n';
 		// var_dump($commenter). '\n';
-		
 		// Ensure that the passed fields include cookies consent.
 		if ( isset( $args['fields'] ) && ! isset( $args['fields']['cookies'] ) ) {
 			$args['fields']['cookies'] = $fields['cookies'];
 		}
-
 	}
 
 	/**
@@ -2714,7 +2711,7 @@ function comment_form( $args = array(), $post = null ) {
 				_x( '🥰コメント🥰', 'noun' ),
 				$required_indicator
 			),
-			'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
+			'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
 		),
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
@@ -2971,18 +2968,31 @@ function comment_form( $args = array(), $post = null ) {
 			 */
 			$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
 			//20240605 　入力内容クリアボタン新規　koui start
-			$submit_button_clear ='<div style="display: flex; flex-direction: column;">
-			<input name="button_clear" type="reset" id="button_clear" value="入力内容クリア" 
-			style="background-color: rgba(169, 169, 169, 0.5); color: white; border: 1px solid black;" 
-			/>
-			</div>';
+			// <div style="display: flex; flex-direction: column;">
+			// <input name="button_clear" type="button" id="button_clear" value="入力内容クリア" 
+			// style="background-color: rgba(169, 169, 169, 0.5); color: white; border: 1px solid black;" 
+			// />
+			//20240605 　入力内容クリアボタン新規　koui start
+			$submit_button_clear ='
+			<input type="button" id="button_clear" value="入力内容クリア" />
+   			<script >
+			  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+       			 	button_clear.addEventListener (
+					"click", function(){
+          		 		inputs.forEach(function(input) {
+                		input.value = "";} );
+					});
+            </script>';
 			//20240605 　入力内容クリアボタン新規　koui end
 			$submit_field = sprintf(
 				$args['submit_field'],
-				$submit_button . $submit_button_clear,
+				$submit_button ,
 				get_comment_id_fields( $post_id )
 			);
-
+			//20240605 　入力内容クリアボタン新規　koui 
+			$submit_field_clear = sprintf(
+				$submit_button_clear 
+			);
 
 			/**
 			 * Filters the submit field for the comment form to display.
@@ -2993,12 +3003,11 @@ function comment_form( $args = array(), $post = null ) {
 			 * @since 4.2.0
 			 *
 			 * @param string $submit_field HTML markup for the submit field.
-			 * @param string $submit_field_clear HTML markup for the submit field.
 			 * @param array  $args         Arguments passed to comment_form().
 			 */
 			echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
-		
-			//echo apply_filters( 'comment_form_clear_field', $submit_field_clear , $args);
+			//20240605 　入力内容クリアボタン新規　koui 
+			echo apply_filters( 'comment_form_submit_field_clear', $submit_field_clear, $args );
 			/**
 			 * Fires at the bottom of the comment form, inside the closing form tag.
 			 *
