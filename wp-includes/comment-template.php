@@ -2671,12 +2671,14 @@ function comment_form( $args = array(), $post = null ) {
 	
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
 		$consent = empty( $commenter['comment_author_email'] ) ? '' : $checked_attribute;
+		
 
 		$fields['cookies'] = sprintf(
 			'<p class="comment-form-cookies-consent">%s %s</p>',
 			sprintf(
 				'<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />',
-				$consent
+				$consent,
+				
 			),
 			sprintf(
 				'<label for="wp-comment-cookies-consent">%s</label>',
@@ -2684,11 +2686,14 @@ function comment_form( $args = array(), $post = null ) {
 				__( '次回コメントするために、名前、メールアドレス、ウェブサイトを保存する.' )
 			)
 		);
-
+		var_dump($consent) . '\n';
+		var_dump($commenter). '\n';
+		
 		// Ensure that the passed fields include cookies consent.
 		if ( isset( $args['fields'] ) && ! isset( $args['fields']['cookies'] ) ) {
 			$args['fields']['cookies'] = $fields['cookies'];
 		}
+
 	}
 
 	/**
@@ -3016,4 +3021,5 @@ function comment_form( $args = array(), $post = null ) {
 	 * @since 3.0.0
 	 */
 	do_action( 'comment_form_after' );
-}
+	}
+
