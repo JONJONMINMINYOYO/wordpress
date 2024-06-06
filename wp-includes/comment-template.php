@@ -2671,7 +2671,7 @@ function comment_form( $args = array(), $post = null ) {
 	);
 	
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
-		$consent = empty( $commenter['comment_sex'] ) ? '' : $checked_attribute;
+		$consent = empty( $commenter['comment_author_email'] ) ? '' : $checked_attribute;
 		
 		$fields['cookies'] = sprintf(
 			'<p class="comment-form-cookies-consent">%s %s</p>',
@@ -3008,6 +3008,9 @@ function comment_form( $args = array(), $post = null ) {
 			echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
 			//20240605 　入力内容クリアボタン新規　koui 
 			echo apply_filters( 'comment_form_submit_field_clear', $submit_field_clear, $args );
+			// if ($submit_button_clear) {
+			// 	var_dump($submit_button_clear) ;
+			// };
 			/**
 			 * Fires at the bottom of the comment form, inside the closing form tag.
 			 *
