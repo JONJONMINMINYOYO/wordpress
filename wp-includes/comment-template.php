@@ -2659,9 +2659,9 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			sprintf(
 				'<div style="display: flex; flex-direction: row;">
-				<label for="male">男性</label>
+				<label >男性</label>
 				<input id="male" name="sex" type="radio" value="1" />
-				<label for="female">女性</label>
+				<label >女性</label>
 				<input id="female" name="sex" type="radio" value="0" />
 			    </div>'
 
@@ -2977,11 +2977,15 @@ function comment_form( $args = array(), $post = null ) {
 			<input type="button" id="button_clear" value="入力内容クリア" />
    			<script >
 			  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+			  var radioButtons = document.getElementsByName("sex");
        			 	button_clear.addEventListener (
 					"click", function(){
           		 		inputs.forEach(function(input) {
                 		input.value = "";} );
-					});
+					const radioButtons = document.getElementsByName("sex");
+                			radioButtons[0].checked = false;
+							radioButtons[1].checked = false;
+					});	
             </script>';
 			//20240605 　入力内容クリアボタン新規　koui end
 			$submit_field = sprintf(

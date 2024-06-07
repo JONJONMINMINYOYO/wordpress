@@ -2149,11 +2149,6 @@ function wp_insert_comment( $commentdata ) {
 		'user_id'
 	);
 
-	// if ( $wpdb->insert( $wpdb->comments, $compacted ) ) {
-		
-			
-		
-	// 	}
 	
 	if ( ! $wpdb->insert( $wpdb->comments, $compacted ) ) {
 		
@@ -2391,27 +2386,27 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 
 	$commentdata['comment_agent'] = substr( $commentdata['comment_agent'], 0, 254 );
 	
-	//20240605 ユーザーが登録されない場合には、以下のチェックが行われる　koui start
+	//20240605 ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
 	if (!is_user_logged_in()) {
 	$area_code = substr($commentdata['comment_author_tel'], 0, 3);// 電話番号前3桁を取る
 	$allowed_area_codes = array('010', '090', '040'); // 地域のコードの制限
 	$repeated_8digits = preg_match('/^\d{3}(?:(\d)(?!\1{7}))\d{7}$/', $commentdata['comment_author_tel']); // 電話番号後8桁は同じか確認
 
 	if ("" == $commentdata['comment_author_tel']) {
-		return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong> 入力した電話番号は空白です.' ), 200 );
+		return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong>電話番号を空白にすることはできません、ご確認ください.' ), 200 );
 	}elseif (false == 	preg_match( '/^\d{11}$/',$commentdata['comment_author_tel'] ))  {
 		//echo "( ' 入力した電話番号が11桁数字のみです、もう一度確認してください。.' ), 200 );";
-		return new WP_Error( 'require_valid_comment', __( ' 入力した電話番号が11桁数字のみです、もう一度確認してください。.' ), 200 );
+		return new WP_Error( 'require_valid_comment', __('入力する電話番号には11桁の数字が必要です、もう一度確認してください.'), 200 );
 	}
 	elseif (!in_array($area_code, $allowed_area_codes)) {
-			//echo "22";
-			return new WP_Error( 'require_valid_comment', __( '入力した前三桁電話番号は要求していない。→\'010\', \'090\', \'040\'.' ), 200 );
+			
+			return new WP_Error( 'require_valid_comment', __('入力する電話番号の最初の3桁は、010、040、090 である必要があります.'), 200 );
 		}
 	elseif(!$repeated_8digits){
-			return new WP_Error( 'require_valid_comment', __( '入力した後8桁電話番号は同じです.' ), 200 );
+			return new WP_Error( 'require_valid_comment', __('入力する電話番号の下8桁は同じであってはなりません.'), 200 );
 		}
 	}
-	//20240605 ユーザーが登録されない場合には、以下のチェックが行われる　koui end
+	//20240605 ユーザーが登録されない場合には、入力項目のチェックが行われる　koui end
 
 	if ( empty( $commentdata['comment_date'] ) ) {
 		$commentdata['comment_date'] = current_time( 'mysql' );
@@ -2439,7 +2434,7 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 		// echo "comment_id2222222 -> comment_author_tel".$commentdata['comment_author_tel']. PHP_EOL;
 		// echo "comment_id33333 -> comment_sex".$commentdata['comment_sex']. PHP_EOL;
 		// $fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content' );
-		$fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_sex' , 'comment_author_tel' ,'comment_sex' );
+		$fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_author_tel' ,'comment_sex' );
 		foreach ( $fields as $field ) {
 			if ( isset( $commentdata[ $field ] ) ) {
 				$commentdata[ $field ] = $wpdb->strip_invalid_text_for_column( $wpdb->comments, $field, $commentdata[ $field ] );
@@ -3829,10 +3824,10 @@ function wp_handle_comment_submission( $comment_data ) {
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		//20240602 電話番号と性別　新規　koui start 指定された変数名を連想配列に変換する start
+		//20240602 電話番号と性別　新規　koui  指定された変数名を連想配列に変換する start
 		'comment_author_tel',
 		'comment_sex',
-		//20240602 電話番号と性別　新規　koui start 指定された変数名を連想配列に変換する end
+		//20240602 電話番号と性別　新規　koui  指定された変数名を連想配列に変換する end
 		'comment_content',
 		'comment_type',
 		'comment_parent',
