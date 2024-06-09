@@ -878,7 +878,7 @@ function get_comment_link( $comment = null, $args = array() ) {
 	// The 'cpage' param takes precedence.
 	if ( ! is_null( $args['cpage'] ) ) {
 		$cpage = $args['cpage'];
-
+		
 		// No 'cpage' is provided, so we calculate one.
 	} else {
 		if ( '' === $args['per_page'] && get_option( 'page_comments' ) ) {
@@ -925,9 +925,9 @@ function get_comment_link( $comment = null, $args = array() ) {
 	if ( $wp_rewrite->using_permalinks() ) {
 		$comment_link = user_trailingslashit( $comment_link, 'comment' );
 	}
-
+	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui start
 	$comment_link = $comment_link . '#comment-' . $comment->comment_ID;
-
+	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui end
 	/**
 	 * Filters the returned single comment permalink.
 	 *
@@ -2368,7 +2368,7 @@ function wp_list_comments( $args = array(), $comments = null ) {
 			if ( $parsed_args['page'] != $current_cpage || $parsed_args['per_page'] != $current_per_page ) {
 				$comment_args = array(
 					'post_id' => get_the_ID(),
-					'orderby' => 'comment_date_gmt',
+					'orderby' => 'comment_author_tel',
 					'order'   => 'ASC',
 					'status'  => 'approve',
 				);
@@ -2646,7 +2646,8 @@ function comment_form( $args = array(), $post = null ) {
 			sprintf(
 				'<input id="tel" name="tel" %s value="%s" size="11" maxlength="11" autocomplete="0123456789" />',
 				( $html5 ? 'type="tel"' : 'type="text"' ),
-				esc_attr( $commenter['comment_author_tel'] )
+				//20240609 postにwp-comment-cookies-consentチェックして画面電話番号不表示.
+				esc_attr( $commenter['comment_author_tel'] = "" )  
 			),
 			
 		    ),
@@ -2655,7 +2656,15 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-sex">%s %s </p>',
 			sprintf(
 				'<label for="sex">%s</label>',
-				__( '🥰性別🥰' )
+				__( '🥰性別🥰' ),
+			// 	('<script>
+			//   var Sex_lasttime = document.getElementsByName("sex");
+       		// 	 	Sex_lasttime.addEventListener (
+			// 		"click", function(){
+			// 		const radioButton = document.getElementsByValue("$_POST["sex"]");
+            //     			radioButton = true;
+			// 		});	
+          	//      </script>')
 			),
 			sprintf(
 				'<div style="display: flex; flex-direction: row;">
@@ -2685,12 +2694,7 @@ function comment_form( $args = array(), $post = null ) {
 				__( '次回コメントするために、名前、メールアドレス、ウェブサイトを保存する.' )
 			)
 		);
-		// var_dump($consent) . '\n';
-		// var_dump($commenter). '\n';
-		// Ensure that the passed fields include cookies consent.
-		if ( isset( $args['fields'] ) && ! isset( $args['fields']['cookies'] ) ) {
-			$args['fields']['cookies'] = $fields['cookies'];
-		}
+		
 	}
 
 	/**
@@ -2974,7 +2978,8 @@ function comment_form( $args = array(), $post = null ) {
 			// />
 			//20240605 　入力内容クリアボタン新規　koui start
 			$submit_button_clear ='
-			<input type="button" id="button_clear" value="入力内容クリア" />
+			<input type="button" id="button_clear" value="入力内容クリア" 
+			style="width: 176px;height: 54px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
    			<script >
 			  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
 			  var radioButtons = document.getElementsByName("sex");

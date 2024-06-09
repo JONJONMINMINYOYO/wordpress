@@ -7,7 +7,6 @@
 
 if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
 	$protocol = $_SERVER['SERVER_PROTOCOL'];
-	var_dump($protocol);
 	if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ), true ) ) {
 		$protocol = 'HTTP/1.0';
 	}
@@ -41,11 +40,12 @@ if ( is_wp_error( $comment ) ) {
 }
 
 $user            = wp_get_current_user();
-$cookies_consent = ( isset( $_POST['wp-comment-cookies-consent'] ) );
+$cookies_consent = ( isset( $_POST['wp-comment-cookies-consent'] ) ); //20240609 wp-comment-cookies-consent チェック koui
+
 
 /**
  * Fires after comment cookies are set.
- *
+ *	
  * @since 3.4.0
  * @since 4.9.6 The `$cookies_consent` parameter was added.
  *
