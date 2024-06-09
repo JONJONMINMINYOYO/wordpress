@@ -2632,7 +2632,8 @@ function comment_form( $args = array(), $post = null ) {
 			sprintf(
 				'<input id="url" name="url" %s value="%s" size="30" maxlength="200" autocomplete="url" />',
 				( $html5 ? 'type="url"' : 'type="text"' ),
-				esc_attr( $commenter['comment_author_url'] )
+				//20240609 comment_author_url の "http://" 削除　koui
+				esc_attr( substr($commenter['comment_author_url'] , 7))
 			)
 		),
 		//20240517新規入力　電話番号start
