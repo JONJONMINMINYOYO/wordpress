@@ -3181,7 +3181,9 @@ function get_previous_comments_link( $label = '' ) {
 	$previous_page = (int) $page - 1;
 
 	if ( empty( $label ) ) {
+		//20240610 comments page change koui
 		$label = __( '&laquo; Older Comments' );
+		//$label = __( '&laquo; 前ページ' );
 	}
 
 	/**
