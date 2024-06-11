@@ -3181,9 +3181,7 @@ function get_previous_comments_link( $label = '' ) {
 	$previous_page = (int) $page - 1;
 
 	if ( empty( $label ) ) {
-		//20240610 comments page change koui
 		$label = __( '&laquo; Older Comments' );
-		//$label = __( '&laquo; 前ページ' );
 	}
 
 	/**
@@ -3305,8 +3303,9 @@ function get_the_comments_navigation( $args = array() ) {
 		);
 
 		$prev_link = get_previous_comments_link( $args['prev_text'] );
+		//var_dump($prev_link);
 		$next_link = get_next_comments_link( $args['next_text'] );
-
+		//var_dump($next_link);
 		if ( $prev_link ) {
 			$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
 		}

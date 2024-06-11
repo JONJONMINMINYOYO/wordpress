@@ -512,8 +512,8 @@ function get_comment_author_url_link( $link_text = '', $before = '', $after = ''
 	$comment_author_url = get_comment_author_url( $comment );
 
 	$display = ( '' !== $link_text ) ? $link_text : $comment_author_url;
-	$display = str_replace( 'http://www.', '', $display );
-	$display = str_replace( 'http://', '', $display );
+	// $display = str_replace( 'http://www.', '', $display );
+	// $display = str_replace( 'http://', '', $display );
 
 	if ( str_ends_with( $display, '/' ) ) {
 		$display = substr( $display, 0, -1 );
@@ -926,7 +926,7 @@ function get_comment_link( $comment = null, $args = array() ) {
 		$comment_link = user_trailingslashit( $comment_link, 'comment' );
 	}
 	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui start
-	$comment_link = $comment_link . '#comment-' . $comment->comment_ID;
+	$comment_link = $comment_link . '#abcdcomment-' . $comment->comment_ID;
 	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui end
 	/**
 	 * Filters the returned single comment permalink.
@@ -2697,7 +2697,7 @@ function comment_form( $args = array(), $post = null ) {
 		);
 		
 	}
-
+	
 	/**
 	 * Filters the default comment form fields.
 	 *
@@ -2718,6 +2718,14 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
 		),
+		//
+		// 'comments_123' =>  sprintf(
+		// 	'<span class="displaying-num">' .
+		// 	/* translators: %s: Number of items. */
+		// 	_n( '%s item', '%s items', "3" ),
+		// 	number_format_i18n( "3" )
+		// ) . '</span>',
+		//
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
 			sprintf(
@@ -2747,7 +2755,18 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			$required_text
 		),
-	
+		//20240610 
+		// 'comment_pages' => sprintf(
+		// 	'<label for="current-post-page" class="current-post-page">%s</label>' .
+		// 	"<input class='current-show-postpage' id='current-show-postpage' type='text' 
+		// 	style=width:30px;height:20px;
+		// 	name='show-postpage' value='%s'  %s'</br>" ,
+		// 	/* translators: Hidden accessibility text. */
+		// 	__( '今' ),
+		// 	get_comment_count( $post_id ),
+		// 	sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( 20 ) ),
+		// ),
+		//20240610
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
@@ -2805,8 +2824,10 @@ function comment_form( $args = array(), $post = null ) {
 		<?php
 		echo $args['title_reply_before'];
 
+		//20240610 		comment_pages koui start
+		//comment_form_title( $args['comment_pages'], true, $post_id );
+		//20240610 		comment_pages koui end
 		comment_form_title( $args['title_reply'], $args['title_reply_to'], true, $post_id );
-
 		if ( get_option( 'thread_comments' ) ) {
 			echo $args['cancel_reply_before'];
 
@@ -2972,12 +2993,12 @@ function comment_form( $args = array(), $post = null ) {
 			 * @param array  $args          Arguments passed to comment_form().
 			 */
 			$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
-			//20240605 　入力内容クリアボタン新規　koui start
+			//20240605  入力内容クリアボタン新規　koui start
 			// <div style="display: flex; flex-direction: column;">
 			// <input name="button_clear" type="button" id="button_clear" value="入力内容クリア" 
 			// style="background-color: rgba(169, 169, 169, 0.5); color: white; border: 1px solid black;" 
 			// />
-			//20240605 　入力内容クリアボタン新規　koui start
+			//20240605  入力内容クリアボタン新規　koui start
 			$submit_button_clear ='
 			<input type="button" id="button_clear" value="入力内容クリア" 
 			style="width: 176px;height: 54px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
@@ -2993,17 +3014,20 @@ function comment_form( $args = array(), $post = null ) {
 							radioButtons[1].checked = false;
 					});	
             </script>';
-			//20240605 　入力内容クリアボタン新規　koui end
+			//20240605  入力内容クリアボタン新規　koui end
+
+			
 			$submit_field = sprintf(
 				$args['submit_field'],
 				$submit_button ,
 				get_comment_id_fields( $post_id )
 			);
-			//20240605 　入力内容クリアボタン新規　koui 
+			
+			//20240605  入力内容クリアボタン追加　koui start
 			$submit_field_clear = sprintf(
 				$submit_button_clear 
 			);
-
+			//20240605  入力内容クリアボタン追加　koui end
 			/**
 			 * Filters the submit field for the comment form to display.
 			 *

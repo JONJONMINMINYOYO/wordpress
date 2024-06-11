@@ -1361,7 +1361,7 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
 	if ( isset( $comment_data['comment_author_tel'] ) && strlen( $comment_data['comment_author_tel'] ) > $max_lengths['comment_author_tel'] ) {
 		return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 君の電話番号多分悪かったね.' ), 200 );
 	}
-	//20240605 ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
+	//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
 	if (!is_user_logged_in()) {
 		$area_code = substr($comment_data['comment_author_tel'], 0, 3);// 電話番号前3桁を取る
 		$allowed_area_codes = array('010', '090', '040'); // 地域のコードの制限
@@ -1381,7 +1381,7 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
 				return new WP_Error( 'require_valid_comment', __('入力する電話番号の下8桁は同じであってはなりません.'), 200 );
 			}
 		}
-		//20240605 ユーザーが登録されない場合には、入力項目のチェックが行われる　koui end
+		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui end
 	//20240602 電話番号最大桁数チェック　新規　koui end
 
 	if ( isset( $comment_data['comment_content'] ) && mb_strlen( $comment_data['comment_content'], '8bit' ) > $max_lengths['comment_content'] ) {
