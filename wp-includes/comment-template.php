@@ -2713,8 +2713,10 @@ function comment_form( $args = array(), $post = null ) {
 		
 			</p>';
 	$search_button ='
-	<input type="button" id="search_button" value="ページ数" 
-	style="width: 176px;height: 54px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+	<input type="search" id="search" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
+	style="width: 66px;height: 25px;font-size: 18px;"/>
+	<input type="button" id="search_button" value="リダイレクト" 
+	style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
 	   <script >
 	  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
 				search_button.addEventListener (

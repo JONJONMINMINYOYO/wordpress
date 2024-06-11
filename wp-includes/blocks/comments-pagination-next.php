@@ -24,7 +24,7 @@ function render_block_core_comments_pagination_next( $attributes, $content, $blo
 	$max_page         = ( new WP_Comment_Query( $comment_vars ) )->max_num_pages;
 	//20240610 ページ名称改修　start 
 	//$default_label    = __( 'Newer Comments' );  
-	$default_label    = __( '次ページ' );
+	$default_label    = __( '→次ページ→' );
 	//20240610 ページ名称改修　end
 	$label            = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
 	$pagination_arrow = get_comments_pagination_arrow( $block, 'next' );
