@@ -2706,7 +2706,24 @@ function comment_form( $args = array(), $post = null ) {
 	 * @param string[] $fields Array of the default comment fields.
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
-
+	$field1 = '
+		<p class="search-box">
+		<label class="screen-reader-text" for="' . esc_attr( $fields ) . '">' . $fields . ':</label>
+		<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
+		
+			</p>';
+	$search_button ='
+	<input type="button" id="search_button" value="ページ数" 
+	style="width: 176px;height: 54px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+	   <script >
+	  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+				search_button.addEventListener (
+				"click", function(){
+				inputs.forEach(function(input) {
+				input.value = "";} );
+			});	
+	</script>';
+	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
@@ -2751,7 +2768,10 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-notes">%s%s</p>',
 			sprintf(
 				'<span id="email-notes">%s</span>',
-				__( 'Your email address will not be published.' )
+				//20240611  コメント上に文言変更  koui  start
+				//__( 'Your email address will not be published.' )
+				__( 'あなたのメールアドレスは公開されません' )
+				//20240611  コメント上に文言変更  koui  start
 			),
 			$required_text
 		),
@@ -2760,13 +2780,16 @@ function comment_form( $args = array(), $post = null ) {
 		// 	'<label for="current-post-page" class="current-post-page">%s</label>' .
 		// 	"<input class='current-show-postpage' id='current-show-postpage' type='text' 
 		// 	style=width:30px;height:20px;
-		// 	name='show-postpage' value='%s'  %s'</br>" ,
+		// 	name='show-postpage' value='%s'  " ,
 		// 	/* translators: Hidden accessibility text. */
 		// 	__( '今' ),
 		// 	get_comment_count( $post_id ),
 		// 	sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( 20 ) ),
 		// ),
+		
+
 		//20240610
+
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
@@ -2775,7 +2798,9 @@ function comment_form( $args = array(), $post = null ) {
 		'class_form'           => 'comment-form',
 		'class_submit'         => 'submit',                                    //$submit_button
 		'name_submit'          => 'submit',				                       //$submit_button
-		'title_reply'          => __( 'Leave a Reply' ),
+		//20240611  電話番号と性別 新規  koui  start
+		//'title_reply'          => __( 'Leave a Reply' ),
+		'title_reply'          => __( '回答してください。' ),
 		/* translators: %s: Author of the comment being replied to. */
 		'title_reply_to'       => __( 'Leave a Reply to %s' ),
 		'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
@@ -2789,7 +2814,7 @@ function comment_form( $args = array(), $post = null ) {
 		'format'               => 'xhtml',
 
 	);
-
+	
 	/**
 	 * Filters the comment form default arguments.
 	 *
@@ -3042,9 +3067,7 @@ function comment_form( $args = array(), $post = null ) {
 			echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
 			//20240605 　入力内容クリアボタン新規　koui 
 			echo apply_filters( 'comment_form_submit_field_clear', $submit_field_clear, $args );
-			// if ($submit_button_clear) {
-			// 	var_dump($submit_button_clear) ;
-			// };
+			
 			/**
 			 * Fires at the bottom of the comment form, inside the closing form tag.
 			 *
