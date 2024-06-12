@@ -2706,12 +2706,12 @@ function comment_form( $args = array(), $post = null ) {
 	 * @param string[] $fields Array of the default comment fields.
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
-	$field1 = '
-		<p class="search-box">
-		<label class="screen-reader-text" for="' . esc_attr( $fields ) . '">' . $fields . ':</label>
-		<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
+	// $field1 = '
+	// 	<p class="search-box">
+	// 	<label class="screen-reader-text" for="' . esc_attr( $fields ) . '">' . $fields . ':</label>
+	// 	<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
 		
-			</p>';
+	// 		</p>';
 	$search_button ='
 	<input type="search" id="search" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
 	style="width: 66px;height: 25px;font-size: 18px;"/>
