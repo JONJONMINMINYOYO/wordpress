@@ -1328,7 +1328,10 @@ switch ( $action ) {
 					sprintf(
 						/* translators: %s: Browser cookie documentation URL. */
 						__( '<strong>Error:</strong> Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
-						__( 'https://wordpress.org/documentation/article/cookies/#enable-cookies-in-your-browser' )
+						//20240612  cookie  ドキュメントウェブサイト改修　start
+						//__( 'https://wordpress.org/documentation/article/cookies/#enable-cookies-in-your-browser' ) 
+						__( 'https://www.google.com' )
+						//20240612  cookie  ドキュメントウェブサイト改修　end
 					)
 				);
 			}
