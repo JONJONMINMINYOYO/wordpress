@@ -2798,6 +2798,7 @@ function get_the_post_navigation( $args = array() ) {
 		$args['excluded_terms'],
 		$args['taxonomy']
 	);
+	
 
 	$next = get_next_post_link(
 		'<div class="nav-next">%link</div>',

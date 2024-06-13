@@ -2805,8 +2805,8 @@ function comment_form( $args = array(), $post = null ) {
 		'title_reply'          => __( '回答してください。' ),
 		/* translators: %s: Author of the comment being replied to. */
 		'title_reply_to'       => __( 'Leave a Reply to %s' ),
-		'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
-		'title_reply_after'    => '</h3>',
+		'title_reply_before'   => '<h1 id="reply-title" class="comment-reply-title">',
+		'title_reply_after'    => '</h1>',
 		'cancel_reply_before'  => ' <small>',
 		'cancel_reply_after'   => '</small>',
 		'cancel_reply_link'    => __( 'Cancel reply' ),

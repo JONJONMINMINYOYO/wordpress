@@ -30,7 +30,7 @@ if ( post_password_required() ) { ?>
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<h3 id="comments">
+	<h1 id="comments">
 		<?php
 		if ( '1' === get_comments_number() ) {
 			printf(
@@ -47,7 +47,7 @@ if ( post_password_required() ) { ?>
 			);
 		}
 		?>
-	</h3>
+	</h1>
 
 	<div class="navigation">
 		<div class="alignleft"><?php previous_comments_link(); ?></div>

@@ -6,7 +6,7 @@
 <body>
     <h2>PHP Form Example</h2>
     <?php
-    // Check if form is submitted
+    // Check if form is submitteds
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve form data
         $name = $_POST['name'];
