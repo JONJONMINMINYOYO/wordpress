@@ -577,7 +577,10 @@ function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
 	 *
 	 * @param int $seconds Comment cookie lifetime. Default 30000000.
 	 */
-	$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 30000000 );
+	//20240614  クッキーの保存時間設定改修  koui  start
+	//$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 30000000 );
+	$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 36000 );
+	//20240614  クッキーの保存時間設定改修  koui  end
 
 	$secure = ( 'https' === parse_url( home_url(), PHP_URL_SCHEME ) );
 
@@ -2434,9 +2437,7 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 	$comment_id = wp_insert_comment( $commentdata );
     
 	if ( ! $comment_id ) {
-		// echo "comment_id2222222 -> comment_author_tel".$commentdata['comment_author_tel']. PHP_EOL;
-		// echo "comment_id33333 -> comment_sex".$commentdata['comment_sex']. PHP_EOL;
-		// $fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content' );
+
 		$fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_author_tel' ,'comment_sex' );
 		foreach ( $fields as $field ) {
 			if ( isset( $commentdata[ $field ] ) ) {
@@ -3801,6 +3802,7 @@ function wp_handle_comment_submission( $comment_data ) {
 	$comment_type = 'comment';
 
 	if ( get_option( 'require_name_email' ) && ! $user->exists() ) {
+		//20240614  comment_author、comment_author_emailのチェックエラーメッセージ改修  koui  start
 		// if ( '' == $comment_author_email || '' == $comment_author ) {
 		// 	return new WP_Error( 'require_name_email', __( '<strong>Error:</strong> Please fill the required fields.' ), 200 );
 		// } elseif ( ! is_email( $comment_author_email ) ) {
@@ -3813,12 +3815,16 @@ function wp_handle_comment_submission( $comment_data ) {
 				return new WP_Error( 'require_valid_email', __( 'メールアドレスを入力してください.' ), 200 );
 			}
 
-			
 			elseif ( ! is_email( $comment_author_email ) ) {
 				return new WP_Error( 'require_valid_email', __( 'メールアドレスに合法的なフォーマットを入力してください.' ), 200 );
 			}
+		//20240614  comment_author、comment_author_emailのチェックエラーメッセージ改修  koui  end	
 	}
-
+	//20240614  性別チェックボックスをしてない場合エラーメッセージが出る  追加  koui  start
+	if ( empty( $post->comment_author_tel ) )  {
+		return new WP_Error( 'require_author_tel', __( ' 性別を選択してください.' ), 200 );
+	}
+	//20240614  性別チェックボックスをしてない場合エラーメッセージが出る  追加  koui  end
 	$commentdata = array(
 		'comment_post_ID' => $comment_post_id,
 	);
@@ -3851,16 +3857,10 @@ function wp_handle_comment_submission( $comment_data ) {
 		return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong> コメント作成してください。.' ), 200 );
 	}
     
-	// $commentdata['comment_author_tel'] = "07090799058";
-	// $commentdata['comment_sex'] = "1";
-	// echo $commentdata['comment_sex'];
 	$check_max_lengths = wp_check_comment_data_max_lengths( $commentdata );
 	if ( is_wp_error( $check_max_lengths ) ) {
 		return $check_max_lengths;
 	}
-
-	// echo "check_max_lengths -> comment_author_tel".$commentdata['comment_author_tel']. PHP_EOL;
-	// 	echo "check_max_lengths -> comment_sex".$commentdata['comment_sex']. PHP_EOL;
 	//var_dump($commentdata);
 	$comment_id = wp_new_comment( wp_slash( $commentdata ), true );
 	if ( is_wp_error( $comment_id ) ) {
