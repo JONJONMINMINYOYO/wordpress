@@ -52,6 +52,7 @@ if ( post_password_required() ) { ?>
 	<div class="navigation">
 		<div class="alignleft"><?php previous_comments_link(); ?></div>
 		<div class="alignright"><?php next_comments_link(); ?></div>
+		<div class="alignright"><?php postshow_comments_link(); ?></div> 
 	</div>
 
 	<ol class="commentlist">
@@ -61,6 +62,7 @@ if ( post_password_required() ) { ?>
 	<div class="navigation">
 		<div class="alignleft"><?php previous_comments_link(); ?></div>
 		<div class="alignright"><?php next_comments_link(); ?></div>
+		<div class="alignright"><?php postshow_comments_link(); ?></div> 
 	</div>
 <?php else : // This is displayed if there are no comments so far. ?>
 

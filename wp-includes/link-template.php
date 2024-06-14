@@ -3213,6 +3213,46 @@ function previous_comments_link( $label = '' ) {
 	echo get_previous_comments_link( $label );
 }
 
+//20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  start
+function get_postshow_comments_link( $label = '' ) {
+	global $wp_query;
+
+	if ( ! is_singular() ) {
+		return;
+	}
+
+	$page = get_query_var( 'cpage' );
+
+	if ( ! $page ) {
+		$page = 1;
+	}
+
+	$next_page = (int) $page + 1;
+
+
+	if ( empty( $label ) ) {
+		$label = __( 'Newer Comments &raquo;' );
+	}
+
+
+
+	$attr = apply_filters( 'post_show_comments_link_attributes', '' );
+
+	return sprintf(
+		'<a href="%1$s" %2$s>%3$s</a>',
+		esc_url( 1 ),
+		$attr,
+		preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
+	);
+}
+//20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  end
+
+
+//20240613  リンクを取る、コメントの詳細表示はページに遷移します。  koui  start
+function postshow_comments_link( $label = '' ) {
+	echo get_postshow_comments_link( $label );
+}
+//20240613  リンクを取る、コメントの詳細表示はページに遷移します。  koui  end
 /**
  * Displays or retrieves pagination links for the comments on the current post.
  *
