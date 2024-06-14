@@ -2798,6 +2798,7 @@ function get_the_post_navigation( $args = array() ) {
 		$args['excluded_terms'],
 		$args['taxonomy']
 	);
+	
 
 	$next = get_next_post_link(
 		'<div class="nav-next">%link</div>',
@@ -3212,6 +3213,47 @@ function previous_comments_link( $label = '' ) {
 	echo get_previous_comments_link( $label );
 }
 
+//20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  start
+function get_postshow_comments_link( $label = '' ) {
+	global $wp_query;
+
+	if ( ! is_singular() ) {
+		return;
+	}
+
+	$page = get_query_var( 'cpage' );
+
+	if ( ! $page ) {
+		$page = 1;
+	}
+
+	$next_page = (int) $page + 1;
+
+
+	if ( empty( $label ) ) {
+		//$label = __( 'Newer Comments &raquo;' );
+		$label = __( 'NO Comments show;' );
+	}
+
+
+
+	$attr = apply_filters( 'postshow_comments_link_attributes', '' );
+
+	return sprintf(
+		'<a href="%1$s" %2$s>%3$s</a>',
+		esc_url( 1 ),
+		$attr,
+		preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
+	);
+}
+//20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  end
+
+
+//20240613  リンクを取る、コメントの詳細表示はページに遷移します。  koui  start
+function postshow_comments_link( $label = '' ) {
+	echo get_postshow_comments_link( $label );
+}
+//20240613  リンクを取る、コメントの詳細表示はページに遷移します。  koui  end
 /**
  * Displays or retrieves pagination links for the comments on the current post.
  *
@@ -3297,14 +3339,20 @@ function get_the_comments_navigation( $args = array() ) {
 				'prev_text'          => __( 'Older comments' ),
 				'next_text'          => __( 'Newer comments' ),
 				'screen_reader_text' => __( 'Comments navigation' ),
+				//20240614  postshow行列に新規  koui  start
+				'postshow_text' => __( 'Post_show comments' ),
+				//20240614  postshow行列に新規  koui  end
 				'aria_label'         => __( 'Comments' ),
 				'class'              => 'comment-navigation',
 			)
 		);
 
 		$prev_link = get_previous_comments_link( $args['prev_text'] );
+		
 		$next_link = get_next_comments_link( $args['next_text'] );
-
+		//20240614  postshowリンク新規  koui  start
+		$postshow_link = get_postshow_comments_link( $args['postshow_text'] );
+		//20240614  postshowリンク新規  koui  end
 		if ( $prev_link ) {
 			$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
 		}
@@ -3312,6 +3360,11 @@ function get_the_comments_navigation( $args = array() ) {
 		if ( $next_link ) {
 			$navigation .= '<div class="nav-next">' . $next_link . '</div>';
 		}
+		//20240614  postshowリンク新規  koui  start
+		if ( $postshow_link ) {
+			$navigation .= '<div class="nav-postshow">' . $postshow_link . '</div>';
+		}
+		//20240614  postshowリンク新規  koui  end
 
 		$navigation = _navigation_markup( $navigation, $args['class'], $args['screen_reader_text'], $args['aria_label'] );
 	}

@@ -79,8 +79,8 @@ function current_time( $type, $gmt = 0 ) {
 	if ( 'mysql' === $type ) {
 		$type = 'Y-m-d H:i:s';
 	}
-
-	$timezone = $gmt ? new DateTimeZone( 'UTC' ) : wp_timezone();
+	//$timezone = $gmt ? new DateTimeZone( 'UTC' ) : wp_timezone();  20240605
+	$timezone = $gmt ? new DateTimeZone( 'Asia/Tokyo' ) : wp_timezone();
 	$datetime = new DateTime( 'now', $timezone );
 
 	return $datetime->format( $type );

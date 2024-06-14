@@ -105,7 +105,8 @@ function wp_initial_constants() {
 
 	// Add define( 'WP_DEBUG_LOG', true ); to enable error logging to wp-content/debug.log.
 	if ( ! defined( 'WP_DEBUG_LOG' ) ) {
-		define( 'WP_DEBUG_LOG', false );
+		//define( 'WP_DEBUG_LOG', false ); 20240612
+		define( 'WP_DEBUG_LOG', true );
 	}
 
 	if ( ! defined( 'WP_CACHE' ) ) {

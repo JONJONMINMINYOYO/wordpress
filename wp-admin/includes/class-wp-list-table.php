@@ -1037,9 +1037,11 @@ class WP_List_Table {
 		) . '</span>';
 
 		$current              = $this->get_pagenum();
+		
 		$removable_query_args = wp_removable_query_args();
 
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		
 
 		$current_url = remove_query_arg( $removable_query_args, $current_url );
 

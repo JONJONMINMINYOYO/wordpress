@@ -15,9 +15,9 @@
 function render_block_core_comments_title( $attributes ) {
 
 	if ( post_password_required() ) {
-		return;
+		return ;
 	}
-
+	
 	$align_class_name    = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
 	$show_post_title     = ! empty( $attributes['showPostTitle'] ) && $attributes['showPostTitle'];
 	$show_comments_count = ! empty( $attributes['showCommentsCount'] ) && $attributes['showCommentsCount'];
@@ -25,7 +25,7 @@ function render_block_core_comments_title( $attributes ) {
 	$comments_count      = get_comments_number();
 	/* translators: %s: Post title. */
 	$post_title = sprintf( __( '&#8220;%s&#8221;' ), get_the_title() );
-	$tag_name   = 'h2';
+	$tag_name   = 'h1';
 	if ( isset( $attributes['level'] ) ) {
 		$tag_name = 'h' . $attributes['level'];
 	}
@@ -75,10 +75,16 @@ function render_block_core_comments_title( $attributes ) {
 	}
 
 	return sprintf(
-		'<%1$s id="comments" %2$s>%3$s</%1$s>',
+		'<%1$s id="comments" %2$s>%3$s%4$s</%1$s>',
 		$tag_name,
 		$wrapper_attributes,
-		$comments_title
+		$comments_title,
+		//20240614  Postのコメント画面でpostshowボタン新規  koui  start
+		$search_button ='
+		<input type="button" id="search_button" value="投稿表示" 
+		style="width: 99px;height: 55px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+		'
+		//20240614  Postのコメント画面でpostshowボタン新規  koui  end
 	);
 }
 

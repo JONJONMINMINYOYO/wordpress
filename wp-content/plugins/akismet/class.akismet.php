@@ -1064,7 +1064,8 @@ class Akismet {
 					} elseif ( $status == 'false' ) {
 						// comment is good, but it's still in the pending queue.  depending on the moderation settings
 						// we may need to change it to approved.
-						if ( check_comment($comment->comment_author, $comment->comment_author_email, $comment->comment_author_url, $comment->comment_content, $comment->comment_author_IP, $comment->comment_agent, $comment->comment_type) )
+						//20240606 改修 koui if ( check_comment($comment->comment_author, $comment->comment_author_email, $comment->comment_author_url, $comment->comment_content, $comment->comment_author_IP, $comment->comment_agent, $comment->comment_type) )
+						if ( check_comment($comment->comment_author, $comment->comment_author_email, $comment->comment_author_url,$comment->comment_author_tel, $comment->comment_sex,$comment->comment_content, $comment->comment_author_IP, $comment->comment_agent, $comment->comment_type) )
 							wp_set_comment_status( $comment_id, 1 );
 						else if ( get_comment_meta( $comment_id, 'akismet_delayed_moderation_email', true ) )
 							wp_notify_moderator( $comment_id );

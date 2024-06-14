@@ -1,2 +1,2 @@
-<?php
-# Silence is golden.
+<?phpis golden
+# Silence is goldenis goldenis goldenis goldenis golden.

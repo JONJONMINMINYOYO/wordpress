@@ -373,18 +373,20 @@
 							"text": "var(--wp--preset--color--contrast)"
 						},
 						"typography": {
-							"textDecoration": "none"
+							"textDecoration": "line-through"
 						},
 						":hover": {
 							"typography": {
-								"textDecoration": "underline"
+								"textDecoration": "underline overline",
+								"fontSize": "larger"
 							}
 						}
 					}
 				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
-					"fontStyle": "normal",
+					"fontStyle": "oblique",
+
 					"fontWeight": "600"
 				}
 			},
@@ -406,10 +408,12 @@
 				"elements": {
 					"link": {
 						"color": {
-							"text": "var(--wp--preset--color--contrast-2)"
+							"text": "red"
 						},
 						"typography": {
-							"textDecoration": "none"
+							
+							"fontSize": "var(--wp--preset--font-size--small)",
+							"textDecoration": "underline"
 						},
 						":hover": {
 							"typography": {
@@ -473,22 +477,22 @@
 			},
 			"core/comments-pagination": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "45"
 				}
 			},
 			"core/comments-pagination-next": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "45"
 				}
 			},
 			"core/comments-pagination-numbers": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "45"
 				}
 			},
 			"core/comments-pagination-previous": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "45"
 				}
 			},
 			"core/footnotes": {
@@ -549,7 +553,7 @@
 					"link": {
 						":hover": {
 							"typography": {
-								"textDecoration": "underline"
+								"textDecoration": "line-through"
 							}
 						},
 						"typography": {
@@ -586,7 +590,7 @@
 			},
 			"core/post-excerpt": {
 				"typography": {
-					"lineHeight": "1.6"
+					"lineHeight": "5"
 				}
 			},
 			"core/post-featured-image": {
@@ -732,8 +736,13 @@
 					"button": {
 						"border": {
 							"radius": { "ref": "styles.elements.button.border.radius" }
+						},
+						"color": {
+							"text": "blue"
 						}
+						
 					}
+					
 				}
 			},
 			"core/separator": {
@@ -777,25 +786,26 @@
 			}
 		},
 		"color": {
-			"background": "var(--wp--preset--color--base)",
+			"background": "rgba(128, 128, 128, 0.5)"  ,
+
 			"text": "var(--wp--preset--color--contrast)"
 		},
 		"elements": {
 			"button": {
 				":active": {
 					"color": {
-						"background": "var(--wp--preset--color--contrast)",
-						"text": "var(--wp--preset--color--base)"
+						"background": "#4A4E69",
+						"text": "black"
 					}
 				},
 				":focus": {
 					"color": {
-						"background": "var(--wp--preset--color--contrast-2)",
+						"background": "green",
 						"text": "var(--wp--preset--color--base)"
 					},
 					"outline": {
-						"color": "var(--wp--preset--color--contrast)",
-						"offset": "2px"
+						"color": "black",
+						"offset": "11px"
 					},
 					"border": {
 						"color": "var(--wp--preset--color--contrast-2)"
@@ -804,18 +814,18 @@
 				":hover": {
 					"color": {
 						"background": "var(--wp--preset--color--contrast-2)",
-						"text": "var(--wp--preset--color--base)"
+						"text": "#FF0000"
 					},
 					"border": {
-						"color": "var(--wp--preset--color--contrast-2)"
+						"color": "white"
 					}
 				},
 				"border": {
-					"radius": ".33rem",
+					"radius": "1.33rem",
 					"color": "var(--wp--preset--color--contrast)"
 				},
 				"color": {
-					"background": "var(--wp--preset--color--contrast)",
+					"background": "#808080", 
 					"text": "var(--wp--preset--color--base)"
 				},
 				"spacing": {
@@ -828,7 +838,7 @@
 				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
-					"fontStyle": "normal",
+					"fontStyle": "oblique",
 					"fontWeight": "500"
 				}
 			},
@@ -903,7 +913,7 @@
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--body)",
 			"fontSize": "var(--wp--preset--font-size--medium)",
-			"fontStyle": "normal",
+			"fontStyle": "large",
 			"fontWeight": "400",
 			"lineHeight": "1.55"
 		},

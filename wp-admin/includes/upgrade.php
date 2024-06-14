@@ -261,7 +261,7 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 		$first_comment_email  = ! empty( $first_comment_email ) ? $first_comment_email : 'wapuu@wordpress.example';
 		$first_comment_url    = ! empty( $first_comment_url ) ? $first_comment_url : esc_url( __( 'https://wordpress.org/' ) );
 		//20240602 電話番号と性別初期化　新規　koui start
-		$first_comment_tel    = ! empty( $first_comment_tel ) ? $first_comment_tel : '01234567891';
+		$first_comment_tel    = ! empty( $first_comment_tel ) ? $first_comment_tel : '';
 		$first_comment_sex    = ! empty( $first_comment_sex ) ? $first_comment_sex : '0';
 		//20240602 電話番号と性別初期化　新規　koui end
 		$first_comment        = ! empty( $first_comment ) ? $first_comment : sprintf(
