@@ -2673,6 +2673,16 @@ function comment_form( $args = array(), $post = null ) {
 				<input id="male" name="sex" type="radio" value="1" />
 				<label >女性</label>
 				<input id="female" name="sex" type="radio" value="0" />
+				<script >
+				 document.addEventListener(\'DOMContentLoaded\', function() {
+						const radioButtons = document.getElementsByName(\'sex\');
+						radioButtons.forEach(function(button) {
+							button.addEventListener(\'dblclick\', function() {
+								radioButtons.forEach(function(btn) {
+									btn.checked = false;});             });
+						});
+					});
+         	   </script>
 			    </div>'
 
 			)
