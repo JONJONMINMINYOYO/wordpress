@@ -3231,12 +3231,13 @@ function get_postshow_comments_link( $label = '' ) {
 
 
 	if ( empty( $label ) ) {
-		$label = __( 'Newer Comments &raquo;' );
+		//$label = __( 'Newer Comments &raquo;' );
+		$label = __( 'NO Comments show;' );
 	}
 
 
 
-	$attr = apply_filters( 'post_show_comments_link_attributes', '' );
+	$attr = apply_filters( 'postshow_comments_link_attributes', '' );
 
 	return sprintf(
 		'<a href="%1$s" %2$s>%3$s</a>',
@@ -3338,15 +3339,20 @@ function get_the_comments_navigation( $args = array() ) {
 				'prev_text'          => __( 'Older comments' ),
 				'next_text'          => __( 'Newer comments' ),
 				'screen_reader_text' => __( 'Comments navigation' ),
+				//20240614  postshow行列に新規  koui  start
+				'postshow_text' => __( 'Post_show comments' ),
+				//20240614  postshow行列に新規  koui  end
 				'aria_label'         => __( 'Comments' ),
 				'class'              => 'comment-navigation',
 			)
 		);
 
 		$prev_link = get_previous_comments_link( $args['prev_text'] );
-		//var_dump($prev_link);
+		
 		$next_link = get_next_comments_link( $args['next_text'] );
-		//var_dump($next_link);
+		//20240614  postshowリンク新規  koui  start
+		$postshow_link = get_postshow_comments_link( $args['postshow_text'] );
+		//20240614  postshowリンク新規  koui  end
 		if ( $prev_link ) {
 			$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
 		}
@@ -3354,6 +3360,11 @@ function get_the_comments_navigation( $args = array() ) {
 		if ( $next_link ) {
 			$navigation .= '<div class="nav-next">' . $next_link . '</div>';
 		}
+		//20240614  postshowリンク新規  koui  start
+		if ( $postshow_link ) {
+			$navigation .= '<div class="nav-postshow">' . $postshow_link . '</div>';
+		}
+		//20240614  postshowリンク新規  koui  end
 
 		$navigation = _navigation_markup( $navigation, $args['class'], $args['screen_reader_text'], $args['aria_label'] );
 	}
