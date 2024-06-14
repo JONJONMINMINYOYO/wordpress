@@ -1364,27 +1364,34 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
 	if ( isset( $comment_data['comment_author_tel'] ) && strlen( $comment_data['comment_author_tel'] ) > $max_lengths['comment_author_tel'] ) {
 		return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 君の電話番号多分悪かったね.' ), 200 );
 	}
-	//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
-	if (!is_user_logged_in()) {
-		$area_code = substr($comment_data['comment_author_tel'], 0, 3);// 電話番号前3桁を取る
-		$allowed_area_codes = array('010', '090', '040'); // 地域のコードの制限
-		$repeated_8digits = preg_match('/^\d{3}(?:(\d)(?!\1{7}))\d{7}$/', $comment_data['comment_author_tel']); // 電話番号後8桁は同じか確認
-	
-		if ("" == $comment_data['comment_author_tel']) {
-			return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong>電話番号を空白にすることはできません、ご確認ください.' ), 200 );
-		}elseif (false == 	preg_match( '/^\d{11}$/',$comment_data['comment_author_tel'] ))  {
-			//echo "( ' 入力した電話番号が11桁数字のみです、もう一度確認してください。.' ), 200 );";
-			return new WP_Error( 'require_valid_comment', __('入力する電話番号には11桁の数字が必要です、もう一度確認してください.'), 200 );
-		}
-		elseif (!in_array($area_code, $allowed_area_codes)) {
-				
-				return new WP_Error( 'require_valid_comment', __('入力する電話番号の最初の3桁は、010、040、090 である必要があります.'), 200 );
+		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
+			if (!is_user_logged_in()) {
+			$area_code = substr($comment_data['comment_author_tel'], 0, 3);// 電話番号前3桁を取る
+			$allowed_area_codes = array('010', '090', '040'); // 地域のコードの制限
+			$repeated_8digits = preg_match('/^\d{3}(?:(\d)(?!\1{7}))\d{7}$/', $comment_data['comment_author_tel']); // 電話番号後8桁は同じか確認
+
+			if ("" == $comment_data['comment_author_tel']) {
+				return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong>電話番号を空白にすることはできません、ご確認ください.' ), 200 );
+			}elseif (false == 	preg_match( '/^\d{11}$/',$comment_data['comment_author_tel'] ))  {
+				//echo "( ' 入力した電話番号が11桁数字のみです、もう一度確認してください。.' ), 200 );";
+				return new WP_Error( 'require_valid_comment', __('入力する電話番号には11桁の数字が必要です、もう一度確認してください.'), 200 );
 			}
-		elseif(!$repeated_8digits){
-				return new WP_Error( 'require_valid_comment', __('入力する電話番号の下8桁は同じであってはなりません.'), 200 );
+			elseif (!in_array($area_code, $allowed_area_codes)) {
+					
+					return new WP_Error( 'require_valid_comment', __('入力する電話番号の最初の3桁は、010、040、090 である必要があります.'), 200 );
+				}
+			elseif(!$repeated_8digits){
+					return new WP_Error( 'require_valid_comment', __('入力する電話番号の下8桁は同じであってはなりません.'), 200 );
+				}
 			}
-		}
 		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui end
+		//20240614 性別チェックボックスをして場合エラーメッセージが出る  start
+		if ("" == ( $comment_data['comment_sex'] ) ) {
+			return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 性別を選択してください' ), 200 );
+		}else{
+			return;
+		}
+		//20240614 性別チェックボックスをして場合エラーメッセージが出る  end
 	//20240602 電話番号最大桁数チェック　新規　koui end
 
 	if ( isset( $comment_data['comment_content'] ) && mb_strlen( $comment_data['comment_content'], '8bit' ) > $max_lengths['comment_content'] ) {
@@ -3821,9 +3828,10 @@ function wp_handle_comment_submission( $comment_data ) {
 		//20240614  comment_author、comment_author_emailのチェックエラーメッセージ改修  koui  end	
 	}
 	//20240614  性別チェックボックスをしてない場合エラーメッセージが出る  追加  koui  start
-	if ( empty( $post->comment_author_tel ) )  {
-		return new WP_Error( 'require_author_tel', __( ' 性別を選択してください.' ), 200 );
-	}
+	// if ( empty( $_COOKIE['comment_author_tel'] ) )  {
+	// 	// var_dump($_COOKIE['comment_author_tel']);
+	// 	return new WP_Error( 'require_author_tel', __( ' 性別を選択してください.' ), 200 );
+	// }
 	//20240614  性別チェックボックスをしてない場合エラーメッセージが出る  追加  koui  end
 	$commentdata = array(
 		'comment_post_ID' => $comment_post_id,
