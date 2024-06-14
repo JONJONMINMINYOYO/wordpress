@@ -579,7 +579,7 @@ function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
 	 */
 	//20240614  クッキーの保存時間設定改修  koui  start
 	//$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 30000000 );
-	$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 36000 );
+	$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 36000 ) ;
 	//20240614  クッキーの保存時間設定改修  koui  end
 
 	$secure = ( 'https' === parse_url( home_url(), PHP_URL_SCHEME ) );

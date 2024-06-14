@@ -504,7 +504,7 @@ function populate_options( array $options = array() ) {
 		'close_comments_for_old_posts'    => 0,
 		'close_comments_days_old'         => 14,
 		'thread_comments'                 => 1,
-		//20240614  'thread_comments_depth'改修  koui  start
+		//2024  'thread_comments_depth'改修  koui  start
 		//'thread_comments_depth'           => 5,
 		'thread_comments_depth'           => 2,
 		//20240614  'thread_comments_depth'改修  koui  start
