@@ -1385,13 +1385,13 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
 				}
 			}
 		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui end
-		//20240614 性別チェックボックスをして場合エラーメッセージが出る  start
-		if ("" == ( $comment_data['comment_sex'] ) ) {
-			return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 性別を選択してください' ), 200 );
-		}else{
+		//20240616  性別チェックボックスをして場合エラーメッセージが出る  start
+		if ( ("0" == ( $comment_data['comment_sex'] ) )|| ("1" == ( $comment_data['comment_sex'] ) ) ) {
 			return;
+		}else{
+			return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 性別を選択してください' ), 200 );
 		}
-		//20240614 性別チェックボックスをして場合エラーメッセージが出る  end
+		//20240616  性別チェックボックスをして場合エラーメッセージが出る  end
 	//20240602 電話番号最大桁数チェック　新規　koui end
 
 	if ( isset( $comment_data['comment_content'] ) && mb_strlen( $comment_data['comment_content'], '8bit' ) > $max_lengths['comment_content'] ) {
