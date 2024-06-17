@@ -37,6 +37,9 @@ class Comment_Pagination_Check implements themecheck {
 			strpos( $php, 'the_comments_navigation' ) === false &&
 			strpos( $php, 'the_comments_pagination' ) === false &&
 			strpos( $php, 'next_comments_link' ) === false &&
+			//20240617  checkにページ数エリア追加  koui  start
+			strpos( $php, 'postshow_comments_link' ) === false &&
+			//20240617  checkにページ数エリア追加  koui  end
 			strpos( $php, 'previous_comments_link' ) === false
 		) {
 			$this->error[] = sprintf(

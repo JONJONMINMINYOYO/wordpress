@@ -74,17 +74,31 @@ function render_block_core_comments_title( $attributes ) {
 		$comments_title = __( 'Responses' );
 	}
 
+	// return sprintf(
+	// 	'<%1$s id="comments" %2$s>%3$s%4$s</%1$s>',
+	// 	$tag_name,
+	// 	$wrapper_attributes,
+	// 	$comments_title,
+	// 	//20240614  Postのコメント画面でpostshowボタン新規  koui  start
+	// 	$search_button ='
+	// 	<input type="button" id="search_button" value="投稿表示" 
+	// 	style="width: 99px;height: 55px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+	// 	'
+	// 	//20240614  Postのコメント画面でpostshowボタン新規  koui  end
+	// );
 	return sprintf(
-		'<%1$s id="comments" %2$s>%3$s%4$s</%1$s>',
+		'<%1$s id="comments" %2$s>%3$s
+		<a href="%5$s" id="search_button" 
+		style="width: 99px;height: 55px; background-color: #65574E;color: #ffffff;font-size: 15px; display: inline-block; text-align: center; line-height: 55px;">
+		%6$s
+		</a>
+		</%1$s>',
 		$tag_name,
 		$wrapper_attributes,
 		$comments_title,
-		//20240614  Postのコメント画面でpostshowボタン新規  koui  start
-		$search_button ='
-		<input type="button" id="search_button" value="投稿表示" 
-		style="width: 99px;height: 55px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
-		'
-		//20240614  Postのコメント画面でpostshowボタン新規  koui  end
+		'',
+		esc_url( postshow_comments_link() ), // 
+		__( '投稿表示', 'your-text-domain' ) // 
 	);
 }
 

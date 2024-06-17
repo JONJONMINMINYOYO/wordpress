@@ -43,10 +43,16 @@ function render_block_core_post_navigation_link( $attributes, $content ) {
 		'none'    => '',
 		'arrow'   => array(
 			'next'     => '→',
+			//20240617  $arrow_mapにページ数エリアpostshow追加  koui  start
+			'postshow' => '|',
+			//20240617  $arrow_mapにページ数エリアpostshow追加  koui  end
 			'previous' => '←',
 		),
 		'chevron' => array(
 			'next'     => '»',
+			//20240617  chevronにページ数エリアpostshow追加  koui  start
+			'postshow' => '||',
+			//20240617  chevronにページ数エリアpostshow追加  koui  end
 			'previous' => '«',
 		),
 	);

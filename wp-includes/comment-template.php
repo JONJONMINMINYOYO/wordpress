@@ -2684,7 +2684,6 @@ function comment_form( $args = array(), $post = null ) {
 					});
          	   </script>
 			    </div>'
-
 			)
 		)
 		
@@ -2747,14 +2746,6 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
 		),
-		//
-		// 'comments_123' =>  sprintf(
-		// 	'<span class="displaying-num">' .
-		// 	/* translators: %s: Number of items. */
-		// 	_n( '%s item', '%s items', "3" ),
-		// 	number_format_i18n( "3" )
-		// ) . '</span>',
-		//
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
 			sprintf(
@@ -2798,10 +2789,6 @@ function comment_form( $args = array(), $post = null ) {
 		// 	get_comment_count( $post_id ),
 		// 	sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( 20 ) ),
 		// ),
-		
-
-		//20240610
-
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
