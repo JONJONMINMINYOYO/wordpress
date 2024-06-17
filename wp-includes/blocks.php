@@ -2064,10 +2064,16 @@ function get_query_pagination_arrow( $block, $is_next ) {
 		'none'    => '',
 		'arrow'   => array(
 			'next'     => '→',
+			//20240617  get_query_pagination_arrowページ数エリア追加  koui  start
+			'postshow' => '|',
+			//20240617  get_query_pagination_arrowページ数エリア追加  koui  end
 			'previous' => '←',
 		),
 		'chevron' => array(
 			'next'     => '»',
+			//20240617  get_query_pagination_arrowページ数エリア追加  koui  start
+			'postshow' => '||',
+			//20240617  get_query_pagination_arrowページ数エリア追加  koui  end
 			'previous' => '«',
 		),
 	);
@@ -2169,10 +2175,16 @@ function get_comments_pagination_arrow( $block, $pagination_type = 'next' ) {
 		'none'    => '',
 		'arrow'   => array(
 			'next'     => '→',
+			//20240617  get_comments_pagination_arrowページ数エリア追加  koui  start
+			'postshow' => '|',
+			//20240617  get_comments_pagination_arrowページ数エリア追加  koui  end
 			'previous' => '←',
 		),
 		'chevron' => array(
 			'next'     => '»',
+			//20240617  get_comments_pagination_arrowページ数エリア追加  koui  start
+			'postshow' => '||',
+			//20240617  get_comments_pagination_arrowページ数エリア追加  koui  end
 			'previous' => '«',
 		),
 	);

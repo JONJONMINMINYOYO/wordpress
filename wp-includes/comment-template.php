@@ -3116,7 +3116,7 @@ function comment_form( $args = array(), $post = null ) {
 	$removable_query_args = wp_removable_query_args();
 
 	$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-	
+	//var_dump($current_url);
 
 	$current_url = remove_query_arg( $removable_query_args, $current_url );
 
@@ -3241,9 +3241,9 @@ function comment_form( $args = array(), $post = null ) {
 	} else {
 		$page_class = ' no-pages';
 	}
-	$this->_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
+	//_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
 
-	echo $this->_pagination;
+	//echo $this->_pagination;
 }
 	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
 	/**

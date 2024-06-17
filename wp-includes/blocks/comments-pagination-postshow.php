@@ -41,7 +41,7 @@ function render_block_core_comments_pagination_postshow( $attributes, $content, 
  */
 function register_block_core_comments_pagination_postshow() {
 	register_block_type_from_metadata(
-		__DIR__ . '/comments-pagination-previous',
+		__DIR__ . '/comments-pagination-postshow',
 		array(
 			'render_callback' => 'render_block_core_comments_pagination_postshow',
 		)
