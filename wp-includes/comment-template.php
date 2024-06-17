@@ -2721,8 +2721,10 @@ function comment_form( $args = array(), $post = null ) {
 	// 	<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
 		
 	// 		</p>';
+	
 	$search_button ='
-	<input type="search" id="search" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
+	
+	<input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
 	style="width: 66px;height: 25px;font-size: 18px;"/>
 	<input type="button" id="search_button" value="リダイレクト" 
 	style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />

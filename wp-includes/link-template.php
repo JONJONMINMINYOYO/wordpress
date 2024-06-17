@@ -3214,7 +3214,7 @@ function previous_comments_link( $label = '' ) {
 }
 
 //20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  start
-function get_postshow_comments_link( $path = '', $scheme = null  ) {
+function get_postshow_comments_link( $path = '') {
 	// global $wp_query;
 	//$orig_scheme = $scheme;
 
@@ -3226,11 +3226,12 @@ function get_postshow_comments_link( $path = '', $scheme = null  ) {
 	// 	restore_current_blog();
 	// }
 	//$url = set_url_scheme( WP_CONTENT_URL );
-	$url = network_site_url( 'wp-includes/blocks/', $scheme );
+	//$url = network_site_url( 'wp-includes/blocks/', $scheme );
+	$url = site_url('/wp-includes/blocks/comments-postshow.php');
 	if ( $path && is_string( $path ) ) {
 		$url .= '/' . ltrim( $path, '/' );
 	}
-
+	return $url ;
 	/**
 	 * Filters the URL to the content directory.
 	 *
@@ -3240,8 +3241,8 @@ function get_postshow_comments_link( $path = '', $scheme = null  ) {
 	 * @param string $path Path relative to the URL to the content directory. Blank string
 	 *                     if no path is specified.
 	 */
-	return apply_filters( 'postshow_comments_link', $url, $path );
-	$url = network_site_url( 'wp-includes/comments-postshow/', $scheme );
+	// return apply_filters( 'postshow_comments_link', $url, $path );
+	// $url = network_site_url( 'wp-includes/comments-postshow/', $scheme );
 
 	// if ( $path && is_string( $path ) ) {
 	// 	$url .= ltrim( $path, '/' );

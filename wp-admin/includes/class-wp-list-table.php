@@ -1014,7 +1014,11 @@ class WP_List_Table {
 	 *
 	 * @param string $which The location of the pagination: Either 'top' or 'bottom'.
 	 */
-	protected function pagination( $which ) {
+
+	 //20240617  function pagination改修  koui  start
+	//protected function pagination( $which ) {
+		public function pagination( $which ) {
+	//20240617  function pagination改修  koui  end
 		if ( empty( $this->_pagination_args ) ) {
 			return;
 		}
