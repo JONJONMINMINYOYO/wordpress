@@ -3214,74 +3214,66 @@ function previous_comments_link( $label = '' ) {
 }
 
 //20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  start
-function get_postshow_comments_link( $blog_id = null, $path = '', $scheme = null  ) {
+function get_postshow_comments_link( $path = '', $scheme = null  ) {
 	// global $wp_query;
+	//$orig_scheme = $scheme;
 
-	// if ( ! is_singular() ) {
-	// 	return;
+	// if ( empty( $blog_id ) || ! is_multisite() ) {
+	// 	$url = get_option( 'postshow' );
+	// } else {
+	// 	switch_to_blog( $blog_id );
+	// 	$url = get_option( 'postshow' );
+	// 	restore_current_blog();
 	// }
-
-	// $page = get_query_var( 'cpage' );
-
-	// if ( ! $page ) {
-	// 	$page = 1;
-	// }
-
-	// $next_page = (int) $page + 1;
-
-
-	// if ( empty( $label ) ) {
-	// 	//$label = __( 'Newer Comments &raquo;' );
-	// 	$label = __( 'NO Comments show;' );
-	// }
-
-
-
-	// $attr = apply_filters( 'postshow_comments_link_attributes', '' );
-
-	// return sprintf(
-	// 	'<a href="%1$s" %2$s>%3$s</a>',
-	// 	esc_url( 1 ),
-	// 	$attr,
-	// 	preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
-	// );
-	$orig_scheme = $scheme;
-
-	if ( empty( $blog_id ) || ! is_multisite() ) {
-		$url = get_option( 'postshow' );
-	} else {
-		switch_to_blog( $blog_id );
-		$url = get_option( 'postshow' );
-		restore_current_blog();
-	}
-
-	if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ), true ) ) {
-		if ( is_ssl() ) {
-			$scheme = 'https';
-		} else {
-			$scheme = parse_url( $url, PHP_URL_SCHEME );
-		}
-	}
-
-	$url = set_url_scheme( $url, $scheme );
-	
+	//$url = set_url_scheme( WP_CONTENT_URL );
+	$url = network_site_url( 'wp-includes/blocks/', $scheme );
 	if ( $path && is_string( $path ) ) {
 		$url .= '/' . ltrim( $path, '/' );
 	}
 
 	/**
-	 * Filters the home URL.
+	 * Filters the URL to the content directory.
 	 *
-	 * @since 3.0.0
+	 * @since 2.8.0
 	 *
-	 * @param string      $url         The complete home URL including scheme and path.
-	 * @param string      $path        Path relative to the home URL. Blank string if no path is specified.
-	 * @param string|null $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https',
-	 *                                 'relative', 'rest', or null.
-	 * @param int|null    $blog_id     Site ID, or null for the current site.
+	 * @param string $url  The complete URL to the content directory including scheme and path.
+	 * @param string $path Path relative to the URL to the content directory. Blank string
+	 *                     if no path is specified.
 	 */
-	return apply_filters( 'postshow_url', $url, $path, $orig_scheme, $blog_id );
+	return apply_filters( 'postshow_comments_link', $url, $path );
+	$url = network_site_url( 'wp-includes/comments-postshow/', $scheme );
+
+	// if ( $path && is_string( $path ) ) {
+	// 	$url .= ltrim( $path, '/' );
+
+	// if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ), true ) ) {
+	// 	if ( is_ssl() ) {
+	// 		$scheme = 'https';
+	// 	} else {
+	// 		$scheme = parse_url( $url, PHP_URL_SCHEME );
+	// 	}
+	// }
+
+	// $url = set_url_scheme( $url, $scheme );
+	
+	// if ( $path && is_string( $path ) ) {
+	// 	$url .= '/' . ltrim( $path, '/' );
+	// }
+
+	// /**
+	//  * Filters the home URL.
+	//  *
+	//  * @since 3.0.0
+	//  *
+	//  * @param string      $url         The complete home URL including scheme and path.
+	//  * @param string      $path        Path relative to the home URL. Blank string if no path is specified.
+	//  * @param string|null $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https',
+	//  *                                 'relative', 'rest', or null.
+	//  * @param int|null    $blog_id     Site ID, or null for the current site.
+	//  */
+	// return apply_filters( 'postshow_url', $url, $path, $orig_scheme, $blog_id );
 }
+
 //20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  end
 
 
