@@ -1084,8 +1084,9 @@ class WP_List_Table {
 				__( 'First page' ),
 				'&laquo;'
 			);
+			// var_dump($page_links);
 		}
-
+		
 		if ( $disable_prev ) {
 			$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&lsaquo;</span>';
 		} else {
