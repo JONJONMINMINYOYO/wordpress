@@ -2739,7 +2739,7 @@ function comment_form( $args = array(), $post = null ) {
 				input.value = "";} );
 			});	
 	</script>';
-
+	//20240618  POST画面「コメント」上でページネーション追加  koui  start
 		global $wp_query;
 		$my_query = new WP_Query($args);
 		$total_pages = $my_query->max_num_pages;
@@ -2890,9 +2890,9 @@ function comment_form( $args = array(), $post = null ) {
 			$page_class = ' no-pages';
 		}
 		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
-
+	echo apply_filters( 'comment_form_postpage_button', $_pagination, $args )."</br>";
+	//20240618  POST画面「コメント」上でページネーション追加  koui end
 	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
-	echo apply_filters( 'comment_form_postpage_button', $_pagination, $args );
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
