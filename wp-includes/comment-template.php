@@ -3167,7 +3167,8 @@ function comment_form( $args = array(), $post = null ) {
 			/* translators: Hidden accessibility text. */
 			__( 'Current Page' )
 		);
-	} else {
+	} 
+	else {
 		$html_current_page = sprintf(
 			'<label for="current-page-selector" class="screen-reader-text">%s</label>' .
 			"<input class='current-page' id='current-page-selector' type='text'

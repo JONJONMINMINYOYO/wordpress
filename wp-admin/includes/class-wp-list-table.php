@@ -91,7 +91,10 @@ class WP_List_Table {
 	 *
 	 * @var array
 	 */
-	protected $compat_methods = array(
+	//20240618  $compat_methods改修  koui  start
+	//protected $compat_methods = array(
+	public $compat_methods = array(
+	//20240618  $compat_methods改修  koui  start
 		'set_pagination_args',
 		'get_views',
 		'get_bulk_actions',
@@ -1131,7 +1134,8 @@ class WP_List_Table {
 
 		if ( $disable_next ) {
 			$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&rsaquo;</span>';
-		} else {
+		} 
+		else {
 			$page_links[] = sprintf(
 				"<a class='next-page button' href='%s'>" .
 					"<span class='screen-reader-text'>%s</span>" .

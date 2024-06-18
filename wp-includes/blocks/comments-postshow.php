@@ -136,12 +136,12 @@
             <td><?php //echo date('H:i:s'); ?></td>
         </tr>
     </table> -->
-    <button class="back-button" onclick="goBack()">戻る</button>
+    <!-- <button class="back-button" onclick="goBack()">戻る</button>
     <script>
         function goBack() {
             window.history.back();
         }
-    </script>
+    </script> -->
    
 </body>
 </html>
