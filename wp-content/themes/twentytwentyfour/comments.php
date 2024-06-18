@@ -1,7 +1,7 @@
 <?php
 //require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 // 获取当前评论页码
-$wp_list_table = new WP_List_Table();
+$wp_list_table = new WP_Comments_List_Table;
 $wp_list_table->pagination( $which );
 $paged = (get_query_var('cpage')) ? get_query_var('cpage') : 1;
 
