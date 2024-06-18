@@ -2736,7 +2736,11 @@ function comment_form( $args = array(), $post = null ) {
 				input.value = "";} );
 			});	
 	</script>';
+	$postpage_button ='
+	';
+
 	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
+	echo apply_filters( 'comment_form_postpage_button', $postpage_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
@@ -3235,7 +3239,7 @@ function comment_form( $args = array(), $post = null ) {
 
 	//echo $this->_pagination;
 }
-	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
+	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  end
 	/**
 	 * Fires after the comment form.
 	 *
