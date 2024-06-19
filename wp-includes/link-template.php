@@ -3128,7 +3128,9 @@ function get_next_comments_link( $label = '', $max_page = 0 ) {
 	}
 
 	if ( empty( $label ) ) {
-		$label = __( 'Newer Comments &raquo;' );
+		//$label = __( 'Newer Comments &raquo;' );
+		//'next_text'          => __( '<span aria-hidden=\'true\' style=\'font-size: 30px;font-style:italic;color:#65574E\' >&rsaquo;</span>' ),
+		$label = __( '<span aria-hidden=\'true\' style=\'font-size: 30px;font-style:italic;color:#65574E\' >&rsaquo;</span>' );
 	}
 
 	/**
@@ -3200,6 +3202,8 @@ function get_previous_comments_link( $label = '' ) {
 		$attr,
 		preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
 	);
+
+
 }
 
 /**
@@ -3367,6 +3371,7 @@ function get_the_comments_navigation( $args = array() ) {
 			array(
 				'prev_text'          => __( 'Older comments' ),
 				'next_text'          => __( 'Newer comments' ),
+				//'next_text'          => __( '<span aria-hidden=\'true\' style=\'font-size: 30px;font-style:italic;color:#65574E\' >&rsaquo;</span>' ),
 				'screen_reader_text' => __( 'Comments navigation' ),
 				//20240614  postshow行列に新規  koui  start
 				'postshow_text' => __( 'Post_show comments' ),

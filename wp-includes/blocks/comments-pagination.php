@@ -24,10 +24,6 @@ function render_block_core_comments_pagination( $attributes, $content ) {
 
 	$classes            = ( isset( $attributes['style']['elements']['link']['color']['text'] ) ) ? 'has-link-color' : '';
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $classes ) );
-	//  var_dump($content);
-	//  echo "<br />\n";
-	//  var_dump($attributes);
-	// var_dump($wrapper_attributes);
 	return sprintf(
 		'<div %1$s>%2$s</div>',
 		$wrapper_attributes,

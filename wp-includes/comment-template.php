@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comment template functions
  *
@@ -2565,12 +2566,31 @@ function wp_list_comments( $args = array(), $comments = null ) {
  * }
  * @param int|WP_Post $post Optional. Post ID or WP_Post object to generate the form for. Default current post.
  */
+//20240619  Block attributesパラメータなど追加  koui  start
+/**
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+* @global WP_Query $wp_query WordPress Query object.
+ *
+ * @param string $query_var     The variable key to retrieve.
+ * @param mixed  $default_value Optional. Value to return if the query variable is not set.
+ *                              Default empty string.
 
- 
+ * @return string Returns the previous posts link for the comments pagination.
+ */
+//20240619  Block attributesパラメータなど追加  koui  end
 
-	//$wp_list_table = _get_list_table( 'WP_Comments_List_Table' );
-	// $postpage->pagination($post);
-	// $total_items     = $postpage->_pagination_args['total_items'];
+//  function get_pagenum() {
+		
+// 	$pagenum = isset( $_REQUEST['paged'] ) ? absint( $_REQUEST['paged'] ) : 0;
+
+// 	if ( isset( $this->_pagination_args['total_pages'] ) && $pagenum >pagination_args['total_pages'] ) {
+// 		$pagenum = $this->_pagination_args['total_pages'];
+// 	}
+	
+// 	return max( 1, $pagenum );
+// }
 function comment_form( $args = array(), $post = null ) {
 	$post = get_post( $post );
 
@@ -2719,12 +2739,6 @@ function comment_form( $args = array(), $post = null ) {
 	 * @param string[] $fields Array of the default comment fields.
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
-	// $field1 = '
-	// 	<p class="search-box">
-	// 	<label class="screen-reader-text" for="' . esc_attr( $fields ) . '">' . $fields . ':</label>
-	// 	<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
-		
-	// 		</p>';
 	
 	$search_button ='
 	<input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
@@ -2741,34 +2755,94 @@ function comment_form( $args = array(), $post = null ) {
 	</script>';
 	//20240618  POST画面「コメント」上でページネーション追加  koui  start
 		global $wp_query;
-		$my_query = new WP_Query($args);
-		$total_pages = $my_query->max_num_pages;
-		$post_id = get_the_ID();
 
+		global  $attributes;
+		global  $content;
+		global  $block;
+	
+		$current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
+	
+		// $comment_vars     = build_comment_query_vars_from_block( $block );
+		// $max_page         = ( new WP_Comment_Query( $comment_vars ) )->max_num_pages;
+	
+		 //echo "max_num_pages".($max_page)."<br>";
+		$post_id = get_the_ID();
+		$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
 		$total_items = get_comments_number($post_id);
-		$infinite_scroll = false;
+
+		//$total_pages = (int)$total_items / $per_page;
+
+		$total_pages = intval(ceil( $total_items / $per_page ));
+		
+	
+		// $abc123 = get_comments_pagenum_link();
+
+		// $abc66 = paginate_comments_links();
+		// $abc = get_next_comments_link(  '', 0 ) ;
+		// $get_dashboard_url = get_dashboard_url( $user_id = 0, $path = '', $scheme = 'admin' );
+		// $self_admin_url = self_admin_url();
+		// $get_edit_comment_link = get_edit_comment_link();
+		// $get_previous_posts_page_link =  get_previous_posts_page_link();
+
+		// $args = wp_parse_args(
+		// 	$args,
+		// 	array(
+		// 		'prev_text'          => __( 'Older comments' ),
+		// 		'next_text'          => __( 'Newer comments' ),
+		// 		'screen_reader_text' => __( 'Comments navigation' ),
+		// 		'aria_label'         => __( 'Comments' ),
+		// 		'class'              => 'comment-navigation',
+		// 	)
+		// );
+
+		// 20240619前ページリンク追加①  koui start
+		$prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
+		// 20240619前ページリンク追加①  koui end
+		//$next_comments_link = render_block_core_comments_pagination_numbers( $attributes, $content, $block );
+		// 20240619前ページリンク追加②  koui start
+		//$prev_link2 = get_previous_comments_link( $args['prev_text'] );
+		// 20240619前ページリンク追加②  koui end
+		//$next_link1 = get_next_comments_link( $args['next_text'] );
+
+		$next_link2 = get_next_comments_link( "", $total_pages );
+
+
+		// $current_page = get_query_var( 'cpage' );    
+		// $next_page = get_pagenum_link( $current_page + 1 );
+
+		
 
 		if ( $total_pages > 1 ) {
 			//$this->screen->render_screen_reader_content( 'heading_pagination' );
 		}
 
+	//	$nowpage =new WP_List_Table -> get_pagenum();
 		$output = '<span class="displaying-num">' . sprintf(
-			/* translators: %s: Number of items. */
+			/* translators: %s: Number of items. */  
 			_n( '%s item', '%s items', $total_items ),
 			number_format_i18n( $total_items )
 		) . '</span></br>';
-			// var_dump($total_items);
-		$current = $wp_query->get_pagenum();
-		//var_dump($current );
-		$removable_query_args = wp_removable_query_args();
+			
+		// $current = $wp_query->get_pagenum();
+		// var_dump($current );
 
+		global $postshow_get_pagenum;
+		var_dump($postshow_get_pagenum);
+		$removable_query_args = wp_removable_query_args();
+	
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-		// var_dump($current_url);
+		//
 		$current_url = remove_query_arg( $removable_query_args, $current_url );
+		
+
+		// $last_page_url = add_query_arg( $current, $total_pages, $current_url );
+
+		// var_dump($last_page_url);
+
 
 		$page_links = array();
 
-		$total_pages_before = '<span class="paging-input">';
+		$total_pages_before = '<span class="postshow-paging-input">';
 		$total_pages_after  = '</span></span>';
 
 		$disable_first = false;
@@ -2791,31 +2865,35 @@ function comment_form( $args = array(), $post = null ) {
 			$page_links[] = sprintf(
 				"<a class='first-page button' href='%s'>" .
 					"<span class='screen-reader-text'>%s</span>" .
-					"<span aria-hidden='true'>%s</span>" .
+					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&laquo;</span>" .
 				'</a>',
 				esc_url( remove_query_arg( 'paged', $current_url ) ),
 				/* translators: Hidden accessibility text. */
 				__( 'First page' ),
-				'&laquo;'
+				//'&laquo;'
 			);
-			// var_dump($page_links);
+			
 		}
-		
+
 		if ( $disable_prev ) {
 			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&lsaquo;</span>';
 		} else {
+			//$current_url = $prev_link;
 			$page_links[] = sprintf(
 				"<a class='prev-page button' href='%s'>" .
 					"<span class='screen-reader-text'>%s</span>" .
-					"<span aria-hidden='true'>%s</span>" .
+					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
 				'</a>',
-				esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+				//esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+				esc_url( $prev_link2 ),
+				
 				/* translators: Hidden accessibility text. */
 				__( 'Previous page' ),
-				'&lsaquo;'
+				//'&lsaquo;'
 			);
 		}
-
+		// var_dump($prev_link2);
+		// var_dump($next_link2);
 		if ($current) {
 			$html_current_page  = $current;
 			$total_pages_before = sprintf(
@@ -2827,8 +2905,8 @@ function comment_form( $args = array(), $post = null ) {
 			);
 		} else {
 			$html_current_page = sprintf(
-				'<label for="current-page-selector" class="screen-reader-text">%s</label>' .
-				"<input class='current-page' id='current-page-selector' type='text'
+				'<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
+				"<input class='current-page' id='post-current-page-selector' type='text'
 					name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
 				"<span class='tablenav-paging-text'>",
 				/* translators: Hidden accessibility text. */
@@ -2838,7 +2916,7 @@ function comment_form( $args = array(), $post = null ) {
 			);
 		}
 
-		$html_total_pages = sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+		$html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
 
 		$page_links[] = $total_pages_before . sprintf(
 			/* translators: 1: Current page, 2: Total pages. */
@@ -2846,22 +2924,26 @@ function comment_form( $args = array(), $post = null ) {
 			$html_current_page,
 			$html_total_pages
 		) . $total_pages_after;
-
+	
 		if ( $disable_next ) {
 			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&rsaquo;</span>';
 		} 
 		else {
+			
+			//$current_url = $next_link;
 			$page_links[] = sprintf(
 				"<a class='next-page button' href='%s'>" .
 					"<span class='screen-reader-text'>%s</span>" .
-					"<span aria-hidden='true'>%s</span>" .
+					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
 				'</a>',
-				esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+				//esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+				esc_url($next_link2),
 				/* translators: Hidden accessibility text. */
 				__( 'Next page' ),
-				'&rsaquo;'
+				//'&rsaquo;'
 			);
 		}
+		//var_dump($next_link2);
 
 		if ( $disable_last ) {
 			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&raquo;</span>';
@@ -2869,19 +2951,22 @@ function comment_form( $args = array(), $post = null ) {
 			$page_links[] = sprintf(
 				"<a class='last-page button' href='%s'>" .
 					"<span class='screen-reader-text'>%s</span>" .
-					"<span aria-hidden='true'>%s</span>" .
+					"<span aria-hidden='true'style='font-size: 30px;font-style:italic;color:#65574E' >&raquo;</span>" .
 				'</a>',
 				esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
 				/* translators: Hidden accessibility text. */
 				__( 'Last page' ),
-				'&raquo;'
+				//'&raquo;'
 			);
 		}
-
+	
+		// var_dump($page_links);
 		$pagination_links_class = 'pagination-links';
+		
 		if ( ! empty( $infinite_scroll ) ) {
 			$pagination_links_class .= ' hide-if-js';
 		}
+
 		$output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
 
 		if ( $total_pages ) {
@@ -2890,8 +2975,9 @@ function comment_form( $args = array(), $post = null ) {
 			$page_class = ' no-pages';
 		}
 		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
-	echo apply_filters( 'comment_form_postpage_button', $_pagination, $args )."</br>";
+	echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
 	//20240618  POST画面「コメント」上でページネーション追加  koui end
+
 	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
