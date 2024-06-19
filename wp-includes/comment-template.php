@@ -2826,8 +2826,7 @@ function comment_form( $args = array(), $post = null ) {
 		// $current = $wp_query->get_pagenum();
 		// var_dump($current );
 
-		global $postshow_get_pagenum;
-		var_dump($postshow_get_pagenum);
+	
 		$removable_query_args = wp_removable_query_args();
 	
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
