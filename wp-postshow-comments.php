@@ -261,21 +261,37 @@ $post_names = array_column($posts, 'post_title');
     <meta charset="UTF-8">
     <title>Postに関わるコメント表示</title>
     <style>
-        table {
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
             width: 80%;
-            margin: 20px auto;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         table, th, td {
-            border: 2px solid black;
+            border: 1px solid black;
+            padding: 8px;
             text-align: left;
-            padding: 5px;
         }
         th {
             background-color: #f2f2f2;
+            min-width: 100px; /* 设置每个表头的最小宽度 */
+        }
+        td {
+            min-width: 100px; /* 设置每个单元格的最小宽度 */
         }
         .pagination {
             margin-top: 10px;
+            text-align: center;
         }
         .pagination a {
             display: inline-block;
@@ -288,7 +304,7 @@ $post_names = array_column($posts, 'post_title');
         }
         .pagination a:hover {
             background-color: #65574E;
-            text-decoration: wavy; 
+            color: white;
         }
     </style>
 </head>
@@ -297,24 +313,24 @@ $post_names = array_column($posts, 'post_title');
     <table>
         <thead>
             <tr>
-                <th>#</th>
-                <th>comment_ID</th>
-                <th>comment_post_ID</th>
-                <th>comment_author</th>
-                <th>comment_author_email</th>
-                <th>comment_author_url</th>
-                <th>comment_author_IP</th>
+                <th>番号</th>
+                <th>ID</th>
+                <th>post_ID</th>
+                <th>作者</th>
+                <th>アドレス</th>
+                <th>URL</th>
+                <th>IP</th>
                 <!-- <th>comment_date</th>
                 <th>comment_date_gmt</th> -->
-                <th>comment_content</th>
+                <th>コンテンツ</th>
                 <!-- <th>comment_karma</th> -->
-                <th>comment_approved</th>
+                <th>承認状態</th>
                 <!-- <th>comment_agent</th> -->
-                <th>comment_type</th>
-                <th>comment_parent</th>
-                <th>user_id</th>
-                <th>comment_author_tel</th>
-                <th>comment_sex</th>
+                <th>タイプ</th>
+                <th>親コメント</th>
+                <th>ユーザーID</th>
+                <th>電話番号</th>
+                <th>性別</th>
             </tr>
         </thead>
         <tbody>
