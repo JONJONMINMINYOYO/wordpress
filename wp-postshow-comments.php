@@ -38,13 +38,13 @@ $post_names = array_column($posts, 'post_title');
         
     }
 </style>
-<form>
+<form method="get">
     <table>
         <tr class="form-field">
             <th scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="2">
                 <p class="postname-box">
                     <label class="postshow-post_nametitle" for="postshow-post_name">Post名称</label>
                     <select name="role" id="postshow-post_name">
@@ -55,7 +55,7 @@ $post_names = array_column($posts, 'post_title');
                     </select>
                 </p>
             </td>  
-            <td colspan="3">
+            <td colspan="2">
                 <p class="postemail-box">
                     <label for="postemail-search">メール検索：</label>
                     <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
@@ -63,11 +63,11 @@ $post_names = array_column($posts, 'post_title');
                 </p>
             </td>  
             <td colspan="3">
-                <p class="search-box">
-                    <label class="kensaku-text" for="<?php echo esc_attr( $input_id ); ?>">検索 :</label>
-                    <input type="search" id="<?php echo esc_attr( $input_id ); ?>" name="s" value="<?php _admin_search_query(); ?>" />
-                    <?php submit_button( $text, '', '', false, array( 'id' => 'search-submit' ) ); ?>
-                </p>
+                <p class="comment-search-box">
+                    <label for="comment-search">キーワード検索：</label>
+                    <input type="text" name="search_keyword" id="comment-search" value="<?php echo isset($_GET['search_keyword']) ? htmlspecialchars($_GET['search_keyword']) : ''; ?>">
+                    <input type="submit" value="検索">
+               </p>
             </td>
         </tr>
         <tr>
@@ -347,13 +347,63 @@ $post_names = array_column($posts, 'post_title');
 
                 //
                 $search_email = isset($_GET['search_email']) ? $_GET['search_email'] : '';
+                $search_keyword = isset($_GET['search_keyword']) ? $_GET['search_keyword'] : '';
                 $sql = "SELECT * FROM {$wpdb->prefix}comments";
                 if (!empty($search_email)) {
                     $sql .= " WHERE comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
+                    $sql .= " LIMIT $limit OFFSET $offset";    
                 }
-                $sql .= " LIMIT $limit OFFSET $offset";
-                $comments = $wpdb->get_results($sql);
+                elseif(!empty($search_keyword)){
+                    $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
+                    $escaped_keyword = esc_sql($search_keyword);
+                    $sql .= " AND (";
+                    $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_author_email LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_author_url LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_content LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_approved LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_type LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_parent LIKE '%$escaped_keyword%' OR";
+                    $sql .= " user_id LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
+                    $sql .= " comment_sex LIKE '%$escaped_keyword%'";
+                    $sql .= ")";
+                    $sql .= " LIMIT $limit OFFSET $offset";
+                   
+                }
+                    $comments = $wpdb->get_results($sql);
                 //
+
+
+                //33333333333333333
+                
+               // $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
+            //    if (!empty($search_keyword)) {
+            //     $escaped_keyword = esc_sql($search_keyword);
+            //     $sql .= " AND (";
+            //     $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_author_email LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_author_url LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_content LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_approved LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_type LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_parent LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " user_id LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
+            //     $sql .= " comment_sex LIKE '%$escaped_keyword%'";
+            //     $sql .= ")";
+
+            //     $sql .= " LIMIT $limit OFFSET $offset";
+            //     $comments = $wpdb->get_results($sql);
+            // }
+             
+                //33333333333333333
                 // コメントデータを取得する
               //  $comments = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}comments LIMIT $limit OFFSET $offset");
 
