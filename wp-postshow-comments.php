@@ -28,20 +28,19 @@ $post_names = array_column($posts, 'post_title');
 //20240620  文章のpost_nameの取得  koui  end
 ?>
 
-<style>
-    form {
-        width: 70%; /* 设置表单的宽度 */
-        margin:initial; /* 使用 auto 来水平居中 */
-        padding: 10px; /* 可选：添加一些内边距 */
-        border: 2px solid #ccc; /* 可选：添加边框 */
-        box-shadow: 0 0 10px rgba(0, 2, 2, 0.1); /* 可选：添加阴影效果 */
-        
-    }
-</style>
-<form method="get">
-    <table>
+            <style>
+                form {
+                    width: 95%; 
+                    margin:auto;  
+                    padding: 20px; 
+                    border: 8px solid #bbb; 
+                    box-shadow: 0 0 10px rgba(2, 2, 2, 0.1); 
+                }
+            </style>
+    <form method="get">
+     <table>
             <tr class="form-field">
-                <th scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
+                <th colspan="6" scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
             </tr>
               <tr>
                 <td colspan="2">
@@ -75,10 +74,8 @@ $post_names = array_column($posts, 'post_title');
                 <button type="button" class="initial-button" onclick="resetForm()">クリアする</button>
                 <a href="<?php echo home_url(); ?>" class="button">ホームに移動する</a>
                    <div class="pagination-up">
-                    <!-- 在这里添加分页导航代码 -->
                     <?php
                               global $wp_query;
-
                               global  $attributes;
                               global  $content;
                               global  $block;
@@ -87,29 +84,16 @@ $post_names = array_column($posts, 'post_title');
                               $post_id = get_the_ID();
                               $per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
                               $total_items = get_comments_number($post_id);
-                              
-                              //$total_pages = (int)$total_items / $per_page;
-                              
+                      
                               $total_pages = intval(ceil( $total_items / $per_page ));
                             
-                              
-                              // 20240619前ページリンク追加①  koui start
                               $prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
-                              // 20240619前ページリンク追加①  koui end
-                              //$next_comments_link = render_block_core_comments_pagination_numbers( $attributes, $content, $block );
-                              // 20240619前ページリンク追加②  koui start
-                              //$prev_link2 = get_previous_comments_link( $args['prev_text'] );
-                              // 20240619前ページリンク追加②  koui end
-                              //$next_link1 = get_next_comments_link( $args['next_text'] );
-                              
+
                               $next_link2 = get_next_comments_link( "", $total_pages );
                               
                               if ( $total_pages > 1 ) {
-                                  //$this->screen->render_screen_reader_content( 'heading_pagination' );
                               }
-
                               $output = '<span class="displaying-num">' . sprintf(
-                                  /* translators: %s: Number of items. */  
                                   _n( '%s item', '%s items', $total_items ),
                                   number_format_i18n( $total_items )
                               ) . '</span></br>';
@@ -151,8 +135,7 @@ $post_names = array_column($posts, 'post_title');
                                       /* translators: Hidden accessibility text. */
                                       __( 'First page' ),
                                       //'&laquo;'
-                                  );
-                                  
+                                  );               
                               }
                               
                               if ( $disable_prev ) {
@@ -250,218 +233,159 @@ $post_names = array_column($posts, 'post_title');
                               $_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
                               echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
                          ?>
-               </div>
-            </tr>
-    </table>
-</form>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Postに関わるコメント表示</title>
-    <script>
-        function clearSearchKeyword() {
-            document.getElementById('keyword-search').value = '';
-        }
-        function clearSearchEmail() {
-            document.getElementById('postemail-search').value = '';
-        }
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        table {
-            width: 100%;
-            max-width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: left;
-    }
-        
-        .pagination {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .pagination a {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #f2f2f2;
-            text-decoration: none;
-            color: black;
-            border: 1px solid #ccc;
-            margin-right: 5px;
-        }
-        .pagination a:hover {
-            background-color: #65574E;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <h2>POSTに関わるコメント表示</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>番号</th>
-                <th>ID</th>
-                <th>post_ID</th>
-                <th>作者</th>
-                <th>メール</th>
-                <th>URL</th>
-                <th>IP</th>
-                <!-- <th>comment_date</th>
-                <th>comment_date_gmt</th> -->
-                <th>コンテンツ</th>
-                <!-- <th>comment_karma</th> -->
-                <th>承認状態</th>
-                <!-- <th>comment_agent</th> -->
-                <th>タイプ</th>
-                <th>親コメント</th>
-                <th>ユーザーID</th>
-                <th>電話番号</th>
-                <th>性別</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                $limit = 10; // ページごとに表示されるレコードの数
-                $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; // 現在のページ番号
-                $offset = ($page - 1) * $limit; // 计算偏移量
-                //
-                $search_email = isset($_GET['search_email']) ? $_GET['search_email'] : '';
-                $search_keyword = isset($_GET['search_keyword']) ? $_GET['search_keyword'] : '';
-                $sql = "SELECT * FROM {$wpdb->prefix}comments";
-                if (!empty($search_email)) {
-                    // var_dump($_GET['search_keyword']);
-                    // $_GET['search_keyword'] = null;
-                    // var_dump($_GET['search_keyword']);
-                    $sql .= " WHERE comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
-                    $sql .= " LIMIT $limit OFFSET $offset";    
-                    var_dump($sql)."search_email<br>";
-                }
-                elseif(!empty($search_keyword)){
-                    $_GET['search_email'] = null;
-                    $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
-                    $escaped_keyword = esc_sql($search_keyword);
-                    $sql .= " AND (";
-                    $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_author_email LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_author_url LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_content LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_approved LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_type LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_parent LIKE '%$escaped_keyword%' OR";
-                    $sql .= " user_id LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
-                    $sql .= " comment_sex LIKE '%$escaped_keyword%'";
-                    $sql .= ")";
-                    $sql .= " LIMIT $limit OFFSET $offset";
-                    var_dump($sql)."search_keyword<br>";
-                }
-                    $comments = $wpdb->get_results($sql);
-                  
-                    //var_dump($comments);
-                
-               // $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
-            //    if (!empty($search_keyword)) {
-            //     $escaped_keyword = esc_sql($search_keyword);
-            //     $sql .= " AND (";
-            //     $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_author_email LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_author_url LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_content LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_approved LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_type LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_parent LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " user_id LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
-            //     $sql .= " comment_sex LIKE '%$escaped_keyword%'";
-            //     $sql .= ")";
+                     </div>
+                    </tr>
+                </table>
+        </form>
+    <?php
+            $limit = 10; 
+            $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
+            $offset = ($page - 1) * $limit; 
 
-            //     $sql .= " LIMIT $limit OFFSET $offset";
-            //     $comments = $wpdb->get_results($sql);
-            // }
-             
-                //33333333333333333
-                // コメントデータを取得する
-              //  $comments = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}comments LIMIT $limit OFFSET $offset");
+            $search_email = isset($_GET['search_email']) ? sanitize_text_field($_GET['search_email']) : '';
+            $search_keyword = isset($_GET['search_keyword']) ? sanitize_text_field($_GET['search_keyword']) : '';
 
-                foreach ($comments as $index => $comment) {
-                    echo "<tr>";
-                    echo "<td>" . (($page - 1) * $limit + $index + 1) . "</td>";
-                    echo "<td>{$comment->comment_ID}</td>";
-                    echo "<td>{$comment->comment_post_ID}</td>";
-                    echo "<td>{$comment->comment_author}</td>";
-                    echo "<td>{$comment->comment_author_email}</td>";
-                    echo "<td>{$comment->comment_author_url}</td>";
-                    echo "<td>{$comment->comment_author_IP}</td>";
-                    // echo "<td>{$comment->comment_date}</td>";
-                    // echo "<td>{$comment->comment_date_gmt}</td>";
-                    echo "<td>{$comment->comment_content}</td>";
-                    // echo "<td>{$comment->comment_karma}</td>";
-                    echo "<td>{$comment->comment_approved}</td>";
-                    // echo "<td>{$comment->comment_agent}</td>";
-                    echo "<td>{$comment->comment_type}</td>";
-                    echo "<td>{$comment->comment_parent}</td>";
-                    echo "<td>{$comment->user_id}</td>";
-                    echo "<td>{$comment->comment_author_tel}</td>";
-                    echo "<td>" . ($comment->comment_sex == 1 ? "男性" : "女性"). "</td>";
-                    echo "</tr>";
-                }
-            ?>
-        </tbody>
-    </table>
+            $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
 
-    <!-- 分页链接 -->
-    <div class="paginations">
-        <?php
-            // 计算评论总数
-        
-            //$total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments");
-            $total_comments =count($comments);
-            // var_dump($total_comments);
+        if (!empty($search_email)) {
+            $sql .= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
+        }
 
-            // 计算总页数
+         if (!empty($search_keyword)) {
+                $escaped_keyword = esc_sql($search_keyword);
+                $sql .= " AND (";
+                $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_author_email LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_author_url LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_content LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_approved LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_type LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_parent LIKE '%$escaped_keyword%' OR";
+                $sql .= " user_id LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
+                $sql .= " comment_sex LIKE '%$escaped_keyword%'";
+                $sql .= ")";
+            }
+
+   
+            $sql .= " LIMIT $limit OFFSET $offset";
+
+            $comments = $wpdb->get_results($sql);
+
+            $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments WHERE 1 = 1");
+
             $total_pages = ceil($total_comments / $limit);
+            ?>
 
-             echo "<div class='pagination'>";
-                for ($i = 1; $i <= $total_pages; $i++) {
-                    $current_class = ($i == $page) ? 'current' : '';
-                    echo "<a class='$current_class' href='?page=$i'>$i</a>";
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Postに関わるコメント表示</title>
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
                 }
-             echo "</div>";
-        ?>
-    </div>
-</body>
-</html>
-<?php
+                table, th, td {
+                    border: 1px solid #ccc;
+                    padding: 8px;
+                    text-align: left;
+                }
+                th {
+                    background-color: #f2f2f2;
+                }
+                .pagination {
+                    margin-top: 10px;
+                }
+                .pagination a {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    text-decoration: none;
+                    color: black;
+                    border: 1px solid #ccc;
+                    margin-right: 5px;
+                }
+                .pagination a:hover {
+                    background-color: #65574E;
+                    color: white;
+                }
+            </style>
+        </head>
+        <body>
+            <h2>POSTに関わるコメント表示</h2>
+            <table>
+            <script>
+                function clearSearchKeyword() {
+                    document.getElementById('keyword-search').value = '';
+                }
+                function clearSearchEmail() {
+                    document.getElementById('postemail-search').value = '';
+                }
+            </script>
+            <thead>
+                <tr>
+                <th>番号</th>
+                    <th>ID</th>
+                    <th>post_ID</th>
+                    <th>作者</th>
+                    <th>メール</th>
+                    <th>URL</th>
+                    <th>IP</th>
+                    <!-- <th>comment_date</th>
+                    <th>comment_date_gmt</th> -->
+                    <th>コンテンツ</th>
+                    <!-- <th>comment_karma</th> -->
+                    <th>承認状態</th>
+                    <!-- <th>comment_agent</th> -->
+                    <th>タイプ</th>
+                    <th>親コメント</th>
+                    <th>ユーザーID</th>
+                    <th>電話番号</th>
+                    <th>性別</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($comments as $index => $comment): ?>
+                    <tr>
+                        <td><?php echo (($page - 1) * $limit + $index + 1); ?></td>
+                        <td><?php echo $comment->comment_ID; ?></td>
+                        <td><?php echo $comment->comment_post_ID; ?></td>
+                        <td><?php echo $comment->comment_author; ?></td>
+                        <td><?php echo $comment->comment_author_email; ?></td>
+                        <td><?php echo $comment->comment_author_url; ?></td>
+                        <td><?php echo $comment->comment_author_IP; ?></td>
+                        <td><?php echo $comment->comment_content; ?></td>
+                        <td><?php echo $comment->comment_approved; ?></td>
+                        <td><?php echo $comment->comment_type; ?></td>
+                        <td><?php echo $comment->comment_parent; ?></td>
+                        <td><?php echo $comment->user_id; ?></td>
+                        <td><?php echo $comment->comment_author_tel; ?></td>
+                        <td><?php echo ($comment->comment_sex == 1 ? "男性" : "女性"); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
-?>
-<?php 
+        <div class="pagination">
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="?page=<?php echo $i; ?>
+                    <?php echo !empty($search_email) ? '&search_email=' . urlencode($search_email) : ''; ?>
+                    <?php echo !empty($search_keyword) ? '&search_keyword=' . urlencode($search_keyword) : ''; ?>">
+                    <?php echo $i; ?>
+                </a>
+            <?php endfor; ?>
+        </div>
+
+    </body>
+    </html>
+
+        </html>
+        <?php 
 $post_ids = array();
 foreach ( $posts as $p ) {
   // 投稿IDの配列を作成
@@ -480,7 +404,7 @@ $nextID = $post_ids[$current + 1]; // 次の記事ID
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Post Name Selector</title>
+    <title>Postに関わるコメント表示xxxxxx</title>
 </head>
 <body>
 <?php body_class(); ?>
