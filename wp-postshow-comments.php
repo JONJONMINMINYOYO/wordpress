@@ -40,43 +40,42 @@ $post_names = array_column($posts, 'post_title');
 </style>
 <form method="get">
     <table>
-        <tr class="form-field">
-            <th scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p class="postname-box">
-                    <label class="postshow-post_nametitle" for="postshow-post_name">Post名称</label>
-                    <select name="role" id="postshow-post_name">
-                    <option value="">選んでください</option> <!-- 空白のオプションを追加する -->
-                        <?php foreach ($post_names as $option) : ?>
-                            <option value="<?php echo esc_attr($option); ?>"><?php echo esc_html($option); ?></option>
-                        <?php endforeach; ?>
-                    </select>
+            <tr class="form-field">
+                <th scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
+            </tr>
+              <tr>
+                <td colspan="2">
+                    <p class="postname-serach">
+                        <label class="postname-serach" for="postname-serach">Post名称</label>
+                        <select name="role" id="postname-serach">
+                        <option value="">選んでください</option> <!-- 空白のオプションを追加する -->
+                            <?php foreach ($post_names as $option) : ?>
+                                <option value="<?php echo esc_attr($option); ?>"><?php echo esc_html($option); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </p>
+                </td>  
+                <td colspan="2">
+                    <p class="postemail-box">
+                        <label for="postemail-search">メール検索：</label>
+                        <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
+                        <input type="submit" value="検索" onclick="clearSearchKeyword();">
+                    </p>
+                </td>  
+                <td colspan="3">
+                    <p class="keyword-search">
+                        <label for="keyword-search">キーワード検索：</label>
+                        <input type="text" name="search_keyword" id="keyword-search" value="<?php echo isset($_GET['search_keyword']) ? htmlspecialchars($_GET['search_keyword']) : ''; ?>">
+                        <input type="submit" value="検索" onclick="clearSearchEmail();">
                 </p>
-            </td>  
-            <td colspan="2">
-                <p class="postemail-box">
-                    <label for="postemail-search">メール検索：</label>
-                    <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
-                    <input type="submit" value="検索">
-                </p>
-            </td>  
-            <td colspan="3">
-                <p class="comment-search-box">
-                    <label for="comment-search">キーワード検索：</label>
-                    <input type="text" name="search_keyword" id="comment-search" value="<?php echo isset($_GET['search_keyword']) ? htmlspecialchars($_GET['search_keyword']) : ''; ?>">
-                    <input type="submit" value="検索">
-               </p>
-            </td>
-        </tr>
-        <tr>
-          <div class="form-actions">
-            <button type="button" class="button" onclick="resetForm()">クリアする</button>
-            <a href="<?php echo home_url(); ?>" class="button">ホームに移動する</a>
-                 <div class="pagination">
+                </td>
+             </tr>
+            <tr>
+              <div class="form-actions">
+                <button type="button" class="initial-button" onclick="resetForm()">クリアする</button>
+                <a href="<?php echo home_url(); ?>" class="button">ホームに移動する</a>
+                   <div class="pagination-up">
                     <!-- 在这里添加分页导航代码 -->
-
                     <?php
                               global $wp_query;
 
@@ -251,10 +250,8 @@ $post_names = array_column($posts, 'post_title');
                               $_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
                               echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
                          ?>
-                  </div>
-             </tr>
-          <tr>
-        </tr>
+               </div>
+            </tr>
     </table>
 </form>
 <!DOCTYPE html>
@@ -262,6 +259,14 @@ $post_names = array_column($posts, 'post_title');
 <head>
     <meta charset="UTF-8">
     <title>Postに関わるコメント表示</title>
+    <script>
+        function clearSearchKeyword() {
+            document.getElementById('keyword-search').value = '';
+        }
+        function clearSearchEmail() {
+            document.getElementById('postemail-search').value = '';
+        }
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -290,9 +295,7 @@ $post_names = array_column($posts, 'post_title');
         padding: 8px;
         text-align: left;
     }
-        td {
-            min-width: 100px; /* 设置每个单元格的最小宽度 */
-        }
+        
         .pagination {
             margin-top: 10px;
             text-align: center;
@@ -321,7 +324,7 @@ $post_names = array_column($posts, 'post_title');
                 <th>ID</th>
                 <th>post_ID</th>
                 <th>作者</th>
-                <th>アドレス</th>
+                <th>メール</th>
                 <th>URL</th>
                 <th>IP</th>
                 <!-- <th>comment_date</th>
@@ -342,18 +345,20 @@ $post_names = array_column($posts, 'post_title');
                 $limit = 10; // ページごとに表示されるレコードの数
                 $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; // 現在のページ番号
                 $offset = ($page - 1) * $limit; // 计算偏移量
-
-
-
                 //
                 $search_email = isset($_GET['search_email']) ? $_GET['search_email'] : '';
                 $search_keyword = isset($_GET['search_keyword']) ? $_GET['search_keyword'] : '';
                 $sql = "SELECT * FROM {$wpdb->prefix}comments";
                 if (!empty($search_email)) {
+                    // var_dump($_GET['search_keyword']);
+                    // $_GET['search_keyword'] = null;
+                    // var_dump($_GET['search_keyword']);
                     $sql .= " WHERE comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
                     $sql .= " LIMIT $limit OFFSET $offset";    
+                    var_dump($sql)."search_email<br>";
                 }
                 elseif(!empty($search_keyword)){
+                    $_GET['search_email'] = null;
                     $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
                     $escaped_keyword = esc_sql($search_keyword);
                     $sql .= " AND (";
@@ -372,13 +377,11 @@ $post_names = array_column($posts, 'post_title');
                     $sql .= " comment_sex LIKE '%$escaped_keyword%'";
                     $sql .= ")";
                     $sql .= " LIMIT $limit OFFSET $offset";
-                   
+                    var_dump($sql)."search_keyword<br>";
                 }
                     $comments = $wpdb->get_results($sql);
-                //
-
-
-                //33333333333333333
+                  
+                    //var_dump($comments);
                 
                // $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
             //    if (!empty($search_keyword)) {
@@ -434,18 +437,23 @@ $post_names = array_column($posts, 'post_title');
     </table>
 
     <!-- 分页链接 -->
-    <div class="pagination">
+    <div class="paginations">
         <?php
             // 计算评论总数
-            $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments");
+        
+            //$total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments");
+            $total_comments =count($comments);
+            // var_dump($total_comments);
 
             // 计算总页数
             $total_pages = ceil($total_comments / $limit);
 
-            // 显示页码链接
-            for ($i = 1; $i <= $total_pages; $i++) {
-                echo "<a href='?page=$i'>$i</a>";
-            }
+             echo "<div class='pagination'>";
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    $current_class = ($i == $page) ? 'current' : '';
+                    echo "<a class='$current_class' href='?page=$i'>$i</a>";
+                }
+             echo "</div>";
         ?>
     </div>
 </body>
