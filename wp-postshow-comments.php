@@ -1,33 +1,31 @@
 <?php
-require_once( dirname( __FILE__ ) . '/wp-load.php' );
-require_once( ABSPATH . 'wp-admin/includes/admin.php' );
-require_once  'wp-admin/includes/class-wp-comments-list-table.php';
-/**
-* @param array    $attributes Block attributes.
-* @param string   $content    Block default content.
-* @param WP_Block $block      Block instance.
-* @global WP_Query $wp_query WordPress Query object.
- */
-global $wp_query;
-global $wpdb;
+    require_once( dirname( __FILE__ ) . '/wp-load.php' );
+    require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+    require_once  'wp-admin/includes/class-wp-comments-list-table.php';
+    /**
+    * @param array    $attributes Block attributes.
+    * @param string   $content    Block default content.
+    * @param WP_Block $block      Block instance.
+    * @global WP_Query $wp_query WordPress Query object.
+    */
+    global $wp_query;
+    global $wpdb;
 
-$postshow_list = new WP_Comments_List_Table();  
-//20240620  文章のpost_nameの取得  koui  start   
-$query = new WP_Query();
-$postshow_table = new WP_List_Table(); 
+    $postshow_list = new WP_Comments_List_Table();  
+    //20240620  文章のpost_nameの取得  koui  start   
+    $query = new WP_Query();
+    $postshow_table = new WP_List_Table(); 
 
-$query_params = array(
-    'post_type'      => 'post',
-    'posts_per_page' => get_option('posts_per_page'), 
-    'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
-);
-$query->query($query_params);
-$posts = $query->posts;
-$post_names = array_column($posts, 'post_title');
-
-//20240620  文章のpost_nameの取得  koui  end
+    $query_params = array(
+        'post_type'      => 'post',
+        'posts_per_page' => get_option('posts_per_page'), 
+        'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
+    );
+    $query->query($query_params);
+    $posts = $query->posts;
+    $post_names = array_column($posts, 'post_title');
+    //20240620  文章のpost_nameの取得  koui  end
 ?>
-
             <style>
                 form {
                     width: 95%; 
@@ -44,15 +42,27 @@ $post_names = array_column($posts, 'post_title');
             </tr>
               <tr>
                 <td colspan="2">
-                    <p class="postname-serach">
-                        <label class="postname-serach" for="postname-serach">Post名称</label>
-                        <select name="role" id="postname-serach">
+                <p class="postname-serach">
+                    <label class="postname-serach" for="postname-serach">post_name</label>
+                    <select name="postname-serach" id="postname-serach">
                         <option value="">選んでください</option> <!-- 空白のオプションを追加する -->
-                            <?php foreach ($post_names as $option) : ?>
-                                <option value="<?php echo esc_attr($option); ?>"><?php echo esc_html($option); ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </p>
+                        <?php foreach ($post_names as $option) : ?>
+                            <option value="<?php echo esc_attr($option); ?>"><?php echo esc_html($option); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </p>
+                <div id="result"></div>
+                <script>
+                    const selectElement = document.getElementById('postname-serach');
+                    const resultContainer = document.getElementById('result');
+                    selectElement.addEventListener('change', function() {
+                        const selectedValue = selectElement.value;
+                        resultContainer.innerHTML = '';
+                            if (selectedValue) {
+                                resultContainer.innerHTML = `ユーザーが選択したPost名は：${selectedValue}`;
+                            }
+                    });
+                </script>
                 </td>  
                 <td colspan="2">
                     <p class="postemail-box">
@@ -238,6 +248,7 @@ $post_names = array_column($posts, 'post_title');
                 </table>
         </form>
     <?php
+             var_dump($option);
             $limit = 10; 
             $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
             $offset = ($page - 1) * $limit; 

@@ -4853,3 +4853,161 @@ Stack trace:
 [21-Jun-2024 00:25:51 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
 [21-Jun-2024 00:25:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
 [21-Jun-2024 00:25:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:26:15 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 234
+[21-Jun-2024 00:26:15 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 395
+[21-Jun-2024 00:26:15 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 395
+[21-Jun-2024 00:26:15 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:26:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:26:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:26:23 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 234
+[21-Jun-2024 00:26:23 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 395
+[21-Jun-2024 00:26:23 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 395
+[21-Jun-2024 00:26:23 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:26:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:26:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:26:33 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 234
+[21-Jun-2024 00:26:33 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 395
+[21-Jun-2024 00:26:33 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 395
+[21-Jun-2024 00:26:33 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:26:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:26:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:32:49 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:32:49 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:32:49 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:32:49 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:32:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:32:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:32:56 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:32:56 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:32:56 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:32:56 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:32:57 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:32:57 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:33:04 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:33:04 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:33:04 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:33:04 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:33:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:33:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:34:51 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:34:51 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:34:51 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:34:51 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:34:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:34:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:34:56 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:34:56 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:34:56 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:34:56 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:34:56 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:34:56 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:19 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:35:19 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:19 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:19 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:35:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:39 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:35:39 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:39 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:39 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:35:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:42 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:35:42 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:42 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:42 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:35:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:46 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 235
+[21-Jun-2024 00:35:46 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:46 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 397
+[21-Jun-2024 00:35:46 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 399
+[21-Jun-2024 00:35:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:35:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:10 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 242
+[21-Jun-2024 00:40:10 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:10 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:10 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 406
+[21-Jun-2024 00:40:10 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:14 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 242
+[21-Jun-2024 00:40:14 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:14 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:14 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 406
+[21-Jun-2024 00:40:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:25 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 242
+[21-Jun-2024 00:40:25 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:25 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:25 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 406
+[21-Jun-2024 00:40:25 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:34 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 242
+[21-Jun-2024 00:40:34 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:34 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:40:34 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 406
+[21-Jun-2024 00:40:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:40:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:41:14 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 242
+[21-Jun-2024 00:41:14 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:41:14 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 404
+[21-Jun-2024 00:41:14 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 406
+[21-Jun-2024 00:41:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:41:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:45:16 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 255
+[21-Jun-2024 00:45:16 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 417
+[21-Jun-2024 00:45:16 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 417
+[21-Jun-2024 00:45:16 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 419
+[21-Jun-2024 00:45:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:45:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:45:47 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 256
+[21-Jun-2024 00:45:47 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 418
+[21-Jun-2024 00:45:47 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 418
+[21-Jun-2024 00:45:47 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 420
+[21-Jun-2024 00:45:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:45:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:48:04 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:48:04 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:48:04 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:48:04 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:48:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:48:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:48:45 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:48:45 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:48:45 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:48:45 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:48:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:48:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:49:16 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:49:16 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:49:16 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:49:16 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:49:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:49:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:50:52 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:50:52 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:50:52 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:50:52 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:50:53 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:50:53 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:51:34 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:51:34 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:51:34 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:51:34 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:51:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:51:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:51:50 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:51:50 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:51:50 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:51:50 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:51:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:51:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:52:04 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 00:52:04 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:52:04 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 409
+[21-Jun-2024 00:52:04 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 00:52:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:52:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
