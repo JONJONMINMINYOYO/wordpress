@@ -44,8 +44,8 @@ $post_names = array_column($posts, 'post_title');
             <th scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
         </tr>
         <tr>
-            <td colspan="6">
-                <p class="postshow-box">
+            <td colspan="3">
+                <p class="postname-box">
                     <label class="postshow-post_nametitle" for="postshow-post_name">Post名称</label>
                     <select name="role" id="postshow-post_name">
                     <option value="">選んでください</option> <!-- 空白のオプションを追加する -->
@@ -55,7 +55,14 @@ $post_names = array_column($posts, 'post_title');
                     </select>
                 </p>
             </td>  
-            <td colspan="2">
+            <td colspan="3">
+                <p class="postemail-box">
+                    <label for="postemail-search">メール検索：</label>
+                    <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
+                    <input type="submit" value="検索">
+                </p>
+            </td>  
+            <td colspan="3">
                 <p class="search-box">
                     <label class="kensaku-text" for="<?php echo esc_attr( $input_id ); ?>">検索 :</label>
                     <input type="search" id="<?php echo esc_attr( $input_id ); ?>" name="s" value="<?php _admin_search_query(); ?>" />
@@ -164,8 +171,7 @@ $post_names = array_column($posts, 'post_title');
                                       //'&lsaquo;'
                                   );
                               }
-                              // var_dump($prev_link2);
-                              // var_dump($next_link2);
+                           
                               if ($current) {
                                   $html_current_page  = $current;
                                   $total_pages_before = sprintf(
@@ -201,8 +207,7 @@ $post_names = array_column($posts, 'post_title');
                                   $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&rsaquo;</span>';
                               } 
                               else {
-                                  
-                                  //$current_url = $next_link;
+              
                                   $page_links[] = sprintf(
                                       "<a class='next-page button' href='%s'>" .
                                           "<span class='screen-reader-text'>%s</span>" .
@@ -215,8 +220,7 @@ $post_names = array_column($posts, 'post_title');
                                       //'&rsaquo;'
                                   );
                               }
-                              //var_dump($next_link2);
-                              
+                          
                               if ( $disable_last ) {
                                   $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&raquo;</span>';
                               } else {
@@ -231,8 +235,6 @@ $post_names = array_column($posts, 'post_title');
                                       //'&raquo;'
                                   );
                               }
-                              
-                              // var_dump($page_links);
                               $pagination_links_class = 'pagination-links';
                               
                               if ( ! empty( $infinite_scroll ) ) {
@@ -283,9 +285,11 @@ $post_names = array_column($posts, 'post_title');
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
-            min-width: 100px; /* 设置每个表头的最小宽度 */
-        }
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
         td {
             min-width: 100px; /* 设置每个单元格的最小宽度 */
         }
@@ -339,8 +343,19 @@ $post_names = array_column($posts, 'post_title');
                 $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; // 現在のページ番号
                 $offset = ($page - 1) * $limit; // 计算偏移量
 
+
+
+                //
+                $search_email = isset($_GET['search_email']) ? $_GET['search_email'] : '';
+                $sql = "SELECT * FROM {$wpdb->prefix}comments";
+                if (!empty($search_email)) {
+                    $sql .= " WHERE comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
+                }
+                $sql .= " LIMIT $limit OFFSET $offset";
+                $comments = $wpdb->get_results($sql);
+                //
                 // コメントデータを取得する
-                $comments = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}comments LIMIT $limit OFFSET $offset");
+              //  $comments = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}comments LIMIT $limit OFFSET $offset");
 
                 foreach ($comments as $index => $comment) {
                     echo "<tr>";
@@ -361,7 +376,7 @@ $post_names = array_column($posts, 'post_title');
                     echo "<td>{$comment->comment_parent}</td>";
                     echo "<td>{$comment->user_id}</td>";
                     echo "<td>{$comment->comment_author_tel}</td>";
-                    echo "<td>{$comment->comment_sex}</td>";
+                    echo "<td>" . ($comment->comment_sex == 1 ? "男性" : "女性"). "</td>";
                     echo "</tr>";
                 }
             ?>
@@ -383,46 +398,10 @@ $post_names = array_column($posts, 'post_title');
             }
         ?>
     </div>
-
 </body>
 </html>
-
-
 <?php
 
-// $query_args = array(
-//     'post_id' => 123, // 指定要查询的 post ID
-//     'status'  => 'approve', // 只查询已批准的评论
-// );
-// $postshow_list->prepare_items($query_args);
-// $comments = $postshow_list->items;
-// $post_ids = array_unique(array_map(function($comment) {
-//     return $comment->comment_post_ID;
-// }, $comments));
-
-// $posts = get_posts(array(
-//     'post__in' => $post_ids,
-//     'post_type' => 'post', // 或其他你需要的 post 类型
-// ));
-
-// // $comments 
-// if (!empty($comments)) {
-//     foreach ($comments as $comment) {
-//         echo '<p>' . esc_html($comment->comment_content) . '</p>';
-//     }
-// } else {
-//     echo '<p>No comments found.</p>';
-// }
-// // 处理表单提交
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // 获取表单提交的时间（这里假设是更新时间）
-//     $updated_datetime = $_POST['current_datetime'];
-
-//     // 在页面顶部显示当前的时间和日期
-//     echo "<h2>今の時間</h2>";
-//     echo "<p>更新後の時間：$updated_datetime</p>";
-// }
-// $comments 
 ?>
 <?php 
 $post_ids = array();
