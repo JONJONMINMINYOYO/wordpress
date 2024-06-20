@@ -2740,19 +2740,19 @@ function comment_form( $args = array(), $post = null ) {
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
 	
-	$search_button ='
-	<input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
-	style="width: 66px;height: 25px;font-size: 18px;"/>
-	<input type="button" id="search_button" value="リダイレクト" 
-	style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
-	   <script >
-	  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
-				search_button.addEventListener (
-				"click", function(){
-				inputs.forEach(function(input) {
-				input.value = "";} );
-			});	
-	</script>';
+	// $search_button ='
+	// <input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
+	// style="width: 66px;height: 25px;font-size: 18px;"/>
+	// <input type="button" id="search_button" value="リダイレクト" 
+	// style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+	//    <script >
+	//   var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+	// 			search_button.addEventListener (
+	// 			"click", function(){
+	// 			inputs.forEach(function(input) {
+	// 			input.value = "";} );
+	// 		});	
+	// </script>';
 	//20240618  POST画面「コメント」上でページネーション追加  koui  start
 		global $wp_query;
 
@@ -2977,7 +2977,7 @@ function comment_form( $args = array(), $post = null ) {
 	echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
 	//20240618  POST画面「コメント」上でページネーション追加  koui end
 
-	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
+	//echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
@@ -3272,8 +3272,6 @@ function comment_form( $args = array(), $post = null ) {
 					});	
             </script>';
 			//20240605  入力内容クリアボタン新規　koui end
-
-			
 			$submit_field = sprintf(
 				$args['submit_field'],
 				$submit_button ,

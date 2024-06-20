@@ -3492,9 +3492,74 @@ function the_comments_pagination( $args = array() ) {
  *                            'http', 'https', 'relative', 'rest', or null. Default null.
  * @return string Home URL link with optional path appended.
  */
+//20240620  postshow_url()追加  koui  start
+function postshow_url( $path = '', $scheme = null ) {
+	return get_postshow_url( $path, $scheme );
+}
+//20240620  postshow_url()追加  koui  end
+
+//20240620  get_postshow_url()追加  koui  start
+function get_postshow_url(  $path = '', $scheme = null ) {
+	// $orig_scheme = $scheme;
+
+	// if ( empty( $blog_id ) || ! is_multisite() ) {
+	// 	$url = get_option( 'home' );
+	// } else {
+	// 	switch_to_blog( $blog_id );
+	 //	$url = get_option( 'home' );
+	// 	restore_current_blog();
+	// }
+
+	// if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ), true ) ) {
+	// 	if ( is_ssl() ) {
+	// 		$scheme = 'https';
+	// 	} else {
+	// 		$scheme = parse_url( $url, PHP_URL_SCHEME );
+	// 	}
+	// }
+
+	// $url = set_url_scheme( $url, $scheme );
+
+	// if ( $path && is_string( $path ) ) {
+	// 	$url .= '/' . ltrim( $path, '/' );
+	// }
+	$url = network_site_url( '/wp-postshow-comments.php', $scheme );
+
+	if ( $path && is_string( $path ) ) {
+		$url .= ltrim( $path, '/' );
+	}
+
+	/**
+	 * Filters the user admin URL for the current user.
+	 *
+	 * @since 3.1.0
+	 * @since 5.8.0 The `$scheme` parameter was added.
+	 *
+	 * @param string      $url    The complete URL including scheme and path.
+	 * @param string      $path   Path relative to the URL. Blank string if
+	 *                            no path is specified.
+	 * @param string|null $scheme The scheme to use. Accepts 'http', 'https',
+	 *                            'admin', or null. Default is 'admin', which obeys force_ssl_admin() and is_ssl().
+	 */
+	return apply_filters( 'user_admin_url', $url, $path, $scheme );
+	/**
+	 * Filters the home URL.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string      $url         The complete home URL including scheme and path.
+	 * @param string      $path        Path relative to the home URL. Blank string if no path is specified.
+	 * @param string|null $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https',
+	 *                                 'relative', 'rest', or null.
+	 * @param int|null    $blog_id     Site ID, or null for the current site.
+	 */
+	
+}
+//20240620  get_postshow_url()追加  koui  end
 function home_url( $path = '', $scheme = null ) {
 	return get_home_url( null, $path, $scheme );
 }
+
 
 /**
  * Retrieves the URL for a given site where the front end is accessible.
