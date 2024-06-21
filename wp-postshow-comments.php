@@ -62,7 +62,7 @@
                                     const selectedValue = selectElement.value;
                                     resultContainer.innerHTML = '';
                                         if (selectedValue) {
-                                            resultContainer.innerHTML = `ユーザーが選択したPost名は：${selectedValue}`;
+                                            resultContainer.innerHTML = `ユーザーが選択したPost名は :${selectedValue}`;
                                         }
                                 });
                                 function clearSearchKeyword() {
@@ -104,7 +104,7 @@
             $search_keyword = isset($_GET['search_keyword']) ? sanitize_text_field($_GET['search_keyword']) : '';
             $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
 
-        if (!empty($post_name_select)) {
+        if ("" !=($post_name_select) && isset($post_name_select)) {
             $sql = $wpdb->prepare("
                 SELECT c.*
                 FROM {$wpdb->prefix}comments AS c
@@ -112,11 +112,11 @@
                 WHERE p.post_name = %s
             ", $_GET['post_names_select']);
         }
-        if (!empty($search_email)) {
+        if ("" !=($search_email) && isset($search_email)) {
             $sql .= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
         }
 
-         if (!empty($search_keyword)) {
+         if ("" !=($search_email) && isset($search_keyword)) {
                 $escaped_keyword = esc_sql($search_keyword);
                 $sql .= " AND (";
                 $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
@@ -138,7 +138,7 @@
 
             $comments = $wpdb->get_results($sql);
             
-            $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments WHERE 1 = 1");
+            $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments ");
 
             $total_pages = ceil($total_comments / $limit);
    
@@ -202,7 +202,6 @@
           <body>
             <h2>POSTに関わるコメント表示</h2>
                 <table>
-        
                             <thead>
                                 <tr>
                                 <th>番号</th>
@@ -247,7 +246,7 @@
                             <?php endforeach; ?>
                         </tbody>
                 </table>
-                    <div class="pagination">
+                        <div class="pagination">
                             <div class="postshow_allitems">
                                 <span class="comment-count">コメントの総数:</span>
                                 <strong><?php echo $total_comments; ?></strong>
@@ -280,10 +279,7 @@
                          $prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
 
                          $next_link2 = get_next_comments_link( "", $total_pages );
-                         
-                         if ( $total_pages > 1 ) {
-                         }
-                         
+
                          $removable_query_args = wp_removable_query_args();
                          
                          $current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
@@ -421,28 +417,3 @@
                     </div>
                  </body>
              </form>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Postに関わるコメント表示xxxxxx</title>
-</head>
-<body>
-<?php body_class(); ?>
-<?php get_header(); ?>
-<nav class="navigation post-navigation" aria-label="投稿">
-  <h2 class="screen-reader-text">投稿ナビゲーション</h2>
-  <div class="nav-links">
-    <div class="nav-previous">
-      <a href="前の記事のリンク" rel="prev">前の記事タイトル</a>
-      <a href="<?php echo esc_url(home_url('/')); ?>">本ページ</a>
-      <a href="<?php echo esc_url(postshow_url('/')); ?>">postshow_url</a>
-    </div>
-    <div class="nav-next">
-      <a href="次の記事のリンク" rel="next">次の記事タイトル</a>
-    </div>
-  </div>
-</nav>
-
-
-
