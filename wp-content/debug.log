@@ -5011,3 +5011,656 @@ Stack trace:
 [21-Jun-2024 00:52:04 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
 [21-Jun-2024 00:52:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
 [21-Jun-2024 00:52:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:57:44 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 00:57:44 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 443
+[21-Jun-2024 00:57:44 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 443
+[21-Jun-2024 00:57:44 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 445
+[21-Jun-2024 00:57:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:57:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:58:15 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 00:58:15 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 443
+[21-Jun-2024 00:58:15 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 443
+[21-Jun-2024 00:58:15 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 445
+[21-Jun-2024 00:58:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:58:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:59:19 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 00:59:19 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 00:59:19 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 00:59:19 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 444
+[21-Jun-2024 00:59:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 00:59:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:00:37 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:00:37 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 01:00:37 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 01:00:37 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 444
+[21-Jun-2024 01:00:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:00:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:01:59 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:01:59 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 01:01:59 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 01:01:59 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 444
+[21-Jun-2024 01:02:00 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:02:00 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:02:12 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:02:12 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 01:02:12 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 442
+[21-Jun-2024 01:02:12 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 444
+[21-Jun-2024 01:02:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:02:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:08 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:10:08 Asia/Tokyo] PHP Warning:  Undefined variable $comments123 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 383
+[21-Jun-2024 01:10:08 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 383
+[21-Jun-2024 01:10:08 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:08 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:08 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 01:10:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:12 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:10:12 Asia/Tokyo] PHP Warning:  Undefined variable $comments123 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 383
+[21-Jun-2024 01:10:12 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 383
+[21-Jun-2024 01:10:12 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:12 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:12 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 01:10:12 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:15 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:10:15 Asia/Tokyo] PHP Warning:  Undefined variable $comments123 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 383
+[21-Jun-2024 01:10:15 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 383
+[21-Jun-2024 01:10:15 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:15 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:15 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 01:10:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:39 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 244
+[21-Jun-2024 01:10:39 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:39 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 01:10:39 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 01:10:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:10:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:00 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 01:13:00 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 426
+[21-Jun-2024 01:13:00 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 426
+[21-Jun-2024 01:13:00 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 428
+[21-Jun-2024 01:13:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:07 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 01:13:07 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 426
+[21-Jun-2024 01:13:07 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 426
+[21-Jun-2024 01:13:07 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 428
+[21-Jun-2024 01:13:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:18 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:20 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:20 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:20 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:25 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:25 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:41 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:41 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:13:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:14:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:14:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:15:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:15:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:00 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 255
+[21-Jun-2024 01:16:00 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:00 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:00 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 436
+[21-Jun-2024 01:16:00 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:03 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 255
+[21-Jun-2024 01:16:03 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:03 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:03 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 436
+[21-Jun-2024 01:16:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:07 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 255
+[21-Jun-2024 01:16:07 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:07 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:07 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 436
+[21-Jun-2024 01:16:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:13 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 255
+[21-Jun-2024 01:16:13 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:13 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 434
+[21-Jun-2024 01:16:13 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 436
+[21-Jun-2024 01:16:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:37 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:16:37 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:16:37 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:16:37 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:16:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:40 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:16:40 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:16:40 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:16:40 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:16:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:41 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:50 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:16:50 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:16:50 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:16:50 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:16:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:16:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:17:31 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:17:31 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:17:31 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:17:31 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:17:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:17:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:17:50 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:17:50 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:17:50 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:17:50 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:17:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:17:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:17:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:17:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:18:01 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:18:01 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:18:01 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:18:01 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:18:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:18:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:18:39 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 248
+[21-Jun-2024 01:18:39 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:18:39 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 01:18:39 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 429
+[21-Jun-2024 01:18:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 01:18:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:27:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:27:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:27:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:27:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:29:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:29:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:29:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:29:53 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:29:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:29:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:30:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:30:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:30:13 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 246
+[21-Jun-2024 09:30:13 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:30:13 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:30:13 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 09:30:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:30:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:30:19 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 246
+[21-Jun-2024 09:30:19 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:30:19 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:30:19 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 09:30:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:30:20 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:31:43 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 246
+[21-Jun-2024 09:31:43 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:31:43 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:31:43 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 427
+[21-Jun-2024 09:31:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:31:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:04 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 09:40:04 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 09:40:04 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 09:40:04 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:40:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:15 Asia/Tokyo] PHP Warning:  Undefined variable $args in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 247
+[21-Jun-2024 09:40:15 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 09:40:15 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 09:40:15 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:40:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:56 Asia/Tokyo] PHP Warning:  Undefined variable $post in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 09:40:56 Asia/Tokyo] PHP Warning:  Attempt to read property "ID" on null in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 423
+[21-Jun-2024 09:40:56 Asia/Tokyo] PHP Warning:  Undefined array key -1 in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 425
+[21-Jun-2024 09:40:57 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:40:57 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:41:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:41:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:41:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:41:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:41:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:41:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:46:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:46:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:46:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:46:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:46:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:46:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:53:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:55:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:55:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:55:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:55:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:02 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:03 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 09:56:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:55 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:00:55 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:01:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:01:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:01:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:01:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:01:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:01:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:54 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:54 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:54 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:02:55 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:04:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:09:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:09:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:12:06 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:12:06 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:12:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:12:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:13:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:13:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:13:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:13:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:13:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:13:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:19:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:19:48 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:20:04 Asia/Tokyo] PHP Warning:  Undefined array key "post_names_select" in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 281
+[21-Jun-2024 10:20:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:20:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:20:07 Asia/Tokyo] PHP Warning:  Undefined array key "post_names_select" in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 281
+[21-Jun-2024 10:20:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:20:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:21:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:21:44 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:23:40 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:25:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:25:12 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:25:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:25:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:25:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:25:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:26:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:26:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:26:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:26:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:26:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:26:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:40 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:43 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:56 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:57 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:27:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:00 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:28:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:30:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:30:01 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:30:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:30:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:30:12 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:30:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:03 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:06 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:06 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:24 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:31:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:33 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:31:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:54 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:55 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:56 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:57 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:32:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:00 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:00 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:00 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:33:03 Asia/Tokyo] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\softwares\XAMPP\htdocs\wordpress\wp-includes\formatting.php on line 4494
+[21-Jun-2024 10:33:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:04 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:04 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:33:09 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:09 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:11 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:33:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:18 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:19 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:20 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:33:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:25 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:25 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:33:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:32 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:33:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:33:38 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 10:34:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:34:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:36:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:36:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:36:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:36:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:38:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:38:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:38:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:38:22 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:39:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:39:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:43:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:43:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:43:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:43:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:45:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:45:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:45:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:45:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:45:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:45:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:46:53 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:46:54 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:47:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:47:17 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:49:13 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:49:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:50:02 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:50:02 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:50:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:50:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:51:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:51:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:51:35 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:51:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:51:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:51:47 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:05 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:21 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:52:39 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:53:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:53:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:53:45 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:53:46 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:54:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:54:36 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:54:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:54:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:55:10 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:55:10 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:56:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:56:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:56:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:56:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:57:54 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:57:55 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:57:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:57:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:11 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:12 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:16 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:20 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:20 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:23 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:27 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 10:59:28 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:02:14 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:02:15 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:04:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:04:34 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:05:51 Asia/Tokyo] PHP Warning:  Undefined variable $post_names in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 24
+[21-Jun-2024 11:05:51 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 24
+[21-Jun-2024 11:05:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:05:52 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:07:50 Asia/Tokyo] PHP Warning:  Undefined variable $post_names in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:07:50 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:07:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:07:51 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:08:29 Asia/Tokyo] PHP Warning:  Undefined variable $post_names in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:08:29 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:08:29 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 415
+[21-Jun-2024 11:08:29 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:08:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:09:24 Asia/Tokyo] PHP Warning:  Undefined variable $post_names in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:09:24 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:09:24 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 11:09:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:09:24 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:09:30 Asia/Tokyo] PHP Warning:  Undefined variable $post_names in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:09:30 Asia/Tokyo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 23
+[21-Jun-2024 11:09:30 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 411
+[21-Jun-2024 11:09:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:09:30 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:10:31 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 412
+[21-Jun-2024 11:10:31 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:10:32 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:10:37 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 412
+[21-Jun-2024 11:10:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:10:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:10:49 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 412
+[21-Jun-2024 11:10:49 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:10:50 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:11:37 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:11:38 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:11:38 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 11:13:07 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 408
+[21-Jun-2024 11:13:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:13:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:20:58 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 414
+[21-Jun-2024 11:20:58 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:20:59 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:21:03 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:21:03 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:21:03 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 11:21:07 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:21:08 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:21:08 Asia/Tokyo] PHP Warning:  Undefined array key "C:/softwares/XAMPP/htdocs/wordpress/wp-content/themes/twentytwentyfour/parts/footer.html" in C:\softwares\XAMPP\htdocs\wordpress\wp-content\plugins\query-monitor\output\html\theme.php on line 163
+[21-Jun-2024 11:21:41 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 412
+[21-Jun-2024 11:21:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[21-Jun-2024 11:21:42 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
