@@ -17,9 +17,6 @@ require_once ABSPATH . WPINC . '/blocks/comments.php';
 require_once ABSPATH . WPINC . '/blocks/comments-pagination.php';
 require_once ABSPATH . WPINC . '/blocks/comments-pagination-next.php';
 require_once ABSPATH . WPINC . '/blocks/comments-pagination-numbers.php';
-//20240617 comments-postshow.php追加  start
-require_once ABSPATH . WPINC . '/blocks/comments-postshow.php';
-//20240617 comments-postshow.php追加  end
 require_once ABSPATH . WPINC . '/blocks/comments-pagination-previous.php';
 require_once ABSPATH . WPINC . '/blocks/comments-title.php';
 require_once ABSPATH . WPINC . '/blocks/cover.php';

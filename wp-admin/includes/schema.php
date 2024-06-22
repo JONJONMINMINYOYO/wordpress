@@ -104,10 +104,6 @@ CREATE TABLE $wpdb->comments (
 	comment_author tinytext NOT NULL,
 	comment_author_email varchar(100) NOT NULL default '',
 	comment_author_url varchar(200) NOT NULL default '',
-	/* 20240602 電話番号と性別パラメータ　新規　koui start */
-	comment_author_tel varchar(13) default 'NULL',
-	comment_sex char(1)  default 'NULL',
-	/* 20240602 電話番号と性別パラメータ　新規　koui end */
 	comment_author_IP varchar(100) NOT NULL default '',
 	comment_date datetime NOT NULL default '0000-00-00 00:00:00',
 	comment_date_gmt datetime NOT NULL default '0000-00-00 00:00:00',
@@ -466,8 +462,7 @@ function populate_options( array $options = array() ) {
 		'use_trackback'                   => 0,
 
 		// 2.0.0
-		//'default_role'                    => 'subscriber',
-		'default_role'                    => 'author', //0601
+		'default_role'                    => 'subscriber',
 		'db_version'                      => $wp_db_version,
 
 		// 2.0.1
@@ -504,10 +499,7 @@ function populate_options( array $options = array() ) {
 		'close_comments_for_old_posts'    => 0,
 		'close_comments_days_old'         => 14,
 		'thread_comments'                 => 1,
-		//20240614  'thread_comments_depth'改修  koui  start
-		//'thread_comments_depth'           => 5,
-		'thread_comments_depth'           => 2,
-		//20240614  'thread_comments_depth'改修  koui  start
+		'thread_comments_depth'           => 5,
 		'page_comments'                   => 0,
 		'comments_per_page'               => 50,
 		'default_comments_page'           => 'newest',

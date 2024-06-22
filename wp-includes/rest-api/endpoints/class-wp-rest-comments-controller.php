@@ -704,7 +704,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		if ( ! $comment_id ) {
 			return new WP_Error(
 				'rest_comment_failed_create',
-				__( 'Creating comment failed.コメント作成は失敗しました。0601' ),
+				__( 'Creating comment failed.' ),
 				array( 'status' => 500 )
 			);
 		}
@@ -784,7 +784,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		if ( ! $this->check_edit_permission( $comment ) ) {
 			return new WP_Error(
 				'rest_cannot_edit',
-				__( 'Sorry, you are not allowed to edit this comment.以下のcheck_edit_permission( $comment )引用 ' ),
+				__( 'Sorry, you are not allowed to edit this comment.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -811,7 +811,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		if ( isset( $request['type'] ) && get_comment_type( $id ) !== $request['type'] ) {
 			return new WP_Error(
 				'rest_comment_invalid_type',
-				__( 'Sorry, you are not allowed to change the comment type.→( isset( $request[\'type\'] ) && get_comment_type( $id ) !== $request[\'type\'] )' ),//0601
+				__( 'Sorry, you are not allowed to change the comment type.' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -1072,14 +1072,6 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 			$data['author_url'] = $comment->comment_author_url;
 		}
 
-		//20240605 prepare_item_for_response　電話番号と性別　追加　koui start
-		if ( in_array( 'author_tel', $fields, true ) ) {
-			$data['author_tel'] = $comment->comment_author_tel;
-		}
-		if ( in_array( 'author_sex', $fields, true ) ) {
-			$data['author_sex'] = $comment->comment_sex;
-		}
-		//20240605 prepare_item_for_response　電話番号と性別　追加　koui end
 		if ( in_array( 'author_ip', $fields, true ) ) {
 			$data['author_ip'] = $comment->comment_author_IP;
 		}
@@ -1906,7 +1898,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 				'user_id'              => 0,
 			)
 		);
-		
+
 		/** This filter is documented in wp-includes/comment.php */
 		$allow_empty = apply_filters( 'allow_empty_comment', false, $check );
 

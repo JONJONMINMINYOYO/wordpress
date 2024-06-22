@@ -2798,7 +2798,6 @@ function get_the_post_navigation( $args = array() ) {
 		$args['excluded_terms'],
 		$args['taxonomy']
 	);
-	
 
 	$next = get_next_post_link(
 		'<div class="nav-next">%link</div>',
@@ -3128,9 +3127,7 @@ function get_next_comments_link( $label = '', $max_page = 0 ) {
 	}
 
 	if ( empty( $label ) ) {
-		//$label = __( 'Newer Comments &raquo;' );
-		//'next_text'          => __( '<span aria-hidden=\'true\' style=\'font-size: 30px;font-style:italic;color:#65574E\' >&rsaquo;</span>' ),
-		$label = __( '<span aria-hidden=\'true\' style=\'font-size: 30px;font-style:italic;color:#65574E\' >&rsaquo;</span>' );
+		$label = __( 'Newer Comments &raquo;' );
 	}
 
 	/**
@@ -3202,8 +3199,6 @@ function get_previous_comments_link( $label = '' ) {
 		$attr,
 		preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
 	);
-
-
 }
 
 /**
@@ -3217,76 +3212,6 @@ function previous_comments_link( $label = '' ) {
 	echo get_previous_comments_link( $label );
 }
 
-//20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  start
-function get_postshow_comments_link( $path = '') {
-	// global $wp_query;
-	//$orig_scheme = $scheme;
-
-	// if ( empty( $blog_id ) || ! is_multisite() ) {
-	// 	$url = get_option( 'postshow' );
-	// } else {
-	// 	switch_to_blog( $blog_id );
-	// 	$url = get_option( 'postshow' );
-	// 	restore_current_blog();
-	// }
-	//$url = set_url_scheme( WP_CONTENT_URL );
-	//$url = network_site_url( 'wp-includes/blocks/', $scheme );
-	$url = site_url('/wp-includes/blocks/comments-postshow.php');
-	if ( $path && is_string( $path ) ) {
-		$url .= '/' . ltrim( $path, '/' );
-	}
-	return $url ;
-	/**
-	 * Filters the URL to the content directory.
-	 *
-	 * @since 2.8.0
-	 *
-	 * @param string $url  The complete URL to the content directory including scheme and path.
-	 * @param string $path Path relative to the URL to the content directory. Blank string
-	 *                     if no path is specified.
-	 */
-	// return apply_filters( 'postshow_comments_link', $url, $path );
-	// $url = network_site_url( 'wp-includes/comments-postshow/', $scheme );
-
-	// if ( $path && is_string( $path ) ) {
-	// 	$url .= ltrim( $path, '/' );
-
-	// if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ), true ) ) {
-	// 	if ( is_ssl() ) {
-	// 		$scheme = 'https';
-	// 	} else {
-	// 		$scheme = parse_url( $url, PHP_URL_SCHEME );
-	// 	}
-	// }
-
-	// $url = set_url_scheme( $url, $scheme );
-	
-	// if ( $path && is_string( $path ) ) {
-	// 	$url .= '/' . ltrim( $path, '/' );
-	// }
-
-	// /**
-	//  * Filters the home URL.
-	//  *
-	//  * @since 3.0.0
-	//  *
-	//  * @param string      $url         The complete home URL including scheme and path.
-	//  * @param string      $path        Path relative to the home URL. Blank string if no path is specified.
-	//  * @param string|null $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https',
-	//  *                                 'relative', 'rest', or null.
-	//  * @param int|null    $blog_id     Site ID, or null for the current site.
-	//  */
-	// return apply_filters( 'postshow_url', $url, $path, $orig_scheme, $blog_id );
-}
-
-//20240613  リンクを設定、コメントの詳細表示はページに遷移します。  koui  end
-
-
-//20240613  リンクを取る、コメントの詳細表示はページに遷移します。  koui  start
-function postshow_comments_link( $label = '' ) {
-	echo get_postshow_comments_link( $label );
-}
-//20240613  リンクを取る、コメントの詳細表示はページに遷移します。  koui  end
 /**
  * Displays or retrieves pagination links for the comments on the current post.
  *
@@ -3371,22 +3296,15 @@ function get_the_comments_navigation( $args = array() ) {
 			array(
 				'prev_text'          => __( 'Older comments' ),
 				'next_text'          => __( 'Newer comments' ),
-				//'next_text'          => __( '<span aria-hidden=\'true\' style=\'font-size: 30px;font-style:italic;color:#65574E\' >&rsaquo;</span>' ),
 				'screen_reader_text' => __( 'Comments navigation' ),
-				//20240614  postshow行列に新規  koui  start
-				'postshow_text' => __( 'Post_show comments' ),
-				//20240614  postshow行列に新規  koui  end
 				'aria_label'         => __( 'Comments' ),
 				'class'              => 'comment-navigation',
 			)
 		);
 
 		$prev_link = get_previous_comments_link( $args['prev_text'] );
-		
 		$next_link = get_next_comments_link( $args['next_text'] );
-		//20240614  postshowリンク新規  koui  start
-		$postshow_link = get_postshow_comments_link( $args['postshow_text'] );
-		//20240614  postshowリンク新規  koui  end
+
 		if ( $prev_link ) {
 			$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
 		}
@@ -3394,11 +3312,6 @@ function get_the_comments_navigation( $args = array() ) {
 		if ( $next_link ) {
 			$navigation .= '<div class="nav-next">' . $next_link . '</div>';
 		}
-		//20240614  postshowリンク新規  koui  start
-		if ( $postshow_link ) {
-			$navigation .= '<div class="nav-postshow">' . $postshow_link . '</div>';
-		}
-		//20240614  postshowリンク新規  koui  end
 
 		$navigation = _navigation_markup( $navigation, $args['class'], $args['screen_reader_text'], $args['aria_label'] );
 	}
@@ -3492,74 +3405,9 @@ function the_comments_pagination( $args = array() ) {
  *                            'http', 'https', 'relative', 'rest', or null. Default null.
  * @return string Home URL link with optional path appended.
  */
-//20240620  postshow_url()追加  koui  start
-function postshow_url( $path = '', $scheme = null ) {
-	return get_postshow_url( $path, $scheme );
-}
-//20240620  postshow_url()追加  koui  end
-
-//20240620  get_postshow_url()追加  koui  start
-function get_postshow_url(  $path = '', $scheme = null ) {
-	// $orig_scheme = $scheme;
-
-	// if ( empty( $blog_id ) || ! is_multisite() ) {
-	// 	$url = get_option( 'home' );
-	// } else {
-	// 	switch_to_blog( $blog_id );
-	 //	$url = get_option( 'home' );
-	// 	restore_current_blog();
-	// }
-
-	// if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ), true ) ) {
-	// 	if ( is_ssl() ) {
-	// 		$scheme = 'https';
-	// 	} else {
-	// 		$scheme = parse_url( $url, PHP_URL_SCHEME );
-	// 	}
-	// }
-
-	// $url = set_url_scheme( $url, $scheme );
-
-	// if ( $path && is_string( $path ) ) {
-	// 	$url .= '/' . ltrim( $path, '/' );
-	// }
-	$url = network_site_url( '/wp-postshow-comments.php', $scheme );
-
-	if ( $path && is_string( $path ) ) {
-		$url .= ltrim( $path, '/' );
-	}
-
-	/**
-	 * Filters the user admin URL for the current user.
-	 *
-	 * @since 3.1.0
-	 * @since 5.8.0 The `$scheme` parameter was added.
-	 *
-	 * @param string      $url    The complete URL including scheme and path.
-	 * @param string      $path   Path relative to the URL. Blank string if
-	 *                            no path is specified.
-	 * @param string|null $scheme The scheme to use. Accepts 'http', 'https',
-	 *                            'admin', or null. Default is 'admin', which obeys force_ssl_admin() and is_ssl().
-	 */
-	return apply_filters( 'user_admin_url', $url, $path, $scheme );
-	/**
-	 * Filters the home URL.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @param string      $url         The complete home URL including scheme and path.
-	 * @param string      $path        Path relative to the home URL. Blank string if no path is specified.
-	 * @param string|null $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https',
-	 *                                 'relative', 'rest', or null.
-	 * @param int|null    $blog_id     Site ID, or null for the current site.
-	 */
-	
-}
-//20240620  get_postshow_url()追加  koui  end
 function home_url( $path = '', $scheme = null ) {
 	return get_home_url( null, $path, $scheme );
 }
-
 
 /**
  * Retrieves the URL for a given site where the front end is accessible.

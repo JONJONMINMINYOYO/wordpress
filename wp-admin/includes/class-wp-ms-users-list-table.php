@@ -174,10 +174,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @param string $which
 	 */
-	//20240618  class-wp-ms-sites-list-table.phpにfunction pagination改修  koui  start
-	//protected function pagination( $which ) {
-	  public function pagination( $which ) {
-	//20240618  class-wp-ms-sites-list-table.phpにfunction pagination改修  koui  end	
+	protected function pagination( $which ) {
 		global $mode;
 
 		parent::pagination( $which );

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.5.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-12 13:55:10+0000\n"
+"PO-Revision-Date: 2024-06-13 12:23:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -762,16 +762,16 @@ msgstr "依存関係配列の入力値は ID キーを含む文字列または�
 msgid "Missing required id key in entry among dependencies array."
 msgstr "依存関係配列の入力値に必須の ID キーが含まれていません。"
 
-#: wp-includes/class-wp-plugin-dependencies.php:530
+#: wp-includes/class-wp-plugin-dependencies.php:531
 msgid "All required plugins are installed and activated."
 msgstr "必要なプラグインがすべてインストールされ、有効化されています。"
 
 #. translators: %s: A list of inactive dependency plugin names.
-#: wp-includes/class-wp-plugin-dependencies.php:522
+#: wp-includes/class-wp-plugin-dependencies.php:523
 msgid "The following plugins must be activated first: %s."
 msgstr "最初に次のプラグインを有効にする必要があります: %s。"
 
-#: wp-includes/class-wp-plugin-dependencies.php:493
+#: wp-includes/class-wp-plugin-dependencies.php:494
 msgid "The plugin has no required plugins."
 msgstr "プラグインには必須のプラグインがありません。"
 
@@ -8571,7 +8571,7 @@ msgstr "もっと高いレベルの権限が必要です。"
 #: wp-admin/includes/class-custom-image-header.php:1032
 #: wp-admin/includes/file.php:638 wp-admin/media-upload.php:38
 #: wp-admin/themes.php:27 wp-admin/themes.php:70 wp-admin/users.php:158
-#: wp-admin/js/tags.js:62 wp-admin/js/updates.js:2354
+#: wp-admin/js/tags.js:62 wp-admin/js/updates.js:2327
 #: wp-admin/network/site-users.php:158
 msgid "Something went wrong."
 msgstr "何かがうまくいかなかったようです。"
@@ -12021,7 +12021,7 @@ msgstr "存在しないタームです。"
 #: wp-includes/customize/class-wp-customize-theme-control.php:260
 #: wp-admin/includes/theme.php:1071 wp-admin/theme-install.php:408
 #: wp-admin/theme-install.php:488 wp-admin/themes.php:616
-#: wp-admin/themes.php:988 wp-admin/themes.php:1222 wp-admin/js/updates.js:1829
+#: wp-admin/themes.php:988 wp-admin/themes.php:1222 wp-admin/js/updates.js:1802
 msgctxt "theme"
 msgid "Activate %s"
 msgstr "%s を有効化"
@@ -13910,7 +13910,7 @@ msgstr "リンク文字列"
 #: wp-admin/theme-install.php:420 wp-admin/theme-install.php:437
 #: wp-admin/themes.php:625 wp-admin/themes.php:634 wp-admin/themes.php:995
 #: wp-admin/themes.php:1003 wp-admin/themes.php:1225 wp-admin/themes.php:1236
-#: wp-admin/js/updates.js:1844
+#: wp-admin/js/updates.js:1817
 msgid "Live Preview"
 msgstr "ライブプレビュー"
 
@@ -15201,7 +15201,7 @@ msgstr "右寄せ"
 #: wp-includes/class-wp-customize-widgets.php:805
 #: wp-admin/includes/ajax-actions.php:1107
 #: wp-admin/includes/ajax-actions.php:2379 wp-admin/js/media.js:127
-#: wp-admin/js/media.js:132 wp-admin/js/updates.js:2363
+#: wp-admin/js/media.js:132 wp-admin/js/updates.js:2336
 msgid "An error has occurred. Please reload the page and try again."
 msgstr "エラーが発生しました。ページを再読み込みしてもう一度お試しください。"
 

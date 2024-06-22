@@ -30,7 +30,7 @@ if ( post_password_required() ) { ?>
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<h1 id="comments">
+	<h3 id="comments">
 		<?php
 		if ( '1' === get_comments_number() ) {
 			printf(
@@ -47,12 +47,11 @@ if ( post_password_required() ) { ?>
 			);
 		}
 		?>
-	</h1>
+	</h3>
 
 	<div class="navigation">
 		<div class="alignleft"><?php previous_comments_link(); ?></div>
 		<div class="alignright"><?php next_comments_link(); ?></div>
-		<div class="alignright"><?php postshow_comments_link(); ?></div> 
 	</div>
 
 	<ol class="commentlist">
@@ -62,7 +61,6 @@ if ( post_password_required() ) { ?>
 	<div class="navigation">
 		<div class="alignleft"><?php previous_comments_link(); ?></div>
 		<div class="alignright"><?php next_comments_link(); ?></div>
-		<div class="alignright"><?php postshow_comments_link(); ?></div> 
 	</div>
 <?php else : // This is displayed if there are no comments so far. ?>
 

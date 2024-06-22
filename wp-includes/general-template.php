@@ -5192,10 +5192,7 @@ function wp_required_field_message() {
 	$message = sprintf(
 		'<span class="required-field-message">%s</span>',
 		/* translators: %s: Asterisk symbol (*). */
-		//20240611  wp_required_field_message文言変更  koui  start
-		//sprintf( __( 'Required fields are marked %s' ), wp_required_field_indicator() )
-		sprintf( __( '必須項目はマークされています %s' ), wp_required_field_indicator() )
-		//20240611  wp_required_field_message文言変更  koui  end
+		sprintf( __( 'Required fields are marked %s' ), wp_required_field_indicator() )
 	);
 
 	/**

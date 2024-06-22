@@ -1,0 +1,314 @@
+# Translation of Plugins - Debug Bar - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Debug Bar - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-04-21 13:42:18+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Debug Bar - Stable (latest release)\n"
+
+#: panels/class-debug-bar-wp-http.php:72
+msgid "WP_Http"
+msgstr "WP_Http"
+
+#. translators: %s = duration in milliseconds.
+#: panels/class-debug-bar-queries.php:54 panels/class-debug-bar-queries.php:84
+#: panels/class-debug-bar-wp-http.php:130
+#: panels/class-debug-bar-wp-http.php:165
+#: panels/class-debug-bar-wp-http.php:188
+msgid "%s ms"
+msgstr "%sミリ秒"
+
+#. Author URI of the plugin
+#: debug-bar.php
+msgid "https://wordpress.org/"
+msgstr "https://ja.wordpress.org/"
+
+#. Author of the plugin
+#: debug-bar.php
+msgid "wordpressdotorg"
+msgstr "wordpressdotorg"
+
+#. Description of the plugin
+#: debug-bar.php
+msgid "Adds a debug menu to the admin bar that shows query, cache, and other helpful debugging information."
+msgstr "管理バーに、クエリ、キャッシュ、その他の有用なデバッグ情報を表示するデバッグメニューを追加します。"
+
+#. Plugin URI of the plugin
+#: debug-bar.php
+msgid "https://wordpress.org/plugins/debug-bar/"
+msgstr "https://ja.wordpress.org/plugins/debug-bar/"
+
+#. Plugin Name of the plugin
+#: debug-bar.php
+msgid "Debug Bar"
+msgstr "Debug Bar"
+
+#: panels/class-debug-bar-wp-query.php:98
+msgid "Queried Object:"
+msgstr "照会されたオブジェクト:"
+
+#: panels/class-debug-bar-wp-query.php:89
+msgid "Query SQL:"
+msgstr "SQL クエリ:"
+
+#: panels/class-debug-bar-wp-query.php:85
+msgid "Query Arguments:"
+msgstr "クエリの引数:"
+
+#: panels/class-debug-bar-wp-query.php:74
+msgid "Post Type:"
+msgstr "投稿タイプ:"
+
+#: panels/class-debug-bar-wp-query.php:67
+msgid "Show on Front:"
+msgstr "フロントでの表示:"
+
+#: panels/class-debug-bar-wp-query.php:60
+msgid "Query Template:"
+msgstr "クエリテンプレート:"
+
+#: panels/class-debug-bar-wp-query.php:56
+msgid "Query Type:"
+msgstr "クエリタイプ:"
+
+#: panels/class-debug-bar-wp-query.php:50
+msgid "Archive"
+msgstr "アーカイブ"
+
+#: panels/class-debug-bar-wp-query.php:48
+msgid "Date"
+msgstr "日付"
+
+#: panels/class-debug-bar-wp-query.php:46
+msgid "Author"
+msgstr "登録者"
+
+#: panels/class-debug-bar-wp-query.php:44
+msgid "Tag"
+msgstr "タグ"
+
+#: panels/class-debug-bar-wp-query.php:42
+msgid "Category"
+msgstr "カテゴリー"
+
+#: panels/class-debug-bar-wp-query.php:40
+msgid "Page"
+msgstr "ページ"
+
+#: panels/class-debug-bar-wp-query.php:36
+msgid "Attachment"
+msgstr "添付ファイル"
+
+#: panels/class-debug-bar-wp-query.php:34
+msgid "Home"
+msgstr "ホーム"
+
+#: panels/class-debug-bar-wp-query.php:32
+msgid "Front Page"
+msgstr "フロントページ"
+
+#: panels/class-debug-bar-wp-query.php:30
+msgid "Taxonomy"
+msgstr "タクソノミー"
+
+#: panels/class-debug-bar-wp-query.php:28
+msgid "Search"
+msgstr "検索"
+
+#: panels/class-debug-bar-wp-query.php:26
+msgid "404"
+msgstr "404"
+
+#: panels/class-debug-bar-wp-query.php:5
+msgid "WP Query"
+msgstr "WP Query"
+
+#: panels/class-debug-bar-request.php:23
+msgid "Request:"
+msgstr "リクエスト:"
+
+#: panels/class-debug-bar-request.php:18 panels/class-debug-bar-request.php:27
+#: panels/class-debug-bar-request.php:36 panels/class-debug-bar-request.php:45
+#: panels/class-debug-bar-wp-query.php:80
+msgid "None"
+msgstr "なし"
+
+#: panels/class-debug-bar-request.php:5
+msgid "Request"
+msgstr "リクエスト"
+
+#: panels/class-debug-bar-queries.php:87
+msgid "Total DB Errors:"
+msgstr "合計 DB エラー: "
+
+#: panels/class-debug-bar-queries.php:79
+msgid "Total Queries:"
+msgstr "合計クエリー: "
+
+#: panels/class-debug-bar-queries.php:66
+msgid "Database Errors"
+msgstr "データベースエラー"
+
+#: panels/class-debug-bar-queries.php:6
+msgid "Queries"
+msgstr "クエリ"
+
+#: panels/class-debug-bar-php.php:100
+msgid "NOTICE:"
+msgstr "注意:"
+
+#: panels/class-debug-bar-php.php:87
+msgid "WARNING:"
+msgstr "警告:"
+
+#: panels/class-debug-bar-php.php:81
+msgid "Total Notices:"
+msgstr "注意の合計:"
+
+#: panels/class-debug-bar-php.php:80
+msgid "Total Warnings:"
+msgstr "警告の合計:"
+
+#: panels/class-debug-bar-object-cache.php:5
+msgid "Object Cache"
+msgstr "オブジェクトキャッシュ"
+
+#: panels/class-debug-bar-js.php:19
+msgid "Total Errors:"
+msgstr "合計エラー数:"
+
+#: panels/class-debug-bar-js.php:7
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#. translators: 1: PHP function name, 2: Version number.
+#: panels/class-debug-bar-deprecated.php:136
+msgid "%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available."
+msgstr "%1$s がバージョン %2$s から<strong>非推奨</strong>になった引数付きで呼び出されました。代替は用意されていません。"
+
+#. translators: 1: PHP function name, 2: Version number, 3: Optional message
+#. regarding the change.
+#: panels/class-debug-bar-deprecated.php:133
+msgid "%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s"
+msgstr "%1$s がバージョン %2$s から<strong>非推奨</strong>になった引数付きで呼び出されました。%3$s"
+
+#. translators: %1$s is a function or file name, %2$s a version number.
+#: panels/class-debug-bar-deprecated.php:91
+#: panels/class-debug-bar-deprecated.php:109
+msgid "%1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
+msgstr "%1$s はバージョン%2$sより <strong>非推奨</strong> となりました。代替は用意されていません。"
+
+#. translators: %1$s is a function or file name, %2$s a version number, %3$s an
+#. alternative function or file to use.
+#: panels/class-debug-bar-deprecated.php:88
+#: panels/class-debug-bar-deprecated.php:106
+msgid "%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
+msgstr "%1$s はバージョン %2$s より<strong>非推奨</strong>となりました。代わりに%3$sを利用してください。"
+
+#: panels/class-debug-bar-deprecated.php:35
+msgid "Total Files:"
+msgstr "合計ファイル数:"
+
+#: panels/class-debug-bar-deprecated.php:34
+msgid "Total Arguments:"
+msgstr "引数の合計:"
+
+#: panels/class-debug-bar-deprecated.php:33
+msgid "Total Functions:"
+msgstr "関数の合計:"
+
+#: panels/class-debug-bar-deprecated.php:11
+msgid "Deprecated"
+msgstr "非推奨"
+
+#: debug-bar.php:325
+msgid "Please Enable"
+msgstr "有効化してください"
+
+#. translators: %s is a formatted number representing the memory usage.
+#: debug-bar.php:319
+msgid "%s bytes"
+msgstr "%s バイト"
+
+#: debug-bar.php:317
+msgid "Memory Usage"
+msgstr "メモリ使用量"
+
+#: debug-bar.php:309
+msgid "MySQL"
+msgstr "MySQL"
+
+#: debug-bar.php:309
+msgid "DB"
+msgstr "DB"
+
+#: debug-bar.php:306
+msgid "PHP"
+msgstr "PHP"
+
+#. translators: %d is the site id number in a multi-site setting.
+#: debug-bar.php:302
+msgid "#%d"
+msgstr "#%d"
+
+#: debug-bar.php:201
+msgid "Debug"
+msgstr "デバッグ"
+
+#: panels/class-debug-bar-wp-query.php:70
+msgid "Page on Front:"
+msgstr "フロントのページ:"
+
+#: panels/class-debug-bar-wp-query.php:21
+msgid "Queried Object ID:"
+msgstr "クエリーされたオブジェクト ID:"
+
+#: panels/class-debug-bar-request.php:50
+msgid "Matched Rewrite Query:"
+msgstr "一致したリライト・クエリー:"
+
+#: panels/class-debug-bar-request.php:41
+msgid "Matched Rewrite Rule:"
+msgstr "一致したリライト・ルール:"
+
+#: panels/class-debug-bar-request.php:32
+msgid "Query String:"
+msgstr "クエリー文字列:"
+
+#: panels/class-debug-bar-php.php:13
+msgid "Notices / Warnings"
+msgstr "警告 / 注意"
+
+#: panels/class-debug-bar-wp-query.php:52
+msgid "Paged"
+msgstr "ページングあり"
+
+#: panels/class-debug-bar-wp-query.php:38
+msgid "Single"
+msgstr "シングル"
+
+#: panels/class-debug-bar-queries.php:82
+msgid "Total query time:"
+msgstr "合計クエリー時間:"
+
+#: panels/class-debug-bar-queries.php:62
+msgid "SAVEQUERIES must be defined to show the query log."
+msgstr "クエリー履歴を表示するには SAVEQUERIES が定義されている必要があります。"
+
+#: panels/class-debug-bar-queries.php:60
+msgid "There are no queries on this page."
+msgstr "このページにはクエリーがありません。"
+
+#. translators: %s = a url.
+#: panels/class-debug-bar-queries.php:32
+msgid "There are too many queries to show easily! <a href=\"%s\">Show them anyway</a>"
+msgstr "簡単に表示するには多すぎるクエリーが存在します。<a href=\"%s\">それでも表示する</a>"
+
+#: panels/class-debug-bar-wp-query.php:69
+msgid "Page for Posts:"
+msgstr "投稿のページ:"

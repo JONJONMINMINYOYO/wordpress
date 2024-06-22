@@ -193,9 +193,7 @@ class WP_Roles {
 		}
 
 		if ( get_option( 'default_role' ) === $role ) {
-			//update_option( 'default_role', 'subscriber' );
-			//20240602 default_role　修正　
-			update_option( 'default_role', 'ediotr' );
+			update_option( 'default_role', 'subscriber' );
 		}
 	}
 

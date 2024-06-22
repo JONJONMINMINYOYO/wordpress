@@ -1,0 +1,676 @@
+# Translation of Plugins - Theme Check - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Theme Check - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-04-09 11:06:58+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Theme Check - Stable (latest release)\n"
+
+#: main.php:195
+msgid "Useful Links"
+msgstr "便利なリンク"
+
+#: checks/class-file-check.php:64
+msgid "XML file"
+msgstr "XML ファイル"
+
+#: checks/class-file-check.php:62
+msgid "Widget import file"
+msgstr "ウィジェットインポートファイル"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/WordPress/theme-check/"
+msgstr "https://github.com/WordPress/theme-check/"
+
+#: checks/class-style-tags-check.php:80
+msgid "The tag %s has been deprecated, please remove it from your style.css header."
+msgstr "%s タグは非推奨になりました。style.css のヘッダーから削除してください。"
+
+#: checks/class-textdomain-check.php:224
+msgid "This theme's correct slug and text-domain is %s."
+msgstr "このテーマの正しいスラッグとテキストドメインは %s です。"
+
+#: checks/class-style-tags-check.php:70
+msgid "See <a href=\"https://make.wordpress.org/themes/handbook/review/accessibility/\">https://make.wordpress.org/themes/handbook/review/accessibility/</a>"
+msgstr "<a href=\"https://make.wordpress.org/themes/handbook/review/accessibility/\">https://make.wordpress.org/themes/handbook/review/accessibility/</a> を参照"
+
+#: checks/class-included-zip-check.php:36
+msgid "Zipped Plugin"
+msgstr "ZIP 圧縮されたプラグイン"
+
+#: checks/class-file-check.php:61
+msgid "Lubith theme generator file"
+msgstr "Lubith テーマジェネレーターファイル"
+
+#: checks/class-theme-support-title-tag.php:36
+msgid "No reference to <strong>add_theme_support( \"title-tag\" )</strong> was found in the theme."
+msgstr "<strong>add_theme_support( \"title-tag\" )</strong> 関数への参照がテーマ内に見つかりませんでした。"
+
+#: checks/class-textdomain-check.php:220
+msgid "This theme text domain does not match the theme's slug. The text domain used: %s"
+msgstr "テキストドメインがテーマのスラッグと一致しません。現在のテキストドメイン: %s"
+
+#: checks/class-style-tags-check.php:70
+msgid "Themes that use the tag accessibility-ready will need to undergo an accessibility review."
+msgstr "accessibility-ready タグを使用したテーマは、アクセシビリティレビューを受ける必要があります。"
+
+#: checks/class-included-zip-check.php:48
+msgid "<strong>Zip file found.</strong> Plugins are not allowed in themes. The zip file found was <em>%s</em>."
+msgstr "<strong>Zip ファイルが見つかりました。</strong>プラグインはテーマ内に含めないでください。見つかった Zip ファイルは <em>%s</em> です。"
+
+#: checks/class-favicon-check.php:44
+msgid "Possible Favicon found in %1$s. Favicons are handled by the Site Icon setting in the customizer since version 4.3."
+msgstr "%1$s にファビコンらしきものが見つかりました。バージョン4.3以降では、ファビコンはカスタマイザーのサイトアイコン設定で扱います。"
+
+#: checks/class-suggested-styles-check.php:40
+msgid "%s is missing from your style.css header."
+msgstr "style.css のヘッダーに %s がありません。"
+
+#: checks/class-time-date-check.php:45
+msgid "At least one hard coded date was found in the file %1$s. Consider %2$s instead."
+msgstr "ファイル %1$s で少なくとも1つのハードコードされた日付が見つかりました。代わりに %2$s を検討してください。"
+
+#: checks/class-textdomain-check.php:213
+msgid "(If this is a child theme, you can ignore this error.)"
+msgstr "(子テーマの場合、このエラーは無視してください。)"
+
+#: checks/class-style-tags-check.php:89
+msgid "Found wrong tag, remove %s from your style.css header."
+msgstr "間違ったタグが見つかりました。style.css のヘッダーから %s を取り除いてください。"
+
+#: checks/class-post-format-check.php:54
+msgid "%1$s was found in the file %2$s. However get_post_format and/or has_post_format were not found, and no use of formats in the CSS was detected."
+msgstr "%1$s がファイル %2$s 内に見つかりましたが、get_post_format および/または has_post_format が見つからず、CSS でのフォーマット使用が検知されませんでした。"
+
+#: main.php:68
+msgid "This child theme requires at least version %1$s of theme %2$s to be installed. You only have %3$s please update the parent theme."
+msgstr "この子テーマをインストールするにはテーマ %2$s の少なくともバージョン %1$s を必要とします。 %3$s しかありませんので、親テーマを更新してください。"
+
+#: checks/class-php-short-tags-check.php:37
+msgid "Found PHP short tags in file %s."
+msgstr "ファイル %s で PHP のショートタグが見つかりました。"
+
+#: checks/class-textdomain-check.php:238
+msgid "The domains found are %s."
+msgstr "見つかったドメインは %s です。"
+
+#: checks/class-textdomain-check.php:248
+msgid "The domain found is %s."
+msgstr "見つかったドメインは %s です。"
+
+#: checks/class-link-check.php:71
+msgid "Possible hard-coded links were found in the file %s."
+msgstr "ファイル %s に、ハードコーディングと思われるリンクが見つかりました。"
+
+#: checks/class-iframe-check.php:47
+msgid "%1$s was found in the file %2$s %3$s."
+msgstr "ファイル %2$s 内に %1$s が見つかりました。 %3$s 。"
+
+#: checks/class-basic-check.php:62 checks/class-comments-check.php:46
+msgid "Could not find %1$s. %2$s"
+msgstr "%1$s が見つかりません。%2$s"
+
+#: checks/class-file-check.php:120
+msgid "Could not find the file %s in the theme."
+msgstr "テーマ内にファイル %s が見つかりませんでした。"
+
+#: checks/class-constants-check.php:59
+#: checks/class-deprecated-param-check.php:70
+msgid "%1$s was found in the file %2$s. Use %3$s instead."
+msgstr "ファイル %2$s で %1$s が見つかりました。代わりに %3$s を使用してください。"
+
+#: theme-check.php:49
+msgctxt "title of the main page"
+msgid "Theme Check"
+msgstr "Theme Check"
+
+#: main.php:171
+msgid "The code for Theme Check can be contributed to on <a href=\"%s\">GitHub</a>."
+msgstr "プラグインのコードは <a href=\"%s\">GitHub</a> から開発に参加できます。"
+
+#: main.php:162
+msgid "If you have found a bug or would like to make a suggestion or contribution, please leave a post on the <a href=\"%1$s\">WordPress forums</a>, or talk about it with the Themes Team on <a href=\"%2$s\">Make WordPress Themes</a> site."
+msgstr "バグを見つけた場合や、提案や参加をしていただける場合は <a href=\"%1$s\">WordPress フォーラム</a>に投稿していただくか、<a href=\"%2$s\">Make WordPress Themes</a> サイトにてテーマレビューチームにご相談ください。"
+
+#: checks/class-textdomain-check.php:236
+msgid "More than one text-domain is being used in this theme. This means the theme will not be compatible with WordPress.org language packs."
+msgstr "1つ以上のテキストドメインがこのテーマ内で使用されています。これはテーマが WordPress.org の言語パックと互換性がないことを意味します。"
+
+#: checks/class-textdomain-check.php:246
+msgid "Only one text-domain is being used in this theme. Make sure it matches the theme's slug correctly so that the theme will be compatible with WordPress.org language packs."
+msgstr "1つのテキストドメインがこのテーマ内で使用されています。テーマが WordPress.org の言語パックと互換性を持つよう、テーマのスラッグと一致しているかを確認してください。"
+
+#: checks/class-textdomain-check.php:210
+msgid "Your theme appears to be in the wrong directory for the theme name. The directory name must match the slug of the theme. This theme's correct slug and text-domain is %s."
+msgstr "このテーマは、テーマ名に対して間違ったディレクトリにあります。ディレクトリ名はテーマのスラッグと一致する必要があります。このテーマの正しいスラッグとテキストドメインは %s です。"
+
+#: main.php:30
+msgid "Theme Info"
+msgstr "テーマ情報"
+
+#: main.php:43
+msgid "Title"
+msgstr "タイトル"
+
+#: main.php:44
+msgid "Version"
+msgstr "バージョン"
+
+#: main.php:45
+msgid "Author"
+msgstr "作成者"
+
+#: main.php:46
+msgid "Author URI"
+msgstr "作成者の URI"
+
+#: main.php:47
+msgid "Theme URI"
+msgstr "テーマの URI"
+
+#: main.php:48
+msgid "License"
+msgstr "ライセンス"
+
+#: main.php:50
+msgid "Tags"
+msgstr "タグ"
+
+#: main.php:51
+msgid "Description"
+msgstr "説明"
+
+#: main.php:223
+msgid "Check it!"
+msgstr "テスト実行 !"
+
+#: main.php:225
+msgid "Output in Trac format."
+msgstr "Trac フォーマットでの出力。"
+
+#: main.php:227
+msgid "Suppress INFO."
+msgstr "INFO を表示させない。"
+
+#: theme-check.php:39
+msgid "You do not have sufficient permissions to access this page."
+msgstr "このページにアクセスするための十分なアクセス権がありません。"
+
+#: checks/class-worms-check.php:23
+msgid "This may be a script used by hackers to get control of your server!"
+msgstr "これはあなたのサーバーをコントロールするためにクラッカーが利用しているスクリプトかもしれません!"
+
+#: checks/class-worms-check.php:24
+msgid "This may be a script used by hackers to get control of your server"
+msgstr "これはあなたのサーバーをコントロールするためにクラッカーが利用しているスクリプトかもしれません!"
+
+#: checks/class-worms-check.php:25
+msgid "Tells a hacker what operating system your server is running"
+msgstr "サーバーの OS をクラッカーに伝えます"
+
+#: checks/class-worms-check.php:26 checks/class-worms-check.php:27
+msgid "Symptom of the \"Pharma Hack\" <a href=\"http://blog.sucuri.net/2010/07/understanding-and-cleaning-the-pharma-hack-on-wordpress.html\">[1]</a>"
+msgstr "\"Pharma Hack\" <a href=\"http://blog.sucuri.net/2010/07/understanding-and-cleaning-the-pharma-hack-on-wordpress.html\">[1]</a> の可能性"
+
+#: checks/class-style-css-header-check.php:32
+msgid "<strong>Theme name:</strong> is missing from your style.css header."
+msgstr "style.css のヘッダーに <strong>Theme name:</strong> がありません。"
+
+#: checks/class-style-css-header-check.php:33
+msgid "<strong>Description:</strong> is missing from your style.css header."
+msgstr "style.css のヘッダーに <strong>Description:</strong> がありません。"
+
+#: checks/class-style-css-header-check.php:34
+msgid "<strong>Author:</strong> is missing from your style.css header."
+msgstr "style.css のヘッダーに <strong>Author:</strong> がありません。"
+
+#: checks/class-style-css-header-check.php:35
+msgid "<strong>Version:</strong> is missing from your style.css header."
+msgstr "style.css のヘッダーに <strong>Version:</strong> がありません。"
+
+#: checks/class-style-css-header-check.php:36
+msgid "<strong>License:</strong> is missing from your style.css header."
+msgstr "style.css のヘッダーに <strong>License:</strong> がありません。"
+
+#: checks/class-style-css-header-check.php:37
+msgid "<strong>License URI:</strong> is missing from your style.css header."
+msgstr "style.css のヘッダーに <strong>License URI:</strong> がありません。"
+
+#: checks/class-widgets-check.php:42
+msgid "This theme contains no sidebars/widget areas. See <a href='https://codex.wordpress.org/Widgets_API'>Widgets API</a>"
+msgstr "テーマにサイドバー/ウィジェットエリアがありません。<a href='http://wpdocs.osdn.jp/Widgets_API'>ウィジェット API</a> をご覧ください。"
+
+#: main.php:102
+msgid "%1$s passed the tests"
+msgstr "%1$s はテストに通りました"
+
+#: main.php:77
+msgid "Child theme does not have the <strong>Template Version</strong> tag in style.css."
+msgstr "子テーマの style.css に <strong>Template Version</strong> がありません。"
+
+#: checks/class-screenshot-check.php:85
+msgid "No screenshot detected! Please include a screenshot.png or screenshot.jpg."
+msgstr "スクリーンショットが検出されませんでした。 screenshot.png または screenshot.jpg を含めてください。"
+
+#: checks/class-tag-check.php:29
+msgid "This theme doesn't seem to display tags. Modify it to display tags in appropriate locations."
+msgstr "このテーマはタグを表示していないようです。適切な場所にタグを表示するように変更してください。"
+
+#: checks/class-screenshot-check.php:68
+msgid "Screenshot dimensions are wrong! Ratio of width to height should be 4:3."
+msgstr "スクリーンショットの寸法が間違っています。幅と高さの比が4:3である必要があります。"
+
+#: checks/class-post-thumbnail-check.php:38
+msgid "No reference to <strong>the_post_thumbnail()</strong> was found in the theme. It is recommended that the theme implement this functionality instead of using custom fields for thumbnails."
+msgstr "<strong>the_post_thumbnail()</strong> 関数への参照がテーマ内に見つかりませんでした。サムネイル向けのカスタムフィールドを使うよりも、この関数を使って機能を実装することをおすすめします。"
+
+#: checks/class-nav-menu-check.php:38
+msgid "No reference to nav_menu's was found in the theme. Note that if your theme has a menu bar, it is required to use the WordPress nav_menu functionality for it."
+msgstr "テーマ内に nav_menu への参照が見つかりませんでした。テーマにメニューバーがある場合は、WordPress の nav_menu 機能を使う必要があることに注意してください。"
+
+#. Description of the plugin
+msgid "A simple and easy way to test your theme for all the latest WordPress standards and practices. A great theme development tool!"
+msgstr "最新の WordPress テーマのコーディング基準や慣例のすべてを簡単にテストできます。テーマ開発に非常に役立つツールです。"
+
+#. Plugin Name of the plugin
+msgid "Theme Check"
+msgstr "テーマチェック"
+
+#: main.php:199
+msgid "Theme Unit Tests"
+msgstr "テーマユニットテスト"
+
+#: main.php:184
+msgid "Now that your theme has passed the basic tests you need to check it properly using the test data before you upload it to the WordPress Themes Directory."
+msgstr "テーマは、基本的なテストを通過しました。WordPress テーマディレクトリに投稿する前には、必ずテストデータを使って確認する必要があります。"
+
+#: main.php:150
+msgid "Contact"
+msgstr "お問い合わせ"
+
+#: main.php:148
+msgid "About"
+msgstr "このプラグインについて"
+
+#: main.php:100
+msgid "One or more errors were found for %1$s."
+msgstr "エラーが見つかりました: %1$s"
+
+#: main.php:81
+msgid "Child theme is only tested up to version %1$s of %2$s breakage may occur! %3$s installed version is %4$s"
+msgstr "子テーマが親テーマ %2$s のバージョン %1$s までしかテストされておらず、依存関係が壊れているかもしれません。現在インストールされている %3$s のバージョンは %4$s です。"
+
+#: main.php:49
+msgid "License URI"
+msgstr "License URI"
+
+#: checks/class-widgets-check.php:84
+msgid "Sidebars need to be registered in a custom function hooked to the <strong>widgets_init</strong> action. See: %s."
+msgstr "サイドバーは、独自の関数を <strong>widgets_init</strong> アクションにフックさせて登録しなければなりません。%s をご覧ください。"
+
+#: checks/class-line-endings-check.php:52
+#: checks/class-line-endings-check.php:70
+msgid "Both DOS and UNIX style line endings were found in the file %1$s. This causes a problem with SVN repositories and must be corrected before the theme can be accepted. Please change the file to use only one style of line endings."
+msgstr "ファイル %1$s で DOS と UNIX 両方の改行形式が見つかりました。これは SVN レポジトリで問題を引き起こすため、テーマが承認される前に修正する必要があります。どちらか一方の改行形式に統一してください。"
+
+#: checks/class-post-pagination-check.php:44
+msgid "The theme doesn't have post pagination code in it. Use <strong>posts_nav_link()</strong> or <strong>paginate_links()</strong> or <strong>the_posts_pagination()</strong> or <strong>the_posts_navigation()</strong> or <strong>next_posts_link()</strong> and <strong>previous_posts_link()</strong> to add post pagination."
+msgstr "テーマに投稿ペジネーションのコードがありません。投稿ペジネーションを追加するには <strong>posts_nav_link()</strong>、<strong>paginate_links()</strong>、<strong>the_posts_pagination()</strong>、<strong>the_posts_navigation()</strong>、<strong>next_posts_link()</strong><strong>previous_posts_link()</strong> のいずれかを使ってください。"
+
+#. translators: %s: Name of the parent theme.
+#: main.php:57
+msgid "This is a child theme. The parent theme is: %s. These files have been included automatically!"
+msgstr "これは子テーマです。親テーマは %s です。親テーマのファイルは自動的に含まれています。"
+
+#: main.php:149
+msgid "The Theme Check plugin is an easy way to test your theme and make sure it's up to date with the latest theme review standards. With it, you can run all the same automated testing tools on your theme that WordPress.org uses for theme submissions."
+msgstr "テーマチェックプラグインは、テーマのテストと、最新のテーマレビュー基準に対応できているかの確認を簡単に行うことができます。WordPress.org のテーマの受付時とまったく同じ自動テストツールが、あなたのテーマに対して動作します。"
+
+#: checks/class-style-tags-check.php:55
+msgid "<strong>Tags:</strong> is either empty or missing in style.css header."
+msgstr "style.css のヘッダー内で <strong>Tags:</strong> が空になっているか、含まれていません。"
+
+#: checks/class-style-css-header-check.php:38
+msgid "<strong>Text Domain:</strong> is missing from your style.css header."
+msgstr "style.css ヘッダーに <strong>Text Domain:</strong> がありません。"
+
+#: checks/class-screenshot-check.php:76
+msgid "Screenshot size should be 1200x900, to account for HiDPI displays. Any 4:3 image size is acceptable, but 1200x900 is preferred."
+msgstr "スクリーンショットのサイズは、HiDPI ディスプレイを考慮して1200x900にすることをおすすめします。4:3の画像サイズであれば何でも構いませんが、1200×900が望ましいです。"
+
+#: checks/class-suggested-styles-check.php:45
+msgid "<strong>.sticky</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.sticky</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:46
+msgid "<strong>.bypostauthor</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.bypostauthor</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:47
+msgid "<strong>.alignleft</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.alignleft</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:49
+msgid "<strong>.aligncenter</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.aligncenter</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:48
+msgid "<strong>.alignright</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.alignright</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:50
+msgid "<strong>.wp-caption</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.wp-caption</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:51
+msgid "<strong>.wp-caption-text</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.wp-caption-text</strong> が推奨されます。"
+
+#: checks/class-suggested-styles-check.php:52
+msgid "<strong>.gallery-caption</strong> css class is recommended in your theme css."
+msgstr "テーマの css 内には、css クラス <strong>.gallery-caption</strong> が推奨されます。"
+
+#: checks/class-widgets-check.php:68
+msgid "The theme appears to use <strong>dynamic_sidebars()</strong> but no <strong>register_sidebar()</strong> was found. See: <a href='https://developer.wordpress.org/reference/functions/register_sidebar/'>register_sidebar</a><pre> &lt;?php register_sidebar( $args ); ?&gt;</pre>"
+msgstr "テーマは <strong>dynamic_sidebars()</strong> 関数を使っているようですが、<strong>register_sidebar()</strong> 関数が見つかりませんでした。参照: <a href='https://developer.wordpress.org/reference/functions/register_sidebar/'>register_sidebar</a><pre> &lt;?php register_sidebar( $args ); ?&gt;</pre>"
+
+#: checks/class-widgets-check.php:55
+msgid "The theme appears to use <strong>register_sidebar()</strong> but no <strong>dynamic_sidebar()</strong> was found. See: <a href='https://developer.wordpress.org/reference/functions/dynamic_sidebar/'>dynamic_sidebar</a><pre> &lt;?php dynamic_sidebar( $index ); ?&gt;</pre>"
+msgstr "テーマは <strong>dynamic_sidebars()</strong> 関数を使っているようですが、<strong> dynamic_sidebar()</strong> 関数が見つかりませんでした。参照: <a href='https://developer.wordpress.org/reference/functions/dynamic_sidebar/'>dynamic_sidebar </a><pre> &lt;?php dynamic_sidebar( $index ); ?&gt;</pre>"
+
+#: checks/class-post-thumbnail-check.php:46
+msgid "No reference to post-thumbnails was found in the theme. If the theme has a thumbnail like functionality, it should be implemented with <strong>add_theme_support( \"post-thumbnails\" )</strong> in the functions.php file."
+msgstr "テーマで post-thumbnails への参照が見つかりませんでした。テーマがアイキャッチ画像のような機能を持つ場合は、function.php ファイルで <strong>add_theme_support( \"post-thumbnails\" )</strong> を実装する必要があります。"
+
+#: checks/class-screenshot-check.php:58
+msgid "Screenshot is wrong size! Detected: %s. Maximum allowed size is 1200x900px."
+msgstr "スクリーンショットのサイズを間違えています: %s。最大許容サイズは 1200x900 ピクセルです。"
+
+#: checks/class-non-printable-check.php:40
+msgid "Non-printable characters were found in the %s file. You may want to check this file for errors."
+msgstr "印刷可能でない文字がファイル %s で見つかりました。このファイルのエラーをチェックしたほうがよいかもしれません。"
+
+#: checks/class-iframe-check.php:32
+msgid "iframes are sometimes used to load unwanted adverts and code on your site"
+msgstr "iframes は、無用な広告やコードのサイトへの読み込みに使われることがあります"
+
+#: checks/class-directories-check.php:54
+msgid "Please remove any extraneous directories like .git or .svn from the ZIP file before uploading it."
+msgstr "アップロードする前に、ZIP ファイルから .git や .svn などの無関係なディレクトリを取り除いてください。"
+
+#: checks/class-file-check.php:49
+msgid "Windows thumbnail store"
+msgstr "Windows サムネイルファイル"
+
+#: checks/class-file-check.php:50
+msgid "windows system file"
+msgstr "Windows システムファイル"
+
+#: checks/class-file-check.php:51 checks/class-file-check.php:52
+msgid "NetBeans Project File"
+msgstr "NetBeans プロジェクトファイル"
+
+#: checks/class-file-check.php:53
+msgid "Komodo Project File"
+msgstr "Komodo プロジェクトファイル"
+
+#: checks/class-file-check.php:54
+msgid "Hidden Files or Folders"
+msgstr "隠しファイルもしくは隠しフォルダ"
+
+#: checks/class-file-check.php:55
+msgid "PHP server settings file"
+msgstr "PHP サーバー設定ファイル"
+
+#: checks/class-file-check.php:56
+msgid "Dreamweaver project file"
+msgstr "Dreamweaver プロジェクトファイル"
+
+#: checks/class-file-check.php:57
+msgid "PHP error log"
+msgstr "PHP エラーログ"
+
+#: checks/class-file-check.php:58
+msgid "Server settings file"
+msgstr "サーバー設定ファイル"
+
+#: checks/class-basic-check.php:38
+msgid "There must be a charset defined in the Content-Type or the meta charset tag in the head."
+msgstr "ヘッダー内の Content-Type もしくは meta charset タグ内に charset の設定が必ず必要です。"
+
+#: checks/class-comment-reply-check.php:45
+msgid "Could not find the <strong>comment-reply</strong> script enqueued, however a reference to 'comment-reply' was found. Make sure that the comment-reply script is being enqueued properly on singular pages."
+msgstr "'comment-reply' への参照が見つかりましたが、<strong>comment-reply</strong> スクリプトが呼び出されていません。単独ページで comment-reply スクリプトが正しく呼び出されているか確認してください。"
+
+#: checks/class-bad-things-check.php:34
+msgid "eval() is not allowed."
+msgstr "eval() は許可されていません。"
+
+#: checks/class-bad-things-check.php:36
+msgid "Themes should not change server PHP settings"
+msgstr "テーマでサーバーの PHP の設定を変更するべきではありません"
+
+#: checks/class-bad-things-check.php:37
+msgid "base64_decode() is not allowed"
+msgstr "base64_decode() は許可されていません。"
+
+#: checks/class-bad-things-check.php:38
+msgid "base64_encode() is not allowed"
+msgstr "base64_encode() は許可されていません。"
+
+#: checks/class-bad-things-check.php:39
+msgid "uudecode() is not allowed"
+msgstr "uudecode() は許可されていません。"
+
+#: checks/class-bad-things-check.php:40
+msgid "str_rot13() is not allowed"
+msgstr "str_rot13() は許可されていません。"
+
+#: checks/class-bad-things-check.php:41 checks/class-bad-things-check.php:74
+msgid "Google search code detected"
+msgstr "Google 検索のコードが検知されました"
+
+#: checks/class-include-check.php:30
+msgid "The theme appears to use include or require. If these are being used to include separate sections of a template from independent files, then <strong>get_template_part()</strong> should be used instead."
+msgstr "このテーマでは include もしくは require が使用されているようです。もし、単独ファイルからテンプレートの別個のセクションをインクルードするためなら、代りに <strong>get_template_part()</strong> を使用してください。"
+
+#: checks/class-file-check.php:59
+msgid "SQL dump file"
+msgstr "SQL ダンプファイル "
+
+#: checks/class-file-check.php:60
+msgid "OSX system file"
+msgstr "OSX システムファイル"
+
+#: checks/class-basic-check.php:52
+msgid "body_class call in body tag"
+msgstr "body タグ内の body_class 呼び出し"
+
+#: checks/class-basic-check.php:49
+msgid "add_theme_support( 'automatic-feed-links' )"
+msgstr "add_theme_support( 'automatic-feed-links' )"
+
+#: checks/class-bad-things-check.php:42 checks/class-bad-things-check.php:75
+msgid "Google advertising code detected"
+msgstr "Google 広告コードが検出されました"
+
+#: checks/class-comments-check.php:34
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/wp_list_comments/\">wp_list_comments</a><pre> &lt;?php wp_list_comments( $args ); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_list_comments\">wp_list_comments</a><pre> &lt;?php wp_list_comments( $args ); ?&gt;</pre> を参照してください。"
+
+#: checks/class-bad-things-check.php:59 checks/class-bad-things-check.php:87
+#: checks/class-basic-check.php:60 checks/class-cdn-check.php:56
+#: checks/class-constants-check.php:57 checks/class-customizer-check.php:55
+#: checks/class-customizer-check.php:72 checks/class-directories-check.php:53
+#: checks/class-escaping-check.php:95 checks/class-file-check.php:103
+#: checks/class-file-check.php:118 checks/class-fse-required-files-check.php:41
+#: checks/class-fse-required-files-check.php:46
+#: checks/class-included-zip-check.php:46
+#: checks/class-line-endings-check.php:34
+#: checks/class-line-endings-check.php:50
+#: checks/class-line-endings-check.php:68 checks/class-nav-menu-check.php:48
+#: checks/class-nav-menu-check.php:87 checks/class-nav-menu-check.php:103
+#: checks/class-non-gpl-check.php:52 checks/class-plugin-territory-check.php:84
+#: checks/class-plugin-territory-check.php:104
+#: checks/class-plugin-territory-check.php:126
+#: checks/class-screenshot-check.php:56 checks/class-screenshot-check.php:67
+#: checks/class-screenshot-check.php:84
+#: checks/class-style-css-header-check.php:51
+#: checks/class-style-css-header-check.php:60
+#: checks/class-style-tags-check.php:114 checks/class-textdomain-check.php:218
+#: checks/class-theme-support-title-tag.php:35
+#: checks/class-underscores-check.php:55 checks/class-underscores-check.php:71
+#: checks/class-underscores-check.php:92 checks/class-uri-check.php:52
+#: checks/class-widgets-check.php:54 checks/class-widgets-check.php:67
+#: checks/class-widgets-check.php:82 checks/class-worms-check.php:39
+msgid "REQUIRED"
+msgstr "必須"
+
+#: checks/class-basic-check.php:42
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/post_class/\">post_class</a><pre> &lt;div id=\"post-&lt;?php the_ID(); ?&gt;\" &lt;?php post_class(); ?&gt;&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/post_class\">post_class</a><pre> &lt;div id=\"post-&lt;?php the_ID(); ?&gt;\" &lt;?php post_class(); ?&gt;&gt;</pre> を参照してください。"
+
+#: checks/class-comments-check.php:35
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/comment_form/\">comment_form</a><pre> &lt;?php comment_form(); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/comment_form\">comment_form</a><pre> &lt;?php comment_form(); ?&gt;</pre> を参照してください。"
+
+#: checks/class-comments-check.php:33
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/comments_template/\">comments_template</a><pre> &lt;?php comments_template( $file, $separate_comments ); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AB%E3%83%BC%E3%83%89%E3%82%BF%E3%82%B0/comments_template\">comments_template</a><pre> &lt;?php comments_template( $file, $separate_comments ); ?&gt;</pre> を参照してください。"
+
+#: checks/class-deprecated-check.php:1162
+msgid "%1$s found in the file %2$s. Deprecated since version %3$s."
+msgstr "%1$s が %2$s ファイルで見つかりました。バージョン%3$sでは推奨されていません。"
+
+#: checks/class-basic-check.php:40
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/body_class/\">body_class</a><pre> &lt;?php body_class( $class ); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/body_class\">body_class</a><pre> &lt;?php body_class( $class ); ?&gt;</pre> を参照してください。"
+
+#: checks/class-basic-check.php:41
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/wp_link_pages/\">wp_link_pages</a><pre> &lt;?php wp_link_pages( $args ); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_link_pages\">wp_link_pages</a><pre> &lt;?php wp_link_pages( $args ); ?&gt;</pre> を参照してください。"
+
+#: checks/class-basic-check.php:36
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/wp_head/\">wp_head</a><pre> &lt;?php wp_head(); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_head\">wp_head</a><pre> &lt;?php wp_head(); ?&gt;</pre> を参照してください。"
+
+#: checks/class-basic-check.php:35
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/wp_footer/\">wp_footer</a><pre> &lt;?php wp_footer(); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_footer\">wp_footer</a>をご覧ください。<pre> &lt;?php wp_footer(); ?&gt;</pre>"
+
+#: checks/class-basic-check.php:39
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/add_theme_support/\">add_theme_support</a><pre> &lt;?php add_theme_support( $feature ); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/add_theme_support\">add_theme_support</a><pre> &lt;?php add_theme_support( $feature ); ?&gt;</pre> を参照してください。"
+
+#: checks/class-gravatar-check.php:39
+msgid "This theme doesn't seem to support the standard avatar functions. Use <strong>get_avatar</strong> or <strong>wp_list_comments</strong> to add this support."
+msgstr "このテーマは標準的なアバター関数をサポートしていないようです。サポートするには<strong>get_avatar</strong>、または<strong>wp_list_comments</strong>の関数のどちらかを用いてください。"
+
+#: checks/class-theme-support-check.php:32
+msgid "No reference to <strong>add_theme_support( \"custom-background\", $args )</strong> was found in the theme. If the theme uses background images or solid colors for the background, then it is recommended that the theme implement this functionality."
+msgstr "<strong>add_theme_support( \"custom-background\", $args )</strong> が見つかりません。テーマで背景画像または単色を指定する場合、この機能を実装することが推奨されています。"
+
+#: checks/class-theme-support-check.php:31
+msgid "No reference to <strong>add_theme_support( \"custom-header\", $args )</strong> was found in the theme. It is recommended that the theme implement this functionality if using an image for the header."
+msgstr "テーマ内に <strong>add_theme_support( \"custom-header\", $args )</strong> への参照が見つかりません。テーマでヘッダー画像を使う場合は、この機能を実装することをおすすめします。"
+
+#: checks/class-editor-style-check.php:38
+msgid "No reference to <strong>add_editor_style()</strong> was found in the theme. It is recommended that the theme implement editor styling, so as to make the editor content match the resulting post output in the theme, for a better user experience."
+msgstr "<strong>add_editor_style()</strong> が見つかりません。エディタの内容を投稿の出力結果と同じにして使いやすくするために、エディタへのスタイリングをテーマで実装することが推奨されています。"
+
+#: checks/class-deprecated-check.php:1170
+msgid "Use %s instead."
+msgstr "代わりに %s を使う。"
+
+#: checks/class-comment-reply-check.php:44 checks/class-favicon-check.php:42
+#: checks/class-filesystem-http-check.php:84 checks/class-iframe-check.php:45
+#: checks/class-include-check.php:47 checks/class-link-check.php:69
+#: checks/class-post-format-check.php:52
+#: checks/class-screen-reader-text-check.php:39
+#: checks/class-site-url-check.php:37 checks/class-style-tags-check.php:54
+#: checks/class-style-tags-check.php:69 checks/class-style-tags-check.php:78
+#: checks/class-style-tags-check.php:87 checks/class-style-tags-check.php:127
+#: checks/class-style-tags-check.php:140 checks/class-textdomain-check.php:245
+#: checks/class-time-date-check.php:43
+msgid "INFO"
+msgstr "情報"
+
+#: checks/class-cdn-check.php:58
+msgid "Found the URL of a CDN in the code: %s. You should not load CSS or Javascript resources from a CDN, please bundle them with the theme."
+msgstr "コー​​ド内に CDN の URL (%s) が見つかりました。JavaScript や CSS を CDN で読み込まずに、テーマに同梱してください。"
+
+#: checks/class-basic-check.php:37
+msgid "See: <a href=\"https://developer.wordpress.org/reference/functions/language_attributes/\">language_attributes</a><pre>&lt;html &lt;?php language_attributes(); ?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/language_attributes\">language_attributes</a>をご覧ください。<pre>&lt;html &lt;?php language_attributes(); ?&gt;</pre>"
+
+#: checks/class-basic-check.php:33
+msgid "See: <a href=\"https://codex.wordpress.org/HTML_to_XHTML\">https://codex.wordpress.org/HTML_to_XHTML</a><pre>&lt;!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"<br />\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"?&gt;</pre>"
+msgstr "<a href=\"http://wpdocs.osdn.jp/HTML_to_XHTML\">HTML to XHTML</a>を参照してください。<pre>&lt;!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"<br />\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"?&gt;</pre>"
+
+#: checks/class-admin-menu-check.php:84
+#: checks/class-block-patterns-check.php:36
+#: checks/class-block-patterns-check.php:44
+#: checks/class-comment-pagination-check.php:44
+#: checks/class-comment-reply-check.php:38 checks/class-comments-check.php:44
+#: checks/class-editor-style-check.php:37 checks/class-gravatar-check.php:38
+#: checks/class-i18n-check.php:71 checks/class-nav-menu-check.php:37
+#: checks/class-post-pagination-check.php:43
+#: checks/class-post-thumbnail-check.php:37
+#: checks/class-post-thumbnail-check.php:45
+#: checks/class-screenshot-check.php:75 checks/class-script-tag-check.php:41
+#: checks/class-suggested-styles-check.php:40
+#: checks/class-suggested-styles-check.php:59 checks/class-tag-check.php:28
+#: checks/class-theme-support-check.php:45 checks/class-title-check.php:43
+#: checks/class-title-check.php:62 checks/class-version-php-check.php:54
+#: checks/class-version-tested-check.php:58 checks/class-widgets-check.php:41
+msgid "RECOMMENDED"
+msgstr "推奨"
+
+#: checks/class-bad-things-check.php:35
+msgid "PHP system calls are often disabled by server admins and should not be in themes"
+msgstr "PHP のシステムコールはサーバー管理者により無効にされていることが多いため、テーマにあるべきではありません。"
+
+#: checks/class-admin-menu-check.php:50
+#: checks/class-copyright-notice-check.php:56
+#: checks/class-deprecated-check.php:1179
+#: checks/class-deprecated-param-check.php:68
+#: checks/class-deregister-check.php:27 checks/class-escaping-check.php:55
+#: checks/class-escaping-check.php:75 checks/class-filesystem-http-check.php:50
+#: checks/class-generated-check.php:54 checks/class-image-size-check.php:45
+#: checks/class-nav-menu-check.php:74
+#: checks/class-no-hidden-admin-bar-check.php:39
+#: checks/class-no-hidden-admin-bar-check.php:63
+#: checks/class-non-printable-check.php:38
+#: checks/class-php-short-tags-check.php:35
+#: checks/class-search-form-check.php:38 checks/class-search-form-check.php:62
+#: checks/class-textdomain-check.php:132 checks/class-textdomain-check.php:178
+#: checks/class-textdomain-check.php:208 checks/class-textdomain-check.php:235
+#: main.php:109
+msgid "WARNING"
+msgstr "警告"
+
+#: checks/class-admin-menu-check.php:38 checks/class-admin-menu-check.php:39
+msgid "User levels were deprecated in <strong>2.0</strong>. Please see <a href=\"https://wordpress.org/support/article/roles-and-capabilities/\">Roles and Capabilities</a>"
+msgstr "ユーザーレベルはバージョン<strong>2.0</strong>で非推奨になりました。<a href=\"http://wpdocs.osdn.jp/Roles_and_Capabilities\">ユーザーの種類と権限</a>を参照してください。"
+
+#: checkbase.php:183 checkbase.php:209 checks/class-textdomain-check.php:126
+#: checks/class-textdomain-check.php:172
+msgid "Line "
+msgstr "行"
+
+#: checks/class-comment-pagination-check.php:45
+msgid "The theme doesn't have comment pagination code in it. Use <strong>paginate_comments_links()</strong> or <strong>the_comments_navigation</strong> or <strong>the_comments_pagination</strong> or <strong>next_comments_link()</strong> and <strong>previous_comments_link()</strong> to add comment pagination."
+msgstr "このテーマにはコメントのページ送り用のコードが含まれていません。<strong>paginate_comments_links()</strong>、<strong>the_comments_navigation</strong>、<strong>the_comments_pagination</strong>、<strong>next_comments_link()</strong>、<strong>previous_comments_link()</strong> のいずれかを使ってコメントのページ送りを追加してください。"
+
+#: checks/class-customizer-check.php:74
+msgid "Found a Customizer setting called %1$s in %2$s that had an empty value passed as sanitization callback. You need to pass a function name as sanitization callback."
+msgstr "サニタイゼーションコールバックに空の値が渡されているカスタマイザー設定 %1$s が %2$s にありました。サニタイゼーションコールバックには関数名を渡す必要があります。"
+
+#: checks/class-comment-reply-check.php:39
+msgid "Could not find the <strong>comment-reply</strong> script enqueued."
+msgstr "待機状態の<strong>コメント返信</strong>のスクリプトを見つけることができません。"

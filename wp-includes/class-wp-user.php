@@ -24,10 +24,6 @@
  * @property string $user_nicename
  * @property string $user_email
  * @property string $user_url
- * //20240601 WP_Userに対象　電話番号と性別　新規　koui start
- * @property string $user_tel
- * @property string $user_sex
- * //20240601 WP_Userに対象　電話番号と性別　新規　koui end
  * @property string $user_registered
  * @property string $user_activation_key
  * @property string $user_status
@@ -235,10 +231,6 @@ class WP_User {
 				break;
 			case 'email':
 				$user_id  = wp_cache_get( $value, 'useremail' );
-				$db_field = 'user_email';
-				break;
-			case 'tel':
-				$user_id  = wp_cache_get( $value, 'usertel' );
 				$db_field = 'user_email';
 				break;
 			case 'login':

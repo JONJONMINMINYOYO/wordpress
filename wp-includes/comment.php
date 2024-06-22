@@ -29,10 +29,6 @@
  * @param string $author       Comment author name.
  * @param string $email        Comment author email.
  * @param string $url          Comment author URL.
- * //20240601 電話番号、性別　新規　koui start
- * @param string $tel          Comment author TEL.
- * @param string $sex          Comment author SEX.
- * //20240601 電話番号、性別　新規　koui end
  * @param string $comment      Content of the comment.
  * @param string $user_ip      Comment author IP address.
  * @param string $user_agent   Comment author User-Agent.
@@ -40,7 +36,7 @@
  *                             trackback, or pingback.
  * @return bool If all checks pass, true, otherwise false.
  */
-function check_comment( $author, $email, $url,$tel,$sex, $comment, $user_ip, $user_agent, $comment_type ) {
+function check_comment( $author, $email, $url, $comment, $user_ip, $user_agent, $comment_type ) {
 	global $wpdb;
 
 	// If manual moderation is enabled, skip all checks and return false.
@@ -111,14 +107,6 @@ function check_comment( $author, $email, $url,$tel,$sex, $comment, $user_ip, $us
 			if ( preg_match( $pattern, $url ) ) {
 				return false;
 			}
-			//20240603 preg_match_に電話番号と性別追加　新規　koui start
-			if ( preg_match( $pattern, $tel ) ) {
-				return false;
-			}
-			if ( preg_match( $pattern, $sex ) ) {
-				return false;
-			}
-			//20240603 preg_match_に電話番号と性別追加　新規　koui end
 			if ( preg_match( $pattern, $comment ) ) {
 				return false;
 			}
@@ -549,8 +537,6 @@ function update_comment_meta( $comment_id, $meta_key, $meta_value, $prev_value =
  * @param WP_User    $user            Comment author's user object. The user may not exist.
  * @param bool       $cookies_consent Optional. Comment author's consent to store cookies. Default true.
  */
-
- //20240609 responseにcookieに設定 koui
 function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
 	// If the user already exists, or the user opted out of cookies, don't set cookies.
 	if ( $user->exists() ) {
@@ -563,10 +549,7 @@ function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
 		setcookie( 'comment_author_' . COOKIEHASH, ' ', $past, COOKIEPATH, COOKIE_DOMAIN );
 		setcookie( 'comment_author_email_' . COOKIEHASH, ' ', $past, COOKIEPATH, COOKIE_DOMAIN );
 		setcookie( 'comment_author_url_' . COOKIEHASH, ' ', $past, COOKIEPATH, COOKIE_DOMAIN );
-		//20240601 電話番号と性別はsetcookieに入れる　新規　koui start
-		setcookie( 'comment_author_tel_' . COOKIEHASH, ' ', $past, COOKIEPATH, COOKIE_DOMAIN );
-		setcookie( 'comment_sex_' . COOKIEHASH, ' ', $past, COOKIEPATH, COOKIE_DOMAIN );
-		//20240601 電話番号と性別はsetcookieに入れる　新規　koui end
+
 		return;
 	}
 
@@ -577,20 +560,13 @@ function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
 	 *
 	 * @param int $seconds Comment cookie lifetime. Default 30000000.
 	 */
-	//20240614  クッキーの保存時間設定改修  koui  start
-	//$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 30000000 );
-	$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 36000 );
-	//20240614  クッキーの保存時間設定改修  koui  end
+	$comment_cookie_lifetime = time() + apply_filters( 'comment_cookie_lifetime', 30000000 );
 
 	$secure = ( 'https' === parse_url( home_url(), PHP_URL_SCHEME ) );
 
 	setcookie( 'comment_author_' . COOKIEHASH, $comment->comment_author, $comment_cookie_lifetime, COOKIEPATH, COOKIE_DOMAIN, $secure );
 	setcookie( 'comment_author_email_' . COOKIEHASH, $comment->comment_author_email, $comment_cookie_lifetime, COOKIEPATH, COOKIE_DOMAIN, $secure );
 	setcookie( 'comment_author_url_' . COOKIEHASH, esc_url( $comment->comment_author_url ), $comment_cookie_lifetime, COOKIEPATH, COOKIE_DOMAIN, $secure );
-	//20240601 　電話番号と性別はライフリサイクルされたクッキーに入れる　新規　koui start
-	setcookie( 'comment_author_tel_' . COOKIEHASH,  $comment->comment_author_tel , $comment_cookie_lifetime, COOKIEPATH, COOKIE_DOMAIN, $secure );
-	setcookie( 'comment_sex_' . COOKIEHASH, $comment->comment_sex , $comment_cookie_lifetime, COOKIEPATH, COOKIE_DOMAIN, $secure );
-	//20240601 　電話番号と性別はライフリサイクルされたクッキーに入れる　新規　koui end
 }
 
 /**
@@ -654,42 +630,6 @@ function sanitize_comment_cookies() {
 
 		$_COOKIE[ 'comment_author_url_' . COOKIEHASH ] = $comment_author_url;
 	}
-	//20240601 コメント画面に電話番号はクッキーを入れる前に確認　新規　koui start
-	if ( isset( $_COOKIE[ 'comment_author_tel_' . COOKIEHASH ] ) ) {
-		/**
-		 * Filters the comment author's URL cookie before it is set.
-		 *
-		 * When this filter hook is evaluated in wp_filter_comment(),
-		 * the comment author's URL string is passed.
-		 *
-		 * @since 1.5.0
-		 *
-		 * @param string $author_tel_cookie The comment author URL cookie.
-		 */
-		$comment_author_tel = apply_filters( 'pre_comment_author_tel', $_COOKIE[ 'comment_author_tel_' . COOKIEHASH ] );
-		$comment_author_tel = wp_unslash( $comment_author_tel );
-
-		$_COOKIE[ 'comment_author_tel_' . COOKIEHASH ] = $comment_author_tel;
-	}
-	//20240601 コメント画面に電話番号はクッキーを入れる前に確認　新規　koui end
-	//20240601 コメント画面に性別はクッキーを入れる前に確認　新規　koui start
-	if ( isset( $_COOKIE[ 'comment_sex_' . COOKIEHASH ] ) ) {
-		/**
-		 * Filters the comment author's URL cookie before it is set.
-		 *
-		 * When this filter hook is evaluated in wp_filter_comment(),
-		 * the comment author's URL string is passed.
-		 *
-		 * @since 1.5.0
-		 *
-		 * @param string $author_tel_cookie The comment author URL cookie.
-		 */
-		$comment_sex = apply_filters( 'pre_comment_sex', $_COOKIE[ 'comment_sex_' . COOKIEHASH ] );
-		$comment_sex = wp_unslash( $comment_author_tel );
-
-		$_COOKIE[ 'comment_sex_' . COOKIEHASH ] = $comment_sex;
-	}
-	//20240601 コメント画面に性別はクッキーを入れる前に確認　新規　koui end
 }
 
 /**
@@ -811,10 +751,6 @@ function wp_allow_comment( $commentdata, $wp_error = false ) {
 	 * @param bool   $is_flood             Is a comment flooding occurring? Default false.
 	 * @param string $comment_author_ip    Comment author's IP address.
 	 * @param string $comment_author_email Comment author's email.
-	 * //20240602 電話番号と性別　新規　koui start
-	 * @param string $comment_author_tel Comment author's email.
-	 * @param string $comment_sex Comment author's email. 
-	 * //20240602 電話番号と性別　新規　koui end
 	 * @param string $comment_date_gmt     GMT date the comment was posted.
 	 * @param bool   $wp_error             Whether to return a WP_Error object instead of executing
 	 *                                     wp_die() or die() if a comment flood is occurring.
@@ -854,10 +790,6 @@ function wp_allow_comment( $commentdata, $wp_error = false ) {
 			$commentdata['comment_author'],
 			$commentdata['comment_author_email'],
 			$commentdata['comment_author_url'],
-		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui start
-			$commentdata['comment_author_tel'],
-			$commentdata['comment_sex'],
-		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui end	
 			$commentdata['comment_content'],
 			$commentdata['comment_author_IP'],
 			$commentdata['comment_agent'],
@@ -872,10 +804,6 @@ function wp_allow_comment( $commentdata, $wp_error = false ) {
 			$commentdata['comment_author'],
 			$commentdata['comment_author_email'],
 			$commentdata['comment_author_url'],
-		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui start	
-			$commentdata['comment_author_tel'],
-			$commentdata['comment_sex'],
-		//20240601 チェックコメントに電話番号、性別はコメントデータを入れる　新規　koui end
 			$commentdata['comment_content'],
 			$commentdata['comment_author_IP'],
 			$commentdata['comment_agent']
@@ -1292,10 +1220,6 @@ function wp_get_comment_fields_max_lengths() {
 		'comment_author'       => 245,
 		'comment_author_email' => 100,
 		'comment_author_url'   => 200,
-		//20240602 電話番号と性別最大桁数設定　新規　koui 
-		'comment_sex'   => 1,   // 
-		'comment_author_tel'   => 11,
-		//20240602 電話番号と性別最大桁数設定　新規　koui
 		'comment_content'      => 65525,
 	);
 
@@ -1348,60 +1272,21 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
 	$max_lengths = wp_get_comment_fields_max_lengths();
 
 	if ( isset( $comment_data['comment_author'] ) && mb_strlen( $comment_data['comment_author'], '8bit' ) > $max_lengths['comment_author'] ) {
-		return new WP_Error( 'comment_author_column_length', __( '<strong>Error:</strong> 名前は長すぎる.' ), 200 );
+		return new WP_Error( 'comment_author_column_length', __( '<strong>Error:</strong> Your name is too long.' ), 200 );
 	}
 
 	if ( isset( $comment_data['comment_author_email'] ) && strlen( $comment_data['comment_author_email'] ) > $max_lengths['comment_author_email'] ) {
-		return new WP_Error( 'comment_author_email_column_length', __( '<strong>Error:</strong> メールアドレスは長すぎる.' ), 200 );
+		return new WP_Error( 'comment_author_email_column_length', __( '<strong>Error:</strong> Your email address is too long.' ), 200 );
 	}
 
 	if ( isset( $comment_data['comment_author_url'] ) && strlen( $comment_data['comment_author_url'] ) > $max_lengths['comment_author_url'] ) {
-		return new WP_Error( 'comment_author_url_column_length', __( '<strong>Error:</strong> ユーアールエルは長すぎる.' ), 200 );
+		return new WP_Error( 'comment_author_url_column_length', __( '<strong>Error:</strong> Your URL is too long.' ), 200 );
 	}
-
-
-	//20240602 電話番号最大桁数チェック　新規　koui start
-	if ( isset( $comment_data['comment_author_tel'] ) && strlen( $comment_data['comment_author_tel'] ) > $max_lengths['comment_author_tel'] ) {
-		return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 君の電話番号多分悪かったね.' ), 200 );
-	}
-		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
-			if (!is_user_logged_in()) {
-			$area_code = substr($comment_data['comment_author_tel'], 0, 3);// 電話番号前3桁を取る
-			$allowed_area_codes = array('010', '090', '040'); // 地域のコードの制限
-			$repeated_8digits = preg_match('/^\d{3}(?:(\d)(?!\1{7}))\d{7}$/', $comment_data['comment_author_tel']); // 電話番号後8桁は同じか確認
-
-			if ("" == $comment_data['comment_author_tel']) {
-				return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong>電話番号を空白にすることはできません、ご確認ください.' ), 200 );
-			}elseif (false == 	preg_match( '/^\d{11}$/',$comment_data['comment_author_tel'] ))  {
-				//echo "( ' 入力した電話番号が11桁数字のみです、もう一度確認してください。.' ), 200 );";
-				return new WP_Error( 'require_valid_comment', __('入力する電話番号には11桁の数字が必要です、もう一度確認してください.'), 200 );
-			}
-			elseif (!in_array($area_code, $allowed_area_codes)) {
-					
-					return new WP_Error( 'require_valid_comment', __('入力する電話番号の最初の3桁は、010、040、090 である必要があります.'), 200 );
-				}
-			elseif(!$repeated_8digits){
-					return new WP_Error( 'require_valid_comment', __('入力する電話番号の下8桁は同じであってはなりません.'), 200 );
-				}
-			}
-		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui end
-		//20240616 性別チェックボックスをして場合エラーメッセージが出る  start
-		if (!is_user_logged_in() ) {
-			$comment_sex = $comment_data['comment_sex'];
-			if ($comment_sex === "0" || $comment_sex === "1") {
-				return; 
-		}else{
-			return new WP_Error( 'comment_sex_notselected', __( '<strong>Error:</strong> 性別を選択してください' ), 200 );;
-		}
-		}
-		//20240616 性別チェックボックスをして場合エラーメッセージが出る  end
-	//20240602 電話番号最大桁数チェック　新規　koui end
 
 	if ( isset( $comment_data['comment_content'] ) && mb_strlen( $comment_data['comment_content'], '8bit' ) > $max_lengths['comment_content'] ) {
-		return new WP_Error( 'comment_content_column_length', __( '<strong>Error:</strong> コメントは長すぎる.' ), 200 );
+		return new WP_Error( 'comment_content_column_length', __( '<strong>Error:</strong> Your comment is too long.' ), 200 );
 	}
 
-	
 	return true;
 }
 
@@ -1412,20 +1297,13 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
  *
  * @param string $author The author of the comment
  * @param string $email The email of the comment
- * @param string $url The url used in the comment	
- * @param string $tel The tel used in the comment
- *  @param string $sex The sex used in the comment
+ * @param string $url The url used in the comment
  * @param string $comment The comment content
  * @param string $user_ip The comment author's IP address
  * @param string $user_agent The author's browser user agent
  * @return bool True if comment contains disallowed content, false if comment does not
  */
-
- //20240602 function wp_check_comment_disallowed_list電話番号と性別に入れる 新規　koui start
- //function wp_check_comment_disallowed_list( $author, $email, $url, $comment, $user_ip, $user_agent )
-function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $comment, $user_ip, $user_agent ) {
-
- //20240602 function wp_check_comment_disallowed_list電話番号と性別に入れる 新規　koui end	
+function wp_check_comment_disallowed_list( $author, $email, $url, $comment, $user_ip, $user_agent ) {
 	/**
 	 * Fires before the comment is tested for disallowed characters or words.
 	 *
@@ -1435,20 +1313,16 @@ function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $com
 	 * @param string $author     Comment author.
 	 * @param string $email      Comment author's email.
 	 * @param string $url        Comment author's URL.
-	 * //20240602 電話番号と性別　新規　koui start
-	 * @param string $tel        Comment author's TEL.
-	 * @param string $sex       Comment author's SEX.
-	 * //20240602 電話番号と性別　新規　koui end
 	 * @param string $comment    Comment content.
 	 * @param string $user_ip    Comment author's IP address.
 	 * @param string $user_agent Comment author's browser user agent.
 	 */
 	do_action_deprecated(
 		'wp_blacklist_check',
-		array( $author, $email, $url,$tel,$sex, $comment, $user_ip, $user_agent ),
+		array( $author, $email, $url, $comment, $user_ip, $user_agent ),
 		'5.5.0',
 		'wp_check_comment_disallowed_list',
-		__( 'Please consider writing more inclusive code。' )
+		__( 'Please consider writing more inclusive code.' )
 	);
 
 	/**
@@ -1459,13 +1333,11 @@ function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $com
 	 * @param string $author     Comment author.
 	 * @param string $email      Comment author's email.
 	 * @param string $url        Comment author's URL.
-	 * @param string $tel        Comment author's TEL.
-	 * @param string $sex        Comment author's SEX.
 	 * @param string $comment    Comment content.
 	 * @param string $user_ip    Comment author's IP address.
 	 * @param string $user_agent Comment author's browser user agent.
 	 */
-	do_action( 'wp_check_comment_disallowed_list', $author, $email, $url, $tel,$sex,$comment, $user_ip, $user_agent );
+	do_action( 'wp_check_comment_disallowed_list', $author, $email, $url, $comment, $user_ip, $user_agent );
 
 	$mod_keys = trim( get_option( 'disallowed_keys' ) );
 	if ( '' === $mod_keys ) {
@@ -1491,10 +1363,6 @@ function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $com
 		if ( preg_match( $pattern, $author )
 			|| preg_match( $pattern, $email )
 			|| preg_match( $pattern, $url )
-			//20240602 preg_matchに電話番号と性別追加　新規　koui　start
-			|| preg_match( $pattern, $tel )
-			|| preg_match( $pattern, $sex )
-			//20240602 preg_matchに電話番号と性別追加　新規　koui　end
 			|| preg_match( $pattern, $comment )
 			|| preg_match( $pattern, $comment_without_html )
 			|| preg_match( $pattern, $user_ip )
@@ -1530,8 +1398,6 @@ function wp_check_comment_disallowed_list( $author, $email, $url,$tel,$sex, $com
  *     @type int $all            The total number of pending or approved comments.
  * }
  */
-
-
 function wp_count_comments( $post_id = 0 ) {
 	$post_id = (int) $post_id;
 
@@ -1637,7 +1503,7 @@ function wp_delete_comment( $comment_id, $force_delete = false ) {
 	}
 
 	clean_comment_cache( $comment->comment_ID );
-	
+
 	/** This action is documented in wp-includes/comment.php */
 	do_action( 'wp_set_comment_status', $comment->comment_ID, 'delete' );
 
@@ -2036,17 +1902,7 @@ function wp_get_current_commenter() {
 	if ( isset( $_COOKIE[ 'comment_author_url_' . COOKIEHASH ] ) ) {
 		$comment_author_url = $_COOKIE[ 'comment_author_url_' . COOKIEHASH ];
 	}
-	
-	$comment_author_tel = '';
-	if ( isset( $_COOKIE[ 'comment_author_tel_' . COOKIEHASH ] ) ) {
-		$comment_author_tel = $_COOKIE[ 'comment_author_tel_' . COOKIEHASH ];
-	}
 
-	$comment_sex = '';
-	if ( isset( $_COOKIE[ 'comment_sex_' . COOKIEHASH ] ) ) {
-		$comment_sex = $_COOKIE[ 'comment_sex_' . COOKIEHASH ];
-	}
-    
 	/**
 	 * Filters the current commenter's name, email, and URL.
 	 *
@@ -2060,9 +1916,7 @@ function wp_get_current_commenter() {
 	 *     @type string $comment_author_url   The URL address of the current commenter, or an empty string.
 	 * }
 	 */
-	//return apply_filters( 'wp_get_current_commenter', compact( 'comment_author', 'comment_author_email', 'comment_author_url' ) );
-	//return apply_filters( 'wp_get_current_commenter', compact( 'comment_author', 'comment_author_email', 'comment_author_url' ) );
-	return apply_filters( 'wp_get_current_commenter', compact( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_author_tel','comment_sex' ) );
+	return apply_filters( 'wp_get_current_commenter', compact( 'comment_author', 'comment_author_email', 'comment_author_url' ) );
 }
 
 /**
@@ -2139,17 +1993,14 @@ function wp_get_unapproved_comment_author_email() {
  */
 function wp_insert_comment( $commentdata ) {
 	global $wpdb;
-	
+
 	$data = wp_unslash( $commentdata );
 
 	$comment_author       = ! isset( $data['comment_author'] ) ? '' : $data['comment_author'];
 	$comment_author_email = ! isset( $data['comment_author_email'] ) ? '' : $data['comment_author_email'];
 	$comment_author_url   = ! isset( $data['comment_author_url'] ) ? '' : $data['comment_author_url'];
 	$comment_author_ip    = ! isset( $data['comment_author_IP'] ) ? '' : $data['comment_author_IP'];
-	//20240602 電話番号と性別は設定されるかどうかチェック　新規　koui start
-	$comment_author_tel   = ! isset( $data['comment_author_tel'] ) ? '' : $data['comment_author_tel'];
-	$comment_sex   = ! isset( $data['comment_sex'] ) ? '' : $data['comment_sex'];
-	//20240602 電話番号と性別は設定されるかどうかチェック　新規　koui end
+
 	$comment_date     = ! isset( $data['comment_date'] ) ? current_time( 'mysql' ) : $data['comment_date'];
 	$comment_date_gmt = ! isset( $data['comment_date_gmt'] ) ? get_gmt_from_date( $comment_date ) : $data['comment_date_gmt'];
 
@@ -2172,8 +2023,6 @@ function wp_insert_comment( $commentdata ) {
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		'comment_author_tel',
-		'comment_sex',
 		'comment_date',
 		'comment_date_gmt',
 		'comment_content',
@@ -2185,15 +2034,12 @@ function wp_insert_comment( $commentdata ) {
 		'user_id'
 	);
 
-	
 	if ( ! $wpdb->insert( $wpdb->comments, $compacted ) ) {
-		
 		return false;
-	
 	}
-	
+
 	$id = (int) $wpdb->insert_id;
-   
+
 	if ( 1 == $comment_approved ) {
 		wp_update_comment_count( $comment_post_id );
 
@@ -2287,11 +2133,6 @@ function wp_filter_comment( $commentdata ) {
 	/** This filter is documented in wp-includes/comment.php */
 	$commentdata['comment_author_url'] = apply_filters( 'pre_comment_author_url', $commentdata['comment_author_url'] );
 	/** This filter is documented in wp-includes/comment.php */
-
-	//20240602 電話番号と性別保存前に前処理　新規　koui start
-	$commentdata['comment_author_tel'] = apply_filters( 'pre_comment_author_tel', $commentdata['comment_author_tel'] );
-	$commentdata['comment_sex'] = apply_filters( 'pre_comment_sex', $commentdata['comment_sex'] );
-	//20240602 電話番号と性別保存前に前処理　新規　koui end
 	$commentdata['comment_author_email'] = apply_filters( 'pre_comment_author_email', $commentdata['comment_author_email'] );
 
 	$commentdata['filtered'] = true;
@@ -2421,8 +2262,6 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 	$commentdata['comment_author_IP'] = preg_replace( '/[^0-9a-fA-F:., ]/', '', $commentdata['comment_author_IP'] );
 
 	$commentdata['comment_agent'] = substr( $commentdata['comment_agent'], 0, 254 );
-	
-	
 
 	if ( empty( $commentdata['comment_date'] ) ) {
 		$commentdata['comment_date'] = current_time( 'mysql' );
@@ -2445,16 +2284,16 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 	}
 
 	$comment_id = wp_insert_comment( $commentdata );
-    
-	if ( ! $comment_id ) {
 
-		$fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_author_tel' ,'comment_sex' );
+	if ( ! $comment_id ) {
+		$fields = array( 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content' );
+
 		foreach ( $fields as $field ) {
 			if ( isset( $commentdata[ $field ] ) ) {
 				$commentdata[ $field ] = $wpdb->strip_invalid_text_for_column( $wpdb->comments, $field, $commentdata[ $field ] );
 			}
 		}
-		
+
 		$commentdata = wp_filter_comment( $commentdata );
 
 		$commentdata['comment_approved'] = wp_allow_comment( $commentdata, $wp_error );
@@ -2463,7 +2302,6 @@ function wp_new_comment( $commentdata, $wp_error = false ) {
 		}
 
 		$comment_id = wp_insert_comment( $commentdata );
-		
 		if ( ! $comment_id ) {
 			return false;
 		}
@@ -2740,10 +2578,6 @@ function wp_update_comment( $commentarr, $wp_error = false ) {
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		//20240602 配列に電話番号と性別　新規　koui start
-		'comment_author_tel',
-		'comment_sex',
-		//20240602 配列に電話番号と性別　新規　koui end
 		'comment_author_IP',
 		'comment_date',
 		'comment_date_gmt',
@@ -3628,10 +3462,6 @@ function wp_handle_comment_submission( $comment_data ) {
 	$comment_author       = '';
 	$comment_author_email = '';
 	$comment_author_url   = '';
-	//20240602 電話番号と性別　新規　koui start
-	$comment_author_tel   = '';
-	$comment_sex   = '';
-	//20240602 電話番号と性別　新規　koui end
 	$comment_content      = '';
 	$comment_parent       = 0;
 	$user_id              = 0;
@@ -3648,15 +3478,6 @@ function wp_handle_comment_submission( $comment_data ) {
 	if ( isset( $comment_data['url'] ) && is_string( $comment_data['url'] ) ) {
 		$comment_author_url = trim( $comment_data['url'] );
 	}
-	//20240602 電話番号と性別stringチェック　　新規　koui start
-	if ( isset( $comment_data['tel'] ) && is_string( $comment_data['tel'] ) ) {
-		$comment_author_tel = trim( $comment_data['tel'] );
-	}
-	
-	if ( isset( $comment_data['sex'] ) && is_string( $comment_data['sex'] ) ) {
-		$comment_sex = trim( $comment_data['sex'] );
-	}
-	//20240602 電話番号と性別stringチェック　　新規　koui end
 	if ( isset( $comment_data['comment'] ) && is_string( $comment_data['comment'] ) ) {
 		$comment_content = trim( $comment_data['comment'] );
 	}
@@ -3787,12 +3608,8 @@ function wp_handle_comment_submission( $comment_data ) {
 		$comment_author       = $user->display_name;
 		$comment_author_email = $user->user_email;
 		$comment_author_url   = $user->user_url;
-		//20240602 comment_に電話番号と性別ゲット　新規　koui start
-		$comment_sex   = $user->user_sex;
-		$comment_author_tel   = $user->user_tel;
-		//20240602 comment_に電話番号と性別ゲット　新規　koui end
 		$user_id              = $user->ID;
-        
+
 		if ( current_user_can( 'unfiltered_html' ) ) {
 			if ( ! isset( $comment_data['_wp_unfiltered_html_comment'] )
 				|| ! wp_verify_nonce( $comment_data['_wp_unfiltered_html_comment'], 'unfiltered-html-comment_' . $comment_post_id )
@@ -3812,42 +3629,21 @@ function wp_handle_comment_submission( $comment_data ) {
 	$comment_type = 'comment';
 
 	if ( get_option( 'require_name_email' ) && ! $user->exists() ) {
-		//20240614  comment_author、comment_author_emailのチェックエラーメッセージ改修  koui  start
-		// if ( '' == $comment_author_email || '' == $comment_author ) {
-		// 	return new WP_Error( 'require_name_email', __( '<strong>Error:</strong> Please fill the required fields.' ), 200 );
-		// } elseif ( ! is_email( $comment_author_email ) ) {
-		// 	return new WP_Error( 'require_valid_email', __( '<strong>Error:</strong> Please enter a valid email address.' ), 200 );
-		// }
-
-		if ( '' ==  $comment_author ) {
-				return new WP_Error( 'require_name_email', __( ' 名前を入力してください.' ), 200 );
-			} elseif ( '' == $comment_author_email ) {
-				return new WP_Error( 'require_valid_email', __( 'メールアドレスを入力してください.' ), 200 );
-			}
-
-			elseif ( ! is_email( $comment_author_email ) ) {
-				return new WP_Error( 'require_valid_email', __( 'メールアドレスに合法的なフォーマットを入力してください.' ), 200 );
-			}
-		//20240614  comment_author、comment_author_emailのチェックエラーメッセージ改修  koui  end	
+		if ( '' == $comment_author_email || '' == $comment_author ) {
+			return new WP_Error( 'require_name_email', __( '<strong>Error:</strong> Please fill the required fields.' ), 200 );
+		} elseif ( ! is_email( $comment_author_email ) ) {
+			return new WP_Error( 'require_valid_email', __( '<strong>Error:</strong> Please enter a valid email address.' ), 200 );
+		}
 	}
-	//20240614  性別チェックボックスをしてない場合エラーメッセージが出る  追加  koui  start
-	// if ( empty( $_COOKIE['comment_author_tel'] ) )  {
-	// 	// var_dump($_COOKIE['comment_author_tel']);
-	// 	return new WP_Error( 'require_author_tel', __( ' 性別を選択してください.' ), 200 );
-	// }
-	//20240614  性別チェックボックスをしてない場合エラーメッセージが出る  追加  koui  end
+
 	$commentdata = array(
 		'comment_post_ID' => $comment_post_id,
 	);
-	
+
 	$commentdata += compact(
 		'comment_author',
 		'comment_author_email',
 		'comment_author_url',
-		//20240602 電話番号と性別　新規　koui  指定された変数名を連想配列に変換する start
-		'comment_author_tel',
-		'comment_sex',
-		//20240602 電話番号と性別　新規　koui  指定された変数名を連想配列に変換する end
 		'comment_content',
 		'comment_type',
 		'comment_parent',
@@ -3864,27 +3660,23 @@ function wp_handle_comment_submission( $comment_data ) {
 	 */
 	$allow_empty_comment = apply_filters( 'allow_empty_comment', false, $commentdata );
 	if ( '' === $comment_content && ! $allow_empty_comment ) {
-		
-		return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong> コメント作成してください。.' ), 200 );
+		return new WP_Error( 'require_valid_comment', __( '<strong>Error:</strong> Please type your comment text.' ), 200 );
 	}
-    
+
 	$check_max_lengths = wp_check_comment_data_max_lengths( $commentdata );
 	if ( is_wp_error( $check_max_lengths ) ) {
 		return $check_max_lengths;
 	}
-	//var_dump($commentdata);
+
 	$comment_id = wp_new_comment( wp_slash( $commentdata ), true );
 	if ( is_wp_error( $comment_id ) ) {
-		
 		return $comment_id;
 	}
 
 	if ( ! $comment_id ) {
-
-		return new WP_Error( 'comment_save_error', __( '<strong>Error:</strong> The comment could not be saved. Please try again later.もしくは私が何持っていない、どうする' ), 500 );
-		
+		return new WP_Error( 'comment_save_error', __( '<strong>Error:</strong> The comment could not be saved. Please try again later.' ), 500 );
 	}
-  
+
 	return get_comment( $comment_id );
 }
 
@@ -3919,7 +3711,6 @@ function wp_register_comment_personal_data_exporter( $exporters ) {
  *     @type bool    $done Whether the exporter is finished.
  * }
  */
-
 function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
 	// Limit us to 500 comments at a time to avoid timing out.
 	$number = 500;
@@ -3942,10 +3733,6 @@ function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
 		'comment_author'       => __( 'Comment Author' ),
 		'comment_author_email' => __( 'Comment Author Email' ),
 		'comment_author_url'   => __( 'Comment Author URL' ),
-		//20240602 配列に電話番号と性別　新規　koui start
-		'comment_author_tel'   => __( 'Comment Author TEL' ),
-		'comment_sex'   => __( 'Comment Author Sex' ),
-		//20240602 配列に電話番号と性別　新規　koui end
 		'comment_author_IP'    => __( 'Comment Author IP' ),
 		'comment_agent'        => __( 'Comment Author User Agent' ),
 		'comment_date'         => __( 'Comment Date' ),
@@ -3954,7 +3741,6 @@ function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
 	);
 
 	foreach ( (array) $comments as $comment ) {
-		
 		$comment_data_to_export = array();
 
 		foreach ( $comment_prop_to_export as $key => $name ) {
@@ -3964,8 +3750,6 @@ function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
 				case 'comment_author':
 				case 'comment_author_email':
 				case 'comment_author_url':
-				case 'comment_author_tel':
-				case 'comment_sex':
 				case 'comment_author_IP':
 				case 'comment_agent':
 				case 'comment_date':
@@ -4086,9 +3870,6 @@ function wp_comments_personal_data_eraser( $email_address, $page = 1 ) {
 		$anonymized_comment['comment_author_email'] = '';
 		$anonymized_comment['comment_author_IP']    = wp_privacy_anonymize_data( 'ip', $comment->comment_author_IP );
 		$anonymized_comment['comment_author_url']   = '';
-		//0601
-		$anonymized_comment['comment_author_tel']   = '';
-		$anonymized_comment['comment_sex']   = '';
 		$anonymized_comment['user_id']              = 0;
 
 		$comment_id = (int) $comment->comment_ID;

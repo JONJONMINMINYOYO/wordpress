@@ -94,12 +94,6 @@ function home_url() {}
 /**
  * @ignore
  */
-//20240620  postshow_url()追加  koui  start
-function postshow_url() {}
-//20240620  postshow_url()追加  koui  end
-/**
- * @ignore
- */
 function includes_url() {}
 
 /**

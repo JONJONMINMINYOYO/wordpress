@@ -1200,8 +1200,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			'post_title'       => get_the_title( $comment->comment_post_ID ),
 			'author'           => $comment->comment_author,
 			'author_url'       => $comment->comment_author_url,
-			'author_tel'       => $comment->comment_author_tel,//0603
-			'author_sex'       => $comment->comment_sex,//0603
 			'author_email'     => $comment->comment_author_email,
 			'author_ip'        => $comment->comment_author_IP,
 			'type'             => $comment->comment_type,
@@ -3856,15 +3854,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			$comment['comment_author_url'] = $content_struct['author_url'];
 		}
 
-		//20240603 電話性別　新規　koui start
-		if ( isset( $content_struct['author_tel'] ) ) {
-			$comment['comment_author_tel'] = $content_struct['author_tel'];
-		}
-		if ( isset( $content_struct['author_sex'] ) ) {
-			$comment['comment_sex'] = $content_struct['author_sex'];
-		}
-		//20240603 電話性別　新規　koui end
-
 		if ( isset( $content_struct['author_email'] ) ) {
 			$comment['comment_author_email'] = $content_struct['author_email'];
 		}
@@ -3984,10 +3973,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			$comment['comment_author']       = $this->escape( $display_name );
 			$comment['comment_author_email'] = $this->escape( $user_email );
 			$comment['comment_author_url']   = $this->escape( $user_url );
-			//20240603 電話番号と性別　新規　koui start
-			$comment['comment_author_tel']   = $this->escape( $user_tel );
-			$comment['comment_sex']   = $this->escape( $user_sex );
-			//20240603 電話番号と性別　新規　koui end
 			$comment['user_id']              = $user->ID;
 		} else {
 			$comment['comment_author'] = '';
@@ -4004,17 +3989,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			if ( isset( $content_struct['author_url'] ) ) {
 				$comment['comment_author_url'] = $content_struct['author_url'];
 			}
-			//20240603 電話番号と性別　新規　koui start
-			$comment['comment_author_tel'] = '';
-			if ( isset( $content_struct['author_tel'] ) ) {
-				$comment['comment_author_tel'] = $content_struct['author_tel'];
-			}
 
-			$comment['comment_sex'] = '';
-			if ( isset( $content_struct['author_sex'] ) ) {
-				$comment['comment_sex'] = $content_struct['author_sex'];
-			}
-			//20240603 電話番号と性別　新規　koui end
 			$comment['user_id'] = 0;
 
 			if ( get_option( 'require_name_email' ) ) {
@@ -4028,8 +4003,6 @@ class wp_xmlrpc_server extends IXR_Server {
 
 		$comment['comment_parent'] = isset( $content_struct['comment_parent'] ) ? absint( $content_struct['comment_parent'] ) : 0;
 
-		$comment['comment_author_tel'] = '';
-		$comment['comment_sex'] = '';
 		/** This filter is documented in wp-includes/comment.php */
 		$allow_empty = apply_filters( 'allow_empty_comment', false, $comment );
 
@@ -6784,10 +6757,8 @@ class wp_xmlrpc_server extends IXR_Server {
 			return new IXR_Error( 404, __( 'Sorry, no such post.' ) );
 		}
 
-		//20240603 電話番号と性別入れる　新規　koui start
-		//$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
-		$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url,comment_author_tel, comment_sex,  comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
-		//20240603 電話番号と性別入れる　新規　koui end
+		$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
+
 		if ( ! $comments ) {
 			return array();
 		}
@@ -7152,8 +7123,8 @@ class wp_xmlrpc_server extends IXR_Server {
 			return $this->pingback_error( 32, __( 'The specified target URL does not exist.' ) );
 		}
 
-		//$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
-		$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url,comment_author_tel, comment_sex,comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
+		$comments = $wpdb->get_results( $wpdb->prepare( "SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_id ) );
+
 		if ( ! $comments ) {
 			return array();
 		}

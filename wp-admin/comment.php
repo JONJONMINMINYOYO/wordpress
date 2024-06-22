@@ -196,24 +196,7 @@ switch ( $action ) {
 	<td><a href="<?php comment_author_url( $comment ); ?>"><?php comment_author_url( $comment ); ?></a></td>
 </tr>
 <?php } ?>
-
-		<?php if ( get_comment_author_tel( $comment ) ) { ?>
 <tr>
-	<th scope="row"><?php _e( 'TEL' ); ?></th>
-	<td><a href="<?php comment_author_tel( $comment ); ?>"><?php comment_author_tel( $comment ); ?></a></td>
-</tr>
-<?php } ?>
-<tr>
-
-
-<?php if ( get_comment_sex( $comment ) ) { ?>
-<tr>
-	<th scope="row"><?php _e( 'SEX' ); ?></th>
-	<td><a href="<?php comment_sex( $comment ); ?>"><?php comment_sex( $comment ); ?></a></td>
-</tr>
-<?php } ?>
-<tr></tr>
-
 	<th scope="row"><?php /* translators: Column name or table row header. */ _e( 'In response to' ); ?></th>
 	<td>
 		<?php

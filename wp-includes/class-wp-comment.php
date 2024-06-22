@@ -59,12 +59,6 @@ final class WP_Comment {
 	 */
 	public $comment_author_url = '';
 
-
-
-	public $comment_author_tel = '';
-
-
-	public $comment_sex = '';
 	/**
 	 * Comment author IP address (IPv4 format).
 	 *

@@ -311,7 +311,6 @@ class Walker_Comment extends Walker {
 		if ( $commenter['comment_author_email'] ) {
 			$moderation_note = __( 'Your comment is awaiting moderation.' );
 		} else {
-			echo "314class-walker-comment;" . PHP_EOL;
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.' );
 		}
 		?>
@@ -409,14 +408,13 @@ class Walker_Comment extends Walker {
 	 */
 	protected function html5_comment( $comment, $depth, $args ) {
 		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
-			
+
 		$commenter          = wp_get_current_commenter();
 		$show_pending_links = ! empty( $commenter['comment_author'] );
 
 		if ( $commenter['comment_author_email'] ) {
 			$moderation_note = __( 'Your comment is awaiting moderation.' );
 		} else {
-			echo "418class-walker-comment;";
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.' );
 		}
 		?>

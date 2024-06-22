@@ -170,12 +170,12 @@ function edit_user( $user_id = 0 ) {
 
 	// Check for blank password when adding a user.
 	if ( ! $update && empty( $pass1 ) ) {
-		$errors->add( 'pass', __( '<strong>Error:</strong> Please enter a passwordパースワード入門必要.' ), array( 'form-field' => 'pass1' ) );
+		$errors->add( 'pass', __( '<strong>Error:</strong> Please enter a password.' ), array( 'form-field' => 'pass1' ) );
 	}
 
 	// Check for "\" in password.
 	if ( str_contains( wp_unslash( $pass1 ), '\\' ) ) {
-		$errors->add( 'pass', __( '<strong>Error:</strong> Passwords may not contain the characterバックスラッシュ "\\".' ), array( 'form-field' => 'pass1' ) );
+		$errors->add( 'pass', __( '<strong>Error:</strong> Passwords may not contain the character "\\".' ), array( 'form-field' => 'pass1' ) );
 	}
 
 	// Checking the password has been typed twice the same.

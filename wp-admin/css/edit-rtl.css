@@ -1350,7 +1350,7 @@ ul.categorychecklist li {
 
 p.description,
 .form-wrap p {
-	margin: 5px 1 9px;
+	margin: 2px 0 5px;
 	color: #646970;
 }
 
@@ -1366,7 +1366,7 @@ p.description code {
 }
 
 .form-wrap .form-field {
-	margin: 3em 0;
+	margin: 1em 0;
 	padding: 0;
 }
 
@@ -1388,7 +1388,7 @@ p.description code {
 ------------------------------------------------------------------------------*/
 
 #poststuff .tagsdiv .ajaxtag {
-	margin-top: 3em;
+	margin-top: 1em;
 }
 
 #poststuff .tagsdiv .howto {
@@ -1405,7 +1405,7 @@ p.description code {
 
 .tagsdiv .the-tags {
 	display: block;
-	height: 111px;
+	height: 60px;
 	margin: 0 auto;
 	overflow: auto;
 	width: 260px;
@@ -1477,7 +1477,7 @@ p.popular-tags a {
 
 .ac_results .ac_over,
 .ac_over .ac_match {
-	background-color: #1199b1;
+	background-color: #2271b1;
 	color: #fff;
 	cursor: pointer;
 }
