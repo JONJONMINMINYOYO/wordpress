@@ -6907,3 +6907,4 @@ Stack trace:
 [21-Jun-2024 16:55:26 Asia/Tokyo] PHP Warning:  Undefined variable $output in C:\softwares\XAMPP\htdocs\wordpress\wp-postshow-comments.php on line 407
 [21-Jun-2024 16:55:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
 [21-Jun-2024 16:55:26 Asia/Tokyo] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+[22-Jun-2024 16:21:39 Asia/Tokyo] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\0622mysql\htdocs\wordpress-0603\wp-includes\class-wpdb.php on line 1987
