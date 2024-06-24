@@ -16,6 +16,9 @@
     $query = new WP_Query();
     $postshow_table = new WP_List_Table(); 
 
+    $paged = get_query_var('paged');
+    echo "1->Log message for paged: " . $paged . "<br>";
+
     $query_params = array(
         'post_type'      => 'post',
         'posts_per_page' => get_option('posts_per_page'), 
@@ -59,20 +62,6 @@
                                         urlParams.set('post_names_select', selectedValue);
                                     });
                                     
-                                    document.addEventListener('keypress', function(event) {
-                                        if (event.key === 'Enter') {
-                                            var target = event.target;
-
-                                            if (target.classList.contains('current-page')) {
-                                               var currentPageValue = currentPageInput.value.trim();
-                                            if (currentPageValue !== '') {
-                                                var url = 'http://localhost/wordpress/wp-postshow-comments.php?page=' + currentPageValue;
-                                                console.log(url);
-                                                window.location.href = url;
-                                            }
-                                            }
-                                        }
-                                    });
                                 });
 
                                 function onClickRedirect() {
@@ -91,6 +80,17 @@
                                 function clearSearchKeyword() {
                                     document.getElementById('keyword-search').value = '';
                                 }
+
+                                function clearSearchKeyword2() {
+                                    var currentPageValue = document.getElementById('post-current-page-selector').value.trim();
+                                    console.log('clearSearchKeyword2');
+                                    if (currentPageValue !== '') {
+                                            var url = 'http://localhost/wordpress/wp-postshow-comments.php?page=' + currentPageValue;
+                                            console.log(url);
+                                            window.location.href = url;
+                                    }
+                                }
+
                                 function clearSearchEmail() {
                                     document.getElementById('postemail-search').value = '';
                                 }
@@ -101,6 +101,8 @@
                             <label for="postemail-search">メール検索：</label>
                             <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
                             <input type="submit" value="検索" onclick="clearSearchKeyword();">
+
+                            <input type="button" value="検索2" onclick="clearSearchKeyword2();">
                         </p>
                     </td>  
                     <td colspan="3">
@@ -120,6 +122,9 @@
           <?php  
             $limit = 3; 
             $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
+              
+            echo "3->Log message for paged: " . $paged . "<br>";
+            
             $offset = ($page - 1) * $limit; 
 
             $post_name_select = isset($_GET['post_names_select']) ? sanitize_text_field($_GET['post_names_select']) : '';
@@ -375,41 +380,37 @@
                              );
                          }
                       
-                        //  if ($last_character) {
-                        //      $html_current_page  = $last_character;
-                        //      $total_pages_before = sprintf(
-                        //          '<span class="screen-reader-text">%s</span>' .
-                        //          '<span id="table-paging" class="paging-input">' .
-                        //          '<span class="tablenav-paging-text">',
-                        //          /* translators: Hidden accessibility text. */
-                        //          __( '現在のページ番号' )
-                        //      );
-                        //  } else {
-                        //      $html_current_page = sprintf(
-                        //          '<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
-                        //          "<input class='current-page' id='post-current-page-selector' type='input'
-                        //              name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
-                        //          "<span class='tablenav-paging-text'>",
-                        //          /* translators: Hidden accessibility text. */
-                        //          __( '現在のページ番号' ),
-                        //          $last_character,
-                        //          strlen( $total_pages )
-                        //      );
-                        //  }
                         $current = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                        var_dump($current."and".$total_pages);
-                        $html_current_page = sprintf(
-                            '<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
-                            "<input class='current-page' id='post-current-page-selector' type='text'
-                                name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
-                            "<span class='tablenav-paging-text'>",
-                            /* translators: Hidden accessibility text. */
-                            __( '現在のページ番号' ),
-                            $current,
-                            strlen( $total_pages )
-                        );
+                        $log_message_paged = get_query_var('paged');
+                        $log_message_page = get_query_var('page');
+  
+                        echo "3->Log message for log_message_paged: " . $log_message_paged . "<br>";
+                        echo "3->Log message for log_message_page: " . $log_message_page . "<br>";
+                          if ($last_character) {
+                              $html_current_page  = $last_character;
+                              $total_pages_before = sprintf(
+                                 '<span class="screen-reader-text">%s</span>' .
+                                  '<span id="table-paging" class="paging-input">' .
+                                  '<span class="tablenav-paging-text">',
+                                 /* translators: Hidden accessibility text. */
+                                  __( '現在のページ番号' )
+                             );
+                         } else {
+                              $html_current_page = sprintf(
+                                 '<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
+                                "<input class='current-page' id='post-current-page-selector' type='input'
+                                     name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
+                                 "<span class='tablenav-paging-text'>",
+                                  /* translators: Hidden accessibility text. */
+                                __( '現在のページ番号' ),
+                                $last_character,
+                                  strlen( $total_pages )
+                              );
+                          }
+                      
+                      
                         var_dump($html_current_page);
-                         $html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+                        $html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
                          
                          $page_links[] = $total_pages_before . sprintf(
                              /* translators: 1: Current page, 2: Total pages. */
