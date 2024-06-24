@@ -369,6 +369,60 @@ function get_comment_author_url( $comment_id = 0 ) {
 	return apply_filters( 'get_comment_author_url', $comment_author_url, $comment_id, $comment );
 }
 
+function get_comment_author_tel( $comment_id = 0 ) {
+	$comment = get_comment( $comment_id );
+	$comment_id         = 0;
+
+	if ( ! empty( $comment ) ) {
+		$comment_author_tel = ( '0' == $comment->comment_author_tel ) ? 'なし' : $comment->comment_author_tel;
+		
+		$comment_author_tel =  esc_textarea( $comment_author_tel );
+
+		$comment_id = $comment->comment_ID;
+	}
+
+	/**
+	 * Filters the comment author's URL.
+	 *
+	 * @since 1.5.0
+	 * @since 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 *
+	 * @param string          $comment_author_tel The comment author's URL, or an empty string.
+	 * @param string|int      $comment_id         The comment ID as a numeric string, or 0 if not found.
+	 * @param WP_Comment|null $comment            The comment object, or null if not found.
+	 */
+	return apply_filters( 'get_comment_author_tel', $comment_author_tel, $comment_id, $comment );
+}
+//20240603 性別ゲットファンクション　新規　koui start
+function get_comment_sex( $comment_id = 0 ) {
+	$comment = get_comment( $comment_id );
+	
+
+	$comment_sex = '';
+	$comment_id  = 0;
+
+	if ( ! empty( $comment ) ) {
+		//$comment_sex = ( '1' === $comment->comment_sex ) ? '' : $comment->comment_sex;
+		$comment_sex = ( 1 == $comment->comment_sex ) ? '男性' : ( ( 0 == $comment->comment_sex ) ? '女性' : 'なし' );
+		$comment_sex =  esc_textarea( $comment_sex );
+
+		$comment_id = $comment->comment_ID;
+	}
+
+	/**
+	 * Filters the comment author's URL.
+	 *
+	 * @since 1.5.0
+	 * @since 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 *
+	 * @param string          $comment_sex The comment author's URL, or an empty string.
+	 * @param string|int      $comment_id         The comment ID as a numeric string, or 0 if not found.
+	 * @param WP_Comment|null $comment            The comment object, or null if not found.
+	 */
+	return apply_filters( 'get_comment_sex', $comment_sex, $comment_id, $comment );
+}
+//20240603 性別ゲットファンクション　新規　koui end
+
 /**
  * Displays the URL of the author of the current comment, not linked.
  *
@@ -395,6 +449,42 @@ function comment_author_url( $comment_id = 0 ) {
 	echo apply_filters( 'comment_url', $comment_author_url, $comment->comment_ID );
 }
 
+//20240603 電話番号comment_author_tel　新規　koui start
+function comment_author_tel( $comment_id = 0 ) {
+	$comment = get_comment( $comment_id );
+
+	$comment_author_tel = get_comment_author_tel( $comment );
+
+	/**
+	 * Filters the comment author's URL for display.
+	 *
+	 * @since 1.2.0
+	 * @since 4.1.0 The `$comment_id` parameter was added.
+	 *
+	 * @param string $comment_author_tel The comment author's URL.
+	 * @param string $comment_id         The comment ID as a numeric string.
+	 */
+	echo apply_filters( 'comment_tel', $comment_author_tel, $comment->comment_ID );
+}
+//20240603 電話番号comment_author_tel　新規　koui end
+//20240603 性別comment_sex　新規　koui start
+function comment_sex( $comment_id = 0 ) {
+	$comment = get_comment( $comment_id );
+
+	$comment_sex = get_comment_sex( $comment );
+
+	/**
+	 * Filters the comment author's URL for display.
+	 *
+	 * @since 1.2.0
+	 * @since 4.1.0 The `$comment_id` parameter was added.
+	 *
+	 * @param string $comment_sex The comment author's URL.
+	 * @param string $comment_id         The comment ID as a numeric string.
+	 */
+	echo apply_filters( 'comment_sex', $comment_sex, $comment->comment_ID );
+}
+//20240603 性別comment_sex　新規　koui end
 /**
  * Retrieves the HTML link of the URL of the author of the current comment.
  *
@@ -422,8 +512,8 @@ function get_comment_author_url_link( $link_text = '', $before = '', $after = ''
 	$comment_author_url = get_comment_author_url( $comment );
 
 	$display = ( '' !== $link_text ) ? $link_text : $comment_author_url;
-	$display = str_replace( 'http://www.', '', $display );
-	$display = str_replace( 'http://', '', $display );
+	// $display = str_replace( 'http://www.', '', $display );
+	// $display = str_replace( 'http://', '', $display );
 
 	if ( str_ends_with( $display, '/' ) ) {
 		$display = substr( $display, 0, -1 );
@@ -788,7 +878,7 @@ function get_comment_link( $comment = null, $args = array() ) {
 	// The 'cpage' param takes precedence.
 	if ( ! is_null( $args['cpage'] ) ) {
 		$cpage = $args['cpage'];
-
+		
 		// No 'cpage' is provided, so we calculate one.
 	} else {
 		if ( '' === $args['per_page'] && get_option( 'page_comments' ) ) {
@@ -835,9 +925,9 @@ function get_comment_link( $comment = null, $args = array() ) {
 	if ( $wp_rewrite->using_permalinks() ) {
 		$comment_link = user_trailingslashit( $comment_link, 'comment' );
 	}
-
-	$comment_link = $comment_link . '#comment-' . $comment->comment_ID;
-
+	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui start
+	$comment_link = $comment_link . '#abcdcomment-' . $comment->comment_ID;
+	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui end
 	/**
 	 * Filters the returned single comment permalink.
 	 *
@@ -908,6 +998,7 @@ function get_comments_number( $post = 0 ) {
 	$post = get_post( $post );
 
 	$comments_number = $post ? $post->comment_count : 0;
+	
 	$post_id         = $post ? $post->ID : 0;
 
 	/**
@@ -1465,7 +1556,6 @@ function comments_template( $file = '/comments.php', $separate_comments = false 
 		}
 	}
 
-	
 	$per_page = 0;
 	if ( get_option( 'page_comments' ) ) {
 		$per_page = (int) get_query_var( 'comments_per_page' );
@@ -2278,7 +2368,7 @@ function wp_list_comments( $args = array(), $comments = null ) {
 			if ( $parsed_args['page'] != $current_cpage || $parsed_args['per_page'] != $current_per_page ) {
 				$comment_args = array(
 					'post_id' => get_the_ID(),
-					'orderby' => 'comment_date_gmt',
+					'orderby' => 'comment_author_tel',
 					'order'   => 'ASC',
 					'status'  => 'approve',
 				);
@@ -2510,7 +2600,7 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-author">%s %s</p>',
 			sprintf(
 				'<label for="author">%s%s</label>',
-				__( 'Name' ),
+				__( '🥰名前🥰' ),
 				( $req ? $required_indicator : '' )
 			),
 			sprintf(
@@ -2523,7 +2613,7 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-email">%s %s</p>',
 			sprintf(
 				'<label for="email">%s%s</label>',
-				__( 'Email' ),
+				__( '🥰メールアドレス🥰' ),
 				( $req ? $required_indicator : '' )
 			),
 			sprintf(
@@ -2537,37 +2627,87 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-form-url">%s %s</p>',
 			sprintf(
 				'<label for="url">%s</label>',
-				__( 'Website' )
+				__( '🥰ウェブサイト🥰' )
 			),
 			sprintf(
 				'<input id="url" name="url" %s value="%s" size="30" maxlength="200" autocomplete="url" />',
 				( $html5 ? 'type="url"' : 'type="text"' ),
-				esc_attr( $commenter['comment_author_url'] )
+				//20240609 comment_author_url の "http://" 削除　koui
+				esc_attr( substr($commenter['comment_author_url'] , 7))
 			)
 		),
-	);
+		//20240517新規入力　電話番号start
+		'tel'    => sprintf(
+			'<p class="comment-form-tel">%s %s</p>',
+			sprintf(
+				'<label for="tel">%s%s</label>',
+				__( '🥰電話番号🥰' ),
+				( $req ? $required_indicator : '' )
+			),
+			sprintf(
+				'<input id="tel" name="tel" %s value="%s" size="11" maxlength="11" autocomplete="0123456789" />',
+				( $html5 ? 'type="tel"' : 'type="text"' ),
+				//20240609 postにwp-comment-cookies-consentチェックして画面電話番号不表示.
+				esc_attr( $commenter['comment_author_tel'] = "" )  
+			),
+			
+		    ),
+		//20240517新規入力　電話番号end
+		'sex' => sprintf(
+			'<p class="comment-form-sex">%s %s </p>',
+			sprintf(
+				'<label for="sex">%s</label>',
+				__( '🥰性別🥰' ),
+			// 	('<script>
+			//   var Sex_lasttime = document.getElementsByName("sex");
+       		// 	 	Sex_lasttime.addEventListener (
+			// 		"click", function(){
+			// 		const radioButton = document.getElementsByValue("$_POST["sex"]");
+            //     			radioButton = true;
+			// 		});	
+          	//      </script>')
+			),
+			sprintf(
+				'<div style="display: flex; flex-direction: row;">
+				<label >男性</label>
+				<input id="male" name="sex" type="radio" value="1" />
+				<label >女性</label>
+				<input id="female" name="sex" type="radio" value="0" />
+				<script >
+				 document.addEventListener(\'DOMContentLoaded\', function() {
+						const radioButtons = document.getElementsByName(\'sex\');
+						radioButtons.forEach(function(button) {
+							button.addEventListener(\'dblclick\', function() {
+								radioButtons.forEach(function(btn) {
+									btn.checked = false;});             });
+						});
+					});
+         	   </script>
+			    </div>'
 
+			)
+		)
+		
+	);
+	
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
 		$consent = empty( $commenter['comment_author_email'] ) ? '' : $checked_attribute;
-
+		
 		$fields['cookies'] = sprintf(
 			'<p class="comment-form-cookies-consent">%s %s</p>',
 			sprintf(
 				'<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />',
-				$consent
+				$consent,
 			),
 			sprintf(
 				'<label for="wp-comment-cookies-consent">%s</label>',
-				__( 'Save my name, email, and website in this browser for the next time I comment.' )
+				//__( 'Save my name, email, and website in this browser for the next time I comment.' )
+				__( '次回コメントするために、名前、メールアドレス、ウェブサイトを保存する.' )
 			)
 		);
-
-		// Ensure that the passed fields include cookies consent.
-		if ( isset( $args['fields'] ) && ! isset( $args['fields']['cookies'] ) ) {
-			$args['fields']['cookies'] = $fields['cookies'];
-		}
+		
 	}
-
+	
 	/**
 	 * Filters the default comment form fields.
 	 *
@@ -2576,18 +2716,45 @@ function comment_form( $args = array(), $post = null ) {
 	 * @param string[] $fields Array of the default comment fields.
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
-
+	// $field1 = '
+	// 	<p class="search-box">
+	// 	<label class="screen-reader-text" for="' . esc_attr( $fields ) . '">' . $fields . ':</label>
+	// 	<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
+		
+	// 		</p>';
+	$search_button ='
+	<input type="search" id="search" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
+	style="width: 66px;height: 25px;font-size: 18px;"/>
+	<input type="button" id="search_button" value="リダイレクト" 
+	style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+	   <script >
+	  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+				search_button.addEventListener (
+				"click", function(){
+				inputs.forEach(function(input) {
+				input.value = "";} );
+			});	
+	</script>';
+	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
 			'<p class="comment-form-comment">%s %s</p>',
 			sprintf(
 				'<label for="comment">%s%s</label>',
-				_x( 'Comment', 'noun' ),
+				_x( '🥰コメント🥰', 'noun' ),
 				$required_indicator
 			),
-			'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
+			'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
 		),
+		//
+		// 'comments_123' =>  sprintf(
+		// 	'<span class="displaying-num">' .
+		// 	/* translators: %s: Number of items. */
+		// 	_n( '%s item', '%s items', "3" ),
+		// 	number_format_i18n( "3" )
+		// ) . '</span>',
+		//
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
 			sprintf(
@@ -2613,32 +2780,53 @@ function comment_form( $args = array(), $post = null ) {
 			'<p class="comment-notes">%s%s</p>',
 			sprintf(
 				'<span id="email-notes">%s</span>',
-				__( 'Your email address will not be published.' )
+				//20240611  コメント上に文言変更  koui  start
+				//__( 'Your email address will not be published.' )
+				__( 'あなたのメールアドレスは公開されません' )
+				//20240611  コメント上に文言変更  koui  start
 			),
 			$required_text
 		),
+		//20240610 
+		// 'comment_pages' => sprintf(
+		// 	'<label for="current-post-page" class="current-post-page">%s</label>' .
+		// 	"<input class='current-show-postpage' id='current-show-postpage' type='text' 
+		// 	style=width:30px;height:20px;
+		// 	name='show-postpage' value='%s'  " ,
+		// 	/* translators: Hidden accessibility text. */
+		// 	__( '今' ),
+		// 	get_comment_count( $post_id ),
+		// 	sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( 20 ) ),
+		// ),
+		
+
+		//20240610
+
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
-		'id_submit'            => 'submit',
+		'id_submit'            => 'submit',				                       //$submit_button								
 		'class_container'      => 'comment-respond',
 		'class_form'           => 'comment-form',
-		'class_submit'         => 'submit',
-		'name_submit'          => 'submit',
-		'title_reply'          => __( 'Leave a Reply' ),
+		'class_submit'         => 'submit',                                    //$submit_button
+		'name_submit'          => 'submit',				                       //$submit_button
+		//20240611  電話番号と性別 新規  koui  start
+		//'title_reply'          => __( 'Leave a Reply' ),
+		'title_reply'          => __( '回答してください。' ),
 		/* translators: %s: Author of the comment being replied to. */
 		'title_reply_to'       => __( 'Leave a Reply to %s' ),
-		'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
-		'title_reply_after'    => '</h3>',
+		'title_reply_before'   => '<h1 id="reply-title" class="comment-reply-title">',
+		'title_reply_after'    => '</h1>',
 		'cancel_reply_before'  => ' <small>',
 		'cancel_reply_after'   => '</small>',
 		'cancel_reply_link'    => __( 'Cancel reply' ),
-		'label_submit'         => __( 'Post Comment' ),
-		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
-		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
+		'label_submit'         => __( 'コミットボタン' ),                       //$submit_button
+		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />', //$submit_button
+		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',     //$submit_field
 		'format'               => 'xhtml',
-	);
 
+	);
+	
 	/**
 	 * Filters the comment form default arguments.
 	 *
@@ -2673,8 +2861,10 @@ function comment_form( $args = array(), $post = null ) {
 		<?php
 		echo $args['title_reply_before'];
 
+		//20240610 		comment_pages koui start
+		//comment_form_title( $args['comment_pages'], true, $post_id );
+		//20240610 		comment_pages koui end
 		comment_form_title( $args['title_reply'], $args['title_reply_to'], true, $post_id );
-
 		if ( get_option( 'thread_comments' ) ) {
 			echo $args['cancel_reply_before'];
 
@@ -2827,9 +3017,10 @@ function comment_form( $args = array(), $post = null ) {
 				esc_attr( $args['name_submit'] ),
 				esc_attr( $args['id_submit'] ),
 				esc_attr( $args['class_submit'] ),
-				esc_attr( $args['label_submit'] )
+				esc_attr( $args['label_submit'] ),
+				
 			);
-
+		
 			/**
 			 * Filters the submit button for the comment form to display.
 			 *
@@ -2839,13 +3030,41 @@ function comment_form( $args = array(), $post = null ) {
 			 * @param array  $args          Arguments passed to comment_form().
 			 */
 			$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
+			//20240605  入力内容クリアボタン新規　koui start
+			// <div style="display: flex; flex-direction: column;">
+			// <input name="button_clear" type="button" id="button_clear" value="入力内容クリア" 
+			// style="background-color: rgba(169, 169, 169, 0.5); color: white; border: 1px solid black;" 
+			// />
+			//20240605  入力内容クリアボタン新規　koui start
+			$submit_button_clear ='
+			<input type="button" id="button_clear" value="入力内容クリア" 
+			style="width: 176px;height: 54px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+   			<script >
+			  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+			  var radioButtons = document.getElementsByName("sex");
+       			 	button_clear.addEventListener (
+					"click", function(){
+          		 		inputs.forEach(function(input) {
+                		input.value = "";} );
+					const radioButtons = document.getElementsByName("sex");
+                			radioButtons[0].checked = false;
+							radioButtons[1].checked = false;
+					});	
+            </script>';
+			//20240605  入力内容クリアボタン新規　koui end
 
+			
 			$submit_field = sprintf(
 				$args['submit_field'],
-				$submit_button,
+				$submit_button ,
 				get_comment_id_fields( $post_id )
 			);
-
+			
+			//20240605  入力内容クリアボタン追加　koui start
+			$submit_field_clear = sprintf(
+				$submit_button_clear 
+			);
+			//20240605  入力内容クリアボタン追加　koui end
 			/**
 			 * Filters the submit field for the comment form to display.
 			 *
@@ -2858,7 +3077,9 @@ function comment_form( $args = array(), $post = null ) {
 			 * @param array  $args         Arguments passed to comment_form().
 			 */
 			echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
-
+			//20240605 　入力内容クリアボタン新規　koui 
+			echo apply_filters( 'comment_form_submit_field_clear', $submit_field_clear, $args );
+			
 			/**
 			 * Fires at the bottom of the comment form, inside the closing form tag.
 			 *
@@ -2873,12 +3094,163 @@ function comment_form( $args = array(), $post = null ) {
 		endif;
 		?>
 	</div><!-- #respond -->
+	
 	<?php
+	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
+ function pagination_postshow( $which ) {
+	// if ( empty( $this->_pagination_args ) ) {
+	// 	return;
+	// }
+	$comment_query = new WP_Comment_Query( $which );
+	$total_items =  $comment_query->user_posts_count;
+	$current = $comment_query->current;
+	$total_pages = $comment_query->max_num_pages;
+	$output = '<span class="displaying-num">' . sprintf(
+		/* translators: %s: Number of items. */
+		_n( '%s item', '%s items', $total_items ),
+		number_format_i18n( $total_items )
+	) . '</span>';
 
+	
+	
+	$removable_query_args = wp_removable_query_args();
+
+	$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+	
+
+	$current_url = remove_query_arg( $removable_query_args, $current_url );
+
+	$page_links = array();
+
+	$total_pages_before = '<span class="paging-input">';
+	$total_pages_after  = '</span></span>';
+
+	$disable_first = false;
+	$disable_last  = false;
+	$disable_prev  = false;
+	$disable_next  = false;
+
+	if ( 1 == $current ) {
+		$disable_first = true;
+		$disable_prev  = true;
+	}
+	if ( $total_pages == $current ) {
+		$disable_last = true;
+		$disable_next = true;
+	}
+
+	if ( $disable_first ) {
+		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&laquo;</span>';
+	} else {
+		$page_links[] = sprintf(
+			"<a class='first-page button' href='%s'>" .
+				"<span class='screen-reader-text'>%s</span>" .
+				"<span aria-hidden='true'>%s</span>" .
+			'</a>',
+			esc_url( remove_query_arg( 'paged', $current_url ) ),
+			/* translators: Hidden accessibility text. */
+			__( 'First page' ),
+			'&laquo;'
+		);
+	}
+
+	if ( $disable_prev ) {
+		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&lsaquo;</span>';
+	} else {
+		$page_links[] = sprintf(
+			"<a class='prev-page button' href='%s'>" .
+				"<span class='screen-reader-text'>%s</span>" .
+				"<span aria-hidden='true'>%s</span>" .
+			'</a>',
+			esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+			/* translators: Hidden accessibility text. */
+			__( 'Previous page' ),
+			'&lsaquo;'
+		);
+	}
+
+	if ( 'bottom' === $which ) {
+		$html_current_page  = $current;
+		$total_pages_before = sprintf(
+			'<span class="screen-reader-text">%s</span>' .
+			'<span id="table-paging" class="paging-input">' .
+			'<span class="tablenav-paging-text">',
+			/* translators: Hidden accessibility text. */
+			__( 'Current Page' )
+		);
+	} else {
+		$html_current_page = sprintf(
+			'<label for="current-page-selector" class="screen-reader-text">%s</label>' .
+			"<input class='current-page' id='current-page-selector' type='text'
+				name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
+			"<span class='tablenav-paging-text'>",
+			/* translators: Hidden accessibility text. */
+			__( 'Current Page' ),
+			$current,
+			strlen( $total_pages )
+		);
+	}
+
+	$html_total_pages = sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+
+	$page_links[] = $total_pages_before . sprintf(
+		/* translators: 1: Current page, 2: Total pages. */
+		_x( '%1$s of %2$s', 'paging' ),
+		$html_current_page,
+		$html_total_pages
+	) . $total_pages_after;
+
+	if ( $disable_next ) {
+		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&rsaquo;</span>';
+	} else {
+		$page_links[] = sprintf(
+			"<a class='next-page button' href='%s'>" .
+				"<span class='screen-reader-text'>%s</span>" .
+				"<span aria-hidden='true'>%s</span>" .
+			'</a>',
+			esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+			/* translators: Hidden accessibility text. */
+			__( 'Next page' ),
+			'&rsaquo;'
+		);
+	}
+
+	if ( $disable_last ) {
+		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&raquo;</span>';
+	} else {
+		$page_links[] = sprintf(
+			"<a class='last-page button' href='%s'>" .
+				"<span class='screen-reader-text'>%s</span>" .
+				"<span aria-hidden='true'>%s</span>" .
+			'</a>',
+			esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+			/* translators: Hidden accessibility text. */
+			__( 'Last page' ),
+			'&raquo;'
+		);
+	}
+
+	$pagination_links_class = 'pagination-links';
+	if ( ! empty( $infinite_scroll ) ) {
+		$pagination_links_class .= ' hide-if-js';
+	}
+	$output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
+
+	if ( $total_pages ) {
+		$page_class = $total_pages < 2 ? ' one-page' : '';
+	} else {
+		$page_class = ' no-pages';
+	}
+	$this->_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
+
+	echo $this->_pagination;
+}
+	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
 	/**
 	 * Fires after the comment form.
 	 *
 	 * @since 3.0.0
 	 */
 	do_action( 'comment_form_after' );
-}
+	}
+
