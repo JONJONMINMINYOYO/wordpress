@@ -927,7 +927,7 @@ function get_comment_link( $comment = null, $args = array() ) {
 		$comment_link = user_trailingslashit( $comment_link, 'comment' );
 	}
 	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui start
-	$comment_link = $comment_link . '#abcdcomment-' . $comment->comment_ID;
+	$comment_link = $comment_link . '#comment-' . $comment->comment_ID;
 	//20240608 notes urlにはcommentが最後の位置に追加して表示される　/#66comment-$post-id koui end
 	/**
 	 * Filters the returned single comment permalink.
