@@ -3500,30 +3500,9 @@ function postshow_url( $path = '', $scheme = null ) {
 
 //20240620  get_postshow_url()追加  koui  start
 function get_postshow_url(  $path = '', $scheme = null ) {
-	// $orig_scheme = $scheme;
 
-	// if ( empty( $blog_id ) || ! is_multisite() ) {
-	// 	$url = get_option( 'home' );
-	// } else {
-	// 	switch_to_blog( $blog_id );
-	 //	$url = get_option( 'home' );
-	// 	restore_current_blog();
-	// }
 
-	// if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ), true ) ) {
-	// 	if ( is_ssl() ) {
-	// 		$scheme = 'https';
-	// 	} else {
-	// 		$scheme = parse_url( $url, PHP_URL_SCHEME );
-	// 	}
-	// }
-
-	// $url = set_url_scheme( $url, $scheme );
-
-	// if ( $path && is_string( $path ) ) {
-	// 	$url .= '/' . ltrim( $path, '/' );
-	// }
-	$url = network_site_url( '/wp-postshow-comments.php', $scheme );
+	$url = network_site_url( '/wp-postshow-comments', $scheme );
 
 	if ( $path && is_string( $path ) ) {
 		$url .= ltrim( $path, '/' );

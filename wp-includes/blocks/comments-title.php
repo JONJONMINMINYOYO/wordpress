@@ -84,7 +84,7 @@ function render_block_core_comments_title( $attributes ) {
 		$wrapper_attributes,
 		$comments_title,
 		'',
-		esc_url( site_url('/wp-includes/blocks/	comments-postshow.php') ), // 
+		esc_url( site_url('/wp-postshow-comments.php') ), // 
 		__( '投稿表示', 'your-text-domain' ) // 
 	);
 }
