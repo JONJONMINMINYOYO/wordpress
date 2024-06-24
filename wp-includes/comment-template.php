@@ -1465,6 +1465,7 @@ function comments_template( $file = '/comments.php', $separate_comments = false 
 		}
 	}
 
+	
 	$per_page = 0;
 	if ( get_option( 'page_comments' ) ) {
 		$per_page = (int) get_query_var( 'comments_per_page' );
