@@ -43,16 +43,7 @@
                         <input type="submit" value="送信する" onclick="keep_postname();">
                     </p>
                     <div id="result"></div>
-                            <script>    
-                                 function clearall() {
-                                    var commentsShowRow = document.getElementsByClassName('comments-show');
-                                          for (var i = 0; i < commentsShowRows.length; i++) {
-                                            var cells = commentsShowRows[i].getElementsByClassName('comment-cell');
-                                            for (var j = 0; j < cells.length; j++) {
-                                                cells[j].innerHTML = ''; 
-                                            }
-                                        }
-                                 }  
+                            <script>
                                 document.addEventListener('DOMContentLoaded', function () {                  
                                     selectElement.addEventListener('change', function () {
                                         document.getElementById('postemail-search').value = '';
@@ -71,7 +62,7 @@
                                     const selectedValue = selectElement.value;
                                     resultContainer.innerHTML = '';
                                         if (selectedValue) {
-                                            resultContainer.innerHTML = `ユーザーが選択したPost名は：${selectedValue}`;
+                                            resultContainer.innerHTML = `ユーザーが選択したPost名は :${selectedValue}`;
                                         }
                                 });
                                 function clearSearchKeyword() {
@@ -99,36 +90,35 @@
              </tr>
                   <tr>
                     <div class="form-actions">
-                        <button type="button" class="initial-button" onclick="clearall()">クリアする</button>
+                        <button type="button" class="initial-button" onclick="resetForm()">クリアする</button>
                         <button type="button" class="homepage-button" onclick="onClickRedirect()">ホームページ</button>
                     </tr>
             </table>
           <?php  
+            $limit = 10; 
+            $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
+            $offset = ($page - 1) * $limit; 
+
             $post_name_select = isset($_GET['post_names_select']) ? sanitize_text_field($_GET['post_names_select']) : '';
             $search_email = isset($_GET['search_email']) ? sanitize_text_field($_GET['search_email']) : '';
             $search_keyword = isset($_GET['search_keyword']) ? sanitize_text_field($_GET['search_keyword']) : '';
-            $current_page = isset($_GET['page']) ? absint($_GET['page']) : 1;
-               var_dump($current_page);                     
-        if ("" != ($post_name_select)) {
-            $sql_post_name = $wpdb->prepare("
+            $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
+
+        if ("" !=($post_name_select) && isset($post_name_select)) {
+            $sql = $wpdb->prepare("
                 SELECT c.*
                 FROM {$wpdb->prefix}comments AS c
                 INNER JOIN {$wpdb->prefix}posts AS p ON c.comment_post_ID = p.ID
                 WHERE p.post_name = %s
             ", $_GET['post_names_select']);
-            $serach_total_comments = $wpdb->get_var($sql_post_name);
         }
-        if ("" != ($search_email)) {
-            $sql = "SELECT * FROM {$wpdb->prefix}comments ";
-            $sql .= " where comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
-            $sql_email = $sql;
-            $serach_total_comments = $wpdb->get_var($sql_email);
+        if ("" !=($search_email) && isset($search_email)) {
+            $sql .= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
         }
 
-         if ("" != ($search_keyword)) {
-             $sql = "SELECT * FROM {$wpdb->prefix}comments ";
+         if ("" !=($search_email) && isset($search_keyword)) {
                 $escaped_keyword = esc_sql($search_keyword);
-                $sql .= " where (";
+                $sql .= " AND (";
                 $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
                 $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
                 $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
@@ -143,34 +133,20 @@
                 $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
                 $sql .= " comment_sex LIKE '%$escaped_keyword%'";
                 $sql .= ")";
-                $sql_keyword = $sql;
-                //$serach_total_comments = $wpdb->get_var($sql_keyword);
             }
-            $limit = 10;
-            // $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
-            // var_dump( $page );
-            $total_pages = ceil($serach_total_comments / $limit);
-           
+            $sql .= " LIMIT $limit OFFSET $offset";
 
-            $offset = ($total_pages - 1) * $limit; 
-            $sql_all = $sql ;
-            
-            $sql.= " LIMIT $limit OFFSET $offset";
-         
             $comments = $wpdb->get_results($sql);
-           
-            $total_comments = $wpdb->get_var($sql_all);
             
-           // $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments WHERE 1 = 1");
+            $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments ");
+
+            $total_pages = ceil($total_comments / $limit);
    
-            ?>                             
+            ?>
                 <head>
                     <meta charset="UTF-8">
                     <title>Postに関わるコメント表示</title>
-                </head>
-          <body>
-            <h2>POSTに関わるコメント表示</h2>
-            <style>
+                    <style>
                          form {
                             width: 95%; 
                             margin:auto;  
@@ -222,6 +198,9 @@
                             color: white;
                         }
                     </style>
+                </head>
+          <body>
+            <h2>POSTに関わるコメント表示</h2>
                 <table>
                             <thead>
                                 <tr>
@@ -248,31 +227,31 @@
                         <tbody>
                             <?php 
                             foreach ($comments as $index => $comment): ?>
-                                <tr class="comments-show">
-                                    <td class="comment-cell"><?php echo (($page - 1) * $limit + $index + 1); ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_ID; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_post_ID; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_author; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_author_email; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_author_url; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_author_IP; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_content; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_approved; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_type; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_parent; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->user_id; ?></td>
-                                    <td class="comment-cell"><?php echo $comment->comment_author_tel; ?></td>
-                                    <td class="comment-cell"><?php echo ($comment->comment_sex == 1 ? "男性" : "女性"); ?></td>
+                                <tr>
+                                    <td><?php echo (($page - 1) * $limit + $index + 1); ?></td>
+                                    <td><?php echo $comment->comment_ID; ?></td>
+                                    <td><?php echo $comment->comment_post_ID; ?></td>
+                                    <td><?php echo $comment->comment_author; ?></td>
+                                    <td><?php echo $comment->comment_author_email; ?></td>
+                                    <td><?php echo $comment->comment_author_url; ?></td>
+                                    <td><?php echo $comment->comment_author_IP; ?></td>
+                                    <td><?php echo $comment->comment_content; ?></td>
+                                    <td><?php echo $comment->comment_approved; ?></td>
+                                    <td><?php echo $comment->comment_type; ?></td>
+                                    <td><?php echo $comment->comment_parent; ?></td>
+                                    <td><?php echo $comment->user_id; ?></td>
+                                    <td><?php echo $comment->comment_author_tel; ?></td>
+                                    <td><?php echo ($comment->comment_sex == 1 ? "男性" : "女性"); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                 </table>
-                    <div class="pagination">
+                        <div class="pagination">
                             <div class="postshow_allitems">
                                 <span class="comment-count">コメントの総数:</span>
                                 <strong><?php echo $total_comments; ?></strong>
                             </div>
-                        <div class="pagination-pages-links">
+                        <div class="pagination-links">
                             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                                 <a href="?page=<?php echo $i; ?>
                                     <?php echo !empty($search_email) ? '&search_email=' . urlencode($search_email) : ''; ?>
@@ -281,32 +260,160 @@
                                 </a>
                             <?php endfor; ?>
                         </div>
+                        <?php
+                        
+                         //20240620  文章のpost_nameの取得  koui  end
+                         
+                         global $wp_query;
+                         global  $attributes;
+                         global  $content;
+                         global  $block;
+                         
+                         $current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
+                         $post_id = get_the_ID();
+                         $per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
+                         $total_items = get_comments_number($post_id);
+                 
+                         $total_pages = intval(ceil( $total_items / $per_page ));
                        
+                         $prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
+
+                         $next_link2 = get_next_comments_link( "", $total_pages );
+
+                         $removable_query_args = wp_removable_query_args();
+                         
+                         $current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+                         //
+                         $current_url = remove_query_arg( $removable_query_args, $current_url );
+                         
+                         $page_links = array();
+                         
+                         $total_pages_before = '<span class="postshow-paging-input">';
+                         $total_pages_after  = '</span></span>';
+                         
+                         $disable_first = false;
+                         $disable_last  = false;
+                         $disable_prev  = false;
+                         $disable_next  = false;
+                         
+                         if ( 1 == $current ) {
+                             $disable_first = true;
+                             $disable_prev  = true;
+                         }
+                         if ( $total_pages == $current ) {
+                             $disable_last = true;
+                             $disable_next = true;
+                         }
+                         
+                         if ( $disable_first ) {
+                             $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&laquo;</span>';
+                         } else {
+                             $page_links[] = sprintf(
+                                 "<a class='first-page button' href='%s'>" .
+                                     "<span class='screen-reader-text'>%s</span>" .
+                                     "<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&laquo;</span>" .
+                                 '</a>',
+                                 esc_url( remove_query_arg( 'paged', $current_url ) ),
+                                 /* translators: Hidden accessibility text. */
+                                 __( 'First page' ),
+                                 //'&laquo;'
+                             );               
+                         }
+                         
+                         if ( $disable_prev ) {
+                             $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&lsaquo;</span>';
+                         } else {
+                             //$current_url = $prev_link;
+                             $page_links[] = sprintf(
+                                 "<a class='prev-page button' href='%s'>" .
+                                     "<span class='screen-reader-text'>%s</span>" .
+                                     "<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
+                                 '</a>',
+                                 esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+                                 /* translators: Hidden accessibility text. */
+                                 __( 'Previous page' ),
+                                 //'&lsaquo;'
+                             );
+                         }
+                      
+                         if ($current) {
+                             $html_current_page  = $current;
+                             $total_pages_before = sprintf(
+                                 '<span class="screen-reader-text">%s</span>' .
+                                 '<span id="table-paging" class="paging-input">' .
+                                 '<span class="tablenav-paging-text">',
+                                 /* translators: Hidden accessibility text. */
+                                 __( '現在のページ番号' )
+                             );
+                         } else {
+                             $html_current_page = sprintf(
+                                 '<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
+                                 "<input class='current-page' id='post-current-page-selector' type='text'
+                                     name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
+                                 "<span class='tablenav-paging-text'>",
+                                 /* translators: Hidden accessibility text. */
+                                 __( '現在のページ番号' ),
+                                 $current,
+                                 strlen( $total_pages )
+                             );
+                         }
+                         
+                         $html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+                         
+                         $page_links[] = $total_pages_before . sprintf(
+                             /* translators: 1: Current page, 2: Total pages. */
+                             _x( '%1$s of %2$s', 'paging' ),
+                             $html_current_page,
+                             $html_total_pages
+                         ) . $total_pages_after;
+                         
+                         if ( $disable_next ) {
+                             $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&rsaquo;</span>';
+                         } 
+                         else {
+                             $page_links[] = sprintf(
+                                 "<a class='next-page button' href='%s'>" .
+                                     "<span class='screen-reader-text'>%s</span>" .
+                                     "<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
+                                 '</a>',
+                                 esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+                                 //esc_url($next_link2),
+                                 /* translators: Hidden accessibility text. */
+                                 __( 'Next page' ),
+                                 //'&rsaquo;'
+                             );
+                         }
+                     
+                         if ( $disable_last ) {
+                             $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&raquo;</span>';
+                         } else {
+                             $page_links[] = sprintf(
+                                 "<a class='last-page button' href='%s'>" .
+                                     "<span class='screen-reader-text'>%s</span>" .
+                                     "<span aria-hidden='true'style='font-size: 30px;font-style:italic;color:#65574E' >&raquo;</span>" .
+                                 '</a>',
+                                 esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+                                 /* translators: Hidden accessibility text. */
+                                 __( 'Last page' ),
+                                 //'&raquo;'
+                             );
+                         }
+                         $pagination_links_class = 'pagination-links';
+                         
+                         if ( ! empty( $infinite_scroll ) ) {
+                             $pagination_links_class .= ' hide-if-js';
+                         }
+                         
+                         $output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
+                         
+                         if ( $total_pages ) {
+                             $page_class = $total_pages < 2 ? ' one-page' : '';
+                         } else {
+                             $page_class = ' no-pages';
+                         }
+                         $_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
+                         echo apply_filters( 'comment_form_postpage_area', $_pagination)."</br>";
+                        ?>
                     </div>
                  </body>
              </form>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Postに関わるコメント表示xxxxxx</title>
-</head>
-<body>
-<?php body_class(); ?>
-<?php get_header(); ?>
-<nav class="navigation post-navigation" aria-label="投稿">
-  <h2 class="screen-reader-text">投稿ナビゲーション</h2>
-  <div class="nav-links">
-    <div class="nav-previous">
-      <a href="前の記事のリンク" rel="prev">前の記事タイトル</a>
-      <a href="<?php echo esc_url(home_url('/')); ?>">本ページ</a>
-      <a href="<?php echo esc_url(postshow_url('/')); ?>">postshow_url</a>
-    </div>
-    <div class="nav-next">
-      <a href="次の記事のリンク" rel="next">次の記事タイトル</a>
-    </div>
-  </div>
-</nav>
-
-
-

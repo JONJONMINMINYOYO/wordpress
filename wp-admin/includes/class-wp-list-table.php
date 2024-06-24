@@ -91,7 +91,10 @@ class WP_List_Table {
 	 *
 	 * @var array
 	 */
-	protected $compat_methods = array(
+	//20240618  $compat_methods改修  koui  start
+	//protected $compat_methods = array(
+	public $compat_methods = array(
+	//20240618  $compat_methods改修  koui  start
 		'set_pagination_args',
 		'get_views',
 		'get_bulk_actions',
@@ -1014,7 +1017,11 @@ class WP_List_Table {
 	 *
 	 * @param string $which The location of the pagination: Either 'top' or 'bottom'.
 	 */
-	protected function pagination( $which ) {
+
+	 //20240617  function pagination改修  koui  start
+	//protected function pagination( $which ) {
+		public function pagination( $which ) {
+	//20240617  function pagination改修  koui  end
 		if ( empty( $this->_pagination_args ) ) {
 			return;
 		}
@@ -1037,9 +1044,11 @@ class WP_List_Table {
 		) . '</span>';
 
 		$current              = $this->get_pagenum();
+		
 		$removable_query_args = wp_removable_query_args();
 
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		
 
 		$current_url = remove_query_arg( $removable_query_args, $current_url );
 
@@ -1125,7 +1134,8 @@ class WP_List_Table {
 
 		if ( $disable_next ) {
 			$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&rsaquo;</span>';
-		} else {
+		} 
+		else {
 			$page_links[] = sprintf(
 				"<a class='next-page button' href='%s'>" .
 					"<span class='screen-reader-text'>%s</span>" .

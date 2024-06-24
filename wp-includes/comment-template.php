@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comment template functions
  *
@@ -2299,6 +2300,15 @@ function _get_comment_reply_id( $post = null ) {
  * @return void|string Void if 'echo' argument is true, or no comments to list.
  *                     Otherwise, HTML list of comments.
  */
+
+//  function postshow_pagination($which  ) {
+// 	//20240617  function pagination改修  koui  end
+// 		// if ( empty( $this->_pagination_args ) ) {
+// 		// 	return;
+// 		// }
+		
+// 		echo 	$_pagination;
+// 	}
 function wp_list_comments( $args = array(), $comments = null ) {
 	global $wp_query, $comment_alt, $comment_depth, $comment_thread_alt, $overridden_cpage, $in_comment_loop;
 
@@ -2556,6 +2566,31 @@ function wp_list_comments( $args = array(), $comments = null ) {
  * }
  * @param int|WP_Post $post Optional. Post ID or WP_Post object to generate the form for. Default current post.
  */
+//20240619  Block attributesパラメータなど追加  koui  start
+/**
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+* @global WP_Query $wp_query WordPress Query object.
+ *
+ * @param string $query_var     The variable key to retrieve.
+ * @param mixed  $default_value Optional. Value to return if the query variable is not set.
+ *                              Default empty string.
+
+ * @return string Returns the previous posts link for the comments pagination.
+ */
+//20240619  Block attributesパラメータなど追加  koui  end
+
+//  function get_pagenum() {
+		
+// 	$pagenum = isset( $_REQUEST['paged'] ) ? absint( $_REQUEST['paged'] ) : 0;
+
+// 	if ( isset( $this->_pagination_args['total_pages'] ) && $pagenum >pagination_args['total_pages'] ) {
+// 		$pagenum = $this->_pagination_args['total_pages'];
+// 	}
+	
+// 	return max( 1, $pagenum );
+// }
 function comment_form( $args = array(), $post = null ) {
 	$post = get_post( $post );
 
@@ -2658,14 +2693,6 @@ function comment_form( $args = array(), $post = null ) {
 			sprintf(
 				'<label for="sex">%s</label>',
 				__( '🥰性別🥰' ),
-			// 	('<script>
-			//   var Sex_lasttime = document.getElementsByName("sex");
-       		// 	 	Sex_lasttime.addEventListener (
-			// 		"click", function(){
-			// 		const radioButton = document.getElementsByValue("$_POST["sex"]");
-            //     			radioButton = true;
-			// 		});	
-          	//      </script>')
 			),
 			sprintf(
 				'<div style="display: flex; flex-direction: row;">
@@ -2684,12 +2711,10 @@ function comment_form( $args = array(), $post = null ) {
 					});
          	   </script>
 			    </div>'
-
 			)
 		)
-		
 	);
-	
+
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
 		$consent = empty( $commenter['comment_author_email'] ) ? '' : $checked_attribute;
 		
@@ -2705,9 +2730,7 @@ function comment_form( $args = array(), $post = null ) {
 				__( '次回コメントするために、名前、メールアドレス、ウェブサイトを保存する.' )
 			)
 		);
-		
 	}
-	
 	/**
 	 * Filters the default comment form fields.
 	 *
@@ -2716,14 +2739,9 @@ function comment_form( $args = array(), $post = null ) {
 	 * @param string[] $fields Array of the default comment fields.
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
-	// $field1 = '
-	// 	<p class="search-box">
-	// 	<label class="screen-reader-text" for="' . esc_attr( $fields ) . '">' . $fields . ':</label>
-	// 	<input type="search" id="' . esc_attr( $fields ) . '" name="s" value="' . esc_attr( wp() ) . '" />
-		
-	// 		</p>';
+	
 	$search_button ='
-	<input type="search" id="search" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
+	<input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
 	style="width: 66px;height: 25px;font-size: 18px;"/>
 	<input type="button" id="search_button" value="リダイレクト" 
 	style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
@@ -2735,6 +2753,231 @@ function comment_form( $args = array(), $post = null ) {
 				input.value = "";} );
 			});	
 	</script>';
+	//20240618  POST画面「コメント」上でページネーション追加  koui  start
+		global $wp_query;
+
+		global  $attributes;
+		global  $content;
+		global  $block;
+	
+		$current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
+	
+		// $comment_vars     = build_comment_query_vars_from_block( $block );
+		// $max_page         = ( new WP_Comment_Query( $comment_vars ) )->max_num_pages;
+	
+		 //echo "max_num_pages".($max_page)."<br>";
+		$post_id = get_the_ID();
+		$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
+		$total_items = get_comments_number($post_id);
+
+		//$total_pages = (int)$total_items / $per_page;
+
+		$total_pages = intval(ceil( $total_items / $per_page ));
+		
+	
+		// $abc123 = get_comments_pagenum_link();
+
+		// $abc66 = paginate_comments_links();
+		// $abc = get_next_comments_link(  '', 0 ) ;
+		// $get_dashboard_url = get_dashboard_url( $user_id = 0, $path = '', $scheme = 'admin' );
+		// $self_admin_url = self_admin_url();
+		// $get_edit_comment_link = get_edit_comment_link();
+		// $get_previous_posts_page_link =  get_previous_posts_page_link();
+
+		// $args = wp_parse_args(
+		// 	$args,
+		// 	array(
+		// 		'prev_text'          => __( 'Older comments' ),
+		// 		'next_text'          => __( 'Newer comments' ),
+		// 		'screen_reader_text' => __( 'Comments navigation' ),
+		// 		'aria_label'         => __( 'Comments' ),
+		// 		'class'              => 'comment-navigation',
+		// 	)
+		// );
+
+		// 20240619前ページリンク追加①  koui start
+		$prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
+		// 20240619前ページリンク追加①  koui end
+		//$next_comments_link = render_block_core_comments_pagination_numbers( $attributes, $content, $block );
+		// 20240619前ページリンク追加②  koui start
+		//$prev_link2 = get_previous_comments_link( $args['prev_text'] );
+		// 20240619前ページリンク追加②  koui end
+		//$next_link1 = get_next_comments_link( $args['next_text'] );
+
+		$next_link2 = get_next_comments_link( "", $total_pages );
+
+
+		// $current_page = get_query_var( 'cpage' );    
+		// $next_page = get_pagenum_link( $current_page + 1 );
+
+		
+
+		if ( $total_pages > 1 ) {
+			//$this->screen->render_screen_reader_content( 'heading_pagination' );
+		}
+
+	//	$nowpage =new WP_List_Table -> get_pagenum();
+		$output = '<span class="displaying-num">' . sprintf(
+			/* translators: %s: Number of items. */  
+			_n( '%s item', '%s items', $total_items ),
+			number_format_i18n( $total_items )
+		) . '</span></br>';
+			
+		// $current = $wp_query->get_pagenum();
+		// var_dump($current );
+
+		global $postshow_get_pagenum;
+		var_dump($postshow_get_pagenum);
+		$removable_query_args = wp_removable_query_args();
+	
+		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		//
+		$current_url = remove_query_arg( $removable_query_args, $current_url );
+		
+
+		// $last_page_url = add_query_arg( $current, $total_pages, $current_url );
+
+		// var_dump($last_page_url);
+
+
+		$page_links = array();
+
+		$total_pages_before = '<span class="postshow-paging-input">';
+		$total_pages_after  = '</span></span>';
+
+		$disable_first = false;
+		$disable_last  = false;
+		$disable_prev  = false;
+		$disable_next  = false;
+
+		if ( 1 == $current ) {
+			$disable_first = true;
+			$disable_prev  = true;
+		}
+		if ( $total_pages == $current ) {
+			$disable_last = true;
+			$disable_next = true;
+		}
+
+		if ( $disable_first ) {
+			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&laquo;</span>';
+		} else {
+			$page_links[] = sprintf(
+				"<a class='first-page button' href='%s'>" .
+					"<span class='screen-reader-text'>%s</span>" .
+					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&laquo;</span>" .
+				'</a>',
+				esc_url( remove_query_arg( 'paged', $current_url ) ),
+				/* translators: Hidden accessibility text. */
+				__( 'First page' ),
+				//'&laquo;'
+			);
+			
+		}
+
+		if ( $disable_prev ) {
+			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&lsaquo;</span>';
+		} else {
+			//$current_url = $prev_link;
+			$page_links[] = sprintf(
+				"<a class='prev-page button' href='%s'>" .
+					"<span class='screen-reader-text'>%s</span>" .
+					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
+				'</a>',
+				//esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+				esc_url( $prev_link2 ),
+				
+				/* translators: Hidden accessibility text. */
+				__( 'Previous page' ),
+				//'&lsaquo;'
+			);
+		}
+		// var_dump($prev_link2);
+		// var_dump($next_link2);
+		if ($current) {
+			$html_current_page  = $current;
+			$total_pages_before = sprintf(
+				'<span class="screen-reader-text">%s</span>' .
+				'<span id="table-paging" class="paging-input">' .
+				'<span class="tablenav-paging-text">',
+				/* translators: Hidden accessibility text. */
+				__( 'Current Page' )
+			);
+		} else {
+			$html_current_page = sprintf(
+				'<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
+				"<input class='current-page' id='post-current-page-selector' type='text'
+					name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
+				"<span class='tablenav-paging-text'>",
+				/* translators: Hidden accessibility text. */
+				__( 'Current Page' ),
+				$current,
+				strlen( $total_pages )
+			);
+		}
+
+		$html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+
+		$page_links[] = $total_pages_before . sprintf(
+			/* translators: 1: Current page, 2: Total pages. */
+			_x( '%1$s of %2$s', 'paging' ),
+			$html_current_page,
+			$html_total_pages
+		) . $total_pages_after;
+	
+		if ( $disable_next ) {
+			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&rsaquo;</span>';
+		} 
+		else {
+			
+			//$current_url = $next_link;
+			$page_links[] = sprintf(
+				"<a class='next-page button' href='%s'>" .
+					"<span class='screen-reader-text'>%s</span>" .
+					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
+				'</a>',
+				//esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+				esc_url($next_link2),
+				/* translators: Hidden accessibility text. */
+				__( 'Next page' ),
+				//'&rsaquo;'
+			);
+		}
+		//var_dump($next_link2);
+
+		if ( $disable_last ) {
+			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&raquo;</span>';
+		} else {
+			$page_links[] = sprintf(
+				"<a class='last-page button' href='%s'>" .
+					"<span class='screen-reader-text'>%s</span>" .
+					"<span aria-hidden='true'style='font-size: 30px;font-style:italic;color:#65574E' >&raquo;</span>" .
+				'</a>',
+				esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+				/* translators: Hidden accessibility text. */
+				__( 'Last page' ),
+				//'&raquo;'
+			);
+		}
+	
+		// var_dump($page_links);
+		$pagination_links_class = 'pagination-links';
+		
+		if ( ! empty( $infinite_scroll ) ) {
+			$pagination_links_class .= ' hide-if-js';
+		}
+
+		$output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
+
+		if ( $total_pages ) {
+			$page_class = $total_pages < 2 ? ' one-page' : '';
+		} else {
+			$page_class = ' no-pages';
+		}
+		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
+	echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
+	//20240618  POST画面「コメント」上でページネーション追加  koui end
+
 	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
@@ -2747,14 +2990,6 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
 		),
-		//
-		// 'comments_123' =>  sprintf(
-		// 	'<span class="displaying-num">' .
-		// 	/* translators: %s: Number of items. */
-		// 	_n( '%s item', '%s items', "3" ),
-		// 	number_format_i18n( "3" )
-		// ) . '</span>',
-		//
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
 			sprintf(
@@ -2787,21 +3022,7 @@ function comment_form( $args = array(), $post = null ) {
 			),
 			$required_text
 		),
-		//20240610 
-		// 'comment_pages' => sprintf(
-		// 	'<label for="current-post-page" class="current-post-page">%s</label>' .
-		// 	"<input class='current-show-postpage' id='current-show-postpage' type='text' 
-		// 	style=width:30px;height:20px;
-		// 	name='show-postpage' value='%s'  " ,
-		// 	/* translators: Hidden accessibility text. */
-		// 	__( '今' ),
-		// 	get_comment_count( $post_id ),
-		// 	sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( 20 ) ),
-		// ),
-		
-
-		//20240610
-
+	
 		'comment_notes_after'  => '',
 		'action'               => site_url( '/wp-comments-post.php' ),
 		'id_form'              => 'commentform',
@@ -3097,155 +3318,9 @@ function comment_form( $args = array(), $post = null ) {
 	
 	<?php
 	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
- function pagination_postshow( $which ) {
-	// if ( empty( $this->_pagination_args ) ) {
-	// 	return;
-	// }
-	$comment_query = new WP_Comment_Query( $which );
-	$total_items =  $comment_query->user_posts_count;
-	$current = $comment_query->current;
-	$total_pages = $comment_query->max_num_pages;
-	$output = '<span class="displaying-num">' . sprintf(
-		/* translators: %s: Number of items. */
-		_n( '%s item', '%s items', $total_items ),
-		number_format_i18n( $total_items )
-	) . '</span>';
+ 
 
-	
-	
-	$removable_query_args = wp_removable_query_args();
-
-	$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-	
-
-	$current_url = remove_query_arg( $removable_query_args, $current_url );
-
-	$page_links = array();
-
-	$total_pages_before = '<span class="paging-input">';
-	$total_pages_after  = '</span></span>';
-
-	$disable_first = false;
-	$disable_last  = false;
-	$disable_prev  = false;
-	$disable_next  = false;
-
-	if ( 1 == $current ) {
-		$disable_first = true;
-		$disable_prev  = true;
-	}
-	if ( $total_pages == $current ) {
-		$disable_last = true;
-		$disable_next = true;
-	}
-
-	if ( $disable_first ) {
-		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&laquo;</span>';
-	} else {
-		$page_links[] = sprintf(
-			"<a class='first-page button' href='%s'>" .
-				"<span class='screen-reader-text'>%s</span>" .
-				"<span aria-hidden='true'>%s</span>" .
-			'</a>',
-			esc_url( remove_query_arg( 'paged', $current_url ) ),
-			/* translators: Hidden accessibility text. */
-			__( 'First page' ),
-			'&laquo;'
-		);
-	}
-
-	if ( $disable_prev ) {
-		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&lsaquo;</span>';
-	} else {
-		$page_links[] = sprintf(
-			"<a class='prev-page button' href='%s'>" .
-				"<span class='screen-reader-text'>%s</span>" .
-				"<span aria-hidden='true'>%s</span>" .
-			'</a>',
-			esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
-			/* translators: Hidden accessibility text. */
-			__( 'Previous page' ),
-			'&lsaquo;'
-		);
-	}
-
-	if ( 'bottom' === $which ) {
-		$html_current_page  = $current;
-		$total_pages_before = sprintf(
-			'<span class="screen-reader-text">%s</span>' .
-			'<span id="table-paging" class="paging-input">' .
-			'<span class="tablenav-paging-text">',
-			/* translators: Hidden accessibility text. */
-			__( 'Current Page' )
-		);
-	} else {
-		$html_current_page = sprintf(
-			'<label for="current-page-selector" class="screen-reader-text">%s</label>' .
-			"<input class='current-page' id='current-page-selector' type='text'
-				name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
-			"<span class='tablenav-paging-text'>",
-			/* translators: Hidden accessibility text. */
-			__( 'Current Page' ),
-			$current,
-			strlen( $total_pages )
-		);
-	}
-
-	$html_total_pages = sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( $total_pages ) );
-
-	$page_links[] = $total_pages_before . sprintf(
-		/* translators: 1: Current page, 2: Total pages. */
-		_x( '%1$s of %2$s', 'paging' ),
-		$html_current_page,
-		$html_total_pages
-	) . $total_pages_after;
-
-	if ( $disable_next ) {
-		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&rsaquo;</span>';
-	} else {
-		$page_links[] = sprintf(
-			"<a class='next-page button' href='%s'>" .
-				"<span class='screen-reader-text'>%s</span>" .
-				"<span aria-hidden='true'>%s</span>" .
-			'</a>',
-			esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
-			/* translators: Hidden accessibility text. */
-			__( 'Next page' ),
-			'&rsaquo;'
-		);
-	}
-
-	if ( $disable_last ) {
-		$page_links[] = '<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&raquo;</span>';
-	} else {
-		$page_links[] = sprintf(
-			"<a class='last-page button' href='%s'>" .
-				"<span class='screen-reader-text'>%s</span>" .
-				"<span aria-hidden='true'>%s</span>" .
-			'</a>',
-			esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
-			/* translators: Hidden accessibility text. */
-			__( 'Last page' ),
-			'&raquo;'
-		);
-	}
-
-	$pagination_links_class = 'pagination-links';
-	if ( ! empty( $infinite_scroll ) ) {
-		$pagination_links_class .= ' hide-if-js';
-	}
-	$output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
-
-	if ( $total_pages ) {
-		$page_class = $total_pages < 2 ? ' one-page' : '';
-	} else {
-		$page_class = ' no-pages';
-	}
-	$this->_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
-
-	echo $this->_pagination;
-}
-	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
+	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  end
 	/**
 	 * Fires after the comment form.
 	 *
