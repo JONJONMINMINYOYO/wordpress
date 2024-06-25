@@ -1,5 +1,60 @@
 <?php
+   require_once( ABSPATH . '/wp-load.php' );
+   require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
+   require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+   require_once  ( ABSPATH .'wp-admin/includes/class-wp-comments-list-table.php');
 
+   global $wp_query;
+   global $wpdb;
+   global $post_id;
+   $WP_Comments_List_Table = new WP_Comments_List_Table();  
+
+   $query = new WP_Query();
+   $WP_List_Table = new WP_List_Table(); 
+   
+
+
+   $wp_list_table = _get_list_table( 'WP_Comments_List_Table' );
+   $wp_list_table->search_box( __( 'Search Comments' ), 'comment' ); 
+   // $pagenum  = $wp_list_table->get_pagenum();
+   
+   $pagenum  = $wp_list_table->get_pagenum();
+
+   if ( $post_id ) {
+	$comments_count      = wp_count_comments( $post_id );
+	$draft_or_post_title = wp_html_excerpt( _draft_or_post_title( $post_id ), 50, '&hellip;' );
+
+	if ( $comments_count->moderated > 0 ) {
+		// Used in the HTML title tag.
+		$title = sprintf(
+			/* translators: 1: Comments count, 2: Post title. */
+			__( 'Comments (%1$s) on &#8220;%2$s&#8221;' ),
+			number_format_i18n( $comments_count->moderated ),
+			$draft_or_post_title
+		);
+	} else {
+		// Used in the HTML title tag.
+		$title = sprintf(
+			/* translators: %s: Post title. */
+			__( 'Comments on &#8220;%s&#8221;' ),
+			$draft_or_post_title
+		);
+	}
+} else {
+	$comments_count = wp_count_comments();
+
+	if ( $comments_count->moderated > 0 ) {
+		// Used in the HTML title tag.
+		$title = sprintf(
+			/* translators: %s: Comments count. */
+			__( 'Comments (%s)' ),
+			number_format_i18n( $comments_count->moderated )
+		);
+	} else {
+		// Used in the HTML title tag.
+		$title = __( 'Comments' );
+	}
+}
 /**
  * Comment template functions
  *
@@ -2740,19 +2795,19 @@ function comment_form( $args = array(), $post = null ) {
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
 	
-	$search_button ='
-	<input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
-	style="width: 66px;height: 25px;font-size: 18px;"/>
-	<input type="button" id="search_button" value="リダイレクト" 
-	style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
-	   <script >
-	  var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
-				search_button.addEventListener (
-				"click", function(){
-				inputs.forEach(function(input) {
-				input.value = "";} );
-			});	
-	</script>';
+	// $search_button ='
+	// <input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
+	// style="width: 66px;height: 25px;font-size: 18px;"/>
+	// <input type="button" id="search_button" value="リダイレクト" 
+	// style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
+	//    <script >
+	//   var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
+	// 			search_button.addEventListener (
+	// 			"click", function(){
+	// 			inputs.forEach(function(input) {
+	// 			input.value = "";} );
+	// 		});	
+	// </script>';
 	//20240618  POST画面「コメント」上でページネーション追加  koui  start
 		global $wp_query;
 
@@ -2892,18 +2947,7 @@ function comment_form( $args = array(), $post = null ) {
 				//'&lsaquo;'
 			);
 		}
-		// var_dump($prev_link2);
-		// var_dump($next_link2);
-		if ($current) {
-			$html_current_page  = $current;
-			$total_pages_before = sprintf(
-				'<span class="screen-reader-text">%s</span>' .
-				'<span id="table-paging" class="paging-input">' .
-				'<span class="tablenav-paging-text">',
-				/* translators: Hidden accessibility text. */
-				__( 'Current Page' )
-			);
-		} else {
+		 {
 			$html_current_page = sprintf(
 				'<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
 				"<input class='current-page' id='post-current-page-selector' type='text'
@@ -2977,8 +3021,6 @@ function comment_form( $args = array(), $post = null ) {
 		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
 	echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
 	//20240618  POST画面「コメント」上でページネーション追加  koui end
-
-	echo apply_filters( 'comment_form_submit_field_clear', $search_button, $args );
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
