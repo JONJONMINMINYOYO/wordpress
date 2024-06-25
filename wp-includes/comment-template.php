@@ -2840,8 +2840,7 @@ function comment_form( $args = array(), $post = null ) {
 		
 
 		// 20240619前ページリンク追加①  koui start
-		$prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
-	
+		//$prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
 		// 20240619前ページリンク追加①  koui end
 		//$next_comments_link = render_block_core_comments_pagination_numbers( $attributes, $content, $block );
 		// 20240619前ページリンク追加②  koui start
@@ -2849,30 +2848,23 @@ function comment_form( $args = array(), $post = null ) {
 		// 20240619前ページリンク追加②  koui end
 		//$next_link1 = get_next_comments_link( $args['next_text'] );
 
-		$next_link2 = get_next_comments_link( "", $total_pages );
-	   
-
-	//	$nowpage =new WP_List_Table -> get_pagenum();
+		//$next_link2 = get_next_comments_link( "", $total_pages );
+	
 		$output = '<span class="displaying-num">' . sprintf(
 			/* translators: %s: Number of items. */  
 			_n( '%s item', '%s items', $total_items ),
 			number_format_i18n( $total_items )
 		) . '</span></br>';
-			
-		// $current = $wp_query->get_pagenum();
-		// var_dump($current );
-
-	
 	
 		$removable_query_args = wp_removable_query_args();
-	
+		// 20240624  http://localhost/wordpress/2024/06/25/16/comment-page-1/様にURL取る  koui start		
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-		//
-		$current_url = remove_query_arg( $removable_query_args, $current_url );
-
-		$parts = explode('/comment-page-', $current_url);
-		$base_url = $parts[0] . '/comment-page-';
 		
+		$current_url = remove_query_arg( $removable_query_args, $current_url );
+	
+		$parts = explode('comment-page-', $current_url);
+		$base_url = $parts[0] . 'comment-page-';
+		// 20240624  http://localhost/wordpress/2024/06/25/16/comment-page-1/様にURL取る  koui end
 		// $parts_digit = explode('/', rtrim($current_url, '/'));
 		// 	$comment_page_part = end($parts_digit);
 		// 	$last_digit = intval(str_replace('comment-page-', '', $comment_page_part));
@@ -2904,8 +2896,10 @@ function comment_form( $args = array(), $post = null ) {
 					"<span class='screen-reader-text'>%s</span>" .
 					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&laquo;</span>" .
 				'</a>',
+				// 20240624  POSTのコメント画面で第一ページ koui  start
 				// esc_url( remove_query_arg( 'paged', $current_url ) ),
 				$base_url.'1',
+				// 20240624  POSTのコメント画面で第一ページ koui  end
 				/* translators: Hidden accessibility text. */
 				__( 'First page' ),
 				//'&laquo;'
@@ -2924,9 +2918,9 @@ function comment_form( $args = array(), $post = null ) {
 					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
 				'</a>',
 				//esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
-				//esc_url( add_query_arg(  $base_url.($last_digit - 1 ) )),
+				// 20240624  POSTのコメント画面で前ページ koui  start
 				$base_url.($current - 1 ),
-				//add_query_arg( 'paged', $prev_link2 ) ,
+				// 20240624  POSTのコメント画面で前ページ koui  end
 				/* translators: Hidden accessibility text. */
 				__( 'Previous page' ),
 				//'&lsaquo;'
@@ -2966,14 +2960,15 @@ function comment_form( $args = array(), $post = null ) {
 					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
 				'</a>',
 				//esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+				// 20240624  POSTのコメント画面で後ページ koui  start
 				$base_url.($current + 1 ),
+				// 20240624  POSTのコメント画面で後ページ koui  end
 				/* translators: Hidden accessibility text. */
 				__( 'Next page' ),
 				//'&rsaquo;'
 			);
 			
 		}
-		//var_dump($next_link2);
 
 		if ( $disable_last ) {
 			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&raquo;</span>';
@@ -2983,14 +2978,15 @@ function comment_form( $args = array(), $post = null ) {
 					"<span class='screen-reader-text'>%s</span>" .
 					"<span aria-hidden='true' style='font-size: 30px; font-style: italic; color: #65574E;'>&raquo;</span>" .
 				'</a>',
+				// 20240624  POSTのコメント画面で最後のページ koui  start
 				$base_url.($total_pages),
+				// 20240624  POSTのコメント画面で最後のページ koui  end
 				/* translators: Hidden accessibility text. */
 				__( 'Last page' )
 			);
 	
 		}
 	
-		// var_dump($page_links);
 		$pagination_links_class = 'pagination-links';
 		
 		if ( ! empty( $infinite_scroll ) ) {
