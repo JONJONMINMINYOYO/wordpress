@@ -7,8 +7,9 @@
    global $wp_query;
    global $wpdb;
    global $post_id;
-   $WP_Comments_List_Table = new WP_Comments_List_Table();  
+   global $query;
 
+   $WP_Comments_List_Table = new WP_Comments_List_Table();  
    $query = new WP_Query();
    $WP_List_Table = new WP_List_Table(); 
 
@@ -21,7 +22,7 @@
    if ( $post_id ) {
 	$comments_count      = wp_count_comments( $post_id );
 	$draft_or_post_title = wp_html_excerpt( _draft_or_post_title( $post_id ), 50, '&hellip;' );
-
+	
 	if ( $comments_count->moderated > 0 ) {
 		// Used in the HTML title tag.
 		$title = sprintf(
@@ -2818,27 +2819,16 @@ function comment_form( $args = array(), $post = null ) {
 	// 		});	
 	// </script>';
 	//20240618  POST画面「コメント」上でページネーション追加  koui  start
-		global $wp_query;
 
-		global  $attributes;
-		global  $content;
-		global  $block;
-	
 		$current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
-	
-		// $comment_vars     = build_comment_query_vars_from_block( $block );
-		// $max_page         = ( new WP_Comment_Query( $comment_vars ) )->max_num_pages;
-	
-		 //echo "max_num_pages".($max_page)."<br>";
+
 		$post_id = get_the_ID();
 		$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
 		$total_items = get_comments_number($post_id);
 
-		//$total_pages = (int)$total_items / $per_page;
-
 		$total_pages = intval(ceil( $total_items / $per_page ));
+	
 		
-
 		// 20240619前ページリンク追加①  koui start
 		//$prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
 		// 20240619前ページリンク追加①  koui end
@@ -2864,6 +2854,7 @@ function comment_form( $args = array(), $post = null ) {
 	
 		$parts = explode('comment-page-', $current_url);
 		$base_url = $parts[0] . 'comment-page-';
+		
 		// 20240624  http://localhost/wordpress/2024/06/25/16/comment-page-1/様にURL取る  koui end
 		// $parts_digit = explode('/', rtrim($current_url, '/'));
 		// 	$comment_page_part = end($parts_digit);
@@ -2931,7 +2922,7 @@ function comment_form( $args = array(), $post = null ) {
 		 {
 			$html_current_page = sprintf(
 				'<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
-				"<input class='current-page' id='post-current-page-selector' type='text'
+				"<input class='current-page' id='post-current-page-selector' type='text' 
 					name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
 				"<span class='tablenav-paging-text'>",
 				/* translators: Hidden accessibility text. */
@@ -2940,7 +2931,7 @@ function comment_form( $args = array(), $post = null ) {
 				strlen( $total_pages )
 			);
 		}
-
+		
 		$html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
 
 		$page_links[] = $total_pages_before . sprintf(
@@ -2949,7 +2940,7 @@ function comment_form( $args = array(), $post = null ) {
 			$html_current_page,
 			$html_total_pages
 		) . $total_pages_after;
-	
+
 		if ( $disable_next ) {
 			$page_links[] = '<span class="postshow button disabled" aria-hidden="true">&rsaquo;</span>';
 		} 
@@ -3001,76 +2992,76 @@ function comment_form( $args = array(), $post = null ) {
 			$page_class = ' no-pages';
 		}
 		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
-	echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
-	//20240618  POST画面「コメント」上でページネーション追加  koui end
-	$defaults = array(
-		'fields'               => $fields,
-		'comment_field'        => sprintf(
-			'<p class="comment-form-comment">%s %s</p>',
-			sprintf(
-				'<label for="comment">%s%s</label>',
-				_x( '🥰コメント🥰', 'noun' ),
-				$required_indicator
-			),
-			'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
-		),
-		'must_log_in'          => sprintf(
-			'<p class="must-log-in">%s</p>',
-			sprintf(
-				/* translators: %s: Login URL. */
-				__( 'You must be <a href="%s">logged in</a> to post a comment.' ),
-				/** This filter is documented in wp-includes/link-template.php */
-				wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
-			)
-		),
-		'logged_in_as'         => sprintf(
-			'<p class="logged-in-as">%s%s</p>',
-			sprintf(
-				/* translators: 1: User name, 2: Edit user link, 3: Logout URL. */
-				__( 'Logged in as %1$s. <a href="%2$s">Edit your profile</a>. <a href="%3$s">Log out?</a>' ),
-				$user_identity,
-				get_edit_user_link(),
-				/** This filter is documented in wp-includes/link-template.php */
-				wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
-			),
-			$required_text
-		),
-		'comment_notes_before' => sprintf(
-			'<p class="comment-notes">%s%s</p>',
-			sprintf(
-				'<span id="email-notes">%s</span>',
-				//20240611  コメント上に文言変更  koui  start
-				//__( 'Your email address will not be published.' )
-				__( 'あなたのメールアドレスは公開されません' )
-				//20240611  コメント上に文言変更  koui  start
-			),
-			$required_text
-		),
-	
-		'comment_notes_after'  => '',
-		'action'               => site_url( '/wp-comments-post.php' ),
-		'id_form'              => 'commentform',
-		'id_submit'            => 'submit',				                       //$submit_button								
-		'class_container'      => 'comment-respond',
-		'class_form'           => 'comment-form',
-		'class_submit'         => 'submit',                                    //$submit_button
-		'name_submit'          => 'submit',				                       //$submit_button
-		//20240611  電話番号と性別 新規  koui  start
-		//'title_reply'          => __( 'Leave a Reply' ),
-		'title_reply'          => __( '回答してください。' ),
-		/* translators: %s: Author of the comment being replied to. */
-		'title_reply_to'       => __( 'Leave a Reply to %s' ),
-		'title_reply_before'   => '<h1 id="reply-title" class="comment-reply-title">',
-		'title_reply_after'    => '</h1>',
-		'cancel_reply_before'  => ' <small>',
-		'cancel_reply_after'   => '</small>',
-		'cancel_reply_link'    => __( 'Cancel reply' ),
-		'label_submit'         => __( 'コミットボタン' ),                       //$submit_button
-		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />', //$submit_button
-		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',     //$submit_field
-		'format'               => 'xhtml',
+		echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
+				//20240618  POST画面「コメント」上でページネーション追加  koui end
+				$defaults = array(
+					'fields'               => $fields,
+					'comment_field'        => sprintf(
+						'<p class="comment-form-comment">%s %s</p>',
+						sprintf(
+							'<label for="comment">%s%s</label>',
+							_x( '🥰コメント🥰', 'noun' ),
+							$required_indicator
+						),
+						'<textarea id="comment"  name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
+					),
+					'must_log_in'          => sprintf(
+						'<p class="must-log-in">%s</p>',
+						sprintf(
+							/* translators: %s: Login URL. */
+							__( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+							/** This filter is documented in wp-includes/link-template.php */
+							wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
+						)
+					),
+					'logged_in_as'         => sprintf(
+						'<p class="logged-in-as">%s%s</p>',
+						sprintf(
+							/* translators: 1: User name, 2: Edit user link, 3: Logout URL. */
+							__( 'Logged in as %1$s. <a href="%2$s">Edit your profile</a>. <a href="%3$s">Log out?</a>' ),
+							$user_identity,
+							get_edit_user_link(),
+							/** This filter is documented in wp-includes/link-template.php */
+							wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
+						),
+						$required_text
+					),
+					'comment_notes_before' => sprintf(
+						'<p class="comment-notes">%s%s</p>',
+						sprintf(
+							'<span id="email-notes">%s</span>',
+							//20240611  コメント上に文言変更  koui  start
+							//__( 'Your email address will not be published.' )
+							__( 'あなたのメールアドレスは公開されません' )
+							//20240611  コメント上に文言変更  koui  start
+						),
+						$required_text
+					),
+				
+					'comment_notes_after'  => '',
+					'action'               => site_url( '/wp-comments-post.php' ),
+					'id_form'              => 'commentform',
+					'id_submit'            => 'submit',				                       //$submit_button								
+					'class_container'      => 'comment-respond',
+					'class_form'           => 'comment-form',
+					'class_submit'         => 'submit',                                    //$submit_button
+					'name_submit'          => 'submit',				                       //$submit_button
+					//20240611  電話番号と性別 新規  koui  start
+					//'title_reply'          => __( 'Leave a Reply' ),
+					'title_reply'          => __( '回答してください。' ),
+					/* translators: %s: Author of the comment being replied to. */
+					'title_reply_to'       => __( 'Leave a Reply to %s' ),
+					'title_reply_before'   => '<h1 id="reply-title" class="comment-reply-title">',
+					'title_reply_after'    => '</h1>',
+					'cancel_reply_before'  => ' <small>',
+					'cancel_reply_after'   => '</small>',
+					'cancel_reply_link'    => __( 'Cancel reply' ),
+					'label_submit'         => __( 'コミットボタン' ),                       //$submit_button
+					'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />', //$submit_button
+					'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',     //$submit_field
+					'format'               => 'xhtml',
 
-	);
+				);
 	
 	/**
 	 * Filters the comment form default arguments.
@@ -3094,7 +3085,7 @@ function comment_form( $args = array(), $post = null ) {
 			$args['fields']['email']
 		);
 	}
-
+	
 	/**
 	 * Fires before the comment form.
 	 *
@@ -3263,7 +3254,6 @@ function comment_form( $args = array(), $post = null ) {
 				esc_attr( $args['id_submit'] ),
 				esc_attr( $args['class_submit'] ),
 				esc_attr( $args['label_submit'] ),
-				
 			);
 		
 			/**
@@ -3298,7 +3288,6 @@ function comment_form( $args = array(), $post = null ) {
             </script>';
 			//20240605  入力内容クリアボタン新規　koui end
 
-			
 			$submit_field = sprintf(
 				$args['submit_field'],
 				$submit_button ,
@@ -3342,7 +3331,7 @@ function comment_form( $args = array(), $post = null ) {
 	
 	<?php
 	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
- 
+		
 
 	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  end
 	/**
@@ -3351,5 +3340,65 @@ function comment_form( $args = array(), $post = null ) {
 	 * @since 3.0.0
 	 */
 	do_action( 'comment_form_after' );
-	}
+	}	
+	?>
+	<html lang="en">
+			<head>
+			<meta charsets="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>POSTのコメント表示画面</title>
+			<style>
+				.tablenav-paging-text {
+					margin-left: 10px;
+				}
+			</style>
+			</head>
+			<body>
+			<?php
+			 
+			global $post_id;
+			global $query;
+			global  $attributes;
+			global  $content;
+			global  $block;
+			global $wp_query;
+			$wp_query = new WP_Query();
+			$WP_Comments_List_Table = new WP_Comments_List_Table();  
+			$WP_List_Table = new WP_List_Table(); 
+				
+		
+		
+				$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
+				$total_items = (int) get_option( 'comments' ); 
+			
+				
+			$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+			$parts = explode('comment-page-', $current_url);
+			$base_url = $parts[0] . 'comment-page-';
+			?>
+			<!-- //20240626  ページ入力エリアに数字入力、ENTER鍵押下、URL遷移  start	 -->
+			<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var currentPageInput = document.getElementById('post-current-page-selector');
+				currentPageInput.addEventListener('keypress', function(event) {
+					if (event.keyCode === 13 || event.key === 'Enter') {
+						var currentPageValue = this.value;
+						var isNumeric = /^\d+$/.test(currentPageValue);
+						if (isNumeric && currentPageValue != 0) {
+						//var currentPageUrl = window.location.href;
+						var myVariable = '<?php echo $base_url ; ?>';
+						window.location.assign(myVariable + currentPageValue);
+						}else {
+							alert('有効な数字を入力してください！');
+						}
+					}
+				});
+			});
+			</script>
+			<!-- //20240626  ページ入力エリアに数字入力、ENTER鍵押下、URL遷移  end	 -->
+			</body>
+			</html>
+	
+
+			
 
