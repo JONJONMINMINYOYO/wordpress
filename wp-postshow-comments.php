@@ -17,7 +17,7 @@
     $postshow_table = new WP_List_Table(); 
 
     $paged = get_query_var('paged');
-    echo "1->Log message for paged: " . $paged . "<br>";
+    // echo "1->Log message for paged: " . $paged . "<br>";
 
     $query_params = array(
         'post_type'      => 'post',
@@ -49,12 +49,7 @@
                     </p>
                     <div id="result"></div>
                             <script>
-                            //    const currentContainer = document.getElementById('post-current-page-selector');
-                            //     currentContainer.addEventListener('input', function() {
-                            //         const currentValue = currentContainer.value;
-                            //         console.log(currentValue);
-                            //     });
-
+                    
                             document.addEventListener('DOMContentLoaded', function () {                  
                                     selectElement.addEventListener('change', function () {
                                         document.getElementById('postemail-search').value = '';
@@ -82,7 +77,7 @@
                                 }
 
                                 function clearSearchKeyword2() {
-                                    var currentPageValue = document.getElementById('post-current-page-selector').value.trim();
+                                    var currentPageValue = document.getElementById('post-search-page-selector').value.trim();
                                     console.log('clearSearchKeyword2');
                                     if (currentPageValue !== '') {
                                             var url = 'http://localhost/wordpress/wp-postshow-comments.php?page=' + currentPageValue;
@@ -122,9 +117,7 @@
           <?php  
             $limit = 3; 
             $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
-              
-            echo "3->Log message for paged: " . $paged . "<br>";
-            
+          
             $offset = ($page - 1) * $limit; 
 
             $post_name_select = isset($_GET['post_names_select']) ? sanitize_text_field($_GET['post_names_select']) : '';
@@ -164,18 +157,14 @@
                 $sql .= ")";
             }
             $sql_count =  $sql;
-            var_dump( $sql_count);
             $sql .= " LIMIT $limit OFFSET $offset";
 
-           // $comments_count = $wpdb->get_results($sql);
             $comments = $wpdb->get_results($sql);
             $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments ");
-           //$total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments ");
-        
+
+    
           // $total_comments = $wpdb->get_var( $sql_count);
-        //    var_dump( $total_comments)."<br>";
-            // var_dump( $comments_count);
-            // var_dump( $total_comments);
+
             $total_pages = ceil($total_comments / $limit);
             
             ?>
@@ -306,11 +295,7 @@
                          global  $block;
                          
                          $current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
-                         $post_id = get_the_ID();
-                         $per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
-                         $total_items = get_comments_number($post_id);
-                 
-                       
+                        
                          $prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
 
                          $next_link2 = get_next_comments_link( "", $total_pages );
@@ -321,12 +306,22 @@
                      
                          $current_url = remove_query_arg( $removable_query_args, $current_url );
                     
-                         // 使用 basename() 函数获取路径中的文件名部分（不包括查询字符串）
-                         $filename = basename($_SERVER['REQUEST_URI']);
-                         // 使用 substr() 函数获取省略最后一位的部分
-                        $trimmed_uri = substr($filename, 0, -1);
-                         // 使用 substr() 函数获取文件名的最后一位字符
-                         $last_character = intval(substr($filename, -1));
+
+                         var_dump( $current_url);
+
+                         if (strpos($current_url, "page=") !== false) {
+                            $parts = explode('page=', $current_url);
+                            $base_url = $parts[0] . 'page=';
+                            $pos = strpos($current_url, "page=") + strlen("page=");
+                            $current = (int) substr($current_url, $pos);
+                        } elseif (strpos($current_url, "paged=") !== false) {
+                            $parts = explode('paged=', $current_url);
+		                    $base_url = $parts[0] . 'paged=';
+                            $pos = strpos($current_url, "paged=") + strlen("paged=");
+                            $current = (int) substr($current_url, $pos);
+                        }else{
+                            $current = null;    
+                        }
                        
                          $page_links = array();
                          
@@ -346,7 +341,7 @@
                              $disable_last = true;
                              $disable_next = true;
                          }
-                         
+                        
                          if ( $disable_first ) {
                              $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&laquo;</span>';
                          } else {
@@ -356,7 +351,7 @@
                                      "<span aria-hidden='false' style='font-size: 30px;font-style:italic;color:#65574E' >&laquo;</span>" .
                                  '</a>',
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri."1" ) ),
-                                 esc_url( remove_query_arg( 'paged', $current_url ) ),
+                                 $base_url.'1',
                                  /* translators: Hidden accessibility text. */
                                  __( 'First page' ),
                                  //'&laquo;'
@@ -372,44 +367,28 @@
                                      "<span class='screen-reader-text'>%s</span>" .
                                      "<span aria-hidden='false' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
                                  '</a>',
-                                 esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+                                 $base_url.($current - 1 ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character-1)) ),
                                  /* translators: Hidden accessibility text. */
                                  __( 'Previous page' ),
                                  //'&lsaquo;'
                              );
                          }
-                      
-                        $current = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                        $log_message_paged = get_query_var('paged');
-                        $log_message_page = get_query_var('page');
-  
-                        echo "3->Log message for log_message_paged: " . $log_message_paged . "<br>";
-                        echo "3->Log message for log_message_page: " . $log_message_page . "<br>";
-                          if ($last_character) {
-                              $html_current_page  = $last_character;
-                              $total_pages_before = sprintf(
-                                 '<span class="screen-reader-text">%s</span>' .
-                                  '<span id="table-paging" class="paging-input">' .
-                                  '<span class="tablenav-paging-text">',
-                                 /* translators: Hidden accessibility text. */
-                                  __( '現在のページ番号' )
-                             );
-                         } else {
-                              $html_current_page = sprintf(
-                                 '<label for="post-current-page-selector" class="screen-reader-text">%s</label>' .
-                                "<input class='current-page' id='post-current-page-selector' type='input'
+                 
+                        $html_current_page = sprintf(
+                                 '<label for="post-search-page-selector" class="screen-reader-text">%s</label>' .
+                                "<input class='current-page' id='post-search-page-selector' type='input'
                                      name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
                                  "<span class='tablenav-paging-text'>",
                                   /* translators: Hidden accessibility text. */
                                 __( '現在のページ番号' ),
-                                $last_character,
-                                  strlen( $total_pages )
+                                $current,
+                                strlen( $total_pages )
                               );
-                          }
+                          
                       
                       
-                        var_dump($html_current_page);
+                        // var_dump($html_current_page);
                         $html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
                          
                          $page_links[] = $total_pages_before . sprintf(
@@ -428,9 +407,9 @@
                                      "<span class='screen-reader-text'>%s</span>" .
                                      "<span aria-hidden='false' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
                                  '</a>',
-                                 esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) 
-                               //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character+1) ),
-                               ),
+                                 //esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url )   ),
+                                 //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character+1) ),
+                                 $base_url.($current + 1 ),
                                  //esc_url($next_link2),
                                  /* translators: Hidden accessibility text. */
                                  __( 'Next page' ),
@@ -446,13 +425,15 @@
                                      "<span class='screen-reader-text'>%s</span>" .
                                      "<span aria-hidden='false'style='font-size: 30px;font-style:italic;color:#65574E' >&raquo;</span>" .
                                  '</a>',
-                                 esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+                                 $base_url.$total_pages,
+                                 //esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.$total_pages ) ),
                                  /* translators: Hidden accessibility text. */
                                  __( 'Last page' ),
                                  //'&raquo;'
                              );
                          }
+                     
                          $pagination_links_class = 'pagination-links';
                          
                          if ( ! empty( $infinite_scroll ) ) {

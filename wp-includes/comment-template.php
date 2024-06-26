@@ -2821,8 +2821,11 @@ function comment_form( $args = array(), $post = null ) {
 	//20240618  POST画面「コメント」上でページネーション追加  koui  start
 
 		$current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
-
+	
 		$post_id = get_the_ID();
+		
+		global $commentpage_post_id;
+		$commentpage_post_id = $post_id;
 		$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
 		$total_items = get_comments_number($post_id);
 
@@ -2991,6 +2994,7 @@ function comment_form( $args = array(), $post = null ) {
 		} else {
 			$page_class = ' no-pages';
 		}
+
 		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
 		echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
 				//20240618  POST画面「コメント」上でページネーション追加  koui end
@@ -3354,22 +3358,16 @@ function comment_form( $args = array(), $post = null ) {
 			</style>
 			</head>
 			<body>
+
 			<?php
-			 
-			global $post_id;
+
 			global $query;
-			global  $attributes;
-			global  $content;
-			global  $block;
 			global $wp_query;
 			$wp_query = new WP_Query();
 			$WP_Comments_List_Table = new WP_Comments_List_Table();  
 			$WP_List_Table = new WP_List_Table(); 
 				
-		
-		
-				$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
-				$total_items = (int) get_option( 'comments' ); 
+				$post_id = get_the_ID();
 			
 				
 			$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
@@ -3380,8 +3378,18 @@ function comment_form( $args = array(), $post = null ) {
 			<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				var currentPageInput = document.getElementById('post-current-page-selector');
+				<?php	$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
+				$total_items = get_comments_number($post_id);
+		
+				$total_pages = intval(ceil( $total_items / $per_page ));
+		
+				$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
+				?>
 				currentPageInput.addEventListener('keypress', function(event) {
 					if (event.keyCode === 13 || event.key === 'Enter') {
+						var jsVariable = '<?php echo $total_pages; ?>';
+
+						alert(jsVariable);
 						var currentPageValue = this.value;
 						var isNumeric = /^\d+$/.test(currentPageValue);
 						if (isNumeric && currentPageValue != 0) {
