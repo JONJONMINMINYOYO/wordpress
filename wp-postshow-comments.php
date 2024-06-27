@@ -439,6 +439,7 @@
                          if ( ! empty( $infinite_scroll ) ) {
                              $pagination_links_class .= ' hide-if-js';
                          }
+                         
                          $output = "";
                          $output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
                          
