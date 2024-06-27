@@ -3372,19 +3372,14 @@ function comment_form( $args = array(), $post = null ) {
 			<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				var currentPageInput = document.getElementById('post-current-page-selector');
-				<?php	$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
-				$total_items = get_comments_number($post_id);
-		
-				$total_pages = intval(ceil( $total_items / $per_page ));
-				
-				$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
-				?>
 				currentPageInput.addEventListener('keypress', function(event) {
-					if (event.keyCode === 13 || event.key === 'Enter') {
-						var jsVariable = '<?php echo $total_pages; ?>';
-						var jsVariable = '<?php echo $per_page; ?>';
-						 alert(per_page);
+					if (event.keyCode === 13 || event.key === 'Enter') {			
+						var total_pages = document.getElementsByClassName("post-total-pages")[0].innerHTML;
 						var currentPageValue = this.value;
+						if(total_pages < currentPageValue){
+							alert('最大ページ数を超えてはいけません。');
+							return;
+						}
 						var isNumeric = /^\d+$/.test(currentPageValue);
 						if (isNumeric && currentPageValue != 0) {
 						//var currentPageUrl = window.location.href;
