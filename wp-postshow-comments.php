@@ -25,9 +25,10 @@
         'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
     );
     $query->query($query_params);
+   
     $posts = $query->posts;
    
-    $post_names = array_column($posts, 'post_title');
+    $post_ids = array_column($posts, 'ID');
   
 ?>
     <form method="get">
@@ -37,11 +38,11 @@
                 </tr>
                   <tr>
                     <td colspan="2">
-                    <p class="post_names_select">
-                        <label class="post_names_select" for="post_names_select">post_name</label>
-                        <select name="post_names_select" id="post_names_select">
+                    <p class="post_id_select">
+                        <label class="post_id_select" for="post_id_select">post_name</label>
+                        <select name="post_id_select" id="post_id_select">
                             <option value="">選んでください</option> <!-- 空白のオプションを追加する -->
-                            <?php foreach ($post_names as $option) : ?>
+                            <?php foreach ($post_ids as $option) : ?>
                                 <option value="<?php echo esc_attr($option); ?>"><?php echo esc_html($option); ?></option>   
                             <?php endforeach; ?>
                         </select>
@@ -54,7 +55,7 @@
                                     selectElement.addEventListener('change', function () {
                                         document.getElementById('postemail-search').value = '';
                                         document.getElementById('keyword-search').value = '';
-                                        urlParams.set('post_names_select', selectedValue);
+                                        urlParams.set('post_id_select', selectedValue);
                                     });
                                     
                                 });
@@ -63,7 +64,7 @@
                                     window.location.href = '<?php echo home_url(); ?>';
                                 }
 
-                                const selectElement = document.getElementById('post_names_select');
+                                const selectElement = document.getElementById('post_id_select');
                                 const resultContainer = document.getElementById('result');
                                 selectElement.addEventListener('change', function() {
                                     const selectedValue = selectElement.value;
@@ -76,16 +77,6 @@
                                     document.getElementById('keyword-search').value = '';
                                 }
 
-                                function clearSearchKeyword2() {
-                                    var currentPageValue = document.getElementById('post-search-page-selector').value.trim();
-                                    console.log('clearSearchKeyword2');
-                                    if (currentPageValue !== '') {
-                                            var url = 'http://localhost/wordpress/wp-postshow-comments.php?page=' + currentPageValue;
-                                            console.log(url);
-                                            window.location.href = url;
-                                    }
-                                }
-
                                 function clearSearchEmail() {
                                     document.getElementById('postemail-search').value = '';
                                 }
@@ -96,8 +87,6 @@
                             <label for="postemail-search">メール検索：</label>
                             <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
                             <input type="submit" value="検索" onclick="clearSearchKeyword();">
-
-                            <input type="button" value="検索2" onclick="clearSearchKeyword2();">
                         </p>
                     </td>  
                     <td colspan="3">
@@ -116,26 +105,31 @@
             </table>
           <?php  
             $limit = 3; 
-            $page = isset($_GET['page']) && $_GET['page'] > 0 ? $_GET['page'] : 1; 
+            $page = 1;
+            if($_GET['page'] != null || $_GET['paged'] != null){
+                $page = $_GET['paged'] == null ? $_GET['page']: $_GET['paged'];
+            }
           
             $offset = ($page - 1) * $limit; 
 
-            $post_name_select = isset($_GET['post_names_select']) ? sanitize_text_field($_GET['post_names_select']) : '';
+            $post_name_select = isset($_GET['post_id_select']) ? sanitize_text_field($_GET['post_id_select']) : '';
             $search_email = isset($_GET['search_email']) ? sanitize_text_field($_GET['search_email']) : '';
             $search_keyword = isset($_GET['search_keyword']) ? sanitize_text_field($_GET['search_keyword']) : '';
             $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
+            $sql_count = "SELECT COUNT(*) FROM {$wpdb->prefix}comments WHERE 1 = 1";
 
         if ("" !=($post_name_select) && isset($post_name_select)) {
-            $sql = $wpdb->prepare(
-                "SELECT * FROM {$wpdb->comments} AS c
-                LEFT JOIN {$wpdb->posts} AS p ON c.comment_post_ID = p.ID
-                WHERE p.post_name = %s and p.post_type = %s
-                ORDER BY c.comment_date DESC",
-                $post_name_select,
-                "post");
+            $sql .= " AND comment_post_ID = " . esc_sql($post_name_select);
         }
+
         if ("" !=($search_email) && isset($search_email)) {
             $sql .= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
+            $sql_count.= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
+        }
+
+        if ("" !=($search_email) && isset($search_email)) {
+            $sql .= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
+            $sql_count.= " AND comment_author_email LIKE '%" . esc_sql($search_email) . "%'";
         }
 
          if ("" !=($search_keyword) && isset($search_keyword)) {
@@ -155,12 +149,27 @@
                 $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
                 $sql .= " comment_sex LIKE '%$escaped_keyword%'";
                 $sql .= ")";
-            }
-            $sql_count =  $sql;
+
+                $sql_count .= " AND (";
+                $sql_count .= " comment_ID LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_author LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_author_email LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_author_url LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_content LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_approved LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_type LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_parent LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " user_id LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
+                $sql_count .= " comment_sex LIKE '%$escaped_keyword%'";
+                $sql_count .= ")";
+            } 
             $sql .= " LIMIT $limit OFFSET $offset";
 
             $comments = $wpdb->get_results($sql);
-            $total_comments = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}comments ");
+            $total_comments = $wpdb->get_var($sql_count);
 
     
           // $total_comments = $wpdb->get_var( $sql_count);
@@ -302,23 +311,23 @@
 
                          $removable_query_args = wp_removable_query_args();
                          
-                         $current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+                         $current_url_postshow = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
                      
-                         $current_url = remove_query_arg( $removable_query_args, $current_url );
+                         $current_url_postshow = remove_query_arg( $removable_query_args, $current_url_postshow );
                     
 
-                         var_dump( $current_url);
+                         var_dump( $current_url_postshow);
 
-                         if (strpos($current_url, "page=") !== false) {
-                            $parts = explode('page=', $current_url);
+                         if (strpos($current_url_postshow, "page=") !== false) {
+                            $parts = explode('page=', $current_url_postshow);
                             $base_url = $parts[0] . 'page=';
-                            $pos = strpos($current_url, "page=") + strlen("page=");
-                            $current = (int) substr($current_url, $pos);
-                        } elseif (strpos($current_url, "paged=") !== false) {
-                            $parts = explode('paged=', $current_url);
+                            $pos = strpos($current_url_postshow, "page=") + strlen("page=");
+                            $current = (int) substr($current_url_postshow, $pos);
+                        } elseif (strpos($current_url_postshow, "paged=") !== false) {
+                            $parts = explode('paged=', $current_url_postshow);
 		                    $base_url = $parts[0] . 'paged=';
-                            $pos = strpos($current_url, "paged=") + strlen("paged=");
-                            $current = (int) substr($current_url, $pos);
+                            $pos = strpos($current_url_postshow, "paged=") + strlen("paged=");
+                            $current = (int) substr($current_url_postshow, $pos);
                         }else{
                             $current = null;    
                         }
@@ -361,7 +370,7 @@
                          if ( $disable_prev ) {
                              $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&lsaquo;</span>';
                          } else {
-                             //$current_url = $prev_link;
+                             //$current_url_postshow = $prev_link;
                              $page_links[] = sprintf(
                                  "<a class='prev-page button' href='%s'>" .
                                      "<span class='screen-reader-text'>%s</span>" .
@@ -382,7 +391,7 @@
                                  "<span class='tablenav-paging-text'>",
                                   /* translators: Hidden accessibility text. */
                                 __( '現在のページ番号' ),
-                                $current,
+                                $current < 1 ?"1":$current,
                                 strlen( $total_pages )
                               );
                           
@@ -407,7 +416,7 @@
                                      "<span class='screen-reader-text'>%s</span>" .
                                      "<span aria-hidden='false' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
                                  '</a>',
-                                 //esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url )   ),
+                                 //esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url_postshow )   ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character+1) ),
                                  $base_url.($current + 1 ),
                                  //esc_url($next_link2),
@@ -426,7 +435,7 @@
                                      "<span aria-hidden='false'style='font-size: 30px;font-style:italic;color:#65574E' >&raquo;</span>" .
                                  '</a>',
                                  $base_url.$total_pages,
-                                 //esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+                                 //esc_url( add_query_arg( 'paged', $total_pages, $current_url_postshow ) ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.$total_pages ) ),
                                  /* translators: Hidden accessibility text. */
                                  __( 'Last page' ),

@@ -2851,15 +2851,15 @@ function comment_form( $args = array(), $post = null ) {
 	
 		$removable_query_args = wp_removable_query_args();
 		// 20240624  http://localhost/wordpress/2024/06/25/16/comment-page-1/様にURL取る  koui start		
-		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		$current_url_template = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 		
-		$current_url = remove_query_arg( $removable_query_args, $current_url );
+		$current_url_template = remove_query_arg( $removable_query_args, $current_url_template );
 	
-		$parts = explode('comment-page-', $current_url);
+		$parts = explode('comment-page-', $current_url_template);
 		$base_url = $parts[0] . 'comment-page-';
 		
 		// 20240624  http://localhost/wordpress/2024/06/25/16/comment-page-1/様にURL取る  koui end
-		// $parts_digit = explode('/', rtrim($current_url, '/'));
+		// $parts_digit = explode('/', rtrim($current_url_template, '/'));
 		// 	$comment_page_part = end($parts_digit);
 		// 	$last_digit = intval(str_replace('comment-page-', '', $comment_page_part));
 
@@ -2891,7 +2891,7 @@ function comment_form( $args = array(), $post = null ) {
 					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&laquo;</span>" .
 				'</a>',
 				// 20240624  POSTのコメント画面で第一ページ koui  start
-				// esc_url( remove_query_arg( 'paged', $current_url ) ),
+				// esc_url( remove_query_arg( 'paged', $current_url_template ) ),
 				$base_url.'1',
 				// 20240624  POSTのコメント画面で第一ページ koui  end
 				/* translators: Hidden accessibility text. */
@@ -2911,7 +2911,7 @@ function comment_form( $args = array(), $post = null ) {
 					"<span class='screen-reader-text'>%s</span>" .
 					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
 				'</a>',
-				//esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url ) ),
+				//esc_url( add_query_arg( 'paged', max( 1, $current - 1 ), $current_url_template ) ),
 				// 20240624  POSTのコメント画面で前ページ koui  start
 				$base_url.($current - 1 ),
 				// 20240624  POSTのコメント画面で前ページ koui  end
@@ -2953,7 +2953,7 @@ function comment_form( $args = array(), $post = null ) {
 					"<span class='screen-reader-text'>%s</span>" .
 					"<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
 				'</a>',
-				//esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url ) ),
+				//esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url_template ) ),
 				// 20240624  POSTのコメント画面で後ページ koui  start
 				$base_url.($current + 1 ),
 				// 20240624  POSTのコメント画面で後ページ koui  end
@@ -3364,8 +3364,8 @@ function comment_form( $args = array(), $post = null ) {
 			$WP_Comments_List_Table = new WP_Comments_List_Table();  
 			$WP_List_Table = new WP_List_Table(); 
 				
-			$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-			$parts = explode('comment-page-', $current_url);
+			$current_url_template = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+			$parts = explode('comment-page-', $current_url_template);
 			$base_url = $parts[0] . 'comment-page-';
 			?>
 			<!-- //20240626  ページ入力エリアに数字入力、ENTER鍵押下、URL遷移  start	 -->
