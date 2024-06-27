@@ -3389,7 +3389,7 @@ function comment_form( $args = array(), $post = null ) {
 					if (event.keyCode === 13 || event.key === 'Enter') {
 						var jsVariable = '<?php echo $total_pages; ?>';
 
-						alert(jsVariable);
+						// alert(jsVariable);
 						var currentPageValue = this.value;
 						var isNumeric = /^\d+$/.test(currentPageValue);
 						if (isNumeric && currentPageValue != 0) {
