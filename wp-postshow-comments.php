@@ -302,7 +302,7 @@
                      
                          $current_url_postshow = remove_query_arg( $removable_query_args, $current_url_postshow );
 
-                         var_dump( $current_url_postshow);
+                        //  var_dump( $current_url_postshow);
 
                          if (strpos($current_url_postshow, "page=") !== false) {
                             $parts = explode('page=', $current_url_postshow);
