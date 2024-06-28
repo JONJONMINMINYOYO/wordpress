@@ -8,56 +8,65 @@
     * @param WP_Block $block      Block instance.
     * @global WP_Query $wp_query WordPress Query object.
     */
-    global $wp_query;
-    global $wpdb;
+        global $wp_query;
+        global $wpdb;
 
-    $postshow_list = new WP_Comments_List_Table();  
-    //20240620  文章のpost_nameの取得  koui  start   
-    $query = new WP_Query();
-    $postshow_table = new WP_List_Table(); 
-
-    $paged = get_query_var('paged');
-    // echo "1->Log message for paged: " . $paged . "<br>";
-
-    $query_params = array(
-        'post_type'      => 'post',
-        'posts_per_page' => get_option('posts_per_page'), 
-        'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
-    );
-    $query->query($query_params);
-   
-    $posts = $query->posts;
-   
-    $post_ids = array_column($posts, 'ID');
-  
-?>
+        $postshow_list = new WP_Comments_List_Table();  
+        //20240620  文章のpost_nameの取得  koui  start   
+        $query = new WP_Query();
+        $postshow_table = new WP_List_Table(); 
+        $paged = get_query_var('paged');
+            $query_params = array(
+                'post_type'      => 'post',
+                'posts_per_page' => get_option('posts_per_page'), 
+                'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
+            );
+        $query->query($query_params);
+        $posts = $query->posts;
+        $post_ids = array_column($posts, 'ID');
+        $post_names = array_column($posts, 'post_title');
+        $combined_array = array_combine($post_ids, $post_names);
+    ?>
     <form method="get">
      <table>
                 <tr class="form-field">
-                    <th colspan="6" scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
+                    <th colspan="8" scope="row"><label for="postshow-post_name"><?php _e( 'Post検索エリア' ); ?></label></th>
                 </tr>
-                  <tr>
                     <td colspan="2">
-                    <p class="post_id_select">
-                        <label class="post_id_select" for="post_id_select">post_name</label>
-                        <select name="post_id_select" id="post_id_select">
-                            <option value="">選んでください</option> <!-- 空白のオプションを追加する -->
-                            <?php foreach ($post_ids as $option) : ?>
-                                <option value="<?php echo esc_attr($option); ?>"><?php echo esc_html($option); ?></option>   
-                            <?php endforeach; ?>
-                        </select>
-                        <input type="submit" value="送信する" onclick="keep_postname();">
-                    </p>
-                    <div id="result"></div>
-                            <script>
-                    
+                        <p class="post_id_select">
+                            <label class="post_id_select" for="post_id_select">post_ID</label>
+                            <select name="post_id_select" id="post_id_select">
+                            <option value="">選んでください</option> <!-- 空白のオプションを追加する --> 
+                                <?php foreach ($post_ids as $post_option) : ?>
+                                    <option value="<?php echo esc_attr($post_option); ?>"><?php echo esc_html($post_option); 
+                                    if(!isset($_GET['post_id_select']) ) { 
+                                        $_GET['post_id_select'] = $post_option;   
+                                }
+                                    ?></option>   
+                                <?php endforeach; ?>
+                            </select>
+                            <div id="result"></div>
+                            <?php
+                                if (!empty($combined_array)) {
+                                    echo '<div class="post_name_select" style="width: 300px; overflow: hidden; text-overflow: ellipsis;">';
+                                    foreach ($combined_array as $post_id => $post_name) {
+                                        if ($post_id == $_GET['post_id_select']) {
+                                            echo "post_ID:$post_id の該当Post_nameは: $post_name";
+                                        }
+                                    }
+                                    echo '</div>';
+                                }
+                                ?>
+                            <input type="submit" value="送信する" onclick="keep_postname();">
+                        </p>
+                    </td>
+                           <script>
                             document.addEventListener('DOMContentLoaded', function () {                  
                                     selectElement.addEventListener('change', function () {
                                         document.getElementById('postemail-search').value = '';
                                         document.getElementById('keyword-search').value = '';
                                         urlParams.set('post_id_select', selectedValue);
                                     });
-                                    
                                 });
 
                                 function onClickRedirect() {
@@ -70,7 +79,7 @@
                                     const selectedValue = selectElement.value;
                                     resultContainer.innerHTML = '';
                                         if (selectedValue) {
-                                            resultContainer.innerHTML = `ユーザーが選択したPost名は :${selectedValue}`;
+                                            resultContainer.innerHTML = `選択したPostのIDは :${selectedValue}`;
                                         }
                                 });
                                 function clearSearchKeyword() {
@@ -81,7 +90,7 @@
                                     document.getElementById('postemail-search').value = '';
                                 }
                             </script>
-                    </td>  
+
                     <td colspan="2">
                         <p class="postemail-box">
                             <label for="postemail-search">メール検索：</label>
@@ -97,8 +106,8 @@
                     </p>
                     </td>
              </tr>
-                  <tr>
-                    <div class="form-actions">
+                    <tr>
+                     <div class="form-actions">
                         <button id="clear-table-btn" type="button" class="initial-button" >クリアする</button>
                         <button type="button" class="homepage-button" onclick="onClickRedirect()">ホームページ</button>
                     </tr>
@@ -112,14 +121,15 @@
           
             $offset = ($page - 1) * $limit; 
 
-            $post_name_select = isset($_GET['post_id_select']) ? sanitize_text_field($_GET['post_id_select']) : '';
+            $post_id_select = isset($_GET['post_id_select']) ? sanitize_text_field($_GET['post_id_select']) : '';
             $search_email = isset($_GET['search_email']) ? sanitize_text_field($_GET['search_email']) : '';
             $search_keyword = isset($_GET['search_keyword']) ? sanitize_text_field($_GET['search_keyword']) : '';
-            $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1";
-            $sql_count = "SELECT COUNT(*) FROM {$wpdb->prefix}comments WHERE 1 = 1";
+            $sql = "SELECT * FROM {$wpdb->prefix}comments WHERE 1 = 1 ";
+            $sql_count = "SELECT COUNT(*) FROM {$wpdb->prefix}comments WHERE 1 = 1 ";
 
-        if ("" !=($post_name_select) && isset($post_name_select)) {
-            $sql .= " AND comment_post_ID = " . esc_sql($post_name_select);
+        if ("" !=($post_id_select) && isset($post_id_select)) {
+            $sql .= " AND comment_post_ID = " . esc_sql($post_id_select);
+            $sql_count.= " AND comment_post_ID LIKE '%" . esc_sql($post_id_select) . "%'";
         }
 
         if ("" !=($search_email) && isset($search_email)) {
@@ -134,48 +144,28 @@
 
          if ("" !=($search_keyword) && isset($search_keyword)) {
                 $escaped_keyword = esc_sql($search_keyword);
-                $sql .= " AND (";
-                $sql .= " comment_ID LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_author LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_author_email LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_author_url LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_content LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_approved LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_type LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_parent LIKE '%$escaped_keyword%' OR";
-                $sql .= " user_id LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
-                $sql .= " comment_sex LIKE '%$escaped_keyword%'";
-                $sql .= ")";
 
-                $sql_count .= " AND (";
-                $sql_count .= " comment_ID LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_post_ID LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_author LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_author_email LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_author_url LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_author_IP LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_content LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_approved LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_type LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_parent LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " user_id LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_author_tel LIKE '%$escaped_keyword%' OR";
-                $sql_count .= " comment_sex LIKE '%$escaped_keyword%'";
-                $sql_count .= ")";
+                $sql_by_keyword = " AND ( comment_ID LIKE '%$escaped_keyword%' OR 
+                comment_post_ID LIKE '%$escaped_keyword%' OR 
+                comment_author LIKE '%$escaped_keyword%' OR
+                comment_author_email LIKE '%$escaped_keyword%' OR
+                comment_author_url LIKE '%$escaped_keyword%' OR
+                comment_author_IP LIKE '%$escaped_keyword%' OR
+                comment_content LIKE '%$escaped_keyword%' OR
+                comment_approved LIKE '%$escaped_keyword%' OR
+                comment_type LIKE '%$escaped_keyword%' OR
+                comment_parent LIKE '%$escaped_keyword%' OR
+                user_id LIKE '%$escaped_keyword%' OR
+                comment_author_tel LIKE '%$escaped_keyword%' OR
+                comment_sex LIKE '%$escaped_keyword%') ";
+                $sql .=  $sql_by_keyword;
+                $sql_count .=  $sql_by_keyword;       
             } 
             $sql .= " LIMIT $limit OFFSET $offset";
 
             $comments = $wpdb->get_results($sql);
             $total_comments = $wpdb->get_var($sql_count);
-
-    
-          // $total_comments = $wpdb->get_var( $sql_count);
-
             $total_pages = ceil($total_comments / $limit);
-            
             ?>
                 <head>
                     <meta charset="UTF-8">
@@ -295,14 +285,11 @@
                             <?php endfor; ?>
                         </div>
                         <?php
-                        
                          //20240620  文章のpost_nameの取得  koui  end
-                         
                          global $wp_query;
                          global  $attributes;
                          global  $content;
                          global  $block;
-                         
                          $current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
                         
                          $prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
@@ -314,7 +301,6 @@
                          $current_url_postshow = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
                      
                          $current_url_postshow = remove_query_arg( $removable_query_args, $current_url_postshow );
-                    
 
                          var_dump( $current_url_postshow);
 
@@ -330,13 +316,10 @@
                             $current = (int) substr($current_url_postshow, $pos);
                         }else{
                             $current = null;    
-                        }
-                       
+                        }               
                          $page_links = array();
-                         
                          $total_pages_before = '<span class="postshow-paging-input">';
                          $total_pages_after  = '</span></span>';
-                         
                          $disable_first = false;
                          $disable_last  = false;
                          $disable_prev  = false;
@@ -394,9 +377,6 @@
                                 $current < 1 ?"1":$current,
                                 strlen( $total_pages )
                               );
-                          
-                      
-                      
                         // var_dump($html_current_page);
                         $html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
                          
