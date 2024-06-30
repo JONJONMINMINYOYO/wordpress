@@ -1,0 +1,14 @@
+<!-- phpunit.xml -->
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+    backupGlobals="false"
+    colors="true"
+    bootstrap="tests/bootstrap.php"
+>
+    <testsuites>
+        <testsuite name="My Plugin Tests">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
