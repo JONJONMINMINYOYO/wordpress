@@ -71,7 +71,12 @@
 
                                 function onClickRedirect() {
                                     window.location.href = '<?php echo home_url(); ?>';
-                                }
+                                }   
+                                
+                                function search_clear() {
+                                    document.getElementById('keyword-search').value = '';
+                                    document.getElementById('postemail-search').value = '';
+                                } 
 
                                 const selectElement = document.getElementById('post_id_select');
                                 const resultContainer = document.getElementById('result');
@@ -108,14 +113,14 @@
              </tr>
                     <tr>
                      <div class="form-actions">
-                        <button id="clear-table-btn" type="button" class="initial-button" >クリアする</button>
+                        <button id="clear-table-btn" type="button" class="initial-button" onclick="search_clear()">クリアする</button>
                         <button type="button" class="homepage-button" onclick="onClickRedirect()">ホームページ</button>
                     </tr>
             </table>
           <?php  
             $limit = 3; 
             $page = 1;
-            if($_GET['page'] != null || $_GET['paged'] != null){
+            if(!isset($_GET['page']) || $_GET['paged'] != null){
                 $page = $_GET['paged'] == null ? $_GET['page']: $_GET['paged'];
             }
           
@@ -302,8 +307,12 @@
                      
                          $current_url_postshow = remove_query_arg( $removable_query_args, $current_url_postshow );
 
-                        //  var_dump( $current_url_postshow);
-
+                        //  if ($current_url_postshow == "http://localhost/wordpress/wp-postshow-comments.php"){
+                        //     $_GET['post_id_select'] =null;
+                        //     $_GET['search_email'] =null;
+                        //     $_GET['search_keyword'] =null;
+                         
+                        //  }
                          if (strpos($current_url_postshow, "page=") !== false) {
                             $parts = explode('page=', $current_url_postshow);
                             $base_url = $parts[0] . 'page=';
@@ -353,11 +362,10 @@
                          if ( $disable_prev ) {
                              $page_links[] = '<span class="postshow button disabled" aria-hidden="true">&lsaquo;</span>';
                          } else {
-                             //$current_url_postshow = $prev_link;
                              $page_links[] = sprintf(
                                  "<a class='prev-page button' href='%s'>" .
                                      "<span class='screen-reader-text'>%s</span>" .
-                                     "<span aria-hidden='false' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
+                                     "<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&lsaquo;</span>" .
                                  '</a>',
                                  $base_url.($current - 1 ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character-1)) ),
@@ -394,12 +402,11 @@
                              $page_links[] = sprintf(
                                  "<a class='next-page button' href='%s'>" .
                                      "<span class='screen-reader-text'>%s</span>" .
-                                     "<span aria-hidden='false' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
+                                     "<span aria-hidden='true' style='font-size: 30px;font-style:italic;color:#65574E' >&rsaquo;</span>" .
                                  '</a>',
                                  //esc_url( add_query_arg( 'paged', min( $total_pages, $current + 1 ), $current_url_postshow )   ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character+1) ),
                                  $base_url.($current + 1 ),
-                                 //esc_url($next_link2),
                                  /* translators: Hidden accessibility text. */
                                  __( 'Next page' ),
                                  //'&rsaquo;'
