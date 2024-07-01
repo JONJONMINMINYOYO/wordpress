@@ -89,11 +89,44 @@
                                 });
                                 function clearSearchKeyword() {
                                     document.getElementById('keyword-search').value = '';
+                                    var Email_Input = document.getElementById('postemail-search');
+                                    if(Email_Input === null){
+                                            alert('メール入力してください。');
+                                            return;
+                                        }
                                 }
 
                                 function clearSearchEmail() {
                                     document.getElementById('postemail-search').value = '';
+                                    var Keyword_Input = document.getElementById('keyword-search');
+                                    if(Keyword_Input === null){
+                                            alert('キーワード入力してください。');
+                                            return;
+                                        }
                                 }
+
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var nowPostShowInput = document.getElementById('now-postshow-selector');
+                                    nowPostShowInput.addEventListener('keypress', function(event) {
+                                        if (event.key === 'Enter') {			
+                                            var total_pages = document.getElementsByClassName("postshow-total-pages")[0].innerHTML;
+                                            var nowpostshowpage = this.value;
+                                            if(total_pages < currentPageValue){
+                                                alert('最大ページ数を超えてはいけません。');
+                                                return;
+                                            }
+                                            var isNumeric = /^\d+$/.test(nowpostshowpage);
+                                            if (isNumeric && nowpostshowpage != 0) {
+                                            //var currentPageUrl = window.location.href;
+                                            var myVariable = '<?php echo $postshow_base_url ; ?>';
+                                            window.location.assign(myVariable + nowpostshowpage);
+                                            }else {
+                                                alert('有効な数字を入力してください！');
+                                                return;
+                                            }
+                                        }
+                                    });
+                                });
                             </script>
 
                     <td colspan="2">
@@ -124,8 +157,8 @@
                 $page = $_GET['paged'] == null ? $_GET['page']: $_GET['paged'];
             }
           
-            $offset = ($page - 1) * $limit; 
-
+           // $offset = ($page - 1) * $limit; 
+            $offset     = ( $page > 0 ) ? $limit * ( $page - 1 ) : 1;        
             $post_id_select = isset($_GET['post_id_select']) ? sanitize_text_field($_GET['post_id_select']) : '';
             $search_email = isset($_GET['search_email']) ? sanitize_text_field($_GET['search_email']) : '';
             $search_keyword = isset($_GET['search_keyword']) ? sanitize_text_field($_GET['search_keyword']) : '';
@@ -170,7 +203,8 @@
 
             $comments = $wpdb->get_results($sql);
             $total_comments = $wpdb->get_var($sql_count);
-            $total_pages = ceil($total_comments / $limit);
+           // $total_pages = ceil($total_comments / $limit);
+            $total_pages = (ceil($total_comments / $limit)> 1 ) ? (ceil($total_comments / $limit) ) : 1;
             ?>
                 <head>
                     <meta charset="UTF-8">
@@ -315,7 +349,7 @@
                         //  }
                          if (strpos($current_url_postshow, "page=") !== false) {
                             $parts = explode('page=', $current_url_postshow);
-                            $base_url = $parts[0] . 'page=';
+                            $base_url = $parts[0] . 'paged=';
                             $pos = strpos($current_url_postshow, "page=") + strlen("page=");
                             $current = (int) substr($current_url_postshow, $pos);
                         } elseif (strpos($current_url_postshow, "paged=") !== false) {
@@ -377,7 +411,7 @@
                  
                         $html_current_page = sprintf(
                                  '<label for="post-search-page-selector" class="screen-reader-text">%s</label>' .
-                                "<input class='current-page' id='post-search-page-selector' type='input'
+                                "<input class='current-page' id='now-postshow-selector' type='input'
                                      name='paged' value='%s' size='%d' aria-describedby='table-paging' />" .
                                  "<span class='tablenav-paging-text'>",
                                   /* translators: Hidden accessibility text. */
@@ -386,7 +420,7 @@
                                 strlen( $total_pages )
                               );
                         // var_dump($html_current_page);
-                        $html_total_pages = sprintf( "<span class='post-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+                        $html_total_pages = sprintf( "<span class='postshow-total-pages'>%s</span>", number_format_i18n( $total_pages ) );
                          
                          $page_links[] = $total_pages_before . sprintf(
                              /* translators: 1: Current page, 2: Total pages. */
