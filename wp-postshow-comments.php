@@ -8,6 +8,12 @@
     * @param WP_Block $block      Block instance.
     * @global WP_Query $wp_query WordPress Query object.
     */
+        $postshow_initial_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+        if( $postshow_initial_url =='http://localhost/wordpress/wp-postshow-comments.php') { 
+        $target_url ="http://localhost/wordpress/wp-postshow-comments.php?post_id_select=&search_email=&search_keyword=&paged=1" ;
+                wp_redirect($target_url);
+                exit;
+            }
         global $wp_query;
         global $wpdb;
 
@@ -88,41 +94,57 @@
                                         }
                                 });
                                 function clearSearchKeyword() {
+                                    <?php
+                                    if(isset($_GET['post_id_select'])) {
+                                   
+                                    }
+                                    ?>
                                     document.getElementById('keyword-search').value = '';
                                     var Email_Input = document.getElementById('postemail-search');
-                                    if(Email_Input === null){
-                                            alert('メール入力してください。');
-                                            return;
+                                    var Email_Length = Email_Input.value.length;
+                                    if(Email_Length <= 0){
+                                            event.preventDefault();
+                                            alert('メールが空白です、もう一度入力してください。');
                                         }
                                 }
 
                                 function clearSearchEmail() {
                                     document.getElementById('postemail-search').value = '';
                                     var Keyword_Input = document.getElementById('keyword-search');
-                                    if(Keyword_Input === null){
-                                            alert('キーワード入力してください。');
-                                            return;
+                                    var Keyword_Length = Keyword_Input.value.length;
+                                    if(Keyword_Length <= 0){
+                                            event.preventDefault();
+                                            alert('キーワードが空白です、もう一度入力してください。');
                                         }
                                 }
 
+                                <?php
+                                    global $query;
+                                    global $wp_query;			
+                                    $wp_query = new WP_Query();
+                                    $WP_Comments_List_Table = new WP_Comments_List_Table();  
+                                    $WP_List_Table = new WP_List_Table(); 
+                                        
+                                    $current_url_template = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+                                    $parts_page = explode('asd-', $current_url_template);
+                                    $postshow_base_url_page = $parts_page[0] . 'asd-';
+                                ?>
                                 document.addEventListener('DOMContentLoaded', function() {
                                     var nowPostShowInput = document.getElementById('now-postshow-selector');
                                     nowPostShowInput.addEventListener('keypress', function(event) {
-                                        if (event.key === 'Enter') {			
+                                        if (event.keyCode === 13 || event.key === 'Enter') {			
                                             var total_pages = document.getElementsByClassName("postshow-total-pages")[0].innerHTML;
                                             var nowpostshowpage = this.value;
-                                            if(total_pages < currentPageValue){
+                                            if(total_pages < nowpostshowpage){
+                                                event.preventDefault();
                                                 alert('最大ページ数を超えてはいけません。');
-                                                return;
                                             }
                                             var isNumeric = /^\d+$/.test(nowpostshowpage);
                                             if (isNumeric && nowpostshowpage != 0) {
                                             //var currentPageUrl = window.location.href;
-                                            var myVariable = '<?php echo $postshow_base_url ; ?>';
-                                            window.location.assign(myVariable + nowpostshowpage);
                                             }else {
+                                                event.preventDefault();
                                                 alert('有効な数字を入力してください！');
-                                                return;
                                             }
                                         }
                                     });
@@ -130,7 +152,7 @@
                             </script>
 
                     <td colspan="2">
-                        <p class="postemail-box">
+                        <p class="postemail-search">
                             <label for="postemail-search">メール検索：</label>
                             <input type="text" name="search_email" id="postemail-search" value="<?php echo isset($_GET['search_email']) ? htmlspecialchars($_GET['search_email']) : ''; ?>">
                             <input type="submit" value="検索" onclick="clearSearchKeyword();">
