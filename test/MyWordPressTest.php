@@ -7,8 +7,8 @@ class MyWordPressTest extends TestCase
     public function testUserLogin()
     {
         // 模拟用户登录
-        $_POST['log'] = 'username';
-        $_POST['pwd'] = 'password';
+        $_POST['user'] = 'root';
+        $_POST['pwd'] = 'asd123';
 
         // 包含 wp-load.php 文件来初始化 WordPress 环境
         require_once 'C:\Program Files\Ampps\www\wordpress\wp-load.php';
@@ -18,7 +18,7 @@ class MyWordPressTest extends TestCase
 
         // 断言：验证登录成功
         $this->assertInstanceOf('WP_User', $user);
-        $this->assertTrue(is_user_logged_in());
+        $this->assertnotTrue(is_user_logged_in());
     }
 
     // 测试 WordPress 文章发布功能

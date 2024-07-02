@@ -1,6 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
-
+use PHPUnit\Framework\TestCase;  
+use PHPUnit\Framework\WP_UnitTestCase;
 class Test123 extends TestCase
 {
     protected array $sided;

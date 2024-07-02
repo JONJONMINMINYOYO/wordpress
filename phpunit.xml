@@ -1,1 +1,7 @@
-<phpunit colors="true"></phpunit>
+<phpunit colors="true"  bootstrap="test/autoload.php">
+  <testsuites>
+    <testsuite name="converter">
+      <directory suffix="Test.php">test</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
