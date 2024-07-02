@@ -1,33 +1,38 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use WP_Comment;
-use wpdb;
 global $wpdb;
-class CommentTableTest extends TestCase {
-   
-    public function testQueryCommentTable() {
-        $wpdb = $this->getDbInstance();
-        $author_name = 'John Doe';
 
-        $comments = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT * FROM {$wpdb->comments} WHERE comment_author = %s",
-                $author_name
-            ),
+class CommentTableTest extends TestCase {
+
+    protected $wpdb;
+
+    public function setUp(): void {
+        parent::setUp();
+        global $wpdb;
+        $this->wpdb = $wpdb;
+    }
+
+    public function testFetchComments() {
+        // 查询已批准的评论
+        $comments = $this->wpdb->get_results(
+            "SELECT * FROM {$this->wpdb->comments} WHERE comment_approved = 1",
             OBJECT
         );
 
+        // 断言获取的评论不为空
         $this->assertNotEmpty($comments);
 
+        // 输出评论数据，可以根据实际情况自定义输出格式或断言
         var_dump($comments);
 
+        // 进一步断言评论数据的特定属性或条件
         foreach ($comments as $comment) {
-            $this->assertEquals($author_name, $comment->comment_author);
+            // 示例：断言评论作者不为空
+            $this->assertNotEmpty($comment->comment_author);
         }
-        function getDbInstance()   {
-                global $wpdb;
-                return $wpdb;
-            }
     }
 
+    // 可以根据需要添加更多的测试方法和断言
+
 }
+?>

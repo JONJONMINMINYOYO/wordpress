@@ -31,6 +31,8 @@ class WPQueryTest extends TestCase
         $this->assertCount(3, $query->posts);
         $this->assertEquals('post', $query->query_vars['post_type']);
         $this->assertEquals('DESC', $query->query_vars['order']);
+        $this->assertEquals('date', $query->query_vars['orderby']);
+        $this->assertEquals('11-11', $query->query_vars['post_title']);
     }
 
 
