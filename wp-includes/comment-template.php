@@ -2354,15 +2354,6 @@ function _get_comment_reply_id( $post = null ) {
  * @return void|string Void if 'echo' argument is true, or no comments to list.
  *                     Otherwise, HTML list of comments.
  */
-
-//  function postshow_pagination($which  ) {
-// 	//20240617  function pagination改修  koui  end
-// 		// if ( empty( $this->_pagination_args ) ) {
-// 		// 	return;
-// 		// }
-		
-// 		echo 	$_pagination;
-// 	}
 function wp_list_comments( $args = array(), $comments = null ) {
 	global $wp_query, $comment_alt, $comment_depth, $comment_thread_alt, $overridden_cpage, $in_comment_loop;
 
@@ -3377,6 +3368,7 @@ function comment_form( $args = array(), $post = null ) {
 						var total_pages = document.getElementsByClassName("post-total-pages")[0].innerHTML;
 						var currentPageValue = this.value;
 						if(total_pages < currentPageValue){
+							event.preventDefault();
 							alert('最大ページ数を超えてはいけません。');
 							return;
 						}
@@ -3386,6 +3378,7 @@ function comment_form( $args = array(), $post = null ) {
 						var myVariable = '<?php echo $base_url ; ?>';
 						window.location.assign(myVariable + currentPageValue);
 						}else {
+							event.preventDefault();
 							alert('有効な数字を入力してください！');
 						}
 					}

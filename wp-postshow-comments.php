@@ -410,7 +410,8 @@
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri."1" ) ),
                                  $base_url.'1',
                                  /* translators: Hidden accessibility text. */
-                                 __( 'First page' ),
+                                 //__( 'First page' ),
+                                 __( '' ),
                                  //'&laquo;'
                              );               
                          }
@@ -426,7 +427,8 @@
                                  $base_url.($current - 1 ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character-1)) ),
                                  /* translators: Hidden accessibility text. */
-                                 __( 'Previous page' ),
+                                 //__( 'Previous page' ),
+                                 __( '' ),
                                  //'&lsaquo;'
                              );
                          }
@@ -464,7 +466,8 @@
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.($last_character+1) ),
                                  $base_url.($current + 1 ),
                                  /* translators: Hidden accessibility text. */
-                                 __( 'Next page' ),
+                                 __( '' ),
+                                 //__( 'Next page' ),
                                  //'&rsaquo;'
                              );
                          }
@@ -481,7 +484,8 @@
                                  //esc_url( add_query_arg( 'paged', $total_pages, $current_url_postshow ) ),
                                  //esc_url( remove_query_arg( 'paged', $trimmed_uri.$total_pages ) ),
                                  /* translators: Hidden accessibility text. */
-                                 __( 'Last page' ),
+                                 __( '' ),
+                                 //__( 'Last page' ),
                                  //'&raquo;'
                              );
                          }
