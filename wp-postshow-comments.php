@@ -168,7 +168,7 @@
              </tr>
                     <tr>
                      <div class="form-actions">
-                        <button id="clear-table-btn" type="button" class="initial-button" onclick="search_clear()">クリアする</button>
+                        <button id="clear-table-btn" type="button" class="initial-button" onclick="search_clear()">クリア</button>
                         <button type="button" class="homepage-button" onclick="onClickRedirect()">ホームページ</button>
                     </tr>
             </table>
