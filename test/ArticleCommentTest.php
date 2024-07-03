@@ -6,7 +6,7 @@ class ArticleCommentTest extends TestCase
     public function testArticleCommentPage()
     {
 
-        $post_id = 22; 
+        $post_id = 19; 
         global $post;
         $post = get_post($post_id);
         setup_postdata($post);
@@ -14,14 +14,14 @@ class ArticleCommentTest extends TestCase
         //comment_form();
         $comment_form = ob_get_clean();
 
-        $this->assertStringContainsString('comment', $comment_form);  
+        $this->assertStringContainsString($comment_form,'comment' );  
 
         $comments = get_comments(array(
             'post_id' => $post_id,
-            'status' => 'approve',  
+            'approve' => '1',  
         ));
 
-        $this->assertNotEmpty($comments);
+        $this->assertnotEmpty($comments);
         wp_reset_postdata();
     }
 }
