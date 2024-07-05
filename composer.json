@@ -6,7 +6,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^11.2",
-        "johnpbloch/wordpress-core": "^6.5"
+        "johnpbloch/wordpress-core": "^6.5",
+        "wp-phpunit-wp-mock": "^3.0"
        
     },
     "autoload-dev": {

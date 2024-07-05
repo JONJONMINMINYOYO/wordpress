@@ -2723,7 +2723,7 @@ function comment_form( $args = array(), $post = null ) {
 			sprintf(
 				'<input id="url" name="url" %s value="%s" size="30" maxlength="200" autocomplete="url" />',
 				( $html5 ? 'type="url"' : 'type="text"' ),
-				//20240609 comment_author_url の "http://" 削除　koui
+			//20240609 comment_author_url の "http://" 削除　koui
 				esc_attr( substr($commenter['comment_author_url'] , 7))
 			)
 		),
@@ -2738,7 +2738,7 @@ function comment_form( $args = array(), $post = null ) {
 			sprintf(
 				'<input id="tel" name="tel" %s value="%s" size="11" maxlength="11" autocomplete="0123456789" />',
 				( $html5 ? 'type="tel"' : 'type="text"' ),
-				//20240609 postにwp-comment-cookies-consentチェックして画面電話番号不表示.
+		//20240609 postにwp-comment-cookies-consentチェックして画面電話番号不表示.
 				esc_attr( $commenter['comment_author_tel'] = "" )  
 			),
 			
@@ -2795,44 +2795,15 @@ function comment_form( $args = array(), $post = null ) {
 	 * @param string[] $fields Array of the default comment fields.
 	 */
 	$fields = apply_filters( 'comment_form_default_fields', $fields );
-	
-	// $search_button ='
-	// <input type="search" id="search_page" name="search" value="" pattern="\d{1,2}" title="最大2桁の数字を入力してください" 
-	// style="width: 66px;height: 25px;font-size: 18px;"/>
-	// <input type="button" id="search_button" value="リダイレクト" 
-	// style="width: 99px;height: 25px; background-color: #65574E;color: #ffffff;font-size: 15px;" />
-	//    <script >
-	//   var inputs = document.querySelectorAll("input#author,input#email,input#url,input#tel,textarea#comment");
-	// 			search_button.addEventListener (
-	// 			"click", function(){
-	// 			inputs.forEach(function(input) {
-	// 			input.value = "";} );
-	// 		});	
-	// </script>';
 	//20240618  POST画面「コメント」上でページネーション追加  koui  start
-
 		$current = (int) get_query_var( 'cpage' ); //現在のPOSTに対応するコメントページの数
-	
 		$post_id = get_the_ID();
-		
 		global $commentpage_post_id;
 		$commentpage_post_id = $post_id;
 		$per_page = (int) get_option( 'comments_per_page' ); //毎ペースでコメント数
 		$total_items = get_comments_number($post_id);
 
 		$total_pages = intval(ceil( $total_items / $per_page ));
-	
-		
-		// 20240619前ページリンク追加①  koui start
-		//$prev_link2 = render_block_core_comments_pagination_previous( $attributes, $content,$block);
-		// 20240619前ページリンク追加①  koui end
-		//$next_comments_link = render_block_core_comments_pagination_numbers( $attributes, $content, $block );
-		// 20240619前ページリンク追加②  koui start
-		//$prev_link2 = get_previous_comments_link( $args['prev_text'] );
-		// 20240619前ページリンク追加②  koui end
-		//$next_link1 = get_next_comments_link( $args['next_text'] );
-
-		//$next_link2 = get_next_comments_link( "", $total_pages );
 	
 		$output = '<span class="displaying-num">' . sprintf(
 			/* translators: %s: Number of items. */  
@@ -2969,15 +2940,12 @@ function comment_form( $args = array(), $post = null ) {
 				/* translators: Hidden accessibility text. */
 				__( 'Last page' )
 			);
-	
 		}
-	
 		$pagination_links_class = 'pagination-links';
 		
 		if ( ! empty( $infinite_scroll ) ) {
 			$pagination_links_class .= ' hide-if-js';
 		}
-
 		$output .= "\n<span class='$pagination_links_class'>" . implode( "\n", $page_links ) . '</span>';
 
 		if ( $total_pages ) {
@@ -2985,10 +2953,9 @@ function comment_form( $args = array(), $post = null ) {
 		} else {
 			$page_class = ' no-pages';
 		}
-		// var_dump($total_pages);
 		$_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
 		echo apply_filters( 'comment_form_postpage_area', $_pagination, $args )."</br>";
-				//20240618  POST画面「コメント」上でページネーション追加  koui end
+	//20240618  POST画面「コメント」上でページネーション追加  koui end
 				$defaults = array(
 					'fields'               => $fields,
 					'comment_field'        => sprintf(
@@ -3041,7 +3008,7 @@ function comment_form( $args = array(), $post = null ) {
 					'class_form'           => 'comment-form',
 					'class_submit'         => 'submit',                                    //$submit_button
 					'name_submit'          => 'submit',				                       //$submit_button
-					//20240611  電話番号と性別 新規  koui  start
+			
 					//'title_reply'          => __( 'Leave a Reply' ),
 					'title_reply'          => __( '回答してください。' ),
 					/* translators: %s: Author of the comment being replied to. */
@@ -3260,11 +3227,7 @@ function comment_form( $args = array(), $post = null ) {
 			 * @param array  $args          Arguments passed to comment_form().
 			 */
 			$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
-			//20240605  入力内容クリアボタン新規　koui start
-			// <div style="display: flex; flex-direction: column;">
-			// <input name="button_clear" type="button" id="button_clear" value="入力内容クリア" 
-			// style="background-color: rgba(169, 169, 169, 0.5); color: white; border: 1px solid black;" 
-			// />
+			
 			//20240605  入力内容クリアボタン新規　koui start
 			$submit_button_clear ='
 			<input type="button" id="button_clear" value="入力内容クリア" 
@@ -3325,10 +3288,7 @@ function comment_form( $args = array(), $post = null ) {
 	</div><!-- #respond -->
 	
 	<?php
-	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  start
-		
 
-	//20240614  前ページと後ページの中で、ページ表示エリア追加  koui  end
 	/**
 	 * Fires after the comment form.
 	 *

@@ -175,7 +175,7 @@
           <?php  
             $limit = 3; 
             $page = 1;
-            if(!isset($_GET['page']) || $_GET['paged'] != null){
+            if(!isset($_GET['page']) || (!isset($_GET['paged']))){
                 $page = $_GET['paged'] == null ? $_GET['page']: $_GET['paged'];
             }
           

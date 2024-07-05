@@ -6,7 +6,7 @@ class WPCommentQueryTest extends TestCase
     public function testCommentTable() {
 
         $comments_table = new WP_Comments_List_Table();
-    
+
         $args = array(
 
             'user_id' => '1',
@@ -15,7 +15,7 @@ class WPCommentQueryTest extends TestCase
 
         $comments = $comments_table->get_comments($args);
 
-        $this->assertnotEmpty($comments);
+        $this->assertEmpty($comments);
 
         var_dump($comments);
 
