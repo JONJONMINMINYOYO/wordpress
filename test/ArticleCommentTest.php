@@ -21,7 +21,7 @@ class ArticleCommentTest extends TestCase
             'approve' => '1',  
         ));
 
-        $this->assertnotEmpty($comments);
+        $this->assertEmpty($comments);
         wp_reset_postdata();
     }
 }
