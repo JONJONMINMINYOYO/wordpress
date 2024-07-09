@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once 'C:\Program Files\Ampps\www\wordpress\wp-load.php';
-class ArticleCommentTest extends TestCase
+class TestArticleComment extends TestCase
 {
     public function testArticleCommentPage()
     {

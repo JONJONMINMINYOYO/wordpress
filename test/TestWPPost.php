@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once 'C:\Program Files\Ampps\www\wordpress\wp-load.php';
-class WPPostTest extends TestCase
+class TestWPPost extends TestCase
 {
     /**
      * Test WP_Post constructor and properties.

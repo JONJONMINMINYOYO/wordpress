@@ -2011,6 +2011,10 @@ function wp_insert_comment( $commentdata ) {
 	$comment_agent    = ! isset( $data['comment_agent'] ) ? '' : $data['comment_agent'];
 	$comment_type     = empty( $data['comment_type'] ) ? 'comment' : $data['comment_type'];
 	$comment_parent   = ! isset( $data['comment_parent'] ) ? 0 : $data['comment_parent'];
+	//20240709  comment_author_tel,comment_sex新規  koui  start
+	$comment_author_tel   = ! isset( $data['comment_author_tel'] ) ? '' : $data['comment_author_tel'];
+	$comment_sex   = ! isset( $data['comment_sex'] ) ? '' : $data['comment_sex'];
+	//20240709  comment_author_tel,comment_sex新規  koui  end
 
 	$user_id = ! isset( $data['user_id'] ) ? 0 : $data['user_id'];
 
@@ -2031,7 +2035,11 @@ function wp_insert_comment( $commentdata ) {
 		'comment_agent',
 		'comment_type',
 		'comment_parent',
-		'user_id'
+		'user_id',
+		//20240709  comment_author_tel,comment_sex新規  koui  start
+		'comment_author_tel',
+		'comment_sex',
+		//20240709  comment_author_tel,comment_sex新規  koui  end
 	);
 
 	if ( ! $wpdb->insert( $wpdb->comments, $compacted ) ) {

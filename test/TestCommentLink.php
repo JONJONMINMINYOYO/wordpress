@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 require_once 'C:\Program Files\Ampps\www\wordpress\wp-load.php';
 
-class CommentLinkTest extends TestCase {
+class TestCommentLink extends TestCase {
 
     protected $wp_rewrite;
 

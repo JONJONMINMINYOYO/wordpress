@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 global $wpdb;
 
-class CommentTableTest extends TestCase {
+class TestCommentTable extends TestCase {
 
     protected $wpdb;
 

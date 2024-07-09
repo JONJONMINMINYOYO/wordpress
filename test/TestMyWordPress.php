@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-class MyWordPressTest extends TestCase {
+class TestMyWordPress extends TestCase {
 
     protected $backupGlobals = false; // Ensure that $GLOBALS is not backed up
 

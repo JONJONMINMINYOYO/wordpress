@@ -1362,7 +1362,7 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
 
 	//20240602 電話番号最大桁数チェック　新規　koui start
 	if ( isset( $comment_data['comment_author_tel'] ) && strlen( $comment_data['comment_author_tel'] ) > $max_lengths['comment_author_tel'] ) {
-		return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 君の電話番号多分悪かったね.' ), 200 );
+		return new WP_Error( 'comment_author_tel_column_length', __( '<strong>Error:</strong> 電話番号は輸入不正です.' ), 200 );
 	}
 		//20240605  ユーザーが登録されない場合には、入力項目のチェックが行われる　koui start
 			if (!is_user_logged_in()) {

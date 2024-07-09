@@ -1,8 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
-
 require_once 'C:\Program Files\Ampps\www\wordpress\wp-load.php';
-class GetCommentSexTest1 extends TestCase
+class TestWPQuery extends TestCase
 {
     public function testWPQueryWithDefaultArgs()
     {
@@ -10,7 +9,7 @@ class GetCommentSexTest1 extends TestCase
         $query = new WP_Query();
 
         $this->assertInstanceOf(WP_Query::class, $query);
-     
+
         $this->assertEmpty($query->posts);
     }
 

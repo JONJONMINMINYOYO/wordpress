@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-class ArrayTest extends TestCase
+class TestArray extends TestCase
 {
     public function testPushAndPop()
     {

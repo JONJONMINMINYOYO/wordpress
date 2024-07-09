@@ -429,7 +429,7 @@ function get_comment_author_tel( $comment_id = 0 ) {
 	$comment_id         = 0;
 
 	if ( ! empty( $comment ) ) {
-		$comment_author_tel = ( '0' == $comment->comment_author_tel ) ? 'なし' : $comment->comment_author_tel;
+		$comment_author_tel = ( '' == $comment->comment_author_tel ) ? 'なし' : $comment->comment_author_tel;
 		
 		$comment_author_tel =  esc_textarea( $comment_author_tel );
 
@@ -448,6 +448,25 @@ function get_comment_author_tel( $comment_id = 0 ) {
 	 */
 	return apply_filters( 'get_comment_author_tel', $comment_author_tel, $comment_id, $comment );
 }
+
+//20240603 電話番号comment_author_tel　新規　koui start
+function comment_author_tel( $comment_id = 0 ) {
+	$comment = get_comment( $comment_id );
+
+	$comment_author_tel = get_comment_author_tel( $comment );
+
+	/**
+	 * Filters the comment author's URL for display.
+	 *
+	 * @since 1.2.0
+	 * @since 4.1.0 The `$comment_id` parameter was added.
+	 *
+	 * @param string $comment_author_tel The comment author's URL.
+	 * @param string $comment_id         The comment ID as a numeric string.
+	 */
+	echo apply_filters( 'comment_tel', $comment_author_tel, $comment->comment_ID );
+}
+//20240603 電話番号comment_author_tel　新規　koui end
 //20240603 性別ゲットファンクション　新規　koui start
 function get_comment_sex( $comment_id = 0 ) {
 	$comment = get_comment( $comment_id );
@@ -478,6 +497,24 @@ function get_comment_sex( $comment_id = 0 ) {
 }
 //20240603 性別ゲットファンクション　新規　koui end
 
+//20240603 性別comment_sex　新規　koui start
+function comment_sex( $comment_id = 0 ) {
+	$comment = get_comment( $comment_id );
+
+	$comment_sex = get_comment_sex( $comment );
+
+	/**
+	 * Filters the comment author's URL for display.
+	 *
+	 * @since 1.2.0
+	 * @since 4.1.0 The `$comment_id` parameter was added.
+	 *
+	 * @param string $comment_sex The comment author's URL.
+	 * @param string $comment_id         The comment ID as a numeric string.
+	 */
+	echo apply_filters( 'comment_sex', $comment_sex, $comment->comment_ID );
+}
+//20240603 性別comment_sex　新規　koui end
 /**
  * Displays the URL of the author of the current comment, not linked.
  *
@@ -504,42 +541,8 @@ function comment_author_url( $comment_id = 0 ) {
 	echo apply_filters( 'comment_url', $comment_author_url, $comment->comment_ID );
 }
 
-//20240603 電話番号comment_author_tel　新規　koui start
-function comment_author_tel( $comment_id = 0 ) {
-	$comment = get_comment( $comment_id );
 
-	$comment_author_tel = get_comment_author_tel( $comment );
 
-	/**
-	 * Filters the comment author's URL for display.
-	 *
-	 * @since 1.2.0
-	 * @since 4.1.0 The `$comment_id` parameter was added.
-	 *
-	 * @param string $comment_author_tel The comment author's URL.
-	 * @param string $comment_id         The comment ID as a numeric string.
-	 */
-	echo apply_filters( 'comment_tel', $comment_author_tel, $comment->comment_ID );
-}
-//20240603 電話番号comment_author_tel　新規　koui end
-//20240603 性別comment_sex　新規　koui start
-function comment_sex( $comment_id = 0 ) {
-	$comment = get_comment( $comment_id );
-
-	$comment_sex = get_comment_sex( $comment );
-
-	/**
-	 * Filters the comment author's URL for display.
-	 *
-	 * @since 1.2.0
-	 * @since 4.1.0 The `$comment_id` parameter was added.
-	 *
-	 * @param string $comment_sex The comment author's URL.
-	 * @param string $comment_id         The comment ID as a numeric string.
-	 */
-	echo apply_filters( 'comment_sex', $comment_sex, $comment->comment_ID );
-}
-//20240603 性別comment_sex　新規　koui end
 /**
  * Retrieves the HTML link of the URL of the author of the current comment.
  *

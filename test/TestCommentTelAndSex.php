@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once 'C:\Program Files\Ampps\www\wordpress\wp-load.php';
-class CommentTelAndSex extends TestCase
+class TestCommentTelAndSex extends TestCase
 {
     /**
      * Test comment form fields generation with default values.
@@ -117,11 +117,11 @@ class CommentTelAndSex extends TestCase
        
         $this->assertNotNull($expected_author_field, $fields['author']);
        
-        var_dump($fields);
+       
         $this->assertNotNull($expected_email_field, $fields['email']);
         $this->assertNotNull($expected_url_field, $fields['url']);
         $this->assertNotNull($expected_tel_field, $fields['tel']);
-       $this->assertNotNull($expected_sex_field, $fields['sex']);
+        $this->assertNotNull($expected_sex_field, $fields['sex']);
     }
 }
 ?>
